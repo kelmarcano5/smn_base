@@ -1,0 +1,3 @@
+<rows>
+mar_fecha_registro="${fld:mar_fecha_registro}"    mar_descripcion="${fld:mar_descripcion}"    mar_codigo="${fld:mar_codigo}"    mar_fecha_registro="${fld:mar_fecha_registro}"    mar_descripcion="${fld:mar_descripcion}"    mar_codigo="${fld:mar_codigo}"    
+</rows>

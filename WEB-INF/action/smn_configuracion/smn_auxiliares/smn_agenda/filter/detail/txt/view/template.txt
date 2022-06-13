@@ -1,0 +1,3 @@
+<rows>
+age_fecha_registro="${fld:age_fecha_registro}"    age_dia_semana="${fld:age_dia_semana}"    
+</rows>

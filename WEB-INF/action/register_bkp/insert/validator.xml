@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/ajax">
+
+	<parameter id="userlogin" type="varchar" required="true" label="Login" maxlen="25" regexp="[0-9]+{6,}?" regexp-error-label="Introduzaca sólo su número de identificación (al menos 6 números)" />
+	<parameter id="passwd" type="varchar" required="true" label="Password" maxlen="15" regexp="\w{6,}?" regexp-error-label="Use solo letras y números, sin espacios (al menos 6 caracteres)." />
+	<parameter id="confirm" type="varchar" required="true" label="Confirmar Contraseña" maxlen="15" />
+	<parameter id="lname" type="varchar" required="true" label="Apellido" maxlen="25" />
+	<parameter id="fname" type="varchar" required="true" label="Nombre" maxlen="25" />
+	<parameter id="email" type="varchar" required="true" label="Email" maxlen="80" regexp="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" regexp-error-label="Formato incorrecto xxxx@xxxxxx.xxx" />
+	<parameter id="captcha" type="varchar" required="true" label="Protección Anti-Spam"/>
+	
+	<custom-validator 	
+		classname="dinamica.validators.DuplicatedKeyValidator" 
+		on-error-label="Este identificador ya está registrado en la base de datos, use otro identificador."
+		sql="nodup.sql" id="userlogin"/>
+
+	<custom-validator 	
+		classname="dinamica.validators.MatchEqualValidator" 
+		on-error-label="La contraseña no es igual a su confirmación."
+		value1="passwd" value2="confirm" id="passwd"/>
+
+	<custom-validator 	
+		classname="dinamica.security.PasswordEncryptor" 
+		on-error-label="Error generando el hash MD5."/>
+
+	<custom-validator
+		classname="dinamica.validators.CaptchaValidator"
+		on-error-label="Los caracteres Anti-Spam no pudieron ser verificados."
+		param="captcha" ignoreCase="true" id="captcha"/>
+
+</validator>
+

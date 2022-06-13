@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliardatoslaborales.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_auxiliary_labor_data}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_auxiliary_labor_data}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnauxiliardatoslaborales.sql' width='100' spacingBefore='40'>
+			<col name='smn_clase_auxiliar_rf' title='${lbl:b_auxiliary_class}' width='7' align='left' format='######' />
+			<col name='smn_auxiliar_rf' title='${lbl:b_auxiliary}' width='7' align='left' format='######' />
+			<col name='adl_nombre_compania' title='${lbl:b_company_name}' width='7' align='left' />
+			<col name='adl_rif' title='${lbl:b_rif}' width='7' align='left' />
+			<col name='adl_departamento' title='${lbl:b_departament}' width='7' align='left' />
+			<col name='adl_cargo' title='${lbl:b_job_title}' width='7' align='left' />
+			<col name='smn_paises_rf' title='${lbl:b_country}' width='7' align='left' format='######' />
+			<col name='smn_entidades_federales_rf' title='${lbl:b_federal_entity}' width='7' align='left' format='######' />
+			<col name='smn_ciudades_rf' title='${lbl:b_cities}' width='7' align='left' format='######' />
+			<col name='adl_direccion' title='${lbl:b_addresses}' width='7' align='left' />
+			<col name='adl_telefono_oficina' title='${lbl:b_office_phone}' width='7' align='left' />
+			<col name='adl_email' title='${lbl:s_profile_email}' width='7' align='left' />
+			<col name='adl_fecha_registro' title='${lbl:b_store_date}' width='7' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

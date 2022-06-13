@@ -1,0 +1,73 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="16" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("dic_codigo","query-smndiccionario.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("dic_descripcion","query-smndiccionario.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("dic_esquema","query-smndiccionario.sql")'>${lbl:b_smn_esquema_rf}</th>
+		<th class='sortable' onclick='sortBy("dic_tabla","query-smndiccionario.sql")'>${lbl:b_smn_tabla_rf}</th>
+		<th class='sortable' onclick='sortBy("dic_campo","query-smndiccionario.sql")'>${lbl:b_smn_campo_rf}</th>
+		<th class='sortable' onclick='sortBy("dic_tipo_dato","query-smndiccionario.sql")'>${lbl:b_date_type}</th>
+		<th class='sortable' onclick='sortBy("dic_tamano","query-smndiccionario.sql")'>${lbl:b_size}</th>
+		<th class='sortable' onclick='sortBy("dic_posicion_inicial","query-smndiccionario.sql")'>${lbl:b_initial_position}</th>
+		<th class='sortable' onclick='sortBy("dic_posicion_final","query-smndiccionario.sql")'>${lbl:b_final_position}</th>
+		<th class='sortable' onclick='sortBy("dic_ruta","query-smndiccionario.sql")'>${lbl:b_route}</th>
+		<th class='sortable' onclick='sortBy("dic_observacion","query-smndiccionario.sql")'>${lbl:b_observation}</th>
+		<th class='sortable' onclick='sortBy("dic_estatus","query-smndiccionario.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("dic_fecha_estatus","query-smndiccionario.sql")'>${lbl:b_status_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_diccionario_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_diccionario_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_diccionario_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:dic_codigo}</td>
+		<td align='left'>${fld:dic_descripcion}</td>
+		<td align='left'>${fld:dic_esquema}</td>
+		<td align='left'>${fld:dic_tabla}</td>
+		<td align='left'>${fld:dic_campo}</td>
+		<td align='left'>${fld:dic_tipo_dato}</td>
+		<td>${fld:dic_tamano}</td>
+		<td>${fld:dic_posicion_inicial}</td>
+		<td>${fld:dic_posicion_final}</td>
+		<td align='left'>${fld:dic_ruta}</td>
+		<td align='left'>${fld:dic_observacion}</td>
+		<td align='left'>${fld:dic_estatus}</td>
+		<td>${fld:dic_fecha_estatus@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

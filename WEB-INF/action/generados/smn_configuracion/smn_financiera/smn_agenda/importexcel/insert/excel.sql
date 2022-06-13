@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_codigo,
+	age_descripcion,
+	age_dia_semana,
+	age_hora_desde,
+	age_hora_hasta,
+	age_localidad,
+	age_jornada,
+	age_frecuencia,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_agenda},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_business_unit_structure}</summary>
+	<filter>
+		<row field='eue_aplica_uen' id='eue_aplica_uen' label='${lbl:b_apply_business_unit}@{CO=${lbl:b_corporation}|CM=${lbl:b_community}|EM=${lbl:b_entity}|SU=${lbl:b_subsidiary}|AS=${lbl:b_service_area}|NA=${lbl:b_does_not_apply}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_estructura_uen' len='2'/>
+		<row field='eue_aplica_auxiliar_uen' id='eue_aplica_auxiliar_uen' label='${lbl:b_apply_auxiliary}@{AC=${lbl:b_outsourced_corporation}|CM=${lbl:b_community}|AT=${lbl:b_intermediary_assistant}|AS=${lbl:b_outsourced_subsidiary}|AA=${lbl:b_outsourced_service_area}|NA=${lbl:b_does_not_apply}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_estructura_uen' len='2'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='eue_aplica_uen' label='${lbl:b_apply_business_unit}@{CO=${lbl:b_corporation}|CM=${lbl:b_community}|EM=${lbl:b_entity}|SU=${lbl:b_subsidiary}|AS=${lbl:b_service_area}|NA=${lbl:b_does_not_apply}}' fk='' tableName='smn_estructura_uen' len='2' type='varchar' align='left'/>
+		<row field='eue_aplica_auxiliar_uen' label='${lbl:b_apply_auxiliary}@{AC=${lbl:b_outsourced_corporation}|CM=${lbl:b_community}|AT=${lbl:b_intermediary_assistant}|AS=${lbl:b_outsourced_subsidiary}|AA=${lbl:b_outsourced_service_area}|NA=${lbl:b_does_not_apply}}' fk='' tableName='smn_estructura_uen' len='2' type='varchar' align='left'/>
+		<row field='eue_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_estructura_uen' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

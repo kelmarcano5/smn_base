@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='ent_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='ent_comunidad_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='ent_corporacion_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='ent_unidad_negocio_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='ent_maneja_sucursal_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='ent_moneda_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='ent_sector_economico_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='ent_descripcion_corta' type='varchar' required='true' maxlen='24'/>
+	<parameter id='ent_descripcion_larga' type='varchar' required='true' maxlen='56'/>
+	<parameter id='ent_nro_id_fiscal' type='varchar' required='true' maxlen='12'/>
+	<parameter id='ent_direccion_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='ent_contacto' type='varchar' required='true' maxlen='56'/>
+	<parameter id='ent_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='ent_telefono_movil' type='varchar' required='false' maxlen='24'/>
+	<parameter id='ent_email' type='varchar' required='true' maxlen='96'/>
+	<parameter id='ent_act_economica' type='varchar' required='true' maxlen='1024'/>
+
+	<parameter id='ent_comunidad_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='ent_corporacion_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='ent_unidad_negocio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='ent_maneja_sucursal_ref' type='varchar' required='false' maxlen='1'/>
+	<parameter id='ent_moneda_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='ent_sector_economico_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='ent_direccion_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='ent_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='ent_descripcion_corta'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='ent_descripcion_larga'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ent_comunidad' 
+		parameter='ent_comunidad_ref' 
+		sql='ent_comunidad.sql' 
+		id='ent_comunidad_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ent_corporacion' 
+		parameter='ent_corporacion_ref' 
+		sql='ent_corporacion.sql' 
+		id='ent_corporacion_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ent_unidad_negocio' 
+		parameter='ent_unidad_negocio_ref' 
+		sql='ent_unidad_negocio.sql' 
+		id='ent_unidad_negocio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ent_maneja_sucursal' 
+		parameter='ent_maneja_sucursal_ref' 
+		sql='ent_maneja_sucursal.sql' 
+		id='ent_maneja_sucursal_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ent_moneda' 
+		parameter='ent_moneda_ref' 
+		sql='ent_moneda.sql' 
+		id='ent_moneda_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ent_sector_economico' 
+		parameter='ent_sector_economico_ref' 
+		sql='ent_sector_economico.sql' 
+		id='ent_sector_economico_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ent_direccion' 
+		parameter='ent_direccion_ref' 
+		sql='ent_direccion.sql' 
+		id='ent_direccion_ref'/>
+
+</validator>

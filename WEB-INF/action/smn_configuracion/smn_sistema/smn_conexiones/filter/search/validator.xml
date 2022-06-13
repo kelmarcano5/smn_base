@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='con_sistema' type='varchar' required='false' label='${lbl:b_system}' maxlen='64'/>
+	<parameter id='con_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='smn_entidad_rf' type='integer' required='false' label='${lbl:b_company}' maxlen='10'/>
+	<parameter id='smn_sucursal_rf' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+	<parameter id='con_ip_servidor' type='varchar' required='false' label='${lbl:b_ip_server}' maxlen='64'/>
+	<parameter id='con_hostname_instancia' type='varchar' required='false' label='${lbl:b_server_name}' maxlen='64'/>
+	<parameter id='con_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' date1='con_fecha_registro_ini' date2='con_fecha_registro_fin' id='con_fecha_registro_ini' />
+	<parameter id='con_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

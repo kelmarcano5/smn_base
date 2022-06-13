@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnentidadesfinancieras.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_financial_entities}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_financial_entities}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnentidadesfinancieras.sql' width='100' spacingBefore='40'>
+			<col name='efi_codigo' title='${lbl:b_code}' width='8' align='left' />
+			<col name='efi_nombre' title='${lbl:b_name}' width='8' align='left' />
+			<col name='dir_descripcion' title='${lbl:b_address}' width='8' align='left'  />
+			<col name='efi_telefono_fijo' title='${lbl:b_fixed_phone}' width='8' align='left' />
+			<col name='efi_telefono_movil' title='${lbl:b_mobile_phone}' width='8' align='left' />
+			<col name='efi_codigo_aba' title='${lbl:b_aba_code}' width='8' align='left' />
+			<col name='efi_codigo_swift' title='${lbl:b_swift_code}' width='8' align='left' />
+			<col name='efi_req_banco_intermediario_combo' title='${lbl:b_req_intermediary_institution}' width='8' align='left' />
+			<col name='efi_banco_intermediario' title='${lbl:b_intermediary_institution}' width='8' align='left'  />
+			<col name='efi_routing' title='${lbl:b_routing_code}' width='8' align='left' />
+			<col name='efi_contacto' title='${lbl:b_account_executive}' width='8' align='left' />
+			<col name='efi_fecha_registro' title='${lbl:b_store_date}' width='8' align='left' format='dd-MM-yyyy' />
+		</record>
+
+	</pdf-report>
+</config>

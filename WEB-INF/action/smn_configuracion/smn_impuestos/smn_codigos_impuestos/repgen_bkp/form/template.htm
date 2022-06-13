@@ -1,0 +1,730 @@
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+	
+	<title>${lbl:b_report_generator}</title>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="banner" id="encabezado_tabla">
+	${lbl:b_report_generator}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<br>
+
+<!--formulario de filtro-->
+<div id="form">
+<form name="form1" onsubmit="return search()" style="width:500px;">
+
+<table style="width:500px;" class="formgrid">
+
+	<!--ancho de la columna de etiquetas-->
+	<col width="30%">
+	<col width="60%">
+	<col width="10%">
+
+	<!--titulo-->
+	<tr>
+		<th colspan="2">
+			${lbl:b_filter_find}
+		</th>
+	</tr>
+	
+	<!--separador-->
+	<tr height="10px">
+		<td colspan="2"></td>
+	</tr>
+	
+	<!--campos-->
+	<tr>
+		<td colspan="2">
+			${lbl:b_report_generator_fields}: 
+			<br>
+			<br>
+			${inc:${def:actionroot}/fields}
+			<div id="field_id_error" class="errormsg"></div>
+		</td>
+	</tr>
+	
+	<!--separador-->
+	<tr height="10px">
+		<td colspan="2"></td>
+	</tr>
+
+			<tr>
+		<td>${lbl:b_code}</td>
+		<td>
+			<input id="imp_codigo" name="imp_codigo" type="text" maxlength="16"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_description}</td>
+		<td>
+			<input id="imp_descripcion" name="imp_descripcion" type="text" maxlength="48"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_kind_of_person}</td>
+		<td>
+			<select name="imp_tipo_persona" id="imp_tipo_persona" disabled >
+				<option value="">[Cualquiera]</option>
+				<option value="NA">${lbl:b_natural_person}</option>
+				<option value="JU">${lbl:b_legal_person}</option>
+
+			</select> 
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_type_of_taxpayer}</td>
+		<td>
+			<select name="imp_tipo_contribuyente" id="imp_tipo_contribuyente" disabled >
+				<option value="">[Cualquiera]</option>
+				<option value="FO">${lbl:b_formal_taxpayer}</option>
+				<option value="OR">${lbl:b_ordinary_taxpayer}</option>
+				<option value="NC">${lbl:b_no_taxpayer}</option>
+				<option value="ES">${lbl:b_special_taxpayer}</option>
+
+			</select> 
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_tax_unit}</td>
+		<td>
+			<select name="uim_descripcion" id="uim_descripcion" onchange="chgCombo(uim_descripcion.options[uim_descripcion.selectedIndex].text,'uim_descripcion_name');" disabled >
+				<option value="">[Cualquiera]</option>
+				<imp_unidad_impositiva_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</imp_unidad_impositiva_rows>
+			</select> 
+			<input id="uim_descripcion_name" name="uim_descripcion_name" type="hidden" disabled >
+		</td>
+	</tr>
+	
+	
+	<tr>
+		<td class="formlabel required">
+			${lbl:b_store_date_grater_than}:
+		</td>
+		<td>
+			<input id="fdesde" name="fdesde" type="text" size="10" value="" maxlength="10" disabled>
+		</td>
+		<td>
+			<img src="${def:context}/images/dropdown.png" title="${lbl:b_deploy_calendar}" onclick="calendarOpen('fdesde')">
+		</td>
+	</tr>
+	<tr>
+		<td class="formlabel required">
+			${lbl:b_store_date_less_than}:
+		</td>
+		<td>
+			<input id="fhasta" name="fhasta" type="text" size="10" value="" maxlength="10" disabled>
+		</td>
+		<td>
+			<img src="${def:context}/images/dropdown.png" title="${lbl:b_deploy_calendar}" onclick="calendarOpen('fhasta', 'fdesde')">
+		</td>
+	</tr>
+	
+	<!--separador-->
+	<tr height="10px">
+		<td colspan="2"></td>
+	</tr>
+
+</table>	
+
+<!--botones-->
+<input id="buscar" type="submit" value="${lbl:b_find_button}" class="button">
+<input id="grabar" type="button" value="${lbl:b_save_button}" onclick="insert()" class="button">	
+<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+
+<br>
+
+</form>
+</div>
+
+<br>
+
+<!--panel de respuesta AJAX #1-->
+<div id="response" style="display:none;width:100%;margin-top:10px;"></div>
+
+<!--panel de respuesta AJAX #2-->
+<div id="detail" style="display:none;width:100%;margin-top:10px;"></div>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+		//apuntador a funcion para retornar dependiendo de donde este
+		var _goBackFn = null;
+
+		//inicializacion de la pagina cuando carga
+		onload = function()
+		{ 
+			document.form1.fdesde.focus();
+			document.forms[0].fdesde.onkeypress = keypressDate;
+			document.forms[0].fhasta.onkeypress = keypressDate;
+			loadConfiguration();
+		} 
+	
+		//mostrar filtro de busqueda
+		function showFilter()
+		{
+			document.getElementById("form").style.display="";
+			document.getElementById("response").style.display='none';
+			document.getElementById("detail").style.display='none';
+			document.form1.elements[0].focus();			
+		}
+		
+		//esconder filtro de busqueda	
+		function hideFilter() 
+		{
+			document.getElementById("form").style.display="none";
+		}
+
+		//ejecutar consulta
+		function search()
+		{
+			clearErrorMessages();
+			
+			//definir funcion goBack()
+			_goBackFn = showFilter;
+
+			//llamada Ajax...
+			return ajaxCall(	httpMethod="POST", 
+								uri="${def:actionroot}/search", 
+								divResponse="response", 
+								divProgress="status", 
+								formName="form1", 
+								afterResponseFn=null, 
+								onErrorFn=showFilter);
+		
+		}
+	
+		//retorna al estado previo que corresponde
+		//al estado actual de la pagina, cada llamada Ajax
+		//se encarga de definir cual es la funcion de goBack() que aplica
+		function goBack() 
+		{
+			_goBackFn()			
+		}
+	
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+
+		//invoca la generacion de un Excel en un popup
+		function openExcel()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openXml() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openTxt() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 750, 620);	
+		}
+	
+		//mostrar detalle de un registro
+		function drillDown(id)
+		{
+			//definir funcion goBack()
+			_goBackFn = showGrid;			
+		
+			//esconder grid principal
+			document.getElementById("response").style.display="none";
+	
+			//llamada Ajax...
+			return ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/drilldown?id=" + id, 
+							divResponse="detail", 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=showGrid);		
+		}
+		
+		//mostrar grid principal
+		function showGrid()
+		{
+			document.getElementById("response").style.display="";
+			document.getElementById("detail").style.display='none';
+			
+			//restaura el goBack que corresponde a este estado
+			_goBackFn = showFilter;
+		}
+		
+		//define la url en donde se mostrara el resultado de consulta
+		function viewPage()
+		{
+			hideFilter(); //esconde el formulario cuando muestra el resultado
+			var url = "${def:actionroot}/view";
+			//llama a la funcion para ir a la pagina indicada 
+			gotoPage(url);
+		}
+		
+		function checkAll(field)
+		{
+			for (i = 0; i < field.length; i++)
+			{
+	   			field[i].checked = true;
+
+								if (field[i].value == 210)
+				{
+					document.getElementById('imp_tipo_contribuyente='FO' then '${lbl:b_formal_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='OR' then '${lbl:b_ordinary_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='NC' then '${lbl:b_no_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='ES' then '${lbl:b_special_taxpayer}'
+	end as imp_tipo_contribuyente').disabled=false;
+				}
+				if (field[i].value == 204)
+				{
+					document.getElementById('imp_tipo_codigo='VA' then '${lbl:b_added_value}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_codigo='RE' then '${lbl:b_retention}'
+	end as imp_tipo_codigo').disabled=false;
+				}
+				if (field[i].value == 212)
+				{
+					document.getElementById('imp_ui_minima').disabled=false;
+				}
+				if (field[i].value == 202)
+				{
+					document.getElementById('imp_codigo').disabled=false;
+				}
+				if (field[i].value == 205)
+				{
+					document.getElementById('imp_modalidad_registro').disabled=false;
+				}
+				if (field[i].value == 203)
+				{
+					document.getElementById('imp_descripcion').disabled=false;
+				}
+				if (field[i].value == 206)
+				{
+					document.getElementById('imp_porcentaje_base').disabled=false;
+				}
+				if (field[i].value == 207)
+				{
+					document.getElementById('imp_porcentaje_calculo').disabled=false;
+				}
+				if (field[i].value == 208)
+				{
+					document.getElementById('imp_tipo_libro').disabled=false;
+				}
+				if (field[i].value == 209)
+				{
+					document.getElementById('imp_tipo_persona='NA' then '${lbl:b_natural_person}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_persona='JU' then '${lbl:b_legal_person}'
+	end as imp_tipo_persona').disabled=false;
+				}
+				if (field[i].value == 213)
+				{
+					document.getElementById('imp_ui_maxima').disabled=false;
+				}
+				if (field[i].value == 214)
+				{
+					document.getElementById('imp_ui_sustraendo').disabled=false;
+				}
+				if (field[i].value == 215)
+				{
+					document.getElementById('imp_monto_minimo').disabled=false;
+				}
+				if (field[i].value == 216)
+				{
+					document.getElementById('imp_monto_maximo').disabled=false;
+				}
+				if (field[i].value == 217)
+				{
+					document.getElementById('imp_monto_sustraendo').disabled=false;
+				}
+
+				
+				//fecha desde y hasta
+	   			if (field[i].value == 218) 
+	   			{
+	   				document.getElementById("fdesde").disabled=false;
+	   				document.getElementById("fhasta").disabled=false;
+	   			}
+			}
+		}
+		
+		function uncheckAll(field)
+		{
+			for (i = 0; i < field.length; i++)
+			{
+	   			field[i].checked = false;
+
+								if (field[i].value == 210)
+				{
+					document.getElementById('imp_tipo_contribuyente='FO' then '${lbl:b_formal_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='OR' then '${lbl:b_ordinary_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='NC' then '${lbl:b_no_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='ES' then '${lbl:b_special_taxpayer}'
+	end as imp_tipo_contribuyente').disabled=true;
+				}
+				if (field[i].value == 204)
+				{
+					document.getElementById('imp_tipo_codigo='VA' then '${lbl:b_added_value}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_codigo='RE' then '${lbl:b_retention}'
+	end as imp_tipo_codigo').disabled=true;
+				}
+				if (field[i].value == 212)
+				{
+					document.getElementById('imp_ui_minima').disabled=true;
+				}
+				if (field[i].value == 202)
+				{
+					document.getElementById('imp_codigo').disabled=true;
+				}
+				if (field[i].value == 205)
+				{
+					document.getElementById('imp_modalidad_registro').disabled=true;
+				}
+				if (field[i].value == 203)
+				{
+					document.getElementById('imp_descripcion').disabled=true;
+				}
+				if (field[i].value == 206)
+				{
+					document.getElementById('imp_porcentaje_base').disabled=true;
+				}
+				if (field[i].value == 207)
+				{
+					document.getElementById('imp_porcentaje_calculo').disabled=true;
+				}
+				if (field[i].value == 208)
+				{
+					document.getElementById('imp_tipo_libro').disabled=true;
+				}
+				if (field[i].value == 209)
+				{
+					document.getElementById('imp_tipo_persona='NA' then '${lbl:b_natural_person}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_persona='JU' then '${lbl:b_legal_person}'
+	end as imp_tipo_persona').disabled=true;
+				}
+				if (field[i].value == 213)
+				{
+					document.getElementById('imp_ui_maxima').disabled=true;
+				}
+				if (field[i].value == 214)
+				{
+					document.getElementById('imp_ui_sustraendo').disabled=true;
+				}
+				if (field[i].value == 215)
+				{
+					document.getElementById('imp_monto_minimo').disabled=true;
+				}
+				if (field[i].value == 216)
+				{
+					document.getElementById('imp_monto_maximo').disabled=true;
+				}
+				if (field[i].value == 217)
+				{
+					document.getElementById('imp_monto_sustraendo').disabled=true;
+				}
+
+				
+	   			//fecha desde y hasta
+	   			if (field[i].value == 218) 
+	   			{
+	   				document.getElementById("fdesde").disabled=true;
+	   				document.getElementById("fhasta").disabled=true;
+	   			}
+			}
+		}
+		
+		function enableField(field_id, checked)
+		{
+			if (checked)
+			{
+								if (field_id == 210)
+				{
+					document.getElementById('imp_tipo_contribuyente='FO' then '${lbl:b_formal_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='OR' then '${lbl:b_ordinary_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='NC' then '${lbl:b_no_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='ES' then '${lbl:b_special_taxpayer}'
+	end as imp_tipo_contribuyente').disabled=false;
+				}
+				if (field_id == 204)
+				{
+					document.getElementById('imp_tipo_codigo='VA' then '${lbl:b_added_value}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_codigo='RE' then '${lbl:b_retention}'
+	end as imp_tipo_codigo').disabled=false;
+				}
+				if (field_id == 212)
+				{
+					document.getElementById('imp_ui_minima').disabled=false;
+				}
+				if (field_id == 202)
+				{
+					document.getElementById('imp_codigo').disabled=false;
+				}
+				if (field_id == 205)
+				{
+					document.getElementById('imp_modalidad_registro').disabled=false;
+				}
+				if (field_id == 203)
+				{
+					document.getElementById('imp_descripcion').disabled=false;
+				}
+				if (field_id == 206)
+				{
+					document.getElementById('imp_porcentaje_base').disabled=false;
+				}
+				if (field_id == 207)
+				{
+					document.getElementById('imp_porcentaje_calculo').disabled=false;
+				}
+				if (field_id == 208)
+				{
+					document.getElementById('imp_tipo_libro').disabled=false;
+				}
+				if (field_id == 209)
+				{
+					document.getElementById('imp_tipo_persona='NA' then '${lbl:b_natural_person}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_persona='JU' then '${lbl:b_legal_person}'
+	end as imp_tipo_persona').disabled=false;
+				}
+				if (field_id == 213)
+				{
+					document.getElementById('imp_ui_maxima').disabled=false;
+				}
+				if (field_id == 214)
+				{
+					document.getElementById('imp_ui_sustraendo').disabled=false;
+				}
+				if (field_id == 215)
+				{
+					document.getElementById('imp_monto_minimo').disabled=false;
+				}
+				if (field_id == 216)
+				{
+					document.getElementById('imp_monto_maximo').disabled=false;
+				}
+				if (field_id == 217)
+				{
+					document.getElementById('imp_monto_sustraendo').disabled=false;
+				}
+
+				
+	   			//fecha desde y hasta
+	   			if (field_id == 218) 
+	   			{
+	   				document.getElementById("fdesde").disabled=false;
+	   				document.getElementById("fhasta").disabled=false;
+	   			}
+			}
+			else
+			{
+								if (field_id == 210)
+				{
+					document.getElementById('imp_tipo_contribuyente='FO' then '${lbl:b_formal_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='OR' then '${lbl:b_ordinary_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='NC' then '${lbl:b_no_taxpayer}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_contribuyente='ES' then '${lbl:b_special_taxpayer}'
+	end as imp_tipo_contribuyente').disabled=true;
+				}
+				if (field_id == 204)
+				{
+					document.getElementById('imp_tipo_codigo='VA' then '${lbl:b_added_value}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_codigo='RE' then '${lbl:b_retention}'
+	end as imp_tipo_codigo').disabled=true;
+				}
+				if (field_id == 212)
+				{
+					document.getElementById('imp_ui_minima').disabled=true;
+				}
+				if (field_id == 202)
+				{
+					document.getElementById('imp_codigo').disabled=true;
+				}
+				if (field_id == 205)
+				{
+					document.getElementById('imp_modalidad_registro').disabled=true;
+				}
+				if (field_id == 203)
+				{
+					document.getElementById('imp_descripcion').disabled=true;
+				}
+				if (field_id == 206)
+				{
+					document.getElementById('imp_porcentaje_base').disabled=true;
+				}
+				if (field_id == 207)
+				{
+					document.getElementById('imp_porcentaje_calculo').disabled=true;
+				}
+				if (field_id == 208)
+				{
+					document.getElementById('imp_tipo_libro').disabled=true;
+				}
+				if (field_id == 209)
+				{
+					document.getElementById('imp_tipo_persona='NA' then '${lbl:b_natural_person}'
+	when smn_base.smn_codigos_impuestos.imp_tipo_persona='JU' then '${lbl:b_legal_person}'
+	end as imp_tipo_persona').disabled=true;
+				}
+				if (field_id == 213)
+				{
+					document.getElementById('imp_ui_maxima').disabled=true;
+				}
+				if (field_id == 214)
+				{
+					document.getElementById('imp_ui_sustraendo').disabled=true;
+				}
+				if (field_id == 215)
+				{
+					document.getElementById('imp_monto_minimo').disabled=true;
+				}
+				if (field_id == 216)
+				{
+					document.getElementById('imp_monto_maximo').disabled=true;
+				}
+				if (field_id == 217)
+				{
+					document.getElementById('imp_monto_sustraendo').disabled=true;
+				}
+
+				
+	   			//fecha desde y hasta
+	   			if (field_id == 218) 
+	   			{
+	   				document.getElementById("fdesde").disabled=true;
+	   				document.getElementById("fhasta").disabled=true;
+	   			}				
+			}
+
+		}
+		
+		//configurar formulario para ingresar registro nuevo
+		function addNew()
+		{
+			document.getElementById("grabar").disabled=false;
+			clearForm("form1");
+			setFocusOnForm("form1");
+		}
+		
+		//mostrar la actualizacion de un registro
+		function insert()
+		{		
+				clearErrorMessages();
+				document.getElementById("grabar").disabled=true;
+				
+				var fields = getFormValuesToStore('form1');
+				
+//				//alert("${def:actionroot}/insert?cfg_descripcion=" + fields);
+				
+				//llamada Ajax...
+				return ajaxCall(httpMethod="POST", 
+								uri="${def:actionroot}/insert?cfg_descripcion=" + fields, 
+								divResponse=null, 
+								divProgress="status", 
+								formName="form1", 
+								afterResponseFn=null, 
+								onErrorFn=retryAddnewOrEdit);	
+		}
+		
+		//restaurar el formulario en caso de error
+		function retryAddnewOrEdit() {
+			document.getElementById("grabar").disabled=false;
+			setFocusOnForm("form1");		
+		}
+		
+		//ejecutar consulta
+		function loadConfiguration() {
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/cargar_config", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=null);
+		}
+		
+		//asignar configuraci�n
+		var fields = '';
+		function setConfiguration(config) {
+			var cfg = config.split("|");
+			formElements = document.forms['form1'].elements;
+			for(var k = 0; k < cfg.length; k++) {
+				var variable = cfg[k].split("=");
+				var field = variable[0];
+				var value = variable[1];				
+				for (var i=formElements.length-1; i>=0; --i) 
+				{
+					if (formElements[i].name != "" && formElements[i].name == field && formElements[i].name != 'field_id')
+					{ 						
+						formElements[i].value = value;
+						if (formElements[i].value != null)
+						{
+							formElements[i].disabled = false;
+						}
+						break;
+					}
+					else
+					{						
+						//a�ade elementos radio y checkbox
+						if (formElements[i].type=="checkbox" || formElements[i].type=="radio")  
+						{
+							if (formElements[i].value != null)
+							{
+								if (formElements[i].value == value)
+								{
+									formElements[i].checked = 'true';
+									fields = fields + value + ";";
+									break;
+								}
+							}
+						}
+						
+					}
+				}
+			}
+			fields = fields.substring(0, fields.length - 1);
+		}
+		
+		//mostrar el detalle de un registro
+		function getDetail(id)
+		{
+//			//alert('Colocar su c�digo aqu�.')
+			
+			var uri = "${def:context}${def:actionroot}/detail/form?id=" + id ; //+ '&field_id=' + fields;
+			openDialog("dialog", uri, 650, 300);			
+		}
+
+</script>
+
+</body>
+
+</html>

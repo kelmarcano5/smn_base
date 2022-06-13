@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnrespuesta.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="5" cellStep="0" name="${lbl:b_smn_respuesta}"/>
+	
+	<excel 
+		recordset='query-smnrespuesta.sql' 
+		sheetname='${lbl:b_smn_respuesta}' 
+		filename='${lbl:b_smn_respuesta}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='cue_codigo_pl0' label='${lbl:b_smn_cuestionario_id}' />
+		<col id='sec_codigo_pl1' label='${lbl:b_smn_seccion_id}' />
+		<col id='prg_codigo_pl2' label='${lbl:b_smn_pregunta_id}' />
+		<col id='tva_codigo_pl3' label='${lbl:b_smn_tipo_variable_id}' />
+		<col id='smn_tipo_respuesta_id_combo' label='${lbl:b_smn_tipo_respuesta_id}' />
+		<col id='smn_variable_id' label='${lbl:b_smn_variable}' />
+		<col id='res_texto_respuesta' label='${lbl:b_res_texto_respuesta}' />
+		<col id='res_idioma' label='${lbl:s_profile_lang}' />
+		<col id='res_usuario' label='${lbl:b_users}' />
+		<col id='res_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='res_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

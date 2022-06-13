@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntiporegistro.sql" source="sql" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_registers_type}.xls'
+		header-background='true' >
+		
+	<sheet recordset="query-smntiporegistro.sql" sheetname="${lbl:b_registers_type}">
+		
+		<col id='trg_codigo' label='${lbl:b_code}' />
+		<col id='trg_descripcion' label='${lbl:b_description}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

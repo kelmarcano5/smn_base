@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_zona_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_pais_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_entidad_federal_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_ciudad_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_municipio_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_parroquia_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='rzc_latitud' type='double' required='false' maxlen='10'/>
+	<parameter id='rzc_longitud' type='double' required='false' maxlen='10'/>
+
+
+
+</validator>

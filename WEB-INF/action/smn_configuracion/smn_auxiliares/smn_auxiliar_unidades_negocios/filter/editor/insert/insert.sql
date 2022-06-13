@@ -1,0 +1,34 @@
+INSERT INTO smn_base.smn_auxiliar_unidades_negocios
+(
+	smn_auxiliar_unidades_negocios_id,
+	tun_codigo,
+	tun_nombre,
+	smn_clase_auxiliar_rf,
+	smn_auxiliar_rf,
+	tun_responsable,
+	tun_direccion,
+	tun_telefono_fijo,
+	tun_telefono_movil,
+	tun_email,
+	tun_idioma,
+	tun_usuario,
+	tun_fecha_registro,
+	tun_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_auxiliar_unidades_negocios},
+	${fld:tun_codigo},
+	${fld:tun_nombre},
+	${fld:smn_clase_auxiliar_rf},
+	${fld:smn_auxiliar_rf},
+	${fld:tun_responsable},
+	${fld:tun_direccion},
+	${fld:tun_telefono_fijo},
+	${fld:tun_telefono_movil},
+	${fld:tun_email},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

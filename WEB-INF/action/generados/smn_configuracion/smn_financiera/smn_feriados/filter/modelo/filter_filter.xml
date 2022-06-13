@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_holidays}</summary>
+	<filter>
+		<row field='fer_codigo' id='fer_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Comienza por' type='varchar' tableName='smn_feriados' len='16'/>
+		<row field='fer_descripcion' id='fer_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_feriados' len='48'/>
+		<row field='fer_pais' id='fer_pais' label='${lbl:b_country}@{select smn_base.smn_paises.smn_paises_id as id, smn_base.smn_paises.pai_codigo || &apos; - &apos; || smn_base.smn_paises.pai_nombre_corto as item from smn_base.smn_paises order by smn_base.smn_paises.pai_nombre_corto}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_feriados' len='10'/>
+		<row field='fer_entidad_federal' id='fer_entidad_federal' label='${lbl:b_federal_entities}@{select smn_base.smn_entidades_federales.smn_entidades_federales_id as id, smn_base.smn_entidades_federales.efe_codigo || &apos; - &apos; || smn_base.smn_entidades_federales.efe_nombre_corto as item from smn_base.smn_entidades_federales order by  smn_base.smn_entidades_federales.efe_nombre_corto}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_feriados' len='10'/>
+		<row field='fer_ciudad' id='fer_ciudad' label='${lbl:b_city}@{select smn_base.smn_ciudades.smn_ciudades_id as id, smn_base.smn_ciudades.ciu_codigo || &apos; - &apos; || smn_base.smn_ciudades.ciu_nombre_corto as item from smn_base.smn_ciudades order by smn_base.smn_ciudades.ciu_nombre_corto}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_feriados' len='10'/>
+		<row field='fer_municipio' id='fer_municipio' label='${lbl:b_municipality}@{select smn_base.smn_municipios.smn_municipios_id as id, smn_base.smn_municipios.mun_codigo || &apos; - &apos; || smn_base.smn_municipios.mun_nombre_corto as item from smn_base.smn_municipios order by smn_base.smn_municipios.mun_nombre_corto}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_feriados' len='10'/>
+		<row field='fer_laborable' id='fer_laborable' label='${lbl:b_workable}@{S=${lbl:b_yes}|N=${lbl:b_not}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_feriados' len='1'/>
+		<row field='fer_fecha_registro' id='fer_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_feriados' len='10'/>
+		<row field='fer_fecha_registro' id='fer_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_feriados' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='fer_descripcion' label='${lbl:b_description}' fk='' tableName='smn_feriados' len='48' type='varchar' align='left'/>
+		<row field='fer_pais' label='${lbl:b_country}@{select smn_base.smn_paises.smn_paises_id as id, smn_base.smn_paises.pai_codigo || &apos; - &apos; || smn_base.smn_paises.pai_nombre_corto as item from smn_base.smn_paises order by smn_base.smn_paises.pai_nombre_corto}' fk='' tableName='smn_feriados' len='10' type='integer' align='left'/>
+		<row field='fer_entidad_federal' label='${lbl:b_federal_entities}@{select smn_base.smn_entidades_federales.smn_entidades_federales_id as id, smn_base.smn_entidades_federales.efe_codigo || &apos; - &apos; || smn_base.smn_entidades_federales.efe_nombre_corto as item from smn_base.smn_entidades_federales order by  smn_base.smn_entidades_federales.efe_nombre_corto}' fk='' tableName='smn_feriados' len='10' type='integer' align='left'/>
+		<row field='fer_ciudad' label='${lbl:b_city}@{select smn_base.smn_ciudades.smn_ciudades_id as id, smn_base.smn_ciudades.ciu_codigo || &apos; - &apos; || smn_base.smn_ciudades.ciu_nombre_corto as item from smn_base.smn_ciudades order by smn_base.smn_ciudades.ciu_nombre_corto}' fk='' tableName='smn_feriados' len='10' type='integer' align='left'/>
+		<row field='fer_municipio' label='${lbl:b_municipality}@{select smn_base.smn_municipios.smn_municipios_id as id, smn_base.smn_municipios.mun_codigo || &apos; - &apos; || smn_base.smn_municipios.mun_nombre_corto as item from smn_base.smn_municipios order by smn_base.smn_municipios.mun_nombre_corto}' fk='' tableName='smn_feriados' len='10' type='integer' align='left'/>
+		<row field='fer_feriado' label='${lbl:b_holliday}' fk='' tableName='smn_feriados' len='5' type='varchar' align='left'/>
+		<row field='fer_laborable' label='${lbl:b_workable}@{S=${lbl:b_yes}|N=${lbl:b_not}}' fk='' tableName='smn_feriados' len='1' type='varchar' align='left'/>
+		<row field='fer_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_feriados' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_menu_traduccion>
+	<detail>
+		<rows>		
+		<record mnt_fecha_registro="${fld:mnt_fecha_registro}"    mnt_locale="${fld:mnt_locale}"    mnt_title="${fld:mnt_title}"    mnt_menu_id="${fld:mnt_menu_id}"    mnt_app_id="${fld:mnt_app_id}"    />
+		</rows>
+	</detail>
+</smn_menu_traduccion>

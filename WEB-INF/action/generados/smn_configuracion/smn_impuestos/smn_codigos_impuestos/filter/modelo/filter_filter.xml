@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_taxes}</summary>
+	<filter>
+		<row field='imp_codigo' id='imp_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_codigos_impuestos' len='16'/>
+		<row field='imp_descripcion' id='imp_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_codigos_impuestos' len='48'/>
+		<row field='imp_tipo_persona' id='imp_tipo_persona' label='${lbl:b_kind_of_person}@{NA=${lbl:b_natural_person}|JU=${lbl:b_legal_person}}' required='NO' fk='' mSelection='' condiction='Comienza por' type='varchar' tableName='smn_codigos_impuestos' len='2'/>
+		<row field='imp_tipo_contribuyente' id='imp_tipo_contribuyente' label='${lbl:b_type_of_taxpayer}@{FO=${lbl:b_formal_taxpayer}|OR=${lbl:b_ordinary_taxpayer}|NC=${lbl:b_no_taxpayer}|ES=${lbl:b_special_taxpayer}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_codigos_impuestos' len='2'/>
+		<row field='imp_unidad_impositiva' id='imp_unidad_impositiva' label='${lbl:b_tax_unit}@{select smn_base.smn_unidades_impositivas.smn_unidades_impositivas_id as id, smn_base.smn_unidades_impositivas.uim_codigo || &apos; - &apos; || smn_base.smn_unidades_impositivas.uim_descripcion as item from smn_base.smn_unidades_impositivas order by smn_base.smn_unidades_impositivas.uim_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_codigos_impuestos' len='10'/>
+		<row field='imp_fecha_registro' id='imp_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_codigos_impuestos' len='10'/>
+		<row field='imp_fecha_registro' id='imp_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_codigos_impuestos' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='imp_codigo' label='${lbl:b_code}' fk='' tableName='smn_codigos_impuestos' len='16' type='varchar' align='left'/>
+		<row field='imp_descripcion' label='${lbl:b_description}' fk='' tableName='smn_codigos_impuestos' len='48' type='varchar' align='left'/>
+		<row field='imp_tipo_codigo' label='${lbl:b_code_type}@{VA=${lbl:b_added_value}|RE=${lbl:b_retention}}' fk='' tableName='smn_codigos_impuestos' len='2' type='varchar' align='left'/>
+		<row field='imp_tipo_persona' label='${lbl:b_kind_of_person}@{NA=${lbl:b_natural_person}|JU=${lbl:b_legal_person}}' fk='' tableName='smn_codigos_impuestos' len='2' type='varchar' align='left'/>
+		<row field='imp_tipo_contribuyente' label='${lbl:b_type_of_taxpayer}@{FO=${lbl:b_formal_taxpayer}|OR=${lbl:b_ordinary_taxpayer}|NC=${lbl:b_no_taxpayer}|ES=${lbl:b_special_taxpayer}}' fk='' tableName='smn_codigos_impuestos' len='2' type='varchar' align='left'/>
+		<row field='imp_unidad_impositiva' label='${lbl:b_tax_unit}@{select smn_base.smn_unidades_impositivas.smn_unidades_impositivas_id as id, smn_base.smn_unidades_impositivas.uim_codigo || &apos; - &apos; || smn_base.smn_unidades_impositivas.uim_descripcion as item from smn_base.smn_unidades_impositivas order by smn_base.smn_unidades_impositivas.uim_descripcion}' fk='' tableName='smn_codigos_impuestos' len='10' type='integer' align='left'/>
+		<row field='imp_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_codigos_impuestos' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_components}</summary>
+	<filter>
+		<row field='cmp_codigo' id='cmp_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_componentes' len='16'/>
+		<row field='cmp_descripcion' id='cmp_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_componentes' len='48'/>
+		<row field='cmp_area_servicio' id='cmp_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_componentes' len='10'/>
+		<row field='cmp_unidad_servicio' id='cmp_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by smn_base.smn_unidades_servicios.uns_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_componentes' len='10'/>
+		<row field='cmp_tipo' id='cmp_tipo' label='${lbl:b_type}@{SE=${lbl:b_services}|IN=${lbl:b_inventory}|PR=${lbl:b_providers}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_componentes' len='2'/>
+		<row field='cmp_trans_general' id='cmp_trans_general' label='${lbl:b_general_transaction}@{select smn_base.smn_transaccion_general.smn_transaccion_general_id as id, smn_base.smn_transaccion_general.trg_codigo || &apos; - &apos; || smn_base.smn_transaccion_general.trg_descripcion as item from smn_base.smn_transaccion_general order by smn_base.smn_transaccion_general.trg_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_componentes' len='10'/>
+		<row field='cmp_vigencia_desde' id='cmp_vigencia_desde' label='${lbl:b_validation_date_from}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_componentes' len='10'/>
+		<row field='cmp_vigencia_hasta' id='cmp_vigencia_hasta' label='${lbl:b_validation_date_to}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_componentes' len='10'/>
+		<row field='cmp_fecha_registro' id='cmp_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_componentes' len='10'/>
+		<row field='cmp_fecha_registro' id='cmp_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_componentes' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='cmp_codigo' label='${lbl:b_code}' fk='' tableName='smn_componentes' len='16' type='varchar' align='left'/>
+		<row field='cmp_descripcion' label='${lbl:b_description}' fk='' tableName='smn_componentes' len='48' type='varchar' align='left'/>
+		<row field='cmp_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' fk='' tableName='smn_componentes' len='10' type='integer' align='left'/>
+		<row field='cmp_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by smn_base.smn_unidades_servicios.uns_descripcion}' fk='' tableName='smn_componentes' len='10' type='integer' align='left'/>
+		<row field='cmp_grupo_prestador' label='${lbl:b_group_of_provider}@{select smn_base.smn_grupos_prestadores.smn_grupos_prestadores_id as id, smn_basesmn_grupos_prestadores.gpp_codigo || &apos; - &apos; || smn_base.smn_grupos_prestadores.gpp_descripcion as item from smn_base.smn_grupos_prestadores order by smn_base.smn_grupos_prestadores.gpp_descripcion}' fk='' tableName='smn_componentes' len='10' type='integer' align='left'/>
+		<row field='cmp_tipo' label='${lbl:b_type}@{SE=${lbl:b_services}|IN=${lbl:b_inventory}|PR=${lbl:b_providers}}' fk='' tableName='smn_componentes' len='2' type='varchar' align='left'/>
+		<row field='cmp_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_componentes' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

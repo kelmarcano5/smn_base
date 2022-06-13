@@ -1,0 +1,3 @@
+<rows>
+tun_fecha_registro="${fld:tun_fecha_registro}"    tun_email="${fld:tun_email}"    tun_telefono_movil="${fld:tun_telefono_movil}"    tun_telefono_fijo="${fld:tun_telefono_fijo}"    tun_direccion="${fld:tun_direccion}"    tun_responsable="${fld:tun_responsable}"    tun_nombre="${fld:tun_nombre}"    tun_codigo="${fld:tun_codigo}"    
+</rows>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_auxiliar_categoria_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='atr_descripcion' type='varchar' required='true' maxlen='64'/>
+	<parameter id='atr_comunidad' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_auxiliar_corporacion' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_auxiliar_unidad_negocio' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_maneja_sucursal' type='varchar' required='true' maxlen='1'/>
+	<parameter id='atr_razon_social' type='varchar' required='false' maxlen='64'/>
+	<parameter id='atr_denom_comercial' type='varchar' required='false' maxlen='64'/>
+	<parameter id='atr_beneficiario' type='varchar' required='false' maxlen='96'/>
+	<parameter id='atr_tipo_doc_oficial' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_num_doc_oficial' type='varchar' required='false' maxlen='12'/>
+	<parameter id='atr_clasif_abc' type='varchar' required='false' maxlen='1'/>
+	<parameter id='atr_rif' type='varchar' required='false' maxlen='16'/>
+	<parameter id='atr_direccion' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_cuenta_bancaria' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_contactos' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_persona_contacto' type='varchar' required='false' maxlen='48'/>
+	<parameter id='atr_representante_legal' type='varchar' required='false' maxlen='64'/>
+	<parameter id='atr_benef_pago' type='varchar' required='false' maxlen='112'/>
+	<parameter id='atr_cond_pago' type='integer' required='false' maxlen='2'/>
+	<parameter id='atr_tipo_facturac' type='varchar' required='false' maxlen='2'/>
+	<parameter id='atr_condicion_financiera' type='integer' required='false' maxlen='10'/>
+	<parameter id='atr_observacion' type='varchar' required='false' maxlen='96'/>
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-smn_auxiliar_categoria_id.sql"  id="smn_auxiliar_categoria_id" />
+</validator>

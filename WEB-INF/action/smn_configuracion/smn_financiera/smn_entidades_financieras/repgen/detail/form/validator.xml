@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id="view.record" onerror="/action/error/validation/dialog">
+	<parameter id="id" type="integer" required="true" label="ID" maxlen="10" />
+	<parameter id='efi_codigo_filter' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='efi_nombre_filter' type='varchar' required='false' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='efi_banco_intermediario_filter' type='integer' required='false' label='${lbl:b_intermediary_institution}' maxlen='10'/>
+	<parameter id='efi_contacto_filter' type='varchar' required='false' label='${lbl:b_account_executive}' maxlen='48'/>
+</validator>

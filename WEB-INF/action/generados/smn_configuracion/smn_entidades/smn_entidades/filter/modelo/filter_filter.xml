@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_entities}</summary>
+	<filter>
+		<row field='ent_codigo' id='ent_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_entidades' len='16'/>
+		<row field='ent_comunidad' id='ent_comunidad' label='${lbl:b_community}@{select smn_base.smn_comunidades.smn_comunidades_id as id, smn_base.smn_comunidades.cmn_codigo || &apos; - &apos; || smn_base.smn_comunidades.cmn_nombre as item from smn_base.smn_comunidades order by smn_base.smn_comunidades.cmn_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_entidades' len='8'/>
+		<row field='ent_corporacion' id='ent_corporacion' label='${lbl:b_corporation}@{select smn_base.smn_corporaciones.smn_corporaciones_id as id, smn_base.smn_corporaciones.crp_codigo || &apos; - &apos; || smn_base.smn_corporaciones.crp_nombre as item from smn_base.smn_corporaciones order by smn_base.smn_corporaciones.crp_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_entidades' len='8'/>
+		<row field='ent_unidad_negocio' id='ent_unidad_negocio' label='${lbl:b_business_unit}@{select smn_base.smn_unidades_negocios.smn_unidades_negocios_id as id, smn_base.smn_unidades_negocios.uen_codigo || &apos; - &apos; || smn_base.smn_unidades_negocios.uen_nombre as item from smn_base.smn_unidades_negocios order by smn_base.smn_unidades_negocios.uen_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_entidades' len='10'/>
+		<row field='ent_descripcion_larga' id='ent_descripcion_larga' label='${lbl:b_long_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_entidades' len='56'/>
+		<row field='ent_nro_id_fiscal' id='ent_nro_id_fiscal' label='${lbl:b_tax_identification_number}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_entidades' len='12'/>
+		<row field='ent_fecha_registro' id='ent_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_entidades' len='10'/>
+		<row field='ent_fecha_registro' id='ent_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_entidades' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='ent_codigo' label='${lbl:b_code}' fk='' tableName='smn_entidades' len='16' type='varchar' align='left'/>
+		<row field='ent_comunidad' label='${lbl:b_community}@{select smn_base.smn_comunidades.smn_comunidades_id as id, smn_base.smn_comunidades.cmn_codigo || &apos; - &apos; || smn_base.smn_comunidades.cmn_nombre as item from smn_base.smn_comunidades order by smn_base.smn_comunidades.cmn_nombre}' fk='' tableName='smn_entidades' len='8' type='integer' align='left'/>
+		<row field='ent_corporacion' label='${lbl:b_corporation}@{select smn_base.smn_corporaciones.smn_corporaciones_id as id, smn_base.smn_corporaciones.crp_codigo || &apos; - &apos; || smn_base.smn_corporaciones.crp_nombre as item from smn_base.smn_corporaciones order by smn_base.smn_corporaciones.crp_nombre}' fk='' tableName='smn_entidades' len='8' type='integer' align='left'/>
+		<row field='ent_unidad_negocio' label='${lbl:b_business_unit}@{select smn_base.smn_unidades_negocios.smn_unidades_negocios_id as id, smn_base.smn_unidades_negocios.uen_codigo || &apos; - &apos; || smn_base.smn_unidades_negocios.uen_nombre as item from smn_base.smn_unidades_negocios order by smn_base.smn_unidades_negocios.uen_nombre}' fk='' tableName='smn_entidades' len='10' type='integer' align='left'/>
+		<row field='ent_maneja_sucursal' label='${lbl:b_has_subsidiary}@{S=${lbl:b_yes}|N=${lbl:b_not}}' fk='' tableName='smn_entidades' len='1' type='varchar' align='left'/>
+		<row field='ent_descripcion_larga' label='${lbl:b_long_description}' fk='' tableName='smn_entidades' len='56' type='varchar' align='left'/>
+		<row field='ent_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_entidades' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,1 @@
+select smn_base.smn_pregunta.smn_pregunta_id as id, smn_base.smn_pregunta.pre_codigo|| ' - ' ||smn_base.smn_pregunta.pre_descripcion as item from smn_base.smn_pregunta

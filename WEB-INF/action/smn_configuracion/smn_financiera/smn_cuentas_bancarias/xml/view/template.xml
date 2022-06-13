@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_cuentas_bancarias>
+	<detail>
+		<rows>		
+		<record cba_fecha_registro="${fld:cba_fecha_registro}"    mon_nombre="${fld:mon_nombre}"    tcb_descripcion="${fld:tcb_descripcion}"    cba_nro_cuenta="${fld:cba_nro_cuenta}"    cba_nombre="${fld:cba_nombre}"    cba_codigo="${fld:cba_codigo}"    efi_nombre="${fld:efi_nombre}"    />
+		</rows>
+	</detail>
+</smn_cuentas_bancarias>

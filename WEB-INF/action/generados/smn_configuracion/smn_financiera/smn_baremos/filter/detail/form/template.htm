@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_baremos}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:bar_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:bar_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_entity}</td>
+			<td style="background-color: white">${fld:bar_entidad}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_validation_date_from}</td>
+			<td style="background-color: white">${fld:bar_vigencia_desde@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_validation_date_to}</td>
+			<td style="background-color: white">${fld:bar_vigencia_hasta@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:bar_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+<!--data grid-->
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="12" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_baremos_detail}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th width="8%">${lbl:b_type}</th>
+		<th width="8%">${lbl:b_service}</th>
+		<th width="8%">${lbl:b_auxiliary}</th>
+		<th width="8%">${lbl:b_type_compound}</th>
+		<th width="8%">${lbl:b_item_code}</th>
+		<th width="8%">${lbl:b_store_code}</th>
+		<th width="8%">${lbl:b_calculus}</th>
+		<th width="8%">${lbl:b_amount}</th>
+		<th width="8%">${lbl:b_price}</th>
+		<th width="8%">${lbl:b_percentage}</th>
+		<th width="8%">${lbl:b_inactive}</th>
+		<th width="8%">${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnbaremosdetalle>
+	<tr>
+		<td>${fld:bad_tipo_combo}</td>
+		<td align="center">${fld:bad_servicio}</td>
+		<td align="center">${fld:bad_auxiliar}</td>
+		<td>${fld:bad_tipo_compuesto_combo}</td>
+		<td align="left">${fld:bad_codigo_articulo}</td>
+		<td align="center">${fld:bad_almacen}</td>
+		<td>${fld:bad_calculo_combo}</td>
+		<td align="right">${fld:bad_cantidad@#,###,##0.00}</td>
+		<td align="right">${fld:bad_precio@#,###,##0.00}</td>
+		<td align="right">${fld:bad_porcentaje@#,###,##0.00}</td>
+		<td>${fld:bad_inactivo_combo}</td>
+		<td align="center">${fld:bad_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnbaremosdetalle>
+
+</table>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,434 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog">
+	${lbl:b_subsidiaries}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+	<!--ancho de la columna de etiquetas-->
+	<col width="30%">
+
+	<!--campos-->
+	<tr>
+		<td>${lbl:b_entity}*</td>
+		<td>
+			<select name="suc_empresa" id="suc_empresa" onchange="chgCombo(suc_empresa.options[suc_empresa.selectedIndex].text,'suc_empresa_name');">
+				<option value="">[${lbl:b_choose}]</option>
+				<suc_empresa_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</suc_empresa_rows>
+			</select> 
+			<input id="suc_empresa_name" name="suc_empresa_name" type="hidden">
+		</td>
+		<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="empresa()" title="${lbl:b_entity}" >
+		</td>
+		<td>&nbsp;&nbsp;</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="suc_codigo" name="suc_codigo" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_name}*</td>
+			<td>
+				<input id="suc_nombre" name="suc_nombre" type="text" maxlength="48" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_business_unit}</td>
+		<td>
+			<select name="suc_unidad_negocio" id="suc_unidad_negocio" onchange="chgCombo(suc_unidad_negocio.options[suc_unidad_negocio.selectedIndex].text,'suc_unidad_negocio_name');">
+				<option value="">[${lbl:b_choose}]</option>
+				<suc_unidad_negocio_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</suc_unidad_negocio_rows>
+			</select> 
+			<input id="suc_unidad_negocio_name" name="suc_unidad_negocio_name" type="hidden">
+		</td>
+		<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="unidadnegocio()" title="${lbl:b_business_unit}" >
+		</td>
+		<td>&nbsp;&nbsp;</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_has_service_area}*</td>
+			<td>
+				<select name="suc_maneja_area_servicio" id="suc_maneja_area_servicio">
+				<option value="S">${lbl:b_yes}</option>
+				<option value="N">${lbl:b_not}</option>
+				</select> 
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_responsible}*</td>
+			<td>
+				<input id="suc_responsable" name="suc_responsable" type="text" maxlength="48" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_address}*</td>
+		<td>
+			<select name="suc_direccion" id="suc_direccion" onchange="chgCombo(suc_direccion.options[suc_direccion.selectedIndex].text,'suc_direccion_name');">
+				<option value="">[${lbl:b_choose}]</option>
+				<suc_direccion_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</suc_direccion_rows>
+			</select> 
+			<input id="suc_direccion_name" name="suc_direccion_name" type="hidden">
+		</td>
+		<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="direccion()" title="${lbl:b_address}" >
+		</td>
+		<td>&nbsp;&nbsp;</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_fixed_phone}*</td>
+			<td>
+				<input id="suc_telefono_fijo" name="suc_telefono_fijo" type="text" maxlength="24"  placeholder='${lbl:b_format_phone_local}' >
+
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_mobile_phone}*</td>
+			<td>
+				<input id="suc_telefono_movil" name="suc_telefono_movil" type="text" maxlength="24"  placeholder='${lbl:b_format_phone_mobile}' >
+
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:s_profile_email}*</td>
+			<td>
+				<input id="suc_email" name="suc_email" type="text" maxlength="96"  placeholder='${lbl:b_email_format}' >
+
+			</td>
+		</tr>
+
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+
+		if (id!="")
+			edit(id);
+	} 
+
+	//Author     : SIMONE
+	//Description: Set first element as selected value
+	//Return     : None
+	function setElementFirstIndex(id)
+	{
+		var combo = document.getElementById(id);
+		combo.selectedIndex = 0;
+	}
+
+	//Author     : SIMONE
+	//Description: Insert new value into combo box
+	//Return     : None
+	function insertComboBox(code, combo, description, field) {
+		var valueText = code;
+		if (description != null)
+		{
+			valueText = valueText + ' - ' + description;
+		}
+        //combo.options[combo.options.length] = new Option(valueText);
+		var option = document.createElement("option");
+		option.text = valueText; 
+		option.value = bdID;
+		if (field == 'suc_empresa')
+		{
+			//alert('Añadiendo a paises')
+			document.form1.suc_empresa.add(option, combo.options.length);
+		}
+		else if (field == 'suc_unidad_negocio')
+		{
+			//alert('Añadiendo a dirección')
+			document.form1.suc_unidad_negocio.add(option, combo.options.length);
+		}
+		else if (field == 'suc_direccion')
+		{
+			//alert('Añadiendo a dirección')
+			document.form1.suc_direccion.add(option, combo.options.length);
+		}
+	}
+	
+	//Author     : SIMONE
+	//Description: Add new value to combo box
+	//Return     : None
+	function addValueToCombo(code, description, field) 
+	{
+	    var combo = document.getElementById(field);	    
+	    insertComboBox(code, combo, description, field);
+	}
+	
+	//Author     : SIMONE
+	//Description: Set selected index into combo box
+	//Return     : None
+	function setSelectedIndex(code, combo, description) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+			var valueText = code;
+			if (description != null)
+			{
+				valueText = valueText + ' - ' + description;
+			}
+	        if (combo.options[i].text == valueText) 
+	        {
+	        	combo.options[i].selected = true;
+	            return;
+	        }
+	    }
+	}
+		
+	//Author     : SIMONE
+	//Description: Get text valueof selected index
+	//Return     : Text associated to index
+	function getSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].text;
+	        }
+	    }
+	}
+	function getIDSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].value;
+	        }
+	    }
+	}
+	
+	var bdID;
+	function setID(id)
+	{
+		bdID = id;
+	}
+
+	//Author     : SIMONE
+	//Description: Set value to combo box
+	//Parameters : code - it is code associated into each database table 
+	//             descripcion - it is description associated into each database table 
+	//             field - name combo field
+	//             id - identifier retrieved after transaction
+	//             linked - flag indicates 'true' when combos are linked and 'false' otherwise
+	//Return     : None
+	function setValueComboBox(code, description, field, linked)
+	{
+		//add valur text to combo
+		addValueToCombo(code,description,field);
+
+		//get select object 
+		var combo = document.getElementById(field);
+		
+		//set element selected to field referenced
+		setSelectedIndex(code,combo, description);
+		
+		//set text value to combo field
+		var valueText = getSelectedIndex(combo);		
+		
+		//get hidden field in order to set any value
+		//var combo = document.getElementById(field+'_name');
+
+		//combo.text=valueText;
+		//combo.value=bdID;
+		
+		setSelectedIndex(bdID, combo, valueText); 
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+		
+		//grabar el formulario
+		function save()
+		{
+			//determina si es un insert o un update
+			var result;
+			if (document.form1.id.value=="")
+				result = insert();
+			else
+				result = update();
+			
+			if ('${fld:reference}' == 'true')
+			{
+				//alert('${fld:reference} - ${fld:source}')			
+				
+				var cod = document.form1.suc_codigo.value;	
+				var nom = document.form1.suc_nombre.value;	
+				
+				//alert('Codigo: '+cod+' - Nombre: '+nom)
+				if ('${fld:source}' == 'area_service')
+				{
+					alert('Nuevo valor insertado para Área de Servicio')
+					parent.setValueComboBox(cod,
+											nom,
+											'ase_sucursal',
+											false);
+				}
+				else if ('${fld:source}' == 'cco_sucursal')
+				{
+					alert('Nuevo valor insertado para Sucursal')
+					parent.setValueComboBox(cod,
+											nom,
+											'cco_sucursal',
+											false);
+				}
+			}
+			
+			return result;
+		}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	//muestra un DIV+IFRAME con el formulario de CRUD para los combos
+	function empresa()
+	{
+		//alert('Colocar su código aquí.')
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_entidades/smn_entidades/editor/form?reference=true&source=subsidiary";			
+		openDialog("editor20", uri, 1000, 550);
+	}
+	
+	function direccion()
+	{
+		//alert('Colocar su código aquí.')
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_direccion/editor/form?reference=true&source=subsidiary&register_address=smn_sucursal_" + document.getElementById("suc_codigo").value;		
+		//alert('Llamada: ' + uri)
+		openDialog("editor21", uri, 1000, 550);
+	}
+	
+	function unidadnegocio()
+	{
+		//alert('Colocar su código aquí.')
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_entidades/smn_unidades_negocios/editor/form?reference=true&source=subsidiary";			
+		openDialog("editor25", uri, 1000, 550);
+	}
+	
+</script>	
+</body>
+</html>

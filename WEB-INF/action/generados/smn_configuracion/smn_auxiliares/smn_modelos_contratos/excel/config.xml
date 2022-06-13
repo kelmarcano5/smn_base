@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnmodeloscontratos.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnmodeloscontratos.sql' sheetname='${lbl:b_contract_models}' filename='smn_modelos_contratos.xls'>
+		<col id='mct_modulo' label='${lbl:b_module}' />
+		<col id='mct_archivo' label='${lbl:b_file}' />
+		<col id='mct_contenido' label='${lbl:b_content}' />
+		<col id='mct_descripcion' label='${lbl:b_description}' />
+		<col id='mct_tamano' label='${lbl:b_size}' />
+		<col id='mct_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

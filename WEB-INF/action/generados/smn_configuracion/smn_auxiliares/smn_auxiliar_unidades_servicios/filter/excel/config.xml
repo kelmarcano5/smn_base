@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarunidadesservicios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnauxiliarunidadesservicios.sql' sheetname='${lbl:b_outsourced_units_services}' filename='filter.xls'>
+		<col id='tse_codigo_pl0' label='${lbl:b_outsourced_service_area}' />
+		<col id='tns_codigo' label='${lbl:b_code}' />
+		<col id='tns_descripcion' label='${lbl:b_description}' />
+		<col id='tns_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

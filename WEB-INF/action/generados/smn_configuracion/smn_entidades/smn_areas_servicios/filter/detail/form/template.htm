@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_service_areas}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_service_type}</td>
+			<td style="background-color: white">${fld:smn_tipos_servicios_id}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:ase_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:ase_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_entity}</td>
+			<td style="background-color: white">${fld:ase_empresa}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_subsidiary}</td>
+			<td style="background-color: white">${fld:ase_sucursal}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_business_unit}</td>
+			<td style="background-color: white">${fld:ase_unidad_negocio}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:ase_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+
+
+</body>
+
+</html>

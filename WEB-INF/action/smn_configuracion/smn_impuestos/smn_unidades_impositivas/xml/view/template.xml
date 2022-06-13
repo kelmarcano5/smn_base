@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_unidades_impositivas>
+	<detail>
+		<rows>		
+		<record uim_fecha_registro="${fld:uim_fecha_registro}"    mon_nombre="${fld:mon_nombre}"    uim_descripcion="${fld:uim_descripcion}"    uim_codigo="${fld:uim_codigo}"    />
+		</rows>
+	</detail>
+</smn_unidades_impositivas>

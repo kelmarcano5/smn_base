@@ -1,0 +1,26 @@
+INSERT INTO smn_base.smn_seccion
+(
+	smn_seccion_id,
+	smn_cuestionario_id,
+	sec_codigo,
+	sec_descripcion,
+	sec_secuencia,
+	sec_estatus,
+	cue_idioma,
+	cue_usuario,
+	cue_fecha_registro,
+	cue_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_seccion},
+	${fld:smn_cuestionario_id},
+	${fld:sec_codigo},
+	${fld:sec_descripcion},
+	1,
+	'AC',
+	'${def:locale}',
+	'${def:user}',
+	'${def:date}',
+	'${def:time}'
+)

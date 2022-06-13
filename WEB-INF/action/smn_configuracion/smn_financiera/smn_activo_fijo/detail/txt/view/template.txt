@@ -1,0 +1,3 @@
+<rows>
+acf_fecha_registro="${fld:acf_fecha_registro}"    acf_proveedor_exclusivo="${fld:acf_proveedor_exclusivo}"    acf_nombre="${fld:acf_nombre}"    acf_codigo="${fld:acf_codigo}"    smn_afijo_id="${fld:smn_afijo_id}"    acf_fecha_registro="${fld:acf_fecha_registro}"    acf_proveedor_exclusivo="${fld:acf_proveedor_exclusivo}"    acf_nombre="${fld:acf_nombre}"    acf_codigo="${fld:acf_codigo}"    smn_afijo_id="${fld:smn_afijo_id}"    
+</rows>

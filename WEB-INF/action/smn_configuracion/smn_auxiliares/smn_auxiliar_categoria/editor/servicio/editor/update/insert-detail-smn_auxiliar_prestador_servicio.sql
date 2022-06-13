@@ -1,0 +1,48 @@
+INSERT INTO smn_base.smn_auxiliar_prestador_servicio
+(
+	smn_auxiliar_prestador_servicio_id,
+	aps_codigo,
+	aps_descripcion,
+	aps_beneficiario,
+	aps_tipo_doc_oficial,
+	aps_num_doc_oficial,
+	aps_clasif_abc,
+	aps_rif,
+	aps_direccion,
+	aps_cuenta_bancaria,
+	aps_contactos,
+	aps_persona_contacto,
+	aps_representante_legal,
+	aps_benef_pago,
+	aps_cond_pago,
+	aps_observacion,
+	smn_auxiliar_categoria_id,
+	aps_idioma,
+	aps_usuario,
+	aps_fecha_registro,
+	aps_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_auxiliar_prestador_servicio},
+	${fld:aps_codigo2},
+	${fld:aps_descripcion2},
+	${fld:aps_beneficiario2},
+	${fld:aps_tipo_doc_oficial2},
+	${fld:aps_num_doc_oficial2},
+	${fld:aps_clasif_abc2},
+	${fld:aps_rif2},
+	${fld:aps_direccion2},
+	${fld:aps_cuenta_bancaria2},
+	${fld:aps_contactos2},
+	${fld:aps_persona_contacto2},
+	${fld:aps_representante_legal2},
+	${fld:aps_benef_pago2},
+	${fld:aps_cond_pago2},
+	${fld:aps_observacion2},
+	${fld:id},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

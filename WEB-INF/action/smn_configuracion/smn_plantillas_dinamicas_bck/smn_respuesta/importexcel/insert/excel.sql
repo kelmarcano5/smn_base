@@ -1,0 +1,34 @@
+INSERT INTO smn_respuesta
+(
+	smn_respuesta_id,
+	smn_cuestionario_id,
+	smn_seccion_id,
+	smn_pregunta_id,
+	smn_tipo_variable_id,
+	smn_tipo_respuesta_id,
+	smn_variable_id,
+	res_texto_respuesta,
+	cue_idioma,
+	cue_usuario,
+	cue_fecha_registro,
+	cue_hora
+)
+VALUES
+(
+	${seq:nextval@seq_smn_respuesta},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale
+}',
+	'${def:user
+}',
+	'${def:date
+}',
+	'${def:time
+}'
+)

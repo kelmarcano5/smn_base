@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_configuracion_estructura_id_name' type='varchar' required='true' label='${lbl:b_structure_configuration}'/>
+	<parameter id='smn_configuracion_estructura_id' type='integer' required='false' label='${lbl:b_structure_configuration}' maxlen='10'/>
+	<parameter id='eor_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='24'/>
+	<parameter id='eor_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='64'/>
+	<parameter id='eor_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='eor_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='eor_centro_costo' type='integer' required='false' label='${lbl:b_cost_centers}' maxlen='2'/>
+	<parameter id='eor_niveles' type='integer' required='true' label='${lbl:b_levels}' maxlen='10'/>
+	<parameter id='eor_mascara' type='varchar' required='true' label='${lbl:b_mask}' maxlen='48'/>
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='eor_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='eor_nombre'/>
+
+	<custom-validator
+		classname='custom.validators.CustomLevelMaskValidator'
+			on-error-label='${lbl:b_levels_not_equal_mask}.'
+			level='eor_niveles'
+			mask='eor_mascara'
+			id='eor_niveles'/>
+	
+	<custom-validator
+		classname='custom.validators.CustomMaskValidator'
+			on-error-label='${lbl:b_mask_contain_invalid_character}.'
+			mask='eor_mascara'
+			id='eor_mascara'/>
+
+
+</validator>

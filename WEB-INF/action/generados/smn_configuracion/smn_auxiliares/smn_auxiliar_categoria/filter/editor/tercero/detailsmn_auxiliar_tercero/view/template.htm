@@ -1,0 +1,97 @@
+<!--data grid-->
+<table class="datagrid" style="width:650px;">
+
+	<col width="3%"/>
+	<col width="3%"/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="25" style="font-size: 10pt; font-weight: bold;">
+			Registros cargados en ${lbl:b_intermediary_assistant}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th colspan="2"></th>
+		<th style="text-align:center">${lbl:b_code}</th>
+		<th style="text-align:center">${lbl:b_description}</th>
+		<th style="text-align:center">${lbl:b_community}</th>
+		<th style="text-align:center">${lbl:b_outsourced_corporation}</th>
+		<th style="text-align:center">${lbl:b_outsourced_unit_business}</th>
+		<th style="text-align:center">${lbl:b_has_subsidiary}</th>
+		<th style="text-align:center">${lbl:b_business_name}</th>
+		<th style="text-align:center">${lbl:b_designation_commercial}</th>
+		<th style="text-align:center">${lbl:b_beneficiary}</th>
+		<th style="text-align:center">${lbl:b_official_document_type}</th>
+		<th style="text-align:center">${lbl:b_official_document_number}</th>
+		<th style="text-align:center">${lbl:b_abc_clasification}</th>
+		<th style="text-align:center">${lbl:b_tax_id}</th>
+		<th style="text-align:center">${lbl:b_business_address}</th>
+		<th style="text-align:center">${lbl:b_auxiliary_bank_account}</th>
+		<th style="text-align:center">${lbl:b_auxiliary_contact}</th>
+		<th style="text-align:center">${lbl:b_contact_person}</th>
+		<th style="text-align:center">${lbl:b_legal_representative}</th>
+		<th style="text-align:center">${lbl:b_beneficiary_payments}</th>
+		<th style="text-align:center">${lbl:b_condition_payments}</th>
+		<th style="text-align:center">${lbl:b_billing_type}</th>
+		<th style="text-align:center">${lbl:b_financial_condition}</th>
+		<th style="text-align:center">${lbl:b_observation}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/delete.png" onclick="detailDelete(${fld:_rowIndex},'detailsmn_auxiliar_tercero','2')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png" onclick="detailEdit(${fld:_rowIndex},'detailsmn_auxiliar_tercero','2')" title="Editar"></td>
+		<td align="left">${fld:atr_codigo2}</td>
+		<td align="left">${fld:atr_descripcion2}</td>
+		<td align="left">${fld:atr_comunidad2_name}</td>
+		<td align="left">${fld:atr_auxiliar_corporacion2_name}</td>
+		<td align="left">${fld:atr_auxiliar_unidad_negocio2_name}</td>
+		<td align="left">${fld:atr_maneja_sucursal2_name}</td>
+		<td align="left">${fld:atr_razon_social2}</td>
+		<td align="left">${fld:atr_denom_comercial2}</td>
+		<td align="left">${fld:atr_beneficiario2}</td>
+		<td align="left">${fld:atr_tipo_doc_oficial2_name}</td>
+		<td align="left">${fld:atr_num_doc_oficial2}</td>
+		<td align="left">${fld:atr_clasif_abc2_name}</td>
+		<td align="left">${fld:atr_rif2}</td>
+		<td align="left">${fld:atr_direccion2_name}</td>
+		<td align="left">${fld:atr_cuenta_bancaria2_name}</td>
+		<td align="left">${fld:atr_contactos2_name}</td>
+		<td align="left">${fld:atr_persona_contacto2}</td>
+		<td align="left">${fld:atr_representante_legal2}</td>
+		<td align="left">${fld:atr_benef_pago2}</td>
+		<td align="left">${fld:atr_cond_pago2_name}</td>
+		<td align="left">${fld:atr_tipo_facturac2_name}</td>
+		<td align="left">${fld:atr_condicion_financiera2_name}</td>
+		<td align="left">${fld:atr_observacion2}</td>
+	</tr>
+	</rows>
+
+</table>

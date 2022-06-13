@@ -1,0 +1,1 @@
+UPDATE smn_seguridad.s_user set enabled=0 where user_id=${fld:user_id}

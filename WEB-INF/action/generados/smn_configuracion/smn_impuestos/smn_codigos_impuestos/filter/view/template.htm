@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('imp_codigo','query-smncodigosimpuestos.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('imp_descripcion','query-smncodigosimpuestos.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('imp_tipo_codigo_combo','query-smncodigosimpuestos.sql')" >${lbl:b_code_type}</th>
+		<th class='sortable' onclick="sortBy('imp_tipo_persona_combo','query-smncodigosimpuestos.sql')" >${lbl:b_kind_of_person}</th>
+		<th class='sortable' onclick="sortBy('imp_tipo_contribuyente_combo','query-smncodigosimpuestos.sql')" >${lbl:b_type_of_taxpayer}</th>
+		<th class='sortable' onclick="sortBy('imp_unidad_impositiva','query-smncodigosimpuestos.sql')" >${lbl:b_tax_unit}</th>
+		<th class='sortable' onclick="sortBy('imp_fecha_registro','query-smncodigosimpuestos.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_codigos_impuestos_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_codigos_impuestos_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_codigos_impuestos_id}')" title="Editar"></td>
+		<td align="left">${fld:imp_codigo}</td>
+		<td align="left">${fld:imp_descripcion}</td>
+		<td align="left">${fld:imp_tipo_codigo_combo}</td>
+		<td align="left">${fld:imp_tipo_persona_combo}</td>
+		<td align="left">${fld:imp_tipo_contribuyente_combo}</td>
+		<td align="left">${fld:imp_unidad_impositiva}</td>
+		<td align="center">${fld:imp_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

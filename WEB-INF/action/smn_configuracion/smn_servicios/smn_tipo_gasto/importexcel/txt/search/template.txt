@@ -1,0 +1,3 @@
+<rows>
+tig_fecha_registro="${fld:tig_fecha_registro}"    tig_descripcion="${fld:tig_descripcion}"    tig_codigo="${fld:tig_codigo}"    
+</rows>

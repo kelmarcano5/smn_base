@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='prd_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='prd_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_period}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.RecordsetNotEmpty' on-error-label='Por favor ingrese al menos un registro para el detalle ${lbl:b_detail_period}.' recordsetId='detail-smn_periodos_detalle.sql' id='form2'/>
+</validator>
+

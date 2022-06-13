@@ -1,0 +1,40 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="6">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("set_app_id","query-smnserviciotraduccion.sql")'>${lbl:b_application}</th>
+		<th class='sortable' onclick='sortBy("set_menu_id","query-smnserviciotraduccion.sql")'>${lbl:b_menu}</th>
+		<th class='sortable' onclick='sortBy("set_servicio_id","query-smnserviciotraduccion.sql")'>${lbl:b_service}</th>
+		<th class='sortable' onclick='sortBy("set_servicio","query-smnserviciotraduccion.sql")'>${lbl:b_service_title}</th>
+		<th class='sortable' onclick='sortBy("set_locale_combo","query-smnserviciotraduccion.sql")'>${lbl:b_idiom}</th>
+		<th class='sortable' onclick='sortBy("set_fecha_registro","query-smnserviciotraduccion.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:set_app_id}</td>
+		<td align='left'>${fld:set_menu_id}</td>
+		<td align='left'>${fld:set_servicio_id}</td>
+		<td align='left'>${fld:set_servicio}</td>
+		<td align='left'>${fld:set_locale_combo}</td>
+		<td>${fld:set_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

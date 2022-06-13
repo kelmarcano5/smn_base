@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntasasdecambio.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_exchange_rates}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='smn_monedas_id_name' title='${lbl:b_coin}'  align='center' />
+			<col name='tca_moneda_referencia' title='${lbl:b_referenced_coin}'  format='######' align='center' />
+			<col name='tca_fecha_vigencia_ini' title='${lbl:b_validation_date_from}'  format='dd-MM-yyyy' align='center' />
+			<col name='tca_fecha_vigencia_fin' title='${lbl:b_validation_date_until}'  format='dd-MM-yyyy' align='center' />
+			<col name='tca_fecha_registro_ini' title='${lbl:b_store_date_grater_than}'  format='dd-MM-yyyy' align='center' />
+			<col name='tca_fecha_registro_fin' title='${lbl:b_store_date_less_than}'  format='dd-MM-yyyy' align='center' />
+		</record>
+		<table recordset='query-smntasasdecambio.sql' width='100' spacingBefore='10'>
+			<col name='mon_codigo_pl0' title='${lbl:b_coin}' width='20' align='left' />
+			<col name='tca_moneda_referencia' title='${lbl:b_referenced_coin}' width='20' align='center' format='######' />
+			<col name='tca_fecha_vigencia' title='${lbl:b_validation_date}' width='20' align='center' format='dd-MM-yyyy' />
+			<col name='tca_tasa_cambio' title='${lbl:b_rate}' width='20' align='right' format='#,###,##0.00' />
+			<col name='tca_fecha_registro' title='${lbl:b_store_date}' width='20' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

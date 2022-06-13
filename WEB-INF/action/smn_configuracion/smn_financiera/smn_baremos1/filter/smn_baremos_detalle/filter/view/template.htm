@@ -1,0 +1,60 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<!-- <col width='12%'/> -->
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='3%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="12" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_baremos_id_combo","query-smnbaremosdetalle.sql")'>${lbl:b_baremo}</th>
+		<th class='sortable' onclick='sortBy("bad_tipo_componente_combo","query-smnbaremosdetalle.sql")'>${lbl:b_type}</th>
+		<th class='sortable' onclick='sortBy("producto","query-smnbaremosdetalle.sql")'>Descripcion</th>
+		<th class='sortable' onclick='sortBy("bad_cantidad","query-smnbaremosdetalle.sql")'>${lbl:b_amount}</th>
+		<th class='sortable' onclick='sortBy("bad_precio_moneda_local","query-smnbaremosdetalle.sql")'>${lbl:b_coin_local_price}</th>
+		<th class='sortable' onclick='sortBy("bad_precio_moneda_alterna","query-smnbaremosdetalle.sql")'>${lbl:b_coin_altern_price}</th>
+		<th class='sortable' onclick='sortBy("bad_estatus","query-smnbaremosdetalle.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("bad_fecha_registro","query-smnbaremosdetalle.sql")'>${lbl:b_store_date}</th>
+		<th>CO</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_baremos_detalle_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_baremos_detalle_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_baremos_detalle_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_baremos_id_combo}</td>
+		<td align='left'>${fld:bad_tipo_componente_combo}</td>
+		<td>${fld:producto}</td>
+		<td align='right'>${fld:bad_cantidad@#,###,##0.00}</td>
+		<td align='right'>${fld:bad_precio_moneda_local@#,###,##0.00}</td>
+		<td align='right'>${fld:bad_precio_moneda_alterna@#,###,##0.00}</td>
+		<td align='center'>${fld:bad_estatus}</td>
+		<td>${fld:bad_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/icongrid/Detalle-impuesto.png" onclick="detalle('${fld:smn_baremos_detalle_id}','${fld:bar_codigo}','${fld:bar_descripcion}', '${fld:bad_tipo_componente_combo}','${fld:producto}','${fld:smn_servicios_rf}')" title="${lbl:b_baremo_detail_components}"></td>
+
+	</tr>
+	</rows>
+
+</table>

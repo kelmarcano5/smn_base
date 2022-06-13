@@ -1,0 +1,3 @@
+<rows>
+nes_fecha_registro="${fld:nes_fecha_registro}"    nes_tipo="${fld:nes_tipo}"    nes_nombre="${fld:nes_nombre}"    nes_codigo="${fld:nes_codigo}"    nes_niveles="${fld:nes_niveles}"    smn_estructura_codigo_id="${fld:smn_estructura_codigo_id}"    
+</rows>

@@ -1,0 +1,6 @@
+select
+	smn_base.smn_corporaciones.*
+from 
+	smn_base.smn_corporaciones
+where
+	smn_corporaciones_id = ${fld:id}

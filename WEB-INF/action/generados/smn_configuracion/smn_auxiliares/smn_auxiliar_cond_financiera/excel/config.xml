@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarcondfinanciera.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnauxiliarcondfinanciera.sql' sheetname='${lbl:b_financial_condition}' filename='smn_auxiliar_cond_financiera.xls'>
+		<col id='cfn_codigo' label='${lbl:b_code}' />
+		<col id='cfn_descripcion' label='${lbl:b_description}' />
+		<col id='cfn_clase_auxiliar' label='${lbl:b_auxiliary_class}' />
+		<col id='cfn_auxiliar_categoria' label='${lbl:b_auxiliary_category}' />
+		<col id='cfn_limite_credito' label='${lbl:b_credit_limit}' />
+		<col id='cfn_porc_exceso_limite' label='${lbl:b_percent_credit_limit}' />
+		<col id='cfn_valida_saldos_vec_combo' label='${lbl:b_percent_credit_limit}' />
+		<col id='cfn_dias_adic_saldos_venc' label='${lbl:b_validates_overcome_balances}' />
+		<col id='cfn_num_cheques_devuel' label='${lbl:b_number_returned_checks}' />
+		<col id='cfn_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

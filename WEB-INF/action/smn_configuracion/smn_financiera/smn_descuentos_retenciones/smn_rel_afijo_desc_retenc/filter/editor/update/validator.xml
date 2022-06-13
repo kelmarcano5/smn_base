@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_descuentos_retenciones_id_name' type='varchar' required='false' label='${lbl:b_discount_tax}'/>
+	<parameter id='smn_descuentos_retenciones_id' type='integer' required='false' label='${lbl:b_discount_tax}' maxlen='10'/>
+	<parameter id='smn_afijo_id_name' type='varchar' required='false' label='${lbl:b_fixed_assets}'/>
+	<parameter id='smn_afijo_id' type='integer' required='false' label='${lbl:b_fixed_assets}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_relacion_af_descuentos_retenciones}' maxlen='10'/>
+
+
+</validator>

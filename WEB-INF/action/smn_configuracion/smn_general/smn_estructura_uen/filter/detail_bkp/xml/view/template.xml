@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_estructura_uen>
+	<detail>
+		<rows>		
+		<record eue_fecha_registro="${fld:eue_fecha_registro}"    eue_aplica_auxiliar_uen="${fld:eue_aplica_auxiliar_uen_combo}"    eue_aplica_uen="${fld:eue_aplica_uen_combo}"    />
+		</rows>
+	</detail>
+</smn_estructura_uen>

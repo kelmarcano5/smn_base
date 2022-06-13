@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='ciu_entidades_federales_desc' type='varchar' required='true' maxlen='24'/>
+	<parameter id='ciu_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='ciu_nombre_corto' type='varchar' required='true' maxlen='24'/>
+	<parameter id='ciu_nombre_largo' type='varchar' required='true' maxlen='48'/>
+
+	<parameter id='ciu_entidades_federales_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+		on-error-label='${lbl:b_record_code_not_duplicated}.'
+		sql='buscarCodigo.sql'
+		id='ciu_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+		on-error-label='${lbl:b_record_name_not_duplicated}.'
+		sql='buscarNombre.sql'
+		id='ciu_nombre_largo'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ${lbl:b_federal_entity}' 
+		parameter='ciu_entidades_federales_ref' 
+		sql='ciu_entidades_federales.sql' 
+		id='ciu_entidades_federales_ref'/>
+
+</validator>

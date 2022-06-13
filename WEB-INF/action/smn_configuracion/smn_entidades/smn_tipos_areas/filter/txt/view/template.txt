@@ -1,0 +1,3 @@
+<rows>
+tar_fecha_registro="${fld:tar_fecha_registro}"    tar_descripcion="${fld:tar_descripcion}"    tar_codigo="${fld:tar_codigo}"    
+</rows>

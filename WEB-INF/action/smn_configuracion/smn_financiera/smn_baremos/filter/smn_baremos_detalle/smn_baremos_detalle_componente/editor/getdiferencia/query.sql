@@ -1,0 +1,7 @@
+SELECT SUM(smn_base.smn_baremos_detalle_componente.bdc_monto_ml) as monto_detalle_comp, 
+smn_base.smn_baremos_detalle.bad_precio_moneda_local as monto_prec_baremos_det,
+SUM(smn_base.smn_baremos_detalle_componente.bdc_monto_ma) as monto_detalle_comp_ma
+smn_base.smn_baremos_detalle.bad_precio_moneda_alterna as monto_prec_baremos_det_ma
+FROM smn_base.smn_baremos_detalle_componente
+inner join smn_base.smn_baremos_detalle on smn_base.smn_baremos_detalle.smn_baremos_detalle_id = smn_base.smn_baremos_detalle_componente.smn_baremos_detalle_id
+where smn_base.smn_baremos_detalle_componente.smn_baremos_detalle_id=${fld:id} GROUP BY smn_base.smn_baremos_detalle.bad_precio_moneda_local

@@ -1,0 +1,1 @@
+delete from smn_base.smn_prestadores_servicios_agenda WHERE smn_prestadores_servicios_id= ${fld:id}

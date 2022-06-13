@@ -1,0 +1,16 @@
+select
+	'' as cco_codigo,
+	'' as cco_descripcion_corta,
+	'' as cco_descripcion_larga,
+	'' as cco_empresa,
+	'' as cco_sucursal,
+	'' as cco_area_servicio,
+	'' as cco_unidad_servicio,
+	'' as cco_almacen,
+	'' as cco_nivel,
+	'' as cco_empresa_reference,
+	'' as cco_sucursal_reference,
+	'' as cco_area_servicio_reference,
+	'' as cco_unidad_servicio_reference,
+	'' as cco_almacen_reference,
+	'' as cco_nivel_reference

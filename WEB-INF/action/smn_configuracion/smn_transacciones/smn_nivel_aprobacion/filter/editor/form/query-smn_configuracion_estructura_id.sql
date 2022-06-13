@@ -1,0 +1,1 @@
+select smn_base.smn_configuracion_estructura.smn_configuracion_estructura_id as id, smn_base.smn_configuracion_estructura.coe_codigo|| ' - ' || smn_base.smn_configuracion_estructura.coe_nombre as item from smn_base.smn_configuracion_estructura

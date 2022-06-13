@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smndocumentosgenerales-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnmodulos.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_financiera.smn_documentos_generales.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_general_documents}.xls'     
+		header-background='true' >
+		
+	<sheet recordset="query-smndocumentosgenerales-template.sql" sheetname="${lbl:b_general_documents}">
+		
+		<col id='dcg_codigo' label='${lbl:b_code}' />
+		<col id='dcg_descripcion' label='${lbl:b_description}' />
+		<col id='dcg_modulo_origen' label='${lbl:b_module}' />
+		
+		<col id='dcg_modulo_origen_reference' label='${lbl:b_module}' />
+
+	</sheet>
+		<sheet recordset='query-smnmodulos.sql' sheetname='${lbl:b_module}'>
+		<col id='mod_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

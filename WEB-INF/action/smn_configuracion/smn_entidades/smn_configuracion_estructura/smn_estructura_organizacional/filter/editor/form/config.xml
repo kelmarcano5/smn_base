@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_organizational_structure}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-smn_configuracion_estructura_id.sql' source='sql' scope='transaction'/>
+		<recordset id='query-eor_centro_costo.sql' source='sql' scope='transaction'/>
+		<recordset id='query-eor_clase_auxiliar.sql' source='sql' scope='transaction'/>
+		<recordset id='query-eor_auxiliar.sql' source='sql' scope='transaction'/>
+		<recordset id='estructura_organizacional' source='session' scope='transaction'/>
+		<recordset id='query-eor_aprobador.sql' source='sql' scope='transaction'/>
+		<recordset id='query-eor_clase_auxiliar_aprobador.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-smn_configuracion_estructura_id.sql' tag='smn_configuracion_estructura_id_rows'/>
+		<print mode='table' recordset='query-eor_centro_costo.sql' tag='eor_centro_costo_rows'/>
+		<print mode='table' recordset='query-eor_clase_auxiliar.sql' tag='eor_clase_auxiliar_rows'/>
+		<print mode='table' recordset='query-eor_auxiliar.sql' tag='eor_auxiliar_rows'/>
+		<print mode='table' recordset='query-eor_aprobador.sql' tag='eor_aprobador_rows'/>
+		<print mode='table' recordset='query-eor_clase_auxiliar_aprobador.sql' tag='eor_clase_auxiliar_aprobador_rows'/>
+		<print mode="form" recordset="estructura_organizacional" /> 
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

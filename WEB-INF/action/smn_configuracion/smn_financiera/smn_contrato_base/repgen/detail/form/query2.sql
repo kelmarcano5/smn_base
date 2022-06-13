@@ -1,0 +1,26 @@
+select
+		smn_base.smn_contrato_base.ctr_codigo,
+	smn_base.smn_contrato_base.ctr_nombre,
+	smn_base.smn_contrato_base.ctr_transaccion_rf,
+	smn_base.smn_contrato_base.ctr_tipo,
+	smn_base.smn_contrato_base.ctr_consecutivo,
+	smn_base.smn_contrato_base.ctr_fecha_inicio,
+	smn_base.smn_contrato_base.ctr_fec_registro,
+	smn_base.smn_contrato_base.ctr_fecha_vencimiento,
+	smn_base.smn_contrato_base.ctr_dias_renovacion,
+	smn_base.smn_contrato_base.ctr_frecuencia_pago_dias,
+	smn_base.smn_contrato_base.ctr_moneda_rf,
+	smn_base.smn_contrato_base.ctr_monto_otra_moneda,
+	smn_base.smn_contrato_base.ctr_corporacion_rf,
+	smn_base.smn_contrato_base.ctr_empresa_rf,
+	smn_base.smn_contrato_base.ctr_sucursal_rf,
+	smn_base.smn_contrato_base.ctr_area_servicio_rf,
+	smn_base.smn_contrato_base.ctr_unidad_servicio_rf,
+	smn_base.smn_contrato_base.ctr_centro_costo_rf,
+	smn_base.smn_contrato_base.ctr_observaciones,
+	smn_base.smn_contrato_base.ctr_vigencia,
+	smn_base.smn_contrato_base.ctr_fecha_registro
+from
+	smn_base.smn_contrato_base 
+where
+	smn_base.smn_contrato_base.smn_contrato_base_id = ${fld:id}

@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openExcel() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a xml
+		function openXml(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a texto
+		function openTxt(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 980, 600);	
+		}
+		
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_dictionary}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="${lbl:b_export_pdf}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/excel.png" onclick="openExcel()" title="${lbl:b_export_excel}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/file-xml4.png" onclick="openXml('${fld:smn_diccionario_id}')" title="${lbl:b_export_xml}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/file-text.png" onclick="openTxt('${fld:smn_diccionario_id}')" title="${lbl:b_export_txt}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/emails.png" onclick="openEmails()" title="${lbl:s_profile_email}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="${lbl:b_close_button}" style="float:right; cursor:pointer;"/>
+	</div>
+
+<!--parametros de busqueda-->
+<table class="record" style="width:400px;">
+
+	<!--ancho de columna de etiquetas-->
+	<col width="50%">
+	<col width="50%">
+
+	<!--campos-->
+			<tr>
+		<td>${lbl:b_code}</td>
+		<td>
+			<input id="dic_codigo" name="dic_codigo" type="text" maxlength="20"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_description}</td>
+		<td>
+			<input id="dic_descripcion" name="dic_descripcion" type="text" maxlength="100"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_smn_esquema_rf}</td>
+		<td>
+			<input id="dic_esquema" name="dic_esquema" type="text" maxlength="100"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_smn_tabla_rf}</td>
+		<td>
+			<input id="dic_tabla" name="dic_tabla" type="text" maxlength="100"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_smn_campo_rf}</td>
+		<td>
+			<input id="dic_campo" name="dic_campo" type="text" maxlength="100"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_date_type}</td>
+		<td>
+			<input id="dic_tipo_dato" name="dic_tipo_dato" type="text" maxlength="2"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_size}</td>
+		<td>
+			<input id="dic_tamano" name="dic_tamano" type="text" maxlength="10" class="numeric" disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_initial_position}</td>
+		<td>
+			<input id="dic_posicion_inicial" name="dic_posicion_inicial" type="text" maxlength="10" class="numeric" disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_final_position}</td>
+		<td>
+			<input id="dic_posicion_final" name="dic_posicion_final" type="text" maxlength="10" class="numeric" disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_route}</td>
+		<td>
+			<input id="dic_ruta" name="dic_ruta" type="text" maxlength="100"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_observation}</td>
+		<td>
+			<input id="dic_observacion" name="dic_observacion" type="text" maxlength="200"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_status}</td>
+		<td>
+			<input id="dic_estatus" name="dic_estatus" type="text" maxlength="1"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_status_date}</td>
+		<td>
+			<input id="dic_fecha_estatus" name="dic_fecha_estatus" type="text" class="date" maxlength="10" disabled >
+			<img src="${def:context}/images/dropdown.png" title="${lbl:b_deploy_calendar}" onclick="calendarOpen('dic_fecha_estatus')">
+		</td>
+	</tr>
+
+	
+
+	
+	<tr>
+		<td width="40%">${lbl:b_store_date_grater_than}:</td>
+		<td style="background-color: white">${fld:fdesde@dd-MM-yyyy}</td>
+	</tr>
+	<tr>
+		<td width="40%">${lbl:b_store_date_less_than}:</td>
+		<td style="background-color: white">${fld:fhasta@dd-MM-yyyy}</td>
+	</tr>
+
+</table>
+
+<br>
+
+<!--data grid-->
+<table class="datagrid" width="${fld:width_total}" style="width:80%;">
+
+	<!--data-->
+	<rows>
+
+		<cols>		
+		<tr>	
+			<td width="40%" align="${fld:align}">${fld:alias}</td>
+			<td style="background-color: white" align="${fld:align}">${fld:market}}</td>
+		</tr>
+		</cols>
+	
+	</rows>
+
+</table>
+
+	<br>
+	<div  align="center">
+		<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog()" class="button">
+	</div>
+
+</body>
+
+</html>

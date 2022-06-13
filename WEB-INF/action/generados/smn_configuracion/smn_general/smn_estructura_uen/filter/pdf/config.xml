@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnestructurauen.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_business_unit_structure}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='eue_aplica_uen' title='${lbl:b_apply_business_unit}'  align='center' />
+			<col name='eue_aplica_auxiliar_uen' title='${lbl:b_apply_auxiliary}'  align='center' />
+		</record>
+		<table recordset='query-smnestructurauen.sql' width='100' spacingBefore='10'>
+			<col name='eue_aplica_uen_combo' title='${lbl:b_apply_business_unit}' width='33' align='left' />
+			<col name='eue_aplica_auxiliar_uen_combo' title='${lbl:b_apply_auxiliary}' width='33' align='left' />
+			<col name='eue_fecha_registro' title='${lbl:b_store_date}' width='33' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

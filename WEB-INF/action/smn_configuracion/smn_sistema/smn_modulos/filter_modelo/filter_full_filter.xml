@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_modules}</summary>
+	<filter>
+		<row field='mod_codigo' id='mod_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_modulos' len='16'/>
+		<row field='mod_nombre' id='mod_nombre' label='${lbl:b_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_modulos' len='48'/>
+		<row field='mod_fecha_registro' id='mod_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_modulos' len='10'/>
+		<row field='mod_fecha_registro' id='mod_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_modulos' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='mod_empresa' label='${lbl:b_entity}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || &apos; - &apos; || smn_base.smn_entidades.ent_descripcion_corta as item from smn_base.smn_entidades order by smn_base.smn_entidades.ent_descripcion_corta}' fk='' tableName='smn_modulos' len='10' type='integer' align='center'/>
+		<row field='mod_codigo' label='${lbl:b_code}' fk='' tableName='smn_modulos' len='16' type='varchar' align='left'/>
+		<row field='mod_nombre' label='${lbl:b_name}' fk='' tableName='smn_modulos' len='48' type='varchar' align='left'/>
+		<row field='smn_app_rf' label='${lbl:b_application}@{select smn_seguridad.s_application.app_id as id, smn_seguridad.s_application.app_alias|| &apos; - &apos; || smn_seguridad.s_application.description as item from smn_seguridad.s_application order by description}' fk='' tableName='smn_modulos' len='10' type='integer' align='center'/>
+		<row field='mod_ruta_anexado' label='${lbl:b_ruta_anexados}' fk='' tableName='smn_modulos' len='250' type='varchar' align='left'/>
+		<row field='mod_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_modulos' len='2' type='varchar' align='left'/>
+		<row field='mod_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_modulos' len='10' type='varchar' align='left'/>
+		<row field='mod_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_modulos' len='10' type='date' align='center'/>
+		<row field='mod_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_modulos' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

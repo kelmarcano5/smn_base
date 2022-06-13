@@ -1,0 +1,3 @@
+<rows>
+smn_prestadores_servicios_id="${fld:smn_prestadores_servicios_id}"    smn_grupos_prestadores_id="${fld:smn_grupos_prestadores_id}"    smn_prestadores_servicios_id="${fld:smn_prestadores_servicios_id}"    smn_grupos_prestadores_id="${fld:smn_grupos_prestadores_id}"    smn_prestadores_servicios_id="${fld:smn_prestadores_servicios_id}"    smn_grupos_prestadores_id="${fld:smn_grupos_prestadores_id}"    smn_prestadores_servicios_id="${fld:smn_prestadores_servicios_id}"    smn_grupos_prestadores_id="${fld:smn_grupos_prestadores_id}"    
+</rows>

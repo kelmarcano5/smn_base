@@ -1,0 +1,26 @@
+select
+	smn_seguridad.s_application.app_alias,
+	smn_seguridad.s_menu.title,
+	smn_seguridad.s_service.description,
+	smn_base.smn_servicio_traduccion.smn_servicio_traduccion_id,
+	smn_base.smn_servicio_traduccion.set_app_id,
+	smn_base.smn_servicio_traduccion.set_menu_id,
+	smn_base.smn_servicio_traduccion.set_servicio_id,
+	smn_base.smn_servicio_traduccion.set_servicio,
+	smn_base.smn_servicio_traduccion.set_locale,
+	smn_base.smn_servicio_traduccion.set_fecha_registro
+from 
+	smn_seguridad.s_application,
+	smn_seguridad.s_menu,
+	smn_seguridad.s_service, 
+	smn_base.smn_servicio_traduccion
+where
+	smn_base.smn_servicio_traduccion.set_app_id=smn_seguridad.s_application.app_id
+and
+	smn_base.smn_servicio_traduccion.set_menu_id=smn_seguridad.s_menu.menu_id
+and
+	smn_base.smn_servicio_traduccion.set_servicio_id=smn_seguridad.s_service.service_id
+and
+	smn_base.smn_servicio_traduccion.smn_servicio_traduccion_id=${fld:id}
+order by 
+	smn_base.smn_servicio_traduccion.smn_servicio_traduccion_id

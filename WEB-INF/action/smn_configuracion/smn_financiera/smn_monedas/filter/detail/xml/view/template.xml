@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_monedas>
+	<detail>
+		<rows>		
+		<record mon_fecha_registro="${fld:mon_fecha_registro}"    mon_nombre="${fld:mon_nombre}"    mon_codigo="${fld:mon_codigo}"    />
+		</rows>
+	</detail>
+</smn_monedas>

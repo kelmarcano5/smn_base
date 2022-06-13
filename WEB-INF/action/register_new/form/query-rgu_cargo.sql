@@ -1,0 +1,1 @@
+select smn_base.smn_cargo.smn_cargo_id as id, smn_base.smn_cargo.cro_codigo || ' - ' || smn_base..smn_cargo.cro_descripcion as item from smn_base.smn_cargo order by smn_base.smn_cargo.cro_descripcion

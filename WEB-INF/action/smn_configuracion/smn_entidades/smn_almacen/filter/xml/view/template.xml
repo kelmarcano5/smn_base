@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_almacen>
+	<detail>
+		<rows>		
+		<record alm_fecha_registro="${fld:alm_fecha_registro}"    uns_descripcion="${fld:uns_descripcion}"    ase_descripcion="${fld:ase_descripcion}"    suc_nombre="${fld:suc_nombre}"    uen_nombre="${fld:uen_nombre}"    ent_descripcion_corta="${fld:ent_descripcion_corta}"    alm_nombre="${fld:alm_nombre}"    alm_codigo="${fld:alm_codigo}"    />
+		</rows>
+	</detail>
+</smn_almacen>

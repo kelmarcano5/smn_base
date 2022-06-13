@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_countries}</summary>
+	<filter>
+		<row field='pai_codigo' id='pai_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_paises' len='16'/>
+		<row field='pai_nombre_largo' id='pai_nombre_largo' label='${lbl:b_long_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_paises' len='48'/>
+		<row field='pai_fecha_registro' id='pai_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_paises' len='10'/>
+		<row field='pai_fecha_registro' id='pai_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_paises' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='pai_codigo' label='${lbl:b_code}' fk='' tableName='smn_paises' len='16' type='varchar' align='left'/>
+		<row field='pai_nombre_largo' label='${lbl:b_long_name}' fk='' tableName='smn_paises' len='48' type='varchar' align='left'/>
+		<row field='pai_gentilicio' label='${lbl:b_citizenship}' fk='' tableName='smn_paises' len='24' type='varchar' align='left'/>
+		<row field='pai_codigo_ddi' label='${lbl:b_international_dailing_code}' fk='' tableName='smn_paises' len='8' type='varchar' align='left'/>
+		<row field='pai_idioma_oficial' label='${lbl:b_official_lenguage}@{select smn_base.smn_idiomas.smn_idiomas_id as id, smn_base.smn_idiomas.idi_codigo|| ' - ' || smn_base.smn_idiomas.idi_descripcion as item from smn_base.smn_idiomas order by 2}' fk='' tableName='smn_paises' len='10' type='integer' align='left'/>
+		<row field='pai_moneda_oficial' label='${lbl:b_official_coin}@{select smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo|| ' - ' || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by 2}' fk='' tableName='smn_paises' len='10' type='integer' align='left'/>
+		<row field='pai_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_paises' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

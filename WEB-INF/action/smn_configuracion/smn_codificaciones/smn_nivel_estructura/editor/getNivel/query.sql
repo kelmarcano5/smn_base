@@ -1,0 +1,2 @@
+select smn_base.smn_estructura_codigo.smn_estructura_codigo_id as id_codigo, smn_base.smn_estructura_codigo.eco_niveles as nivel, smn_base.smn_estructura_codigo.eco_mascara as mascara,  smn_base.smn_estructura_codigo.eco_separador as separador from smn_base.smn_estructura_codigo where 
+smn_base.smn_estructura_codigo.smn_estructura_codigo_id=${fld:id}

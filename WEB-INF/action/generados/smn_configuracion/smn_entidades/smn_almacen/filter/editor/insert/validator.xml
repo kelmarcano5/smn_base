@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='alm_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='alm_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='alm_empresa' type='integer' required='false' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='alm_unidad_negocio' type='integer' required='false' label='${lbl:b_business_unit}' maxlen='10'/>
+	<parameter id='alm_sucursal' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+	<parameter id='alm_area_servicio' type='integer' required='false' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='alm_unidad_servicio' type='integer' required='false' label='${lbl:b_service_unit}' maxlen='10'/>
+</validator>

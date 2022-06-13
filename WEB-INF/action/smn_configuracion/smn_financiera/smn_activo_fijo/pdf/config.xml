@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnactivofijo.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_fixed_assets}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_fixed_assets}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnactivofijo.sql' width='100' spacingBefore='40'>
+			<col name='acf_codigo' title='${lbl:b_code}' width='33' align='left' />
+			<col name='acf_nombre' title='${lbl:b_name}' width='33' align='left' />
+			<col name='acf_proveedor_exclusivo_combo' title='${lbl:b_provider_exclusive}' width='33' align='left' />
+
+		</record>
+
+	</pdf-report>
+</config>

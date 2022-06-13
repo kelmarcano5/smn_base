@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_configuracion_estructura_id' type='integer' required='false' label='${lbl:b_structure_configuration}' maxlen='10'/>
+	<parameter id='eor_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='24'/>
+	<parameter id='eor_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='64'/>
+	<parameter id='eor_centro_costo' type='integer' required='true' label='${lbl:b_cost_centers}' maxlen='10'/>
+	<parameter id='eor_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='eor_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_organizational_structure}' maxlen='10'/>
+	<parameter id='eor_clase_auxiliar_aprobador' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='eor_aprobador' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='eor_niveles' type='integer' required='true' label='${lbl:b_levels}' maxlen='10'/>
+	<parameter id='eor_mascara' type='varchar' required='true' label='${lbl:b_mask}' maxlen='48'/>
+
+</validator>

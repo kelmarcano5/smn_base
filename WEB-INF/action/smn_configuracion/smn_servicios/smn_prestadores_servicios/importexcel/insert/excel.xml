@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='prs_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='prs_nombres' type='varchar' required='true' maxlen='32'/>
+	<parameter id='prs_apellidos' type='varchar' required='true' maxlen='32'/>
+	<parameter id='prs_area_servicio_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='prs_unidad_servicio_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='prs_clase_auxiliar_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='prs_auxiliar_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='smn_grupos_prestadores_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='prs_direccion_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='prs_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='prs_telefono_movil' type='varchar' required='true' maxlen='24'/>
+	<parameter id='prs_frecuencia' type='double' required='false' maxlen='10'/>
+
+	<parameter id='prs_area_servicio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='prs_unidad_servicio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='prs_clase_auxiliar_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='prs_auxiliar_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_grupos_prestadores_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='prs_direccion_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='prs_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='prs_nombres'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: prs_grupos_prestadores' 
+		parameter='smn_grupos_prestadores_ref' 
+		sql='smn_grupos_prestadores.sql' 
+		id='smn_grupos_prestadores_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: prs_area_servicio' 
+		parameter='prs_area_servicio_ref' 
+		sql='prs_area_servicio.sql' 
+		id='prs_area_servicio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: prs_unidad_servicio' 
+		parameter='prs_unidad_servicio_ref' 
+		sql='prs_unidad_servicio.sql' 
+		id='prs_unidad_servicio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: prs_clase_auxiliar' 
+		parameter='prs_clase_auxiliar_ref' 
+		sql='prs_clase_auxiliar.sql' 
+		id='prs_clase_auxiliar_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: prs_auxiliar' 
+		parameter='prs_auxiliar_ref' 
+		sql='prs_auxiliar.sql' 
+		id='prs_auxiliar_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: prs_direccion' 
+		parameter='prs_direccion_ref' 
+		sql='prs_direccion.sql' 
+		id='prs_direccion_ref'/>
+
+</validator>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnconfiguracionestructura.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="3" cellStep="0" name="${lbl:b_structure_configuration}"/>
+	
+	<excel 
+		recordset='query-smnconfiguracionestructura.sql' 
+		sheetname='${lbl:b_structure_configuration}' 
+		filename='${lbl:b_structure_configuration}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='coe_codigo' label='${lbl:b_code}' />
+		<col id='coe_nombre' label='${lbl:b_name} ' />
+		<col id='coe_niveles' label='${lbl:b_levels}' />
+		<col id='coe_mascara' label='${lbl:b_mask}' />
+		<col id='coe_separador' label='${lbl:b_separator}' />
+		<col id='coe_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

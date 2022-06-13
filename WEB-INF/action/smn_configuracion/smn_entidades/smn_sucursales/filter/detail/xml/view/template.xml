@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_sucursales>
+	<detail>
+		<rows>		
+		<record suc_fecha_registro="${fld:suc_fecha_registro}"    suc_email="${fld:suc_email}"    suc_telefono_movil="${fld:suc_telefono_movil}"    suc_telefono_fijo="${fld:suc_telefono_fijo}"    dir_descripcion="${fld:dir_descripcion}"    suc_responsable="${fld:suc_responsable}"    suc_maneja_area_servicio="${fld:suc_maneja_area_servicio}"    uen_nombre="${fld:uen_nombre}"    suc_nombre="${fld:suc_nombre}"    suc_codigo="${fld:suc_codigo}"    ent_descripcion_corta="${fld:ent_descripcion_corta}"    />
+		</rows>
+	</detail>
+</smn_sucursales>

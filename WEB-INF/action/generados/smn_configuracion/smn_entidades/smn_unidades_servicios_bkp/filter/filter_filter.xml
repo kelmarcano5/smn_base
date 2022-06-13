@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_service_units}</summary>
+	<filter>
+		<row field='smn_areas_servicios_id' id='smn_areas_servicios_id' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || ' - ' || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by 2}' required='NO' fk='ase_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_unidades_servicios' len='10'/>
+		<row field='uns_codigo' id='uns_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_unidades_servicios' len='16'/>
+		<row field='uns_descripcion' id='uns_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_unidades_servicios' len='48'/>
+		<row field='uns_centro_costo' id='uns_centro_costo' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo || ' - ' || smn_base.smn_centro_costo.cco_descripcion_corta as item from smn_base.smn_centro_costo order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_unidades_servicios' len='10'/>
+		<row field='uns_fecha_registro' id='uns_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_unidades_servicios' len='10'/>
+		<row field='uns_fecha_registro' id='uns_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_unidades_servicios' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_areas_servicios_id' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || ' - ' || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by 2}' fk='ase_codigo' tableName='smn_unidades_servicios' len='10' type='integer' align='left'/>
+		<row field='uns_codigo' label='${lbl:b_code}' fk='' tableName='smn_unidades_servicios' len='16' type='varchar' align='left'/>
+		<row field='uns_descripcion' label='${lbl:b_description}' fk='' tableName='smn_unidades_servicios' len='48' type='varchar' align='left'/>
+		<row field='uns_centro_costo' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo || ' - ' || smn_base.smn_centro_costo.cco_descripcion_corta as item from smn_base.smn_centro_costo order by 2}' fk='' tableName='smn_unidades_servicios' len='10' type='integer' align='left'/>
+		<row field='uns_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_unidades_servicios' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

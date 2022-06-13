@@ -1,0 +1,50 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('tva_codigo','query-smntipovariable.sql')" >${lbl:b_tva_codigo}</th>
+		<th class='sortable' onclick="sortBy('tva_descripcion','query-smntipovariable.sql')" >${lbl:b_tva_descripcion}</th>
+		<th class='sortable' onclick="sortBy('tva_estatus_combo','query-smntipovariable.sql')" >${lbl:b_status}</th>
+		<th class='sortable' onclick="sortBy('tva_fecha_registro','query-smntipovariable.sql')" >${lbl:b_store_date}</th>
+		
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_tipo_variable_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_tipo_variable_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_tipo_variable_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:tva_codigo}</td>
+		<td align="left">${fld:tva_descripcion}</td>
+		<td align="left">${fld:tva_estatus_combo}</td>
+		<td align="center">${fld:tva_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

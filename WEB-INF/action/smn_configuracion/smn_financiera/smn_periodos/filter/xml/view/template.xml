@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_periodos>
+	<detail>
+		<rows>		
+		<record prd_fecha_registro="${fld:prd_fecha_registro}"    prd_descripcion="${fld:prd_descripcion}"    prd_codigo="${fld:prd_codigo}"    />
+		</rows>
+	</detail>
+</smn_periodos>

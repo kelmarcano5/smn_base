@@ -1,0 +1,3 @@
+<rows>
+clf_fecha_registro="${fld:clf_fecha_registro}"    clf_ponderacion="${fld:clf_ponderacion}"    clf_descripcion="${fld:clf_descripcion}"    clf_codigo="${fld:clf_codigo}"   
+</rows>

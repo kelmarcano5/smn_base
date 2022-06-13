@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='ati_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='ati_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='ati_fecha_vigencia_desde' type='date' required='true' maxlen='48'/>
+	<parameter id='ati_fecha_vigencia_hasta' type='date' required='true' maxlen='10'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='ati_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='ati_nombre'/>
+
+
+</validator>

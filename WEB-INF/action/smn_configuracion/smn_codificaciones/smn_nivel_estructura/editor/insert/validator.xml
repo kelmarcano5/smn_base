@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+<!-- 	<parameter id='smn_estructura_codigo_id_name' type='varchar' required='true' label='${lbl:b_estructura_codigo}'/> -->
+	<parameter id='smn_estructura_codigo_id' type='integer' required='false' label='${lbl:b_estructura_codigo}' maxlen='10'/>
+	<parameter id='nes_niveles' type='integer' required='true' label='${lbl:b_levels}' maxlen='10'/>
+	<parameter id='nes_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='100'/>
+	<parameter id='nes_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='120'/>
+	<parameter id='nes_tipo' type='varchar' required='true' label='${lbl:b_type}' maxlen='48'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='smn_estructura_codigo_id_name'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='smn_estructura_codigo_id'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='nes_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='nes_nombre'/>
+
+	<parameter id='nes_predecesor' type='varchar' required='false' label='Predecesor' maxlen='100'/>
+
+
+</validator>

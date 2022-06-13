@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnmediopago.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_half_payment}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_half_payment}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnmediopago.sql' width='100' spacingBefore='40'>
+			<col name='mpa_codigo' title='${lbl:b_code}' width='11' align='left' />
+			<col name='mpa_descripcion' title='${lbl:b_description}' width='11' align='left' />
+			<col name='mpa_tipo_medio_pago_combo' title='${lbl:b_type_half_payment}' width='11' align='left' />
+			<col name='mpa_estatus_combo' title='${lbl:b_status}' width='11' align='left' />
+			<col name='mpa_vigencia' title='${lbl:b_date_vig}' width='11' align='left' format='dd-MM-yyyy' />
+			<col name='mpa_idioma' title='${lbl:s_profile_lang}' width='11' align='left' />
+			<col name='mpa_usuario' title='${lbl:b_users}' width='11' align='left' />
+			<col name='mpa_fecha_registro' title='${lbl:b_store_date}' width='11' align='left' format='dd-MM-yyyy' />
+			<col name='mpa_hora' title='${lbl:s_loginhist_col2}' width='11' align='left' />
+
+		</record>
+
+	</pdf-report>
+</config>

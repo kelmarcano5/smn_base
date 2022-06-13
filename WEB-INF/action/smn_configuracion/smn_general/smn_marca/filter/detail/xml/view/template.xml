@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_marca>
+	<detail>
+		<rows>		
+		<record mar_fecha_registro="${fld:mar_fecha_registro}"    mar_descripcion="${fld:mar_descripcion}"    mar_codigo="${fld:mar_codigo}"    mar_fecha_registro="${fld:mar_fecha_registro}"    mar_descripcion="${fld:mar_descripcion}"    mar_codigo="${fld:mar_codigo}"    />
+		</rows>
+	</detail>
+</smn_marca>

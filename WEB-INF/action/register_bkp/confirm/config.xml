@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Registro de usuario - confirmar registro de usuario por email
+	</summary>
+	
+	<log>false</log>
+	
+	<transaction>
+		<classname>dinamica.GenericTableManager</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+	</transaction>
+
+	<query>update.sql</query>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<expiration>0</expiration>
+	</output>
+
+</config>

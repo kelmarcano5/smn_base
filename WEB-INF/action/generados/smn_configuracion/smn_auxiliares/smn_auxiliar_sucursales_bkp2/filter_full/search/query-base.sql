@@ -1,0 +1,19 @@
+select	
+	smn_base.smn_auxiliar_sucursales.trs_codigo,
+	smn_base.smn_auxiliar_sucursales.trs_nombre,
+	smn_base.smn_auxiliar_sucursales.trs_auxiliar_unidad_negocio,
+	smn_base.smn_auxiliar_sucursales.trs_responsable,
+	smn_base.smn_auxiliar_sucursales.trs_direccion,
+	smn_base.smn_auxiliar_sucursales.trs_telefono_fijo,
+	smn_base.smn_auxiliar_sucursales.trs_telefono_movil,
+	smn_base.smn_auxiliar_sucursales.trs_email,
+	smn_base.smn_auxiliar_sucursales.trs_fecha_registro,
+	smn_base.smn_auxiliar_sucursales.smn_auxiliar_sucursales_id
+
+from
+	smn_base.smn_auxiliar_sucursales
+where
+	smn_auxiliar_sucursales_id is not null	
+ 	 	${filter}
+order by 
+	smn_auxiliar_sucursales_id

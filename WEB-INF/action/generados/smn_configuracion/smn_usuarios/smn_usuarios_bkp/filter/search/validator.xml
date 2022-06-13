@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_entidades_id_name' type='varchar' required='false' label='${lbl:b_entity}'/>
+	<parameter id='smn_entidades_id' type='integer' required='false' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='usr_nombres' type='varchar' required='false' label='${lbl:s_profile_fname}' maxlen='32'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='usr_nombres' rule='contains' />
+	<parameter id='usr_apellidos' type='varchar' required='false' label='${lbl:s_profile_lname}' maxlen='32'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='usr_apellidos' rule='contains' />
+	<parameter id='usr_nro_doc_identidad' type='varchar' required='false' label='${lbl:b_identification_doc_number}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='usr_nro_doc_identidad' rule='contains' />
+	<parameter id='usr_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='usr_fecha_registro_ini' date2='usr_fecha_registro_fin' id='usr_fecha_registro_ini' />
+	<parameter id='usr_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

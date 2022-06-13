@@ -1,0 +1,3 @@
+<rows>
+mod_fecha_registro="${fld:mod_fecha_registro}"    mod_descripcion="${fld:mod_descripcion}"    mod_codigo="${fld:mod_codigo}"    mod_fecha_registro="${fld:mod_fecha_registro}"    mod_descripcion="${fld:mod_descripcion}"    mod_codigo="${fld:mod_codigo}"    
+</rows>

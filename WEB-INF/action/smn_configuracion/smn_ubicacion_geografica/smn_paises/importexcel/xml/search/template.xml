@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_paises>
+	<detail>
+		<rows>		
+		<record pai_fecha_registro="${fld:pai_fecha_registro}"    pai_moneda_oficial="${fld:pai_moneda_oficial}"    pai_codigo_ddi="${fld:pai_codigo_ddi}"    pai_gentilicio="${fld:pai_gentilicio}"    pai_nombre_largo="${fld:pai_nombre_largo}"    pai_nombre_corto="${fld:pai_nombre_corto}"    pai_codigo="${fld:pai_codigo}"    />
+		</rows>
+	</detail>
+</smn_paises>

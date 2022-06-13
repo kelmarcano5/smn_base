@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='imp_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='imp_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='imp_tipo_codigo' type='varchar' required='true' maxlen='2'/>
+	<parameter id='imp_modalidad_registro' type='varchar' required='true' maxlen='2'/>
+	<parameter id='imp_porcentaje_base' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_porcentaje_calculo' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_tipo_libro' type='varchar' required='true' maxlen='2'/>
+	<parameter id='imp_tipo_persona' type='varchar' required='true' maxlen='2'/>
+	<parameter id='imp_tipo_contribuyente' type='varchar' required='true' maxlen='2'/>
+	<parameter id='imp_unidad_impositiva' type='integer' required='true' maxlen='10'/>
+	<parameter id='imp_ui_minima' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_ui_maxima' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_ui_sustraendo' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_monto_minimo' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_monto_maximo' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_monto_sustraendo' type='double' required='false' maxlen='10'/>
+</validator>

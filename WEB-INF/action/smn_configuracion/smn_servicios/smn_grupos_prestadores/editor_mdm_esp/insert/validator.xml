@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='gpp_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='gpp_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='56'/>
+	<parameter id='gpp_area_servicio' type='integer' required='true' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='gpp_unidad_servicio' type='integer' required='true' label='${lbl:b_service_unit}' maxlen='10'/>
+	<parameter id='gpp_orden_atencion' type='varchar' required='true' label='${lbl:b_in_order_of_attention}' maxlen='2'/>
+	<parameter id='gpp_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='gpp_fecha_inicio_estatus' type='date' required='true' label='${lbl:b_date_init}' maxlen='10'/>
+	<parameter id='gpp_fecha_final_estatus' type='date' required='true' label='${lbl:b_date_end}' maxlen='10'/>
+	<parameter id='gpp_frecuencia' type='double' required='true' label='${lbl:b_frecuency}' maxlen='10'/>
+
+	<parameter id='smn_especialidad_id' type='varchar' required='true' label='Ítems'/>
+	<custom-validator classname='dinamica.validators.StringToRecordset' paramName='smn_especialidad_id' recordsetId='query-smn_especialidad.sql' separatorChar=';' colName='smn_especialidad_id' colType='integer'/>
+</validator>

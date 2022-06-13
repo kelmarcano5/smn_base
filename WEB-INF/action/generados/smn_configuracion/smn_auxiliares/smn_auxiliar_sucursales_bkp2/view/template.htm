@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("trs_codigo","query-smnauxiliarsucursales.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("trs_nombre","query-smnauxiliarsucursales.sql")'>${lbl:b_name}</th>
+		<th class='sortable' onclick='sortBy("trs_auxiliar_unidad_negocio","query-smnauxiliarsucursales.sql")'>${lbl:b_outsourced_unit_business}</th>
+		<th class='sortable' onclick='sortBy("trs_responsable","query-smnauxiliarsucursales.sql")'>${lbl:b_responsible}</th>
+		<th class='sortable' onclick='sortBy("trs_direccion","query-smnauxiliarsucursales.sql")'>${lbl:b_address}</th>
+		<th class='sortable' onclick='sortBy("trs_telefono_fijo","query-smnauxiliarsucursales.sql")'>${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick='sortBy("trs_fecha_registro","query-smnauxiliarsucursales.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:trs_codigo}</td>
+		<td align='left'>${fld:trs_nombre}</td>
+		<td align='left'>${fld:trs_auxiliar_unidad_negocio}</td>
+		<td align='left'>${fld:trs_responsable}</td>
+		<td align='left'>${fld:trs_direccion}</td>
+		<td align='left'>${fld:trs_telefono_fijo}</td>
+		<td>${fld:trs_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

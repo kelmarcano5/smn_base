@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='dic_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='20'/>
+	<parameter id='dic_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='dic_esquema' type='varchar' required='false' label='${lbl:b_smn_esquema_rf}' maxlen='100'/>
+	<parameter id='dic_tabla' type='varchar' required='false' label='${lbl:b_smn_tabla_rf}' maxlen='100'/>
+	<parameter id='dic_campo' type='varchar' required='false' label='${lbl:b_smn_campo_rf}' maxlen='100'/>
+	<parameter id='dic_tipo_dato' type='varchar' required='false' label='${lbl:b_date_type}' maxlen='2'/>
+	<parameter id='dic_tamano' type='integer' required='false' label='${lbl:b_size}' maxlen='10'/>
+	<parameter id='dic_posicion_inicial' type='integer' required='false' label='${lbl:b_initial_position}' maxlen='10'/>
+	<parameter id='dic_posicion_final' type='integer' required='false' label='${lbl:b_final_position}' maxlen='10'/>
+	<parameter id='dic_ruta' type='varchar' required='false' label='${lbl:b_route}' maxlen='100'/>
+	<parameter id='dic_observacion' type='varchar' required='false' label='${lbl:b_observation}' maxlen='200'/>
+	<parameter id='dic_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='1'/>
+	<parameter id='dic_fecha_estatus' type='date' required='false' label='${lbl:b_status_date}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='dic_codigo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+parameter='dic_descripcion'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='dic_esquema'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='dic_tabla'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='dic_campo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='dic_tipo_dato'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='dic_ruta'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='dic_observacion'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='dic_estatus'
+		rule='contains' />
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='dic_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='dic_descripcion'/>
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

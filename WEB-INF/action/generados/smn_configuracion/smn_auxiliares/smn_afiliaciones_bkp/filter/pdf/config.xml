@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnafiliaciones.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_affiliations}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='afc_codigo' title='${lbl:b_code}'  align='center' />
+			<col name='afc_descripcion' title='${lbl:b_description}'  align='center' />
+			<col name='acf_auxiliar_persona_natural' title='${lbl:b_person_assistant}'  format='######' align='center' />
+			<col name='afc_modulo' title='${lbl:b_module}'  format='######' align='center' />
+			<col name='afc_titular' title='${lbl:b_person_assistant}'  format='######' align='center' />
+			<col name='afc_fecha_registro_ini' title='${lbl:b_store_date_grater_than}'  format='dd-MM-yyyy' align='center' />
+			<col name='afc_fecha_registro_fin' title='${lbl:b_store_date_less_than}'  format='dd-MM-yyyy' align='center' />
+		</record>
+		<table recordset='query-smnafiliaciones.sql' width='100' spacingBefore='10'>
+			<col name='afc_codigo' title='${lbl:b_code}' width='12' align='left' />
+			<col name='afc_descripcion' title='${lbl:b_description}' width='12' align='left' />
+			<col name='acf_auxiliar_persona_natural' title='${lbl:b_person_assistant}' width='12' align='left' format='######' />
+			<col name='afc_modulo' title='${lbl:b_module}' width='12' align='left' format='######' />
+			<col name='afc_es_titular_combo' title='${lbl:b_titular}' width='12' align='left' />
+			<col name='afc_titular' title='${lbl:b_person_assistant}' width='12' align='left' format='######' />
+			<col name='afc_parentezco' title='${lbl:b_relationship}' width='12' align='left' format='######' />
+			<col name='afc_fecha_registro' title='${lbl:b_store_date}' width='12' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='stg_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='stg_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='smn_tipo_gasto_id_name' type='varchar' required='true' label='${lbl:b_type_spent}'/>
+	<parameter id='smn_tipo_gasto_id' type='integer' required='false' label='${lbl:b_type_spent}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_sub_type_spent}' maxlen='10'/>
+
+
+</validator>

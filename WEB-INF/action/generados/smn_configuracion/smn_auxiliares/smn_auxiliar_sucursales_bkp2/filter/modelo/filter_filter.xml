@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lblb_outsourced_subsidiaries}</summary>
+	<filter>
+		<row field='trs_codigo' id='trs_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_sucursales' len='16'/>
+		<row field='trs_nombre' id='trs_nombre' label='${lbl:b_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_sucursales' len='48'/>
+		<row field='trs_auxiliar_unidad_negocio' id='trs_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}@{select smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id as id, smn_base.smn_auxiliar_unidades_negocios.tun_codigo || &apos; - &apos; || smn_base.smn_auxiliar_unidades_negocios.tun_nombre as item from smn_base.smn_auxiliar_unidades_negocios order by smn_base.smn_auxiliar_unidades_negocios.tun_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_sucursales' len='10'/>
+		<row field='trs_responsable' id='trs_responsable' label='${lbl:b_responsible}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_sucursales' len='48'/>
+		<row field='trs_fecha_registro' id='trs_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_auxiliar_sucursales' len='10'/>
+		<row field='trs_fecha_registro' id='trs_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_auxiliar_sucursales' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='trs_codigo' label='${lbl:b_code}' fk='' tableName='smn_auxiliar_sucursales' len='16' type='varchar' align='left'/>
+		<row field='trs_nombre' label='${lbl:b_name}' fk='' tableName='smn_auxiliar_sucursales' len='48' type='varchar' align='left'/>
+		<row field='trs_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}@{select smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id as id, smn_base.smn_auxiliar_unidades_negocios.tun_codigo || &apos; - &apos; || smn_base.smn_auxiliar_unidades_negocios.tun_nombre as item from smn_base.smn_auxiliar_unidades_negocios order by smn_base.smn_auxiliar_unidades_negocios.tun_nombre}' fk='' tableName='smn_auxiliar_sucursales' len='10' type='integer' align='left'/>
+		<row field='trs_responsable' label='${lbl:b_responsible}' fk='' tableName='smn_auxiliar_sucursales' len='48' type='varchar' align='left'/>
+		<row field='trs_direccion' label='${lbl:b_address}@{select smn_base.smn_direccion.smn_direccion_id as id, smn_base.smn_direccion.dir_codigo || &apos; - &apos; || smn_base.smn_direccion.dir_descripcion as item from smn_base.smn_direccion order by smn_base.smn_direccion.dir_descripcion}' fk='' tableName='smn_auxiliar_sucursales' len='10' type='integer' align='left'/>
+		<row field='trs_telefono_fijo' label='${lbl:b_fixed_phone}' fk='' tableName='smn_auxiliar_sucursales' len='24' type='varchar' align='left'/>
+		<row field='trs_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_auxiliar_sucursales' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

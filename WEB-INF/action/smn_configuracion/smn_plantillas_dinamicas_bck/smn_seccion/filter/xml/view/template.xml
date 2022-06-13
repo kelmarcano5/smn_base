@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_seccion>
+	<detail>
+		<rows>		
+		<record cue_fecha_registro="${fld:cue_fecha_registro}"    sec_estatus="${fld:sec_estatus}"    sec_secuencia="${fld:sec_secuencia}"    sec_descripcion="${fld:sec_descripcion}"    sec_codigo="${fld:sec_codigo}"    smn_cuestionario_id="${fld:smn_cuestionario_id}"    />
+		</rows>
+	</detail>
+</smn_seccion>

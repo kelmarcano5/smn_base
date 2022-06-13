@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_valor_atributo}</summary>
+	<filter>
+		<row field='atv_codigo' id='atv_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_atributo_valor' len='16'/>
+		<row field='atv_descripcion' id='atv_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='integer' tableName='smn_atributo_valor' len='10'/>
+		<row field='atv_fecha_registro' id='atv_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_atributo_valor' len='10'/>
+		<row field='atv_fecha_registro' id='atv_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_atributo_valor' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_atributo_item_id' label='${lbl:b_atributos_item}@{select smn_base.smn_atributo_item.smn_atributo_item_id as id, smn_base.smn_atributo_item.ati_codigo|| &apos; - &apos; || smn_base.smn_atributo_item.ati_nombre as item from smn_base.smn_atributo_item order by ati_nombre}' fk='ati_codigo' tableName='smn_atributo_valor' len='10' type='integer' align='center'/>
+		<row field='atv_codigo' label='${lbl:b_code}' fk='' tableName='smn_atributo_valor' len='16' type='varchar' align='left'/>
+		<row field='atv_descripcion' label='${lbl:b_description}' fk='' tableName='smn_atributo_valor' len='10' type='integer' align='center'/>
+		<row field='atv_fecha_vigencia_desde' label='${lbl:b_validation_date_from}' fk='' tableName='smn_atributo_valor' len='10' type='date' align='center'/>
+		<row field='atv_fecha_vigencia_hasta' label='${lbl:b_validation_date_until}' fk='' tableName='smn_atributo_valor' len='10' type='date' align='center'/>
+		<row field='atv_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_atributo_valor' len='2' type='varchar' align='left'/>
+		<row field='atv_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_atributo_valor' len='10' type='varchar' align='left'/>
+		<row field='atv_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_atributo_valor' len='10' type='date' align='center'/>
+		<row field='atv_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_atributo_valor' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

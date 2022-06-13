@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_cost_centers}</summary>
+	<filter>
+		<row field='cco_codigo' id='cco_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_centro_costo' len='16'/>
+		<row field='cco_descripcion_larga' id='cco_descripcion_larga' label='${lbl:b_long_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_centro_costo' len='48'/>
+		<row field='cco_empresa' id='cco_empresa' label='${lbl:b_entity}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || &apos; - &apos; || smn_base.smn_entidades.ent_descripcion_corta as item from smn_base.smn_entidades order by smn_base.smn_entidades.ent_descripcion_corta}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_centro_costo' len='10'/>
+		<row field='cco_sucursal' id='cco_sucursal' label='${lbl:b_subsidiary}@{select smn_base.smn_sucursales.smn_sucursales_id as id, smn_base.smn_sucursales.suc_codigo || &apos; - &apos; || smn_base.smn_sucursales.suc_nombre as item from smn_base.smn_sucursales order by smn_base.smn_sucursales.suc_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_centro_costo' len='10'/>
+		<row field='cco_area_servicio' id='cco_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_centro_costo' len='10'/>
+		<row field='cco_unidad_servicio' id='cco_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by smn_base.smn_unidades_servicios.uns_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_centro_costo' len='10'/>
+		<row field='cco_almacen' id='cco_almacen' label='${lbl:b_store}@{select smn_base.smn_almacen.smn_almacen_id as id, smn_base.smn_almacen.alm_codigo || &apos; - &apos; || smn_base.smn_almacen.alm_nombre as item from smn_base.smn_almacen order by smn_basesmn_almacen.alm_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_centro_costo' len='10'/>
+		<row field='cco_fecha_registro' id='cco_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_centro_costo' len='10'/>
+		<row field='cco_fecha_registro' id='cco_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_centro_costo' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='cco_codigo' label='${lbl:b_code}' fk='' tableName='smn_centro_costo' len='16' type='varchar' align='left'/>
+		<row field='cco_descripcion_larga' label='${lbl:b_long_description}' fk='' tableName='smn_centro_costo' len='48' type='varchar' align='left'/>
+		<row field='cco_empresa' label='${lbl:b_entity}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || &apos; - &apos; || smn_base.smn_entidades.ent_descripcion_corta as item from smn_base.smn_entidades order by smn_base.smn_entidades.ent_descripcion_corta}' fk='' tableName='smn_centro_costo' len='10' type='integer' align='left'/>
+		<row field='cco_sucursal' label='${lbl:b_subsidiary}@{select smn_base.smn_sucursales.smn_sucursales_id as id, smn_base.smn_sucursales.suc_codigo || &apos; - &apos; || smn_base.smn_sucursales.suc_nombre as item from smn_base.smn_sucursales order by smn_base.smn_sucursales.suc_nombre}' fk='' tableName='smn_centro_costo' len='10' type='integer' align='left'/>
+		<row field='cco_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' fk='' tableName='smn_centro_costo' len='10' type='integer' align='left'/>
+		<row field='cco_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by smn_base.smn_unidades_servicios.uns_descripcion}' fk='' tableName='smn_centro_costo' len='10' type='integer' align='left'/>
+		<row field='cco_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_centro_costo' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

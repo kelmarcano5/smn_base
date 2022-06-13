@@ -1,0 +1,3 @@
+<rows>
+prd_fecha_registro="${fld:prd_fecha_registro}"  prd_ano="${fld:prd_ano}"   prd_descripcion="${fld:prd_descripcion}"    prd_codigo="${fld:prd_codigo}"    
+</rows>

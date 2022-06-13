@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_tipo_variable>
+	<detail>
+		<rows>		
+		<record tva_fecha_registro="${fld:tva_fecha_registro}"    tva_estatus="${fld:tva_estatus}"    tva_descripcion="${fld:tva_descripcion}"    tva_codigo="${fld:tva_codigo}"    tva_fecha_registro="${fld:tva_fecha_registro}"    tva_estatus="${fld:tva_estatus}"    tva_descripcion="${fld:tva_descripcion}"    tva_codigo="${fld:tva_codigo}"    />
+		</rows>
+	</detail>
+</smn_tipo_variable>

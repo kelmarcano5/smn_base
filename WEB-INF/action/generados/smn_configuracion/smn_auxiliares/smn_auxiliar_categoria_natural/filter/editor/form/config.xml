@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_auxiliary}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+	
+	<clear-session id="detail-smn_auxiliar_persona_natural.sql"/>
+
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-aca_clase_auxiliar.sql' source='sql' scope='transaction'/>
+		<recordset id='query-ant_tipo_doc_oficial.sql' source='sql' scope='transaction'/>
+		<recordset id='query-ant_nacionalidad.sql' source='sql' scope='transaction'/>
+		<recordset id='query-ant_direccion.sql' source='sql' scope='transaction'/>
+		<recordset id='query-ant_cuenta_bancaria.sql' source='sql' scope='transaction'/>
+		<recordset id='query-ant_contactos.sql' source='sql' scope='transaction'/>
+		<recordset id='query-ant_condicion_financiera.sql' source='sql' scope='transaction'/>
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-aca_clase_auxiliar.sql' tag='aca_clase_auxiliar_rows'/>
+		<print mode='table' recordset='query-ant_tipo_doc_oficial.sql' tag='ant_tipo_doc_oficial2_rows'/>
+		<print mode='table' recordset='query-ant_nacionalidad.sql' tag='ant_nacionalidad2_rows'/>
+		<print mode='table' recordset='query-ant_direccion.sql' tag='ant_direccion2_rows'/>
+		<print mode='table' recordset='query-ant_cuenta_bancaria.sql' tag='ant_cuenta_bancaria2_rows'/>
+		<print mode='table' recordset='query-ant_contactos.sql' tag='ant_contactos2_rows'/>
+		<print mode='table' recordset='query-ant_condicion_financiera.sql' tag='ant_condicion_financiera2_rows'/>
+
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

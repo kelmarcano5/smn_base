@@ -1,0 +1,1 @@
+document.form1.valor.value='${fld:valor@#,###,###}';

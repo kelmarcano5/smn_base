@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id="view.record" onerror="/action/error/validation/dialog">
+	<parameter id="id" type="integer" required="true" label="ID" maxlen="10" />
+	<parameter id='uim_id_filter' type='integer' required='false' label='${lbl:b_tax_unit}' maxlen='10'/>
+	<parameter id='tim_fecha_vigencia_ini_filter' type='date' required='false' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<parameter id='tim_fecha_vigencia_fin_filter' type='date' required='false' label='${lbl:b_validation_date_until}' maxlen='10'/>
+	<parameter id='tim_valor_ini_filter' type='double' required='false' label='${lbl:b_value_from}' maxlen='10'/>
+	<parameter id='tim_valor_fin_filter' type='double' required='false' label='${lbl:b_value_to}' maxlen='10'/>
+</validator>

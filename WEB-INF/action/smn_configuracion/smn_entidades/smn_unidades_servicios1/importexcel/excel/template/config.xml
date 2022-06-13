@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnunidadesservicios-template.sql" source="sql" scope="transaction" />
+		<recordset id="query-servicearea.sql" source="sql" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_entidades.smn_unidades_servicios.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_service_units}.xls'   
+		header-background='true' >
+		
+	<sheet recordset="query-smnunidadesservicios-template.sql" sheetname="${lbl:b_service_units}">
+		
+		<col id='ase_codigo_pl0' label='${lbl:b_service_area}' />
+		<col id='uns_codigo' label='${lbl:b_code}' />
+		<col id='uns_descripcion' label='${lbl:b_description}' />
+		
+		<col id='ase_codigo_pl0_reference' label='${lbl:b_service_area}' />
+
+	</sheet>
+	
+	<sheet recordset='query-servicearea.sql' sheetname='${lbl:b_service_area}'>
+		<col id='ase_descripcion' label='${lbl:b_description}' />
+	</sheet>
+	
+	</excel>
+
+</config>

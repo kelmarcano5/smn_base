@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnentidades.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_entities}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smnentidades.sql' width='100' spacingBefore='40'>
+			<col name='ent_codigo' title='${lbl:b_code}' width='14' align='left' />
+			<col name='ent_descripcion_larga' title='${lbl:b_long_description}' width='14' align='left' />
+			<col name='ent_comunidad' title='${lbl:b_community}' width='14' align='center' format='######' />
+			<col name='ent_corporacion' title='${lbl:b_corporation}' width='14' align='center' format='######' />
+			<col name='ent_moneda' title='${lbl:b_currency}' width='14' align='center' format='######' />
+			<col name='ent_contacto' title='${lbl:b_contact_person}' width='14' align='left' />
+			<col name='ent_fecha_registro' title='${lbl:b_store_date}' width='14' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

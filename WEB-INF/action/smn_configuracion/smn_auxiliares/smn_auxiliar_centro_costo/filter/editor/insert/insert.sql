@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_auxiliar_centro_costo
+(
+	smn_auxiliar_centro_costo_id,
+	tco_codigo,
+	tco_descripcion_corta,
+	tco_descripcion_larga,
+	tco_clase_auxiliar,
+	tco_auxiliar,
+	tco_responsable,
+	tco_tipo_cco,
+	tco_nivel,
+	tco_idioma,
+	tco_usuario,
+	tco_fecha_registro,
+	tco_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_auxiliar_centro_costo},
+	${fld:tco_codigo},
+	${fld:tco_descripcion_corta},
+	${fld:tco_descripcion_larga},
+	${fld:tco_clase_auxiliar},
+	${fld:tco_auxiliar},
+	${fld:tco_responsable},
+	${fld:tco_tipo_cco},
+	${fld:tco_nivel},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

@@ -1,0 +1,55 @@
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+
+
+
+
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('smn_clase_auxiliar_rf','query-smnauxiliarcontacto.sql')" >${lbl:b_class_auxiliary}</th>
+		<th class='sortable' onclick="sortBy('smn_auxiliar_rf','query-smnauxiliarcontacto.sql')" >${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick="sortBy('smn_tipo_contactos_rf','query-smnauxiliarcontacto.sql')" >${lbl:b_type_contact}</th>
+		<th class='sortable' onclick="sortBy('auc_descripcion','query-smnauxiliarcontacto.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('auc_fecha_registro','query-smnauxiliarcontacto.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_auxiliar_contacto_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_auxiliar_contacto_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_auxiliar_contacto_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="center">${fld:smn_clase_auxiliar_rf}</td>
+		<td align="center">${fld:smn_auxiliar_rf}</td>
+		<td align="center">${fld:smn_tipo_contactos_rf}</td>
+		<td align="left">${fld:auc_descripcion}</td>
+		<td align="center">${fld:auc_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

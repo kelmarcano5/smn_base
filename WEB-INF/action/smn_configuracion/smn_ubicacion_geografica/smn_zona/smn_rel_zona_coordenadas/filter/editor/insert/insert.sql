@@ -1,0 +1,34 @@
+INSERT INTO smn_base.smn_rel_zona_coordenadas
+(
+	smn_rel_zona_coordenadas_id,
+	smn_zona_id,
+	smn_pais_rf,
+	smn_entidad_federal_rf,
+	smn_ciudad_rf,
+	smn_municipio_rf,
+	smn_parroquia_rf,
+	rzc_latitud,
+	rzc_longitud,
+	rzc_idioma,
+	rzc_usuario,
+	rzc_fecha_registro,
+	rzc_hora,
+	rzc_coordenadas
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_rel_zona_coordenadas},
+	${fld:smn_zona_id},
+	${fld:smn_pais_rf},
+	${fld:smn_entidad_federal_rf},
+	${fld:smn_ciudad_rf},
+	${fld:smn_municipio_rf},
+	${fld:smn_parroquia_rf},
+	${fld:rzc_latitud},
+	${fld:rzc_longitud},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}',
+	${fld:rzc_coordenadas}
+)

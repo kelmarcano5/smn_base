@@ -1,0 +1,17 @@
+select
+	smn_base.smn_prestadores_servicios.smn_prestadores_servicios_id,
+	smn_base.smn_prestadores_servicios.prs_codigo as prs_codigo_pl0,
+	smn_base.smn_grupos_prestadores.smn_grupos_prestadores_id,
+	smn_base.smn_grupos_prestadores.gpp_codigo as gpp_codigo_pl1,
+select
+select
+	smn_base.smn_rel_grupo_prestador_servicio.*
+from
+	smn_base.smn_prestadores_servicios,
+	smn_base.smn_grupos_prestadores,
+	smn_base.smn_rel_grupo_prestador_servicio
+where
+	smn_base.smn_prestadores_servicios.smn_prestadores_servicios_id=smn_base.smn_rel_grupo_prestador_servicio.smn_prestadores_servicios_id and
+	smn_base.smn_grupos_prestadores.smn_grupos_prestadores_id=smn_base.smn_rel_grupo_prestador_servicio.smn_grupos_prestadores_id
+	and
+	smn_rel_grupo_prestador_servicio_id = ${fld:id}

@@ -1,0 +1,12 @@
+select
+	smn_base.smn_configuracion_estructura.smn_configuracion_estructura_id,
+	smn_base.smn_configuracion_estructura.coe_codigo,
+	smn_base.smn_configuracion_estructura.coe_nombre,
+	smn_base.smn_configuracion_estructura.coe_niveles,
+	smn_base.smn_configuracion_estructura.coe_mascara,
+	smn_base.smn_configuracion_estructura.coe_separador,
+	smn_base.smn_configuracion_estructura.coe_fecha_registro
+from 
+	smn_base.smn_configuracion_estructura
+order by 
+	smn_base.smn_configuracion_estructura.smn_configuracion_estructura_id desc

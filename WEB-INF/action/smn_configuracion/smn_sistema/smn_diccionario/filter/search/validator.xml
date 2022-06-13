@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='dic_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='1'/>
+	<parameter id='dic_fecha_estatus' type='date' required='false' label='${lbl:b_status_date}' maxlen='10'/>
+	<parameter id='dic_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='20'/>
+	<parameter id='dic_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='dic_esquema' type='varchar' required='false' label='${lbl:b_smn_esquema_rf}' maxlen='100'/>
+	<parameter id='dic_tabla' type='varchar' required='false' label='${lbl:b_smn_tabla_rf}' maxlen='100'/>
+	<parameter id='dic_campo' type='varchar' required='false' label='${lbl:b_smn_campo_rf}' maxlen='100'/>
+	<parameter id='dic_tipo_dato' type='varchar' required='false' label='${lbl:b_date_type}' maxlen='2'/>
+	<parameter id='dic_tamano' type='integer' required='false' label='${lbl:b_size}' maxlen='10'/>
+	<parameter id='dic_posicion_inicial' type='integer' required='false' label='${lbl:b_initial_position}' maxlen='10'/>
+	<parameter id='dic_posicion_final' type='integer' required='false' label='${lbl:b_final_position}' maxlen='10'/>
+	<parameter id='dic_ruta' type='varchar' required='false' label='${lbl:b_route}' maxlen='100'/>
+	<parameter id='dic_observacion' type='varchar' required='false' label='${lbl:b_observation}' maxlen='200'/>
+</validator>

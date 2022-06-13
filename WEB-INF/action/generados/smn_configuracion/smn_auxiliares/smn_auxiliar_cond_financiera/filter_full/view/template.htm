@@ -1,0 +1,58 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('cfn_codigo','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('cfn_descripcion','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('cfn_clase_auxiliar','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick="sortBy('cfn_auxiliar_categoria','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_auxiliary_category}</th>
+		<th class='sortable' onclick="sortBy('cfn_limite_credito','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_credit_limit}</th>
+		<th class='sortable' onclick="sortBy('cfn_porc_exceso_limite','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_percent_credit_limit}</th>
+		<th class='sortable' onclick="sortBy('cfn_valida_saldos_vec_combo','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_percent_credit_limit}</th>
+		<th class='sortable' onclick="sortBy('cfn_dias_adic_saldos_venc','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_validates_overcome_balances}</th>
+		<th class='sortable' onclick="sortBy('cfn_num_cheques_devuel','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_number_returned_checks}</th>
+		<th class='sortable' onclick="sortBy('cfn_fecha_registro','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:cfn_codigo}</td>
+		<td align="left">${fld:cfn_descripcion}</td>
+		<td align="left">${fld:cfn_clase_auxiliar}</td>
+		<td align="left">${fld:cfn_auxiliar_categoria}</td>
+		<td align="left">${fld:cfn_limite_credito@#,###,##0.00}</td>
+		<td align="left">${fld:cfn_porc_exceso_limite@#,###,##0.00}</td>
+		<td align="left">${fld:cfn_valida_saldos_vec_combo}</td>
+		<td align="left">${fld:cfn_dias_adic_saldos_venc}</td>
+		<td align="left">${fld:cfn_num_cheques_devuel}</td>
+		<td align="left">${fld:cfn_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

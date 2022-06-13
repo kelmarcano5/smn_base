@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarcategoria-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnareasservicios.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnentidades.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnnaturalezaauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnsucursales.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnunidadesnegocios.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnunidadesservicios.sql' source='sql' scope='transaction' />
+		<recordset id='query-acatipopersona.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_auxiliares.smn_auxiliar_categoria.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_auxiliary}.xls'      
+		header-background='true'  >
+		
+	<sheet recordset="query-smnauxiliarcategoria-template.sql" sheetname="${lbl:b_auxiliary}">
+		
+		<col id='aca_naturaleza_auxiliar' label='${lbl:b_nature_auxiliary}' />
+		<col id='aca_tipo_persona_combo' label='${lbl:b_kind_of_person}' />
+		<col id='aca_empresa' label='${lbl:b_entity}' />
+		<col id='aca_sucursal' label='${lbl:b_subsidiary}' />
+		<col id='aca_unidad_negocio' label='${lbl:b_business_unit}' />
+		<col id='aca_area_servicio' label='${lbl:b_service_area}' />
+		<col id='aca_unidad_servicio' label='${lbl:b_service_unit}' />
+		
+		<col id='aca_naturaleza_auxiliar_reference' label='${lbl:b_nature_auxiliary}' />
+		<col id='aca_tipo_persona_combo_reference' label='${lbl:b_kind_of_person}' />
+		<col id='aca_empresa_reference' label='${lbl:b_entity}' />
+		<col id='aca_sucursal_reference' label='${lbl:b_subsidiary}' />
+		<col id='aca_unidad_negocio_reference' label='${lbl:b_business_unit}' />
+		<col id='aca_area_servicio_reference' label='${lbl:b_service_area}' />
+		<col id='aca_unidad_servicio_reference' label='${lbl:b_service_unit}' />
+
+	</sheet>
+	
+	<sheet recordset='query-acatipopersona.sql' sheetname='${lbl:b_kind_of_person}'>
+		<col id='tipo_persona' label='${lbl:b_description}' />
+	</sheet>	
+	
+	<sheet recordset='query-smnareasservicios.sql' sheetname='${lbl:b_service_area}'>
+		<col id='ase_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnentidades.sql' sheetname='${lbl:b_entity}'>
+		<col id='ent_descripcion_corta' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnnaturalezaauxiliar.sql' sheetname='${lbl:b_nature_auxiliary}'>
+		<col id='naa_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnsucursales.sql' sheetname='${lbl:b_subsidiary}'>
+		<col id='suc_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnunidadesnegocios.sql' sheetname='${lbl:b_business_unit}'>
+		<col id='uen_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnunidadesservicios.sql' sheetname='${lbl:b_service_unit}'>
+		<col id='uns_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smndireccion.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smndireccion.sql' sheetname='${lbl:b_addresses}' filename='filter2.xls'>
+		<col id='dir_codigo' label='${lbl:b_code}' />
+		<col id='dir_descripcion' label='${lbl:b_description}' />
+		<col id='dir_pais' label='${lbl:b_country}' />
+		<col id='dir_entidad_federal' label='${lbl:b_federal_entity}' />
+		<col id='dir_ciudad' label='${lbl:b_city}' />
+		<col id='dir_zona_postal' label='${lbl:b_postal_zone}' />
+		<col id='dir_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

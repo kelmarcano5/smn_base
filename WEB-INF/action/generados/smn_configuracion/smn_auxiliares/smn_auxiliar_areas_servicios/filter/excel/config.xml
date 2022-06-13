@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarareasservicios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnauxiliarareasservicios.sql' sheetname='${lbl:b_service_areas}' filename='filter.xls'>
+		<col id='tts_codigo_pl0' label='${lbl:b_outsourced_type_of_service}' />
+		<col id='tse_codigo' label='${lbl:b_code}' />
+		<col id='tse_descripcion' label='${lbl:b_description}' />
+		<col id='tse_auxiliar' label='${lbl:b_auxiliary}' />
+		<col id='tse_auxiliar_sucursal' label='${lbl:b_outsourced_subsidiary}' />
+		<col id='tse_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}' />
+		<col id='tse_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

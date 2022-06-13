@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_tipo_cuenta_banco>
+	<detail>
+		<rows>		
+		<record tcb_fecha_registro="${fld:tcb_fecha_registro}"    tcb_descripcion="${fld:tcb_descripcion}"    tcb_codigo="${fld:tcb_codigo}"    />
+		</rows>
+	</detail>
+</smn_tipo_cuenta_banco>

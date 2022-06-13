@@ -1,0 +1,1 @@
+select smn_base.smn_diccionario.smn_diccionario_id as id, smn_base.smn_diccionario.dic_campo as item from smn_base.smn_diccionario

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_tipo_registro>
+	<detail>
+		<rows>		
+		<record trg_fecha_registro="${fld:trg_fecha_registro}"    trg_descripcion="${fld:trg_descripcion}"    trg_codigo="${fld:trg_codigo}"    />
+		</rows>
+	</detail>
+</smn_tipo_registro>

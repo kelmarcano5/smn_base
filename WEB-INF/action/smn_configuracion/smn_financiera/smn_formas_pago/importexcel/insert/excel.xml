@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='fop_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='fop_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='fop_medio_pago_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='fop_requiere_banco_desc' type='varchar' required='true' maxlen='2'/>
+	<parameter id='fop_franquicia_desc' type='varchar' required='false' maxlen='48'/>
+
+	<parameter id='fop_requiere_banco_ref' type='varchar' required='false' maxlen='1'/>
+	<parameter id='fop_medio_pago_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='fop_franquicia_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='fop_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='fop_descripcion'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: fop_requiere_banco' 
+		parameter='fop_requiere_banco_ref' 
+		sql='fop_requiere_banco.sql' 
+		id='fop_requiere_banco_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: fop_medio_pago' 
+		parameter='fop_medio_pago_ref' 
+		sql='fop_medio_pago.sql' 
+		id='fop_medio_pago_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: fop_franquicia' 
+		parameter='fop_franquicia_ref' 
+		sql='fop_franquicia.sql' 
+		id='fop_franquicia_ref'/>
+
+</validator>

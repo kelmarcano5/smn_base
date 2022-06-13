@@ -1,0 +1,13 @@
+/custom/
+/dinamica/
+/domain/
+/proceso/
+/robot/
+/services/
+/smn_domain/
+/ExcelReport.class
+/ExcelReportDetail.class
+/PDFReport.class
+/PDFReportDetail.class
+/TextReport.class
+/XmlReport.class

@@ -1,0 +1,38 @@
+INSERT INTO smn_base.smn_baremos
+(
+	smn_baremos_id,
+	bar_codigo,
+	bar_descripcion,
+	smn_entidades_rf,
+	smn_sucursales_rf,
+	bar_vigencia_desde,
+	bar_vigencia_hasta,
+	bar_tipo,
+	smn_clase_auxiliar_rf,
+	smn_auxiliar_rf,
+	bar_idioma,
+	bar_usuario,
+	bar_fecha_registro,
+	bar_hora,
+	bar_estatus,
+	smn_moneda_rf
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_baremos},
+	${fld:bar_codigo},
+	${fld:bar_descripcion},
+	${fld:smn_entidades_rf},
+	${fld:smn_sucursales_rf},
+	${fld:bar_vigencia_desde},
+	${fld:bar_vigencia_hasta},
+	${fld:bar_tipo},
+	${fld:smn_clase_auxiliar_rf},
+	${fld:smn_auxiliar_rf},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}',
+	${fld:bar_estatus},
+	${fld:smn_moneda_rf}
+)

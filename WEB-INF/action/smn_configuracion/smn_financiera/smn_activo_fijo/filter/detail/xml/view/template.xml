@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_activo_fijo>
+	<detail>
+		<rows>		
+		<record acf_fecha_registro="${fld:acf_fecha_registro}"    acf_proveedor_exclusivo="${fld:acf_proveedor_exclusivo}"    acf_nombre="${fld:acf_nombre}"    acf_codigo="${fld:acf_codigo}"    smn_afijo_id="${fld:smn_afijo_id}"    acf_fecha_registro="${fld:acf_fecha_registro}"    acf_proveedor_exclusivo="${fld:acf_proveedor_exclusivo}"    acf_nombre="${fld:acf_nombre}"    acf_codigo="${fld:acf_codigo}"    smn_afijo_id="${fld:smn_afijo_id}"    />
+		</rows>
+	</detail>
+</smn_activo_fijo>

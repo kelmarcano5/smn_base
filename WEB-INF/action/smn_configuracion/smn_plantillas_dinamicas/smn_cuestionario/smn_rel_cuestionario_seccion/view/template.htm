@@ -1,0 +1,44 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='33%'/>
+	<col width='33%'/>
+	<col width='33%'/>
+    <col width='3%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("cue_codigo_pl0","query-smnrelcuestionarioseccion.sql")'>${lbl:b_smn_cuestionario_id}</th>
+		<th class='sortable' onclick='sortBy("sec_codigo_pl1","query-smnrelcuestionarioseccion.sql")'>${lbl:b_smn_seccion_id}</th>
+		<th class='sortable' onclick='sortBy("rcs_secuencia","query-smnrelcuestionarioseccion.sql")'>${lbl:b_rcs_secuencia}</th>
+        <th>RE</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_rel_cuestionario_seccion_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_rel_cuestionario_seccion_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_rel_cuestionario_seccion_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:cue_codigo_pl0}-${fld:cue_descripcion}</td>
+		<td>${fld:sec_codigo_pl1}-${fld:sec_descripcion}</td>
+		<td>${fld:rcs_secuencia}</td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="relacion('${fld:smn_rel_cuestionario_seccion_id}','${fld:smn_cuestionario_id}','${fld:smn_seccion_id}')" title="${lbl:b_smn_rel_cues_secc_preg}"></td>
+
+	</tr>
+	</rows>
+
+</table>

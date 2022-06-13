@@ -1,0 +1,3 @@
+<rows>
+afc_fecha_registro="${fld:afc_fecha_registro}"    afc_parentezco="${fld:afc_parentezco}"    afc_es_titular="${fld:afc_es_titular}"    afc_modulo="${fld:afc_modulo}"    afc_afiliado="${fld:afc_afiliado}"    afc_descripcion="${fld:afc_descripcion}"    afc_codigo="${fld:afc_codigo}"    
+</rows>

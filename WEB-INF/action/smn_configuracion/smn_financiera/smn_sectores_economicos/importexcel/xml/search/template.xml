@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_sectores_economicos>
+	<detail>
+		<rows>		
+		<record sec_fecha_registro="${fld:sec_fecha_registro}"    sec_descripcion="${fld:sec_descripcion}"    sec_codigo="${fld:sec_codigo}"    />
+		</rows>
+	</detail>
+</smn_sectores_economicos>

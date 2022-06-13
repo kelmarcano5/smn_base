@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnentidades.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnentidades.sql' sheetname='${lbl:b_entities}' filename='filter_full.xls'>
+		<col id='ent_codigo' label='${lbl:b_code}' />
+		<col id='ent_comunidad' label='${lbl:b_community}' />
+		<col id='ent_corporacion' label='${lbl:b_corporation}' />
+		<col id='ent_moneda' label='${lbl:b_currency}' />
+		<col id='ent_sector_economico' label='${lbl:b_economic_sector}' />
+		<col id='ent_descripcion_corta' label='${lbl:b_short_description}' />
+		<col id='ent_descripcion_larga' label='${lbl:b_long_description}' />
+		<col id='ent_nro_id_fiscal' label='${lbl:b_tax_identification_number}' />
+		<col id='ent_direccion' label='${lbl:b_address}' />
+		<col id='ent_contacto' label='${lbl:b_contact_person}' />
+		<col id='ent_telefono_fijo' label='${lbl:b_fixed_phone}' />
+		<col id='ent_telefono_movil' label='${lbl:b_mobile_phone}' />
+		<col id='ent_email' label='${lbl:s_profile_email}' />
+		<col id='ent_act_economica' label='${lbl:b_economic_activity}' />
+		<col id='ent_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

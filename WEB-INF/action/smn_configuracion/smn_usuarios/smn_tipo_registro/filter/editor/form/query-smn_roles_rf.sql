@@ -1,0 +1,1 @@
+SELECT smn_seguridad.s_role.app_id as id, smn_seguridad.s_role.description as item FROM smn_seguridad.s_role

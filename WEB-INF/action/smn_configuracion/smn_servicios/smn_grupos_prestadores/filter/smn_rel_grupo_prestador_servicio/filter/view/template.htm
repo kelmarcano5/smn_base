@@ -1,0 +1,40 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='45%'/>
+	<col width='45%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="5" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('smn_prestadores_servicios_id','query-smnrelgrupoprestadorservicio.sql')" >${lbl:b_services_providers}</th>
+		<th class='sortable' onclick="sortBy('smn_grupos_prestadores_id','query-smnrelgrupoprestadorservicio.sql')" >${lbl:b_group_of_provider}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_rel_grupo_prestador_servicio_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_rel_grupo_prestador_servicio_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_rel_grupo_prestador_servicio_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="center">${fld:smn_prestadores_servicios_id}</td>
+		<td align="center">${fld:smn_grupos_prestadores_id}</td>
+
+	</tr>
+	</rows>
+
+</table>

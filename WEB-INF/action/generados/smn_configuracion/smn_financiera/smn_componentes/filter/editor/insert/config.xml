@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Insertar registro 
+	</summary>
+
+	<log>false</log>
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>cmp_codigo</colname>
+			<colname>cmp_descripcion</colname>
+			<colname>cmp_area_servicio</colname>
+			<colname>cmp_unidad_servicio</colname>
+			<colname>cmp_vigencia_desde</colname>
+			<colname>cmp_vigencia_hasta</colname>
+			<colname>cmp_visible</colname>
+			<colname>cmp_req_grupo_prestador</colname>
+			<colname>cmp_grupo_prestador</colname>
+			<colname>cmp_req_honorario</colname>
+			<colname>cmp_tiempo_estimado</colname>
+			<colname>cmp_clase_auxiliar</colname>
+			<colname>cmp_tipo</colname>
+			<colname>cmp_almacen</colname>
+			<colname>cmp_calculo</colname>
+			<colname>cmp_cantidad</colname>
+			<colname>cmp_precio</colname>
+			<colname>cmp_porcentaje</colname>
+			<colname>cmp_trans_general</colname>
+		
+		</cols>
+		<table>smn_base.smn_componentes</table>
+		<oper>AÑADIR</oper>
+		<area>Carga de datos</area>
+		<!--
+			query para obtener el ID generado o nombre de 
+			la columna que contiene el pkey, si es query, 
+			el alias del campo debe ser "id"
+		-->
+		<pkey>select ${seq:currval@smn_base.seq_smn_componentes} as id</pkey>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="nextval.sql" source="sql" scope="transaction" />
+	</transaction>
+
+	<query>insert.sql</query>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript</content-type>
+		<expiration>0</expiration>
+		<print mode="form" recordset="_request" />
+		<print mode="form" recordset="nextval.sql" />
+	</output>
+	
+	<!-- Envio de email declarativo -->
+	<mail enabled="false">
+		<subject>Subject</subject>
+		<mail-to>martin.cordova@gmail.com</mail-to>
+		<body>body.txt</body>
+	</mail>
+
+</config>

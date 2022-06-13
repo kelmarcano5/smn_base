@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliardatoslaborales.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_auxiliary_labor_data}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_auxiliary_labor_data}">
+				<col id='smn_clase_auxiliar_rf' label='${lbl:b_auxiliary_class}' />
+		<col id='smn_auxiliar_rf' label='${lbl:b_auxiliary}' />
+		<col id='adl_nombre_compania' label='${lbl:b_company_name}' />
+		<col id='adl_rif' label='${lbl:b_rif}' />
+		<col id='adl_departamento' label='${lbl:b_departament}' />
+		<col id='adl_cargo' label='${lbl:b_job_title}' />
+		<col id='smn_paises_rf' label='${lbl:b_country}' />
+		<col id='smn_entidades_federales_rf' label='${lbl:b_federal_entity}' />
+		<col id='smn_ciudades_rf' label='${lbl:b_cities}' />
+		<col id='adl_direccion' label='${lbl:b_addresses}' />
+		<col id='adl_telefono_oficina' label='${lbl:b_office_phone}' />
+		<col id='adl_email' label='${lbl:s_profile_email}' />
+		<col id='adl_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

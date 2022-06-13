@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_federal_entities}</summary>
+	<filter>
+		<row field='efe_paises' id='efe_paises' label='${lbl:b_country}@{select smn_base.smn_paises.smn_paises_id as id, smn_base.smn_paises.pai_codigo || ' - ' || smn_base.smn_paises.pai_nombre_largo as item from smn_base.smn_paises order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_entidades_federales' len='10'/>
+		<row field='efe_codigo' id='efe_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_entidades_federales' len='16'/>
+		<row field='efe_nombre_largo' id='efe_nombre_largo' label='${lbl:b_long_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_entidades_federales' len='48'/>
+		<row field='efe_fecha_registro' id='efe_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_entidades_federales' len='10'/>
+		<row field='efe_fecha_registro' id='efe_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_entidades_federales' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='efe_paises' label='${lbl:b_country}@{select smn_base.smn_paises.smn_paises_id as id, smn_base.smn_paises.pai_codigo || ' - ' || smn_base.smn_paises.pai_nombre_largo as item from smn_base.smn_paises order by 2}' fk='' tableName='smn_entidades_federales' len='10' type='integer' align='left'/>
+		<row field='efe_codigo' label='${lbl:b_code}' fk='' tableName='smn_entidades_federales' len='16' type='varchar' align='left'/>
+		<row field='efe_nombre_corto' label='${lbl:b_short_name}' fk='' tableName='smn_entidades_federales' len='24' type='varchar' align='left'/>
+		<row field='efe_nombre_largo' label='${lbl:b_long_name}' fk='' tableName='smn_entidades_federales' len='48' type='varchar' align='left'/>
+		<row field='efe_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_entidades_federales' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

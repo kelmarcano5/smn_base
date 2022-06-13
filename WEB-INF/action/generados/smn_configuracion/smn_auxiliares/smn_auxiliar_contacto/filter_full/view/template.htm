@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('acn_telefono_fijo','query-smnauxiliarcontacto.sql')" >${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick="sortBy('acn_telefono_movil','query-smnauxiliarcontacto.sql')" >${lbl:b_mobile_phone}</th>
+		<th class='sortable' onclick="sortBy('acn_email','query-smnauxiliarcontacto.sql')" >${lbl:s_profile_email}</th>
+		<th class='sortable' onclick="sortBy('acn_facebook','query-smnauxiliarcontacto.sql')" >${lbl:b_facebook}</th>
+		<th class='sortable' onclick="sortBy('acn_linkedin','query-smnauxiliarcontacto.sql')" >${lbl:b_linkedin}</th>
+		<th class='sortable' onclick="sortBy('acn_twitter','query-smnauxiliarcontacto.sql')" >${lbl:b_twitter}</th>
+		<th class='sortable' onclick="sortBy('acn_swift','query-smnauxiliarcontacto.sql')" >${lbl:b_swift_code}</th>
+		<th class='sortable' onclick="sortBy('acn_fecha_registro','query-smnauxiliarcontacto.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:acn_telefono_fijo}</td>
+		<td align="left">${fld:acn_telefono_movil}</td>
+		<td align="left">${fld:acn_email}</td>
+		<td align="left">${fld:acn_facebook}</td>
+		<td align="left">${fld:acn_linkedin}</td>
+		<td align="left">${fld:acn_twitter}</td>
+		<td align="left">${fld:acn_swift}</td>
+		<td align="center">${fld:acn_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

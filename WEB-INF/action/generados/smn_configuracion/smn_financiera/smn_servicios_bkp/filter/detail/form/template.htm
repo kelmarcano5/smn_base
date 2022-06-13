@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_services}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:svc_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:svc_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_auxiliary_class}</td>
+			<td style="background-color: white">${fld:svc_clase_auxiliar}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service_type}</td>
+			<td style="background-color: white">${fld:svc_tipo_servicio}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service_area}</td>
+			<td style="background-color: white">${fld:svc_area_servicio}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service_unit}</td>
+			<td style="background-color: white">${fld:svc_unidad_servicio}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_cost_centers}</td>
+			<td style="background-color: white">${fld:svc_centro_costo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_general_price}</td>
+			<td style="background-color: white">${fld:svc_precio_general@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_inactive}</td>
+			<td style="background-color: white">${fld:svc_inactivo_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">Requiere Honorario</td>
+			<td style="background-color: white">${fld:svc_req_honorario_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_validation_date_from}</td>
+			<td style="background-color: white">${fld:svc_vigencia_desde@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_validation_date_to}</td>
+			<td style="background-color: white">${fld:svc_vigencia_hasta@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_requirements}</td>
+			<td style="background-color: white">${fld:svc_requisitos}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_general_transaction}</td>
+			<td style="background-color: white">${fld:svc_trans_general}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_id_compound}</td>
+			<td style="background-color: white">${fld:svc_compuesto}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:svc_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+<rows>
+naa_fecha_registro="${fld:naa_fecha_registro}"    naa_nombre="${fld:naa_nombre}"    naa_codigo="${fld:naa_codigo}"    
+</rows>

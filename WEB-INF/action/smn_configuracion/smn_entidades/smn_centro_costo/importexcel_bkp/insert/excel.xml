@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cco_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='cco_descripcion_corta' type='varchar' required='true' maxlen='24'/>
+	<parameter id='cco_descripcion_larga' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cco_empresa_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cco_sucursal_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='cco_area_servicio_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='cco_unidad_servicio_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='cco_almacen_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='cco_nivel_desc' type='varchar' required='true' maxlen='48'/>
+
+	<parameter id='cco_nivel_ref' type='varchar' required='false' maxlen='2'/>
+	<parameter id='cco_empresa_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='cco_sucursal_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='cco_area_servicio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='cco_unidad_servicio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='cco_almacen_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cco_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='cco_descripcion_corta'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='cco_descripcion_larga'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cco_nivel' 
+		parameter='cco_nivel_ref' 
+		sql='cco_nivel.sql' 
+		id='cco_nivel_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cco_empresa' 
+		parameter='cco_empresa_ref' 
+		sql='cco_empresa.sql' 
+		id='cco_empresa_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cco_sucursal' 
+		parameter='cco_sucursal_ref' 
+		sql='cco_sucursal.sql' 
+		id='cco_sucursal_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cco_area_servicio' 
+		parameter='cco_area_servicio_ref' 
+		sql='cco_area_servicio.sql' 
+		id='cco_area_servicio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cco_unidad_servicio' 
+		parameter='cco_unidad_servicio_ref' 
+		sql='cco_unidad_servicio.sql' 
+		id='cco_unidad_servicio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cco_almacen' 
+		parameter='cco_almacen_ref' 
+		sql='cco_almacen.sql' 
+		id='cco_almacen_ref'/>
+
+</validator>

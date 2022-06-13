@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='mar_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='mar_codigo' rule='like' />
+	<parameter id='mar_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='mar_descripcion' rule='like' />
+	<parameter id='mar_fecha_registro_ini' type='varchar' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.IntegerRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' value1='mar_fecha_registro_ini' value2='mar_fecha_registro_fin' id='mar_fecha_registro_ini' />
+	<parameter id='mar_fecha_registro_fin' type='varchar' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

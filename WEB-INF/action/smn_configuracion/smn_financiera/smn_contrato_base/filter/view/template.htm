@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='11%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('ctr_codigo','query-smncontratobase.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('ctr_nombre','query-smncontratobase.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('trg_descripcion','query-smncontratobase.sql')" >${lbl:b_transaction}</th>
+		<th class='sortable' onclick="sortBy('ctr_tipo','query-smncontratobase.sql')" >${lbl:b_type}</th>
+		<th class='sortable' onclick="sortBy('crp_direccion','query-smncontratobase.sql')" >${lbl:b_corporation}</th>
+		<th class='sortable' onclick="sortBy('ctr_fecha_vencimiento','query-smncontratobase.sql')" >${lbl:b_date_expired}</th>
+		<th class='sortable' onclick="sortBy('ctr_fecha_registro','query-smncontratobase.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_contrato_base_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_contrato_base_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_contrato_base_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:ctr_codigo}</td>
+		<td align="left">${fld:ctr_nombre}</td>
+		<td align="center">${fld:trg_descripcion}</td>
+		<td align="center">${fld:ctr_tipo}</td>
+		<td align="center">${fld:crp_direccion}</td>
+		<td align="center">${fld:ctr_fecha_vencimiento@dd-MM-yyyy}</td>
+		<td align="center">${fld:ctr_fecha_registro}</td>
+
+	</tr>
+	</rows>
+
+</table>

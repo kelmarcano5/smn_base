@@ -1,0 +1,42 @@
+INSERT INTO smn_base.smn_prestadores_servicios
+(
+	smn_prestadores_servicios_id,
+	prs_codigo,
+	prs_descripcion,
+	prs_area_servicio,
+	prs_unidad_servicio,
+	prs_clase_auxiliar,
+	prs_auxiliar,
+	prs_orden_atencion,
+	prs_estatus,
+	prs_fecha_inicio_estatus,
+	prs_fecha_final_estatus,
+	prs_frecuencia,
+	smn_tipo_prestadores_servicios_rf,
+	prs_idioma,
+	prs_usuario,
+	prs_fecha_registro,
+	prs_hora,
+	prs_nivel_seguridad
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_prestadores_servicios},
+	${fld:prs_codigo},
+	${fld:prs_descripcion},
+	${fld:prs_area_servicio},
+	${fld:prs_unidad_servicio},
+	${fld:prs_clase_auxiliar},
+	${fld:prs_auxiliar},
+	${fld:prs_orden_atencion},
+	${fld:prs_estatus},
+	${fld:prs_fecha_inicio_estatus},
+	${fld:prs_fecha_final_estatus},
+	${fld:prs_frecuencia},
+	${fld:smn_tipo_prestadores_servicios_rf},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}',
+	${fld:prs_nivel_seguridad}
+)

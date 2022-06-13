@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Leer registro de recordset en sesion y retornar javascript que llena
+		un formulario con los datos del registro
+	</summary>
+
+	<log>false</log>
+
+	<!--configuracion del model RAMCrudOps-->
+	<mode>edit</mode>
+	<recordsetId>detail-smn_auxiliar_medico.sql</recordsetId>
+
+	<transaction>
+		<classname>dinamica.CachedTable</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="detail-smn_auxiliar_medico.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript; charset=iso-8859-1</content-type>
+		<expiration>0</expiration>
+		<print mode="form" recordset="detail-smn_auxiliar_medico.sql" />
+		<print mode="form" recordset="_request" />
+	</output>
+
+</config>

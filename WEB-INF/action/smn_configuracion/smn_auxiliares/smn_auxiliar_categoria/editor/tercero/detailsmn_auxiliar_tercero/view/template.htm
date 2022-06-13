@@ -1,0 +1,48 @@
+<!--data grid-->
+<table class="datagrid" style="width:850px;">
+
+	<col width="3%"/>
+	<col width="3%"/>
+	<col width='10%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='10%'/>
+	<col width='15%'/>
+	<col width='14%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9" style="font-size: 10pt; font-weight: bold;">
+			Registros cargados en ${lbl:b_intermediary_assistant}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th colspan="2"></th>
+		<th style="text-align:center">${lbl:b_code}</th>
+		<th style="text-align:center">${lbl:b_description}</th>
+		<th style="text-align:center">${lbl:b_business_name}</th>
+		<th style="text-align:center">${lbl:b_designation_commercial}</th>
+		<th style="text-align:center">${lbl:b_tax_id}</th>
+		<th style="text-align:center">${lbl:b_business_address}</th>
+		<th style="text-align:center">${lbl:b_contact_person}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/delete.png" onclick="detailDelete(${fld:_rowIndex},'detailsmn_auxiliar_tercero','2')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png" onclick="detailEdit(${fld:_rowIndex},'detailsmn_auxiliar_tercero','2')" title="Editar"></td>
+		<td align="left">${fld:atr_codigo2}</td>
+		<td align="left">${fld:atr_descripcion2}</td>
+		<td align="left">${fld:atr_razon_social2}</td>
+		<td align="left">${fld:atr_denom_comercial2}</td>
+		<td align="left">${fld:atr_rif2}</td>
+		<td align="left">${fld:atr_direccion2_name}</td>
+		<td align="left">${fld:atr_persona_contacto2}</td>
+	</tr>
+	</rows>
+
+</table>

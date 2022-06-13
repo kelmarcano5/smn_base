@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_plantilla_cabecera_id' type='integer' required='false' label='${lbl:b_header_stencil}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='smn_plantilla_cabecera_id' rule='like' />
+	<parameter id='smn_seccion_rf' type='integer' required='false' label='${lbl:b_section}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='smn_seccion_rf' rule='like' />
+	<parameter id='pde_sec_seccion' type='integer' required='false' label='${lbl:b_sec_section}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='pde_sec_seccion' rule='like' />
+	<parameter id='smn_pregunta_rf' type='integer' required='false' label='${lbl:b_question}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='smn_pregunta_rf' rule='like' />
+	<parameter id='pde_sec_pregunta' type='integer' required='false' label='${lbl:b_sec_question}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='pde_sec_pregunta' rule='like' />
+	<parameter id='pde_status' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='pde_status' rule='like' />
+	<parameter id='pde_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date}@{${def:date}} mayor o igual que] no puede ser mayor que [${lbl:b_store_date}@{${def:date}} menor o igual que].' date1='pde_fecha_registro_ini' date2='pde_fecha_registro_fin' id='pde_fecha_registro_ini' />
+	<parameter id='pde_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

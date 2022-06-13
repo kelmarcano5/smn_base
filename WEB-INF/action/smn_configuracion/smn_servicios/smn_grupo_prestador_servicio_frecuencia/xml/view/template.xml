@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_grupo_prestador_servicio_frecuencia>
+	<detail>
+		<rows>		
+		<record gps_fecha_registro="${fld:gps_fecha_registro}"    gps_frecuencia="${fld:gps_frecuencia}"    smn_servicios_id="${fld:smn_servicios_id}"    smn_prestadores_servicios_id="${fld:smn_prestadores_servicios_id}"    smn_grupos_prestadores_id="${fld:smn_grupos_prestadores_id}"    />
+		</rows>
+	</detail>
+</smn_grupo_prestador_servicio_frecuencia>

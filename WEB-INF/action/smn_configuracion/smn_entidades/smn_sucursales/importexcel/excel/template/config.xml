@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnsucursales-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smndireccion.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnentidades.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnunidadesnegocios.sql' source='sql' scope='transaction' />
+		<recordset id='query-manejaareaservicio.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_entidades.smn_sucursales.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_subsidiaries}.xls'  
+		header-background='true' >
+		
+	<sheet recordset="query-smnsucursales-template.sql" sheetname="${lbl:b_subsidiaries}">
+			
+		<col id='suc_empresa' label='${lbl:b_entity}' />
+		<col id='suc_codigo' label='${lbl:b_code}' />
+		<col id='suc_nombre' label='${lbl:b_name}' />
+		<col id='suc_unidad_negocio' label='${lbl:b_business_unit}' />
+		<col id='suc_maneja_area_servicio' label='${lbl:b_has_service_area}' />
+		<col id='suc_responsable' label='${lbl:b_responsible}' />
+		<col id='suc_direccion' label='${lbl:b_address}' />
+		<col id='suc_telefono_fijo' label='${lbl:b_fixed_phone}' />
+		<col id='suc_telefono_movil' label='${lbl:b_mobile_phone}' />
+		<col id='suc_email' label='${lbl:s_profile_email}' />
+		
+		<col id='suc_empresa_reference' label='${lbl:b_entity}' />
+		<col id='suc_unidad_negocio_reference' label='${lbl:b_business_unit}' />
+		<col id='suc_maneja_area_servicio_reference' label='${lbl:b_has_service_area}' />
+		<col id='suc_direccion_reference' label='${lbl:b_address}' />
+
+	</sheet>
+	
+	<sheet recordset='query-manejaareaservicio.sql' sheetname='${lbl:b_has_service_area}'>
+		<col id='maneja_area_servicio' label='${lbl:b_description}' />
+	</sheet>
+	
+	<sheet recordset='query-smndireccion.sql' sheetname='${lbl:b_address}'>
+		<col id='dir_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnentidades.sql' sheetname='${lbl:b_entity}'>
+		<col id='ent_descripcion_corta' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnunidadesnegocios.sql' sheetname='${lbl:b_business_unit}'>
+		<col id='uen_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	</excel>
+
+</config>

@@ -1,0 +1,51 @@
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('cla_codigo','query-smnclaseauxiliar.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('cla_nombre','query-smnclaseauxiliar.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('mod_nombre','query-smnclaseauxiliar.sql')" >${lbl:b_module}</th>
+		<th class='sortable' onclick="sortBy('naa_nombre','query-smnclaseauxiliar.sql')" >${lbl:b_nature}</th>
+		<th class='sortable' onclick="sortBy('cla_fecha_registro','query-smnclaseauxiliar.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_clase_auxiliar_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_clase_auxiliar_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_clase_auxiliar_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:cla_codigo}</td>
+		<td align="left">${fld:cla_nombre}</td>
+		<td align="left">${fld:mod_nombre}</td>
+		<td align="left">${fld:naa_nombre}</td>
+		<td align="center">${fld:cla_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

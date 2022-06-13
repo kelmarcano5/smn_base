@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_configuracion_estructura>
+	<detail>
+		<rows>
+			<record coe_fecha_registro="${fld:coe_fecha_registro}"	coe_niveles="${fld:coe_niveles}"	coe_codigo="${fld:coe_codigo}"	coe_nombre="${fld:coe_nombre}"	coe_separador="${fld:coe_separador}"	coe_mascara="${fld:coe_mascara}"	/>
+		</rows>
+	</detail>
+</smn_configuracion_estructura>

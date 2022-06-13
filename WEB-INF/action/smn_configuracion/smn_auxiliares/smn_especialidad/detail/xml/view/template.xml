@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_especialidad>
+	<detail>
+		<rows>		
+		<record esp_fecha_registro="${fld:esp_fecha_registro}"    esp_descripcion="${fld:esp_descripcion}"    esp_codigo="${fld:esp_codigo}"    smn_prestadores_servicios_id="${fld:smn_prestadores_servicios_id}"    />
+		</rows>
+	</detail>
+</smn_especialidad>

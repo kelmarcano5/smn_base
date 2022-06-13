@@ -1,0 +1,390 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_auxiliary}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:aca_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:aca_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_auxiliary_class}</td>
+			<td style="background-color: white">${fld:aca_clase_auxiliar}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_kind_of_person}</td>
+			<td style="background-color: white">${fld:aca_tipo_persona_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:aca_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+<!--data grid-->
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="3" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_bank_assistant}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th width="33%">${lbl:b_code}</th>
+		<th width="33%">${lbl:b_description}</th>
+		<th width="33%">${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnauxiliarbanco>
+	<tr>
+		<td align="left">${fld:aab_codigo}</td>
+		<td align="left">${fld:aab_descripcion}</td>
+		<td align="left">${fld:aab_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnauxiliarbanco>
+
+</table>
+
+
+<!--data grid-->
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="5" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_accounting_assistant}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th width="20%">${lbl:b_code}</th>
+		<th width="20%">${lbl:b_description}</th>
+		<th width="20%">${lbl:b_official_document_type}</th>
+		<th width="20%">${lbl:b_official_document_number}</th>
+		<th width="20%">${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnauxiliarcontable>
+	<tr>
+		<td align="left">${fld:aac_codigo}</td>
+		<td align="left">${fld:aac_descripcion}</td>
+		<td align="left">${fld:aac_tipo_doc_oficial}</td>
+		<td align="left">${fld:aac_num_doc_oficial}</td>
+		<td align="left">${fld:aac_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnauxiliarcontable>
+
+</table>
+
+
+<!--data grid-->
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="29" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_medical_assistant}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th width="3%">${lbl:b_code}</th>
+		<th width="3%">${lbl:b_description}</th>
+		<th width="3%">${lbl:s_profile_fname}</th>
+		<th width="3%">${lbl:s_profile_lname}</th>
+		<th width="3%">${lbl:b_short_description}</th>
+		<th width="3%">${lbl:b_official_document_type}</th>
+		<th width="3%">${lbl:b_official_document_number}</th>
+		<th width="3%">${lbl:b_birth_date}</th>
+		<th width="3%">${lbl:b_birth_place}</th>
+		<th width="3%">${lbl:b_tax_id}</th>
+		<th width="3%">${lbl:b_citizenship}</th>
+		<th width="3%">${lbl:b_nationalized}</th>
+		<th width="3%">${lbl:b_sex}</th>
+		<th width="3%">${lbl:b_civil_status}</th>
+		<th width="3%">${lbl:b_business_address}</th>
+		<th width="3%">${lbl:b_auxiliary_bank_account}</th>
+		<th width="3%">${lbl:b_auxiliary_contact}</th>
+		<th width="3%">${lbl:b_nationalization_gazette}</th>
+		<th width="3%">${lbl:b_date_of_naturalization}</th>
+		<th width="3%">${lbl:b_financial_condition}</th>
+		<th width="3%">${lbl:b_contact_person}</th>
+		<th width="3%">${lbl:b_number_health_ministry}</th>
+		<th width="3%">${lbl:b_number_medical_school}</th>
+		<th width="3%">${lbl:b_abc_clasification}</th>
+		<th width="3%">${lbl:b_legal_representative}</th>
+		<th width="3%">${lbl:b_beneficiary_payments}</th>
+		<th width="3%">${lbl:b_condition_payments}</th>
+		<th width="3%">${lbl:b_observation}</th>
+		<th width="3%">${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnauxiliarmedico>
+	<tr>
+		<td align="left">${fld:aam_codigo}</td>
+		<td align="left">${fld:aam_descripcion}</td>
+		<td align="left">${fld:aam_nombres}</td>
+		<td align="left">${fld:aam_apellidos}</td>
+		<td align="left">${fld:aam_nombre_corto}</td>
+		<td align="left">${fld:aam_tipo_doc_oficial}</td>
+		<td align="left">${fld:aam_num_doc_oficial}</td>
+		<td align="left">${fld:aam_fecha_nac@dd-MM-yyyy}</td>
+		<td align="left">${fld:aam_lugar_nac}</td>
+		<td align="left">${fld:aam_rif}</td>
+		<td align="left">${fld:aam_nacionalidad}</td>
+		<td>${fld:aam_nacionalizado_combo}</td>
+		<td>${fld:aam_sexo_combo}</td>
+		<td>${fld:aam_estado_civil_combo}</td>
+		<td align="left">${fld:aam_direccion}</td>
+		<td align="left">${fld:aam_cuenta_bancaria}</td>
+		<td align="left">${fld:aam_contactos}</td>
+		<td align="left">${fld:aam_num_gaceta}</td>
+		<td align="left">${fld:aam_fecha_gaceta_nac@dd-MM-yyyy}</td>
+		<td align="left">${fld:aam_condicion_financiera}</td>
+		<td align="left">${fld:aam_persona_contacto}</td>
+		<td align="left">${fld:aam_num_minist_salud}</td>
+		<td align="left">${fld:aam_num_coleg_medicos}</td>
+		<td>${fld:aam_clasif_abc_combo}</td>
+		<td align="left">${fld:aam_representante_legal}</td>
+		<td align="left">${fld:aam_benef_pago}</td>
+		<td align="left">${fld:aam_cond_pago}</td>
+		<td align="left">${fld:aam_observacion}</td>
+		<td align="left">${fld:aam_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnauxiliarmedico>
+
+</table>
+
+
+<!--data grid-->
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="16" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_assistant_service_provider}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th width="6%">${lbl:b_code}</th>
+		<th width="6%">${lbl:b_description}</th>
+		<th width="6%">${lbl:b_beneficiary}</th>
+		<th width="6%">${lbl:b_official_document_type}</th>
+		<th width="6%">${lbl:b_official_document_number}</th>
+		<th width="6%">${lbl:b_abc_clasification}</th>
+		<th width="6%">${lbl:b_tax_id}</th>
+		<th width="6%">${lbl:b_business_address}</th>
+		<th width="6%">${lbl:b_auxiliary_bank_account}</th>
+		<th width="6%">${lbl:b_auxiliary_contact}</th>
+		<th width="6%">${lbl:b_contact_person}</th>
+		<th width="6%">${lbl:b_legal_representative}</th>
+		<th width="6%">${lbl:b_beneficiary_payments}</th>
+		<th width="6%">${lbl:b_condition_payments}</th>
+		<th width="6%">${lbl:b_observation}</th>
+		<th width="6%">${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnauxiliarprestadorservicio>
+	<tr>
+		<td align="left">${fld:aps_codigo}</td>
+		<td align="left">${fld:aps_descripcion}</td>
+		<td align="left">${fld:aps_beneficiario}</td>
+		<td align="left">${fld:aps_tipo_doc_oficial}</td>
+		<td align="left">${fld:aps_num_doc_oficial}</td>
+		<td>${fld:aps_clasif_abc_combo}</td>
+		<td align="left">${fld:aps_rif}</td>
+		<td align="left">${fld:aps_direccion}</td>
+		<td align="left">${fld:aps_cuenta_bancaria}</td>
+		<td align="left">${fld:aps_contactos}</td>
+		<td align="left">${fld:aps_persona_contacto}</td>
+		<td align="left">${fld:aps_representante_legal}</td>
+		<td align="left">${fld:aps_benef_pago}</td>
+		<td align="left">${fld:aps_cond_pago}</td>
+		<td align="left">${fld:aps_observacion}</td>
+		<td align="left">${fld:aps_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnauxiliarprestadorservicio>
+
+</table>
+
+
+<!--data grid-->
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="20" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_intermediary_assistant}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th width="5%">${lbl:b_code}</th>
+		<th width="5%">${lbl:b_description}</th>
+		<th width="5%">${lbl:b_business_name}</th>
+		<th width="5%">${lbl:b_designation_commercial}</th>
+		<th width="5%">${lbl:b_beneficiary}</th>
+		<th width="5%">${lbl:b_official_document_type}</th>
+		<th width="5%">${lbl:b_official_document_number}</th>
+		<th width="5%">${lbl:b_abc_clasification}</th>
+		<th width="5%">${lbl:b_tax_id}</th>
+		<th width="5%">${lbl:b_business_address}</th>
+		<th width="5%">${lbl:b_auxiliary_bank_account}</th>
+		<th width="5%">${lbl:b_auxiliary_contact}</th>
+		<th width="5%">${lbl:b_contact_person}</th>
+		<th width="5%">${lbl:b_legal_representative}</th>
+		<th width="5%">${lbl:b_beneficiary_payments}</th>
+		<th width="5%">${lbl:b_condition_payments}</th>
+		<th width="5%">${lbl:b_billing_type}</th>
+		<th width="5%">${lbl:b_financial_condition}</th>
+		<th width="5%">${lbl:b_observation}</th>
+		<th width="5%">${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnauxiliartercero>
+	<tr>
+		<td align="left">${fld:atr_codigo}</td>
+		<td align="left">${fld:atr_descripcion}</td>
+		<td align="left">${fld:atr_razon_social}</td>
+		<td align="left">${fld:atr_denom_comercial}</td>
+		<td align="left">${fld:atr_beneficiario}</td>
+		<td align="left">${fld:atr_tipo_doc_oficial}</td>
+		<td align="left">${fld:atr_num_doc_oficial}</td>
+		<td>${fld:atr_clasif_abc_combo}</td>
+		<td align="left">${fld:atr_rif}</td>
+		<td align="left">${fld:atr_direccion}</td>
+		<td align="left">${fld:atr_cuenta_bancaria}</td>
+		<td align="left">${fld:atr_contactos}</td>
+		<td align="left">${fld:atr_persona_contacto}</td>
+		<td align="left">${fld:atr_representante_legal}</td>
+		<td align="left">${fld:atr_benef_pago}</td>
+		<td align="left">${fld:atr_cond_pago}</td>
+		<td>${fld:atr_tipo_facturac_combo}</td>
+		<td align="left">${fld:atr_condicion_financiera}</td>
+		<td align="left">${fld:atr_observacion}</td>
+		<td align="left">${fld:atr_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnauxiliartercero>
+
+</table>
+
+
+<!--data grid-->
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="23" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_person_assistant}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th width="4%">${lbl:b_code}</th>
+		<th width="4%">${lbl:b_description}</th>
+		<th width="4%">${lbl:s_profile_fname}</th>
+		<th width="4%">${lbl:s_profile_lname}</th>
+		<th width="4%">${lbl:b_short_description}</th>
+		<th width="4%">${lbl:b_official_document_type}</th>
+		<th width="4%">${lbl:b_official_document_number}</th>
+		<th width="4%">${lbl:b_birth_date}</th>
+		<th width="4%">${lbl:b_birth_place}</th>
+		<th width="4%">${lbl:b_tax_id}</th>
+		<th width="4%">${lbl:b_citizenship}</th>
+		<th width="4%">${lbl:b_nationalized}</th>
+		<th width="4%">${lbl:b_sex}</th>
+		<th width="4%">${lbl:b_civil_status}</th>
+		<th width="4%">${lbl:b_business_address}</th>
+		<th width="4%">${lbl:b_auxiliary_bank_account}</th>
+		<th width="4%">${lbl:b_auxiliary_contact}</th>
+		<th width="4%">${lbl:b_nationalization_gazette}</th>
+		<th width="4%">${lbl:b_date_of_naturalization}</th>
+		<th width="4%">${lbl:b_financial_condition}</th>
+		<th width="4%">${lbl:b_contact_person}</th>
+		<th width="4%">${lbl:b_observation}</th>
+		<th width="4%">${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnauxiliarpersonanatural>
+	<tr>
+		<td align="left">${fld:ant_codigo}</td>
+		<td align="left">${fld:ant_descripcion}</td>
+		<td align="left">${fld:ant_nombres}</td>
+		<td align="left">${fld:ant_apellidos}</td>
+		<td align="left">${fld:ant_nombre_corto}</td>
+		<td align="left">${fld:ant_tipo_doc_oficial}</td>
+		<td align="left">${fld:ant_num_doc_oficial}</td>
+		<td align="left">${fld:ant_fecha_nac@dd-MM-yyyy}</td>
+		<td align="left">${fld:ant_lugar_nac}</td>
+		<td align="left">${fld:ant_rif}</td>
+		<td align="left">${fld:ant_nacionalidad}</td>
+		<td>${fld:ant_nacionalizado_combo}</td>
+		<td>${fld:ant_sexo_combo}</td>
+		<td>${fld:ant_estado_civil_combo}</td>
+		<td align="left">${fld:ant_direccion}</td>
+		<td align="left">${fld:ant_cuenta_bancaria}</td>
+		<td align="left">${fld:ant_contactos}</td>
+		<td align="left">${fld:ant_num_gaceta}</td>
+		<td align="left">${fld:ant_fecha_gaceta_nac@dd-MM-yyyy}</td>
+		<td align="left">${fld:ant_condicion_financiera}</td>
+		<td align="left">${fld:ant_persona_contacto}</td>
+		<td align="left">${fld:ant_observacion}</td>
+		<td align="left">${fld:ant_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnauxiliarpersonanatural>
+
+</table>
+
+
+
+
+</body>
+
+</html>

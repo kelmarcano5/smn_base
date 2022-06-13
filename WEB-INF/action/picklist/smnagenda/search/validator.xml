@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/crud'>
+	<parameter id='age_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='age_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='age_dia_semana' type='varchar' required='false' label='${lbl:b_weekday}' maxlen='2'/>
+	<parameter id='age_hora_desde' type='varchar' required='false' label='${lbl:b_time_since}' maxlen='5'/>
+	<parameter id='age_jornada_desde' type='varchar' required='false' label='${lbl:b_working_day}' maxlen='2'/>
+	<parameter id='age_hora_hasta' type='varchar' required='false' label='${lbl:b_time_until}' maxlen='5'/>
+	<parameter id='age_jornada_hasta' type='varchar' required='false' label='${lbl:b_working_day}' maxlen='2'/>
+	<parameter id='age_localidad' type='varchar' required='false' label='${lbl:b_location}' maxlen='56'/>
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="age_codigo" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="age_descripcion" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="age_dia_semana" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="age_hora_desde" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="age_jornada_desde" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="age_hora_hasta" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="age_jornada_hasta" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="age_localidad" rule="contains" />
+</validator>

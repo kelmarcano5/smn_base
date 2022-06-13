@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='mon_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='mon_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='reference' type='varchar' required='false' label='Reference' maxlen='5' /> 
+	
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='mon_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='mon_nombre'/>
+
+	<parameter id='mon_simbolo' type='varchar' required='true' label='Simbolo' maxlen='48'/>
+
+</validator>

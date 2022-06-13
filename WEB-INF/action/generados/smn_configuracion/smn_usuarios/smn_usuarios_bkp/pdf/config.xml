@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnusuarios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_users}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smnusuarios.sql' width='100' spacingBefore='40'>
+			<col name='ent_codigo_pl0' title='${lbl:b_entity}' width='8' align='left' />
+			<col name='usr_usuario_id' title='${lbl:b_user}' width='8' align='center' format='######' />
+			<col name='usr_nombres' title='${lbl:s_profile_fname}' width='8' align='left' />
+			<col name='usr_apellidos' title='${lbl:s_profile_lname}' width='8' align='left' />
+			<col name='usr_nacionalidad' title='${lbl:b_citizenship}' width='8' align='center' format='######' />
+			<col name='usr_nro_doc_identidad' title='${lbl:b_identification_doc_number}' width='8' align='left' />
+			<col name='usr_nro_id_fiscal' title='${lbl:b_tax_identification_number}' width='8' align='left' />
+			<col name='usr_direccion' title='${lbl:b_address}' width='8' align='center' format='######' />
+			<col name='usr_email' title='${lbl:s_profile_email}' width='8' align='left' />
+			<col name='usr_telefono_fijo' title='${lbl:b_fixed_phone}' width='8' align='left' />
+			<col name='usr_telefono_movil' title='${lbl:b_mobile_phone}' width='8' align='left' />
+			<col name='usr_fecha_registro' title='${lbl:b_store_date}' width='8' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

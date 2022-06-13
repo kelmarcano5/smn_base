@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-viewchart.sql" source="session" scope="transaction" />
+		<recordset id="total" source="session" scope="transaction" />
+		<recordset id="viewchart.filter" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>ACtivos Fijos</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='viewchart.filter' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='60' spacingBefore='20'>
+			<col name='acf_fecha_registro' title='Fecha desde'  format='dd-MM-yyyy' align='center' />
+			<col name='acf_fecha_registro2' title='Fechahasta'  format='dd-MM-yyyy' align='center' />
+		</record>
+		<table recordset='query-viewchart.sql' width='70' spacingBefore='10' >
+			<col name='item' title='Item' width='60' align='center' />
+			<col name='subtotal' title='Total' format='#,###,##0.00' width='40' align='right' />
+		</table>
+		<after-table-row recordset='total'>
+				<col value='TOTAL' align='right' colspan='1'/>
+				<col name='subtotal' format='#,###,##0.00' align='right'/>
+		</after-table-row>
+		<image scale='80' sessionID='dinamica.image.chart' url='${def:actionroot}/chart'/>
+
+	</pdf-report>
+</config>

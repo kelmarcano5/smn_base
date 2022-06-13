@@ -1,0 +1,3 @@
+<rows>
+	eor_usuario="${fld:eor_usuario}"	smn_estructura_organizacional_id="${fld:smn_estructura_organizacional_id}"	smn_configuracion_estructura_id="${fld:smn_configuracion_estructura_id}"	eor_auxiliar="${fld:eor_auxiliar}"	eor_idioma="${fld:eor_idioma}"	eor_hora="${fld:eor_hora}"	eor_centro_costo="${fld:eor_centro_costo}"	eor_clase_auxiliar="${fld:eor_clase_auxiliar}"	eor_fecha_registro="${fld:eor_fecha_registro}"	eor_nombre="${fld:eor_nombre}"	eor_codigo="${fld:eor_codigo}"	
+</rows>

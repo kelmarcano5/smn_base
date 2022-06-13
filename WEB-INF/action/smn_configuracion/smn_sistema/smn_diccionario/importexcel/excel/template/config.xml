@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smndiccionario.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_dictionary}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_dictionary}">
+				<col id='dic_codigo' label='${lbl:b_code}' />
+		<col id='dic_descripcion' label='${lbl:b_description}' />
+		<col id='dic_esquema' label='${lbl:b_smn_esquema_rf}' />
+		<col id='dic_tabla' label='${lbl:b_smn_tabla_rf}' />
+		<col id='dic_campo' label='${lbl:b_smn_campo_rf}' />
+		<col id='dic_tipo_dato' label='${lbl:b_date_type}' />
+		<col id='dic_tamano' label='${lbl:b_size}' />
+		<col id='dic_posicion_inicial' label='${lbl:b_initial_position}' />
+		<col id='dic_posicion_final' label='${lbl:b_final_position}' />
+		<col id='dic_ruta' label='${lbl:b_route}' />
+		<col id='dic_observacion' label='${lbl:b_observation}' />
+		<col id='dic_estatus' label='${lbl:b_status}' />
+		<col id='dic_fecha_estatus' label='${lbl:b_status_date}' />
+		<col id='dic_codigo' label='${lbl:b_code}' />
+		<col id='dic_descripcion' label='${lbl:b_description}' />
+		<col id='dic_esquema' label='${lbl:b_smn_esquema_rf}' />
+		<col id='dic_tabla' label='${lbl:b_smn_tabla_rf}' />
+		<col id='dic_campo' label='${lbl:b_smn_campo_rf}' />
+		<col id='dic_tipo_dato' label='${lbl:b_date_type}' />
+		<col id='dic_tamano' label='${lbl:b_size}' />
+		<col id='dic_posicion_inicial' label='${lbl:b_initial_position}' />
+		<col id='dic_posicion_final' label='${lbl:b_final_position}' />
+		<col id='dic_ruta' label='${lbl:b_route}' />
+		<col id='dic_observacion' label='${lbl:b_observation}' />
+		<col id='dic_estatus' label='${lbl:b_status}' />
+		<col id='dic_fecha_estatus' label='${lbl:b_status_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

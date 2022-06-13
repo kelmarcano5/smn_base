@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Ejecutar consulta y enrutar dependiendo de que un recordset
+		tenga o no registros
+	</summary>
+
+	<log>false</log>
+
+	<!--configura el control de paginacion-->
+	<set-request-attribute id="paging.recordset" value="query-smndiccionario.sql" />
+	<set-request-attribute id="paging.pagesize" value="10" />
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>dic_codigo</colname>
+			<colname>dic_descripcion</colname>
+			<colname>dic_esquema</colname>
+			<colname>dic_tabla</colname>
+			<colname>dic_campo</colname>
+			<colname>dic_tipo_dato</colname>
+			<colname>dic_tamano</colname>
+			<colname>dic_posicion_inicial</colname>
+			<colname>dic_posicion_final</colname>
+			<colname>dic_ruta</colname>
+			<colname>dic_observacion</colname>
+			<colname>dic_estatus</colname>
+			<colname>dic_fecha_estatus</colname>
+		
+		</cols>
+		<table>smn_base.smn_diccionario</table>
+		<oper>CONSULTA</oper>
+		<area>Consulta</area>
+		<!-- 
+ 			para auditoria de consulta permite obtener la cantidad de registro obtenidos
+ 			de la busqueda (opcional)
+ 		-->
+		<recordCount recordset="query-smndiccionario.sql"/>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableSearch</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+	</transaction>
+	
+	<searchCols>dic_estatus;dic_fecha_estatus;dic_codigo;dic_descripcion;dic_esquema;dic_tabla;dic_campo;dic_tipo_dato;dic_tamano;dic_posicion_inicial;dic_posicion_final;dic_ruta;dic_observacion;</searchCols>
+
+	<on-exit return-code="0" forward-to="/action/initview" />
+	<on-exit return-code="1" forward-to="${def:actionroot}/notfound" />
+
+</config>

@@ -1,0 +1,12 @@
+${lbl:b_generate_password_part1}.
+${lbl:b_generate_password_part2}:
+
+${fld:passwd_clear}
+
+${lbl:b_generate_password_part3}
+${lbl:b_generate_password_part4}.
+
+${lbl:b_generate_password_part5},
+C.SIMONE 12015,C.A.
+
+${lbl:b_generate_password_part6}.

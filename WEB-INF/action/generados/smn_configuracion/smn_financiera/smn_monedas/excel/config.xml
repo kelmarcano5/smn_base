@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnmonedas.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnmonedas.sql' sheetname='${lbl:b_coins}' filename='smn_monedas.xls'>
+		<col id='mon_codigo' label='${lbl:b_code}' />
+		<col id='mon_nombre' label='${lbl:b_name}' />
+		<col id='mon_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

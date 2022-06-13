@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_transaccion_general_rf' type='integer' required='true' label='${lbl:b_transaccion_general}' maxlen='10'/>
+	<parameter id='smn_documentos_generales_rf' type='integer' required='true' label='${lbl:b_documentos_generales}' maxlen='10'/>
+	<parameter id='smn_paso_id' type='integer' required='true' label='${lbl:b_paso}' maxlen='10'/>
+	<parameter id='tpa_tiempo_paso' type='integer' required='true' label='${lbl:b_time_step}' maxlen='10'/>
+	<parameter id='smn_nivel_aprobacion_inicial_rf' type='integer' required='true' label='${lbl:b_nivel_aprobacion_inicial}' maxlen='10'/>
+	<parameter id='smn_nivel_aprobacion_final_rf' type='integer' required='true' label='${lbl:b_nivel_aprobacion_final}' maxlen='10'/>
+
+
+</validator>

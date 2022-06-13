@@ -1,0 +1,778 @@
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+	
+	<title>${lbl:b_report_generator}</title>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="banner">
+	${lbl:b_report_generator}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<br>
+
+<!--formulario de filtro-->
+<div id="form">
+<form name="form1" onsubmit="return search()" style="width:500px;">
+
+<table style="width:500px;" class="formgrid">
+
+	<!--ancho de la columna de etiquetas-->
+	<col width="30%">
+	<col width="60%">
+	<col width="10%">
+
+	<!--titulo-->
+	<tr>
+		<th colspan="2">
+			${lbl:b_filter_find}
+		</th>
+	</tr>
+	
+	<!--separador-->
+	<tr height="10px">
+		<td colspan="2"></td>
+	</tr>
+	
+	<!--campos-->
+	<tr>
+		<td colspan="2">
+			${lbl:b_report_generator_fields}: 
+			<br>
+			<br>
+			${inc:${def:actionroot}/fields}
+			<div id="field_id_error" class="errormsg"></div>
+		</td>
+	</tr>
+	
+	<!--separador-->
+	<tr height="10px">
+		<td colspan="2"></td>
+	</tr>
+
+			<tr>
+		<td>${lbl:b_code}</td>
+		<td>
+			<input id="cmp_codigo" name="cmp_codigo" type="text" maxlength="16"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_description}</td>
+		<td>
+			<input id="cmp_descripcion" name="cmp_descripcion" type="text" maxlength="100"  disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_type_component}</td>
+		<td>
+			<select name="cmp_tipo_componente" id="cmp_tipo_componente" disabled >
+				<option value="">[Cualquiera]</option>
+				<option value="S">${lbl:b_services}</option>
+				<option value="I">${lbl:b_item}</option>
+				<option value="H">${lbl:b_honorary}</option>
+
+			</select> 
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_group_component}</td>
+		<td>
+			<select name="smn_grupo_componente_rf" id="smn_grupo_componente_rf" onchange="chgCombo(smn_grupo_componente_rf.options[smn_grupo_componente_rf.selectedIndex].text,'smn_grupo_componente_rf_name');" disabled >
+				<option value="">[Cualquiera]</option>
+				<smn_grupo_componente_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_grupo_componente_rf_rows>
+			</select> 
+			<input id="smn_grupo_componente_rf_name" name="smn_grupo_componente_rf_name" type="hidden" disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_calculus_form}</td>
+		<td>
+			<select name="cmp_forma_calculo" id="cmp_forma_calculo" disabled >
+				<option value="">[Cualquiera]</option>
+				<option value="D">${lbl:b_diferent}</option>
+				<option value="M">${lbl:b_mont}</option>
+				<option value="P">${lbl:b_percentage}</option>
+
+			</select> 
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_auxiliary_class}</td>
+		<td>
+			<select name="cla_nombre" id="cla_nombre" onchange="chgCombo(cla_nombre.options[cla_nombre.selectedIndex].text,'cla_nombre_name');" disabled >
+				<option value="">[Cualquiera]</option>
+				<cmp_clase_auxiliar_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cmp_clase_auxiliar_rf_rows>
+			</select> 
+			<input id="cla_nombre_name" name="cla_nombre_name" type="hidden" disabled >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_store_date}</td>
+		<td>
+			<input id="cmp_fecha_registro_ini" name="cmp_fecha_registro_ini" type="text" class="date" maxlength="10" disabled >
+			<img src="${def:context}/images/dropdown.png" title="${lbl:b_deploy_calendar}" onclick="calendarOpen('cmp_fecha_registro_ini')">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_store_date}</td>
+		<td>
+			<input id="cmp_fecha_registro_fin" name="cmp_fecha_registro_fin" type="text" class="date" maxlength="10" disabled >
+			<img src="${def:context}/images/dropdown.png" title="${lbl:b_deploy_calendar}" onclick="calendarOpen('cmp_fecha_registro_fin')">
+		</td>
+	</tr>
+
+	
+
+	
+	<tr>
+		<td class="formlabel required">
+			${lbl:b_store_date_grater_than}:
+		</td>
+		<td>
+			<input id="fdesde" name="fdesde" type="text" size="10" value="" maxlength="10" disabled>
+		</td>
+		<td>
+			<img src="${def:context}/images/dropdown.png" title="${lbl:b_deploy_calendar}" onclick="calendarOpen('fdesde')">
+		</td>
+	</tr>
+	<tr>
+		<td class="formlabel required">
+			${lbl:b_store_date_less_than}:
+		</td>
+		<td>
+			<input id="fhasta" name="fhasta" type="text" size="10" value="" maxlength="10" disabled>
+		</td>
+		<td>
+			<img src="${def:context}/images/dropdown.png" title="${lbl:b_deploy_calendar}" onclick="calendarOpen('fhasta', 'fdesde')">
+		</td>
+	</tr>
+	
+	<!--separador-->
+	<tr height="10px">
+		<td colspan="2"></td>
+	</tr>
+
+</table>	
+
+<!--botones-->
+<input id="buscar" type="submit" value="${lbl:b_find_button}" class="button">
+<input id="grabar" type="button" value="${lbl:b_save_button}" onclick="insert()" class="button">	
+<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+
+<br>
+
+</form>
+</div>
+
+<br>
+
+<!--panel de respuesta AJAX #1-->
+<div id="response" style="display:none;width:100%;margin-top:10px;"></div>
+
+<!--panel de respuesta AJAX #2-->
+<div id="detail" style="display:none;width:100%;margin-top:10px;"></div>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+		//apuntador a funcion para retornar dependiendo de donde este
+		var _goBackFn = null;
+
+		//inicializacion de la pagina cuando carga
+		onload = function()
+		{ 
+			document.form1.fdesde.focus();
+			document.forms[0].fdesde.onkeypress = keypressDate;
+			document.forms[0].fhasta.onkeypress = keypressDate;
+			loadConfiguration();
+		} 
+	
+		//mostrar filtro de busqueda
+		function showFilter()
+		{
+			document.getElementById("form").style.display="";
+			document.getElementById("response").style.display='none';
+			document.getElementById("detail").style.display='none';
+			document.form1.elements[0].focus();			
+		}
+		
+		//esconder filtro de busqueda	
+		function hideFilter() 
+		{
+			document.getElementById("form").style.display="none";
+		}
+
+		//ejecutar consulta
+		function search()
+		{
+			clearErrorMessages();
+			
+			//definir funcion goBack()
+			_goBackFn = showFilter;
+
+			//llamada Ajax...
+			return ajaxCall(	httpMethod="POST", 
+								uri="${def:actionroot}/search", 
+								divResponse="response", 
+								divProgress="status", 
+								formName="form1", 
+								afterResponseFn=null, 
+								onErrorFn=showFilter);
+		
+		}
+	
+		//retorna al estado previo que corresponde
+		//al estado actual de la pagina, cada llamada Ajax
+		//se encarga de definir cual es la funcion de goBack() que aplica
+		function goBack() 
+		{
+			_goBackFn()			
+		}
+	
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+
+		//invoca la generacion de un Excel en un popup
+		function openExcel()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openXml() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openTxt() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 750, 620);	
+		}
+	
+		//mostrar detalle de un registro
+		function drillDown(id)
+		{
+			//definir funcion goBack()
+			_goBackFn = showGrid;			
+		
+			//esconder grid principal
+			document.getElementById("response").style.display="none";
+	
+			//llamada Ajax...
+			return ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/drilldown?id=" + id, 
+							divResponse="detail", 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=showGrid);		
+		}
+		
+		//mostrar grid principal
+		function showGrid()
+		{
+			document.getElementById("response").style.display="";
+			document.getElementById("detail").style.display='none';
+			
+			//restaura el goBack que corresponde a este estado
+			_goBackFn = showFilter;
+		}
+		
+		//define la url en donde se mostrara el resultado de consulta
+		function viewPage()
+		{
+			hideFilter(); //esconde el formulario cuando muestra el resultado
+			var url = "${def:actionroot}/view";
+			//llama a la funcion para ir a la pagina indicada 
+			gotoPage(url);
+		}
+		
+		function checkAll(field)
+		{
+			for (i = 0; i < field.length; i++)
+			{
+	   			field[i].checked = true;
+
+								if (field[i].value == 444)
+				{
+					document.getElementById('cmp_codigo').disabled=false;
+				}
+				if (field[i].value == 445)
+				{
+					document.getElementById('cmp_descripcion').disabled=false;
+				}
+				if (field[i].value == 448)
+				{
+					document.getElementById('cmp_vigencia_desde').disabled=false;
+				}
+				if (field[i].value == 449)
+				{
+					document.getElementById('cmp_vigencia_hasta').disabled=false;
+				}
+				if (field[i].value == 454)
+				{
+					document.getElementById('cmp_tiempo_estimado').disabled=false;
+				}
+				if (field[i].value == 459)
+				{
+					document.getElementById('cmp_cantidad').disabled=false;
+				}
+				if (field[i].value == 460)
+				{
+					document.getElementById('cmp_precio').disabled=false;
+				}
+				if (field[i].value == 461)
+				{
+					document.getElementById('cmp_porcentaje').disabled=false;
+				}
+				if (field[i].value == 456)
+				{
+					document.getElementById('cmp_tipo='SE' then '${lbl:b_services}'
+	when smn_base.smn_componentes.cmp_tipo='IN' then '${lbl:b_inventory}'
+	when smn_base.smn_componentes.cmp_tipo='PR' then '${lbl:b_providers}'
+	end as cmp_tipo
+
+b_access_control').disabled=false;
+				}
+				if (field[i].value == 458)
+				{
+					document.getElementById('cmp_calculo='IM' then '${lbl:b_amount_money}'
+	when smn_base.smn_componentes.cmp_calculo='PO' then '${lbl:b_percentage}'
+	end as cmp_calculo
+
+b_access_control').disabled=false;
+				}
+				if (field[i].value == 450)
+				{
+					document.getElementById('cmp_visible='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_visible='N' then '${lbl:b_not}'
+	end as cmp_visible
+
+b_access_control').disabled=false;
+				}
+				if (field[i].value == 451)
+				{
+					document.getElementById('cmp_req_grupo_prestador='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_req_grupo_prestador='N' then '${lbl:b_not}'
+	end as cmp_req_grupo_prestador
+
+b_access_control').disabled=false;
+				}
+				if (field[i].value == 453)
+				{
+					document.getElementById('cmp_req_honorario='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_req_honorario='N' then '${lbl:b_not}'
+	end as cmp_req_honorario
+
+b_access_control').disabled=false;
+				}
+
+				
+				//fecha desde y hasta
+	   			if (field[i].value == 464) 
+	   			{
+	   				document.getElementById("fdesde").disabled=false;
+	   				document.getElementById("fhasta").disabled=false;
+	   			}
+			}
+		}
+		
+		function uncheckAll(field)
+		{
+			for (i = 0; i < field.length; i++)
+			{
+	   			field[i].checked = false;
+
+								if (field[i].value == 444)
+				{
+					document.getElementById('cmp_codigo').disabled=true;
+				}
+				if (field[i].value == 445)
+				{
+					document.getElementById('cmp_descripcion').disabled=true;
+				}
+				if (field[i].value == 448)
+				{
+					document.getElementById('cmp_vigencia_desde').disabled=true;
+				}
+				if (field[i].value == 449)
+				{
+					document.getElementById('cmp_vigencia_hasta').disabled=true;
+				}
+				if (field[i].value == 454)
+				{
+					document.getElementById('cmp_tiempo_estimado').disabled=true;
+				}
+				if (field[i].value == 459)
+				{
+					document.getElementById('cmp_cantidad').disabled=true;
+				}
+				if (field[i].value == 460)
+				{
+					document.getElementById('cmp_precio').disabled=true;
+				}
+				if (field[i].value == 461)
+				{
+					document.getElementById('cmp_porcentaje').disabled=true;
+				}
+				if (field[i].value == 456)
+				{
+					document.getElementById('cmp_tipo='SE' then '${lbl:b_services}'
+	when smn_base.smn_componentes.cmp_tipo='IN' then '${lbl:b_inventory}'
+	when smn_base.smn_componentes.cmp_tipo='PR' then '${lbl:b_providers}'
+	end as cmp_tipo
+
+b_access_control').disabled=true;
+				}
+				if (field[i].value == 458)
+				{
+					document.getElementById('cmp_calculo='IM' then '${lbl:b_amount_money}'
+	when smn_base.smn_componentes.cmp_calculo='PO' then '${lbl:b_percentage}'
+	end as cmp_calculo
+
+b_access_control').disabled=true;
+				}
+				if (field[i].value == 450)
+				{
+					document.getElementById('cmp_visible='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_visible='N' then '${lbl:b_not}'
+	end as cmp_visible
+
+b_access_control').disabled=true;
+				}
+				if (field[i].value == 451)
+				{
+					document.getElementById('cmp_req_grupo_prestador='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_req_grupo_prestador='N' then '${lbl:b_not}'
+	end as cmp_req_grupo_prestador
+
+b_access_control').disabled=true;
+				}
+				if (field[i].value == 453)
+				{
+					document.getElementById('cmp_req_honorario='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_req_honorario='N' then '${lbl:b_not}'
+	end as cmp_req_honorario
+
+b_access_control').disabled=true;
+				}
+
+				
+	   			//fecha desde y hasta
+	   			if (field[i].value == 464) 
+	   			{
+	   				document.getElementById("fdesde").disabled=true;
+	   				document.getElementById("fhasta").disabled=true;
+	   			}
+			}
+		}
+		
+		function enableField(field_id, checked)
+		{
+			if (checked)
+			{
+								if (field_id == 444)
+				{
+					document.getElementById('cmp_codigo').disabled=false;
+				}
+				if (field_id == 445)
+				{
+					document.getElementById('cmp_descripcion').disabled=false;
+				}
+				if (field_id == 448)
+				{
+					document.getElementById('cmp_vigencia_desde').disabled=false;
+				}
+				if (field_id == 449)
+				{
+					document.getElementById('cmp_vigencia_hasta').disabled=false;
+				}
+				if (field_id == 454)
+				{
+					document.getElementById('cmp_tiempo_estimado').disabled=false;
+				}
+				if (field_id == 459)
+				{
+					document.getElementById('cmp_cantidad').disabled=false;
+				}
+				if (field_id == 460)
+				{
+					document.getElementById('cmp_precio').disabled=false;
+				}
+				if (field_id == 461)
+				{
+					document.getElementById('cmp_porcentaje').disabled=false;
+				}
+				if (field_id == 456)
+				{
+					document.getElementById('cmp_tipo='SE' then '${lbl:b_services}'
+	when smn_base.smn_componentes.cmp_tipo='IN' then '${lbl:b_inventory}'
+	when smn_base.smn_componentes.cmp_tipo='PR' then '${lbl:b_providers}'
+	end as cmp_tipo
+
+b_access_control').disabled=false;
+				}
+				if (field_id == 458)
+				{
+					document.getElementById('cmp_calculo='IM' then '${lbl:b_amount_money}'
+	when smn_base.smn_componentes.cmp_calculo='PO' then '${lbl:b_percentage}'
+	end as cmp_calculo
+
+b_access_control').disabled=false;
+				}
+				if (field_id == 450)
+				{
+					document.getElementById('cmp_visible='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_visible='N' then '${lbl:b_not}'
+	end as cmp_visible
+
+b_access_control').disabled=false;
+				}
+				if (field_id == 451)
+				{
+					document.getElementById('cmp_req_grupo_prestador='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_req_grupo_prestador='N' then '${lbl:b_not}'
+	end as cmp_req_grupo_prestador
+
+b_access_control').disabled=false;
+				}
+				if (field_id == 453)
+				{
+					document.getElementById('cmp_req_honorario='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_req_honorario='N' then '${lbl:b_not}'
+	end as cmp_req_honorario
+
+b_access_control').disabled=false;
+				}
+
+				
+	   			//fecha desde y hasta
+	   			if (field_id == 464) 
+	   			{
+	   				document.getElementById("fdesde").disabled=false;
+	   				document.getElementById("fhasta").disabled=false;
+	   			}
+			}
+			else
+			{
+								if (field_id == 444)
+				{
+					document.getElementById('cmp_codigo').disabled=true;
+				}
+				if (field_id == 445)
+				{
+					document.getElementById('cmp_descripcion').disabled=true;
+				}
+				if (field_id == 448)
+				{
+					document.getElementById('cmp_vigencia_desde').disabled=true;
+				}
+				if (field_id == 449)
+				{
+					document.getElementById('cmp_vigencia_hasta').disabled=true;
+				}
+				if (field_id == 454)
+				{
+					document.getElementById('cmp_tiempo_estimado').disabled=true;
+				}
+				if (field_id == 459)
+				{
+					document.getElementById('cmp_cantidad').disabled=true;
+				}
+				if (field_id == 460)
+				{
+					document.getElementById('cmp_precio').disabled=true;
+				}
+				if (field_id == 461)
+				{
+					document.getElementById('cmp_porcentaje').disabled=true;
+				}
+				if (field_id == 456)
+				{
+					document.getElementById('cmp_tipo='SE' then '${lbl:b_services}'
+	when smn_base.smn_componentes.cmp_tipo='IN' then '${lbl:b_inventory}'
+	when smn_base.smn_componentes.cmp_tipo='PR' then '${lbl:b_providers}'
+	end as cmp_tipo
+
+b_access_control').disabled=true;
+				}
+				if (field_id == 458)
+				{
+					document.getElementById('cmp_calculo='IM' then '${lbl:b_amount_money}'
+	when smn_base.smn_componentes.cmp_calculo='PO' then '${lbl:b_percentage}'
+	end as cmp_calculo
+
+b_access_control').disabled=true;
+				}
+				if (field_id == 450)
+				{
+					document.getElementById('cmp_visible='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_visible='N' then '${lbl:b_not}'
+	end as cmp_visible
+
+b_access_control').disabled=true;
+				}
+				if (field_id == 451)
+				{
+					document.getElementById('cmp_req_grupo_prestador='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_req_grupo_prestador='N' then '${lbl:b_not}'
+	end as cmp_req_grupo_prestador
+
+b_access_control').disabled=true;
+				}
+				if (field_id == 453)
+				{
+					document.getElementById('cmp_req_honorario='S' then '${lbl:b_yes}'
+	when smn_base.smn_componentes.cmp_req_honorario='N' then '${lbl:b_not}'
+	end as cmp_req_honorario
+
+b_access_control').disabled=true;
+				}
+
+				
+	   			//fecha desde y hasta
+	   			if (field_id == 464) 
+	   			{
+	   				document.getElementById("fdesde").disabled=true;
+	   				document.getElementById("fhasta").disabled=true;
+	   			}				
+			}
+
+		}
+		
+		//configurar formulario para ingresar registro nuevo
+		function addNew()
+		{
+			document.getElementById("grabar").disabled=false;
+			clearForm("form1");
+			setFocusOnForm("form1");
+		}
+		
+		//mostrar la actualizacion de un registro
+		function insert()
+		{		
+				clearErrorMessages();
+				document.getElementById("grabar").disabled=true;
+				
+				var fields = getFormValuesToStore('form1');
+				
+//				//alert("${def:actionroot}/insert?cfg_descripcion=" + fields);
+				
+				//llamada Ajax...
+				return ajaxCall(httpMethod="POST", 
+								uri="${def:actionroot}/insert?cfg_descripcion=" + fields, 
+								divResponse=null, 
+								divProgress="status", 
+								formName="form1", 
+								afterResponseFn=null, 
+								onErrorFn=retryAddnewOrEdit);	
+		}
+		
+		//restaurar el formulario en caso de error
+		function retryAddnewOrEdit() {
+			document.getElementById("grabar").disabled=false;
+			setFocusOnForm("form1");		
+		}
+		
+		//ejecutar consulta
+		function loadConfiguration() {
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/cargar_config", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=null);
+		}
+		
+		//asignar configuración
+		var fields = '';
+		function setConfiguration(config) {
+			var cfg = config.split("|");
+			formElements = document.forms['form1'].elements;
+			for(var k = 0; k < cfg.length; k++) {
+				var variable = cfg[k].split("=");
+				var field = variable[0];
+				var value = variable[1];				
+				for (var i=formElements.length-1; i>=0; --i) 
+				{
+					if (formElements[i].name != "" && formElements[i].name == field && formElements[i].name != 'field_id')
+					{ 						
+						formElements[i].value = value;
+						if (formElements[i].value != null)
+						{
+							formElements[i].disabled = false;
+						}
+						break;
+					}
+					else
+					{						
+						//añade elementos radio y checkbox
+						if (formElements[i].type=="checkbox" || formElements[i].type=="radio")  
+						{
+							if (formElements[i].value != null)
+							{
+								if (formElements[i].value == value)
+								{
+									formElements[i].checked = 'true';
+									fields = fields + value + ";";
+									break;
+								}
+							}
+						}
+						
+					}
+				}
+			}
+			fields = fields.substring(0, fields.length - 1);
+		}
+		
+		//mostrar el detalle de un registro
+		function getDetail(id)
+		{
+//			//alert('Colocar su código aquí.')
+			
+			var uri = "${def:context}${def:actionroot}/detail/form?id=" + id ; //+ '&field_id=' + fields;
+			openDialog("dialog", uri, 650, 300);			
+		}
+
+</script>
+
+</body>
+
+</html>

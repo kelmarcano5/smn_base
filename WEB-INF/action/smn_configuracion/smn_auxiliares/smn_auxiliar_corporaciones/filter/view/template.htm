@@ -1,0 +1,54 @@
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('tcp_codigo','query-smnauxiliarcorporaciones.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('tcp_nombre','query-smnauxiliarcorporaciones.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('tun_nombre','query-smnauxiliarcorporaciones.sql')" >${lbl:b_outsourced_unit_business}</th>
+		<th class='sortable' onclick="sortBy('mon_nombre','query-smnauxiliarcorporaciones.sql')" >${lbl:b_coin}</th>
+		<th class='sortable' onclick="sortBy('dir_descripcion','query-smnauxiliarcorporaciones.sql')" >${lbl:b_address}</th>
+		<th class='sortable' onclick="sortBy('tcp_fecha_registro','query-smnauxiliarcorporaciones.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_auxiliar_corporaciones_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_auxiliar_corporaciones_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_auxiliar_corporaciones_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:tcp_codigo}</td>
+		<td align="left">${fld:tcp_nombre}</td>
+		<td align="left">${fld:tun_nombre}</td>
+		<td align="left">${fld:mon_nombre}</td>
+		<td align="left">${fld:dir_descripcion}</td>
+		<td align="center">${fld:tcp_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_rel_modulo_clase_aux>
+	<detail>
+		<rows>		
+		<record rma_fecha_registro="${fld:rma_fecha_registro}"    smn_clase_auxiliar_rf="${fld:smn_clase_auxiliar_rf}"    smn_modulos_rf="${fld:smn_modulos_rf}"    />
+		</rows>
+	</detail>
+</smn_rel_modulo_clase_aux>

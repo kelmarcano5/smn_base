@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_transaccion_general_rf' type='integer' required='false' label='${lbl:b_transaccion_general}' maxlen='10'/>
+	<parameter id='smn_documentos_generales_rf' type='integer' required='false' label='${lbl:b_documentos_generales}' maxlen='10'/>
+	<parameter id='smn_paso_id' type='integer' required='false' label='${lbl:b_paso}' maxlen='10'/>
+	<parameter id='tpa_fecha_registro' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

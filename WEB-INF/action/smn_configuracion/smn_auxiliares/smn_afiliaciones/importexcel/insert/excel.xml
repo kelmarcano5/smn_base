@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='afc_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='afc_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='afc_afiliado_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='afc_modulo_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='afc_es_titular_desc' type='varchar' required='true' maxlen='2'/>
+	<parameter id='afc_parentezco_desc' type='varchar' required='false' maxlen='48'/>
+
+	<parameter id='afc_afiliado_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='afc_modulo_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='afc_es_titular_ref' type='varchar' required='false' maxlen='1'/>
+	<parameter id='afc_parentezco_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='afc_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='afc_descripcion'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: afc_es_titular' 
+		parameter='afc_es_titular_ref' 
+		sql='afc_es_titular.sql' 
+		id='afc_es_titular_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: afc_afiliado' 
+		parameter='afc_afiliado_ref' 
+		sql='afc_afiliado.sql' 
+		id='afc_afiliado_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: afc_modulo' 
+		parameter='afc_modulo_ref' 
+		sql='afc_modulo.sql' 
+		id='afc_modulo_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: afc_parentezco' 
+		parameter='afc_parentezco_ref' 
+		sql='afc_parentezco.sql' 
+		id='afc_parentezco_ref'/>
+
+</validator>

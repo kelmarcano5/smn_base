@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id="view.record" onerror="/action/error/validation/dialog">
+	<parameter id="id" type="integer" required="true" label="ID" maxlen="10" />
+	<parameter id='imp_codigo_filter' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='imp_descripcion_filter' type='varchar' required='false' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='imp_tipo_persona_filter' type='varchar' required='false' label='${lbl:b_kind_of_person}' maxlen='48'/>
+	<parameter id='imp_tipo_contribuyente_filter' type='varchar' required='false' label='${lbl:b_type_of_taxpayer}' maxlen='48'/>
+	<parameter id='uim_id_filter' type='integer' required='false' label='${lbl:b_kind_of_person}' maxlen='10'/>
+</validator>

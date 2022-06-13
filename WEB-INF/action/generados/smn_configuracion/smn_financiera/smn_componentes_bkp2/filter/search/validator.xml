@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_grupos_prestadores_id_name' type='varchar' required='false' label='${lbl:b_group_of_provider}'/>
+	<parameter id='smn_grupos_prestadores_id' type='integer' required='false' label='${lbl:b_group_of_provider}' maxlen='10'/>
+	<parameter id='smn_servicios_id_name' type='varchar' required='false' label='${lbl:b_service}'/>
+	<parameter id='smn_servicios_id' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='cmp_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='48'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cmp_descripcion' rule='contains' />
+	<parameter id='cmp_area_servicio' type='integer' required='false' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='cmp_unidad_servicio' type='integer' required='false' label='${lbl:b_service_unit}' maxlen='10'/>
+	<parameter id='cmp_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='cmp_tipo' type='varchar' required='false' label='${lbl:b_type}' maxlen='2'/>
+	<parameter id='cmp_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='cmp_fecha_registro_ini' date2='cmp_fecha_registro_fin' id='cmp_fecha_registro_ini' />
+	<parameter id='cmp_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

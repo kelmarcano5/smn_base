@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliartercero.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_intermediary_assistant}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smnauxiliartercero.sql' width='100' spacingBefore='40'>
+			<col name='aca_tipo_persona_pl0' title='${lbl:b_auxiliary}' width='4' align='left' />
+			<col name='atr_codigo' title='${lbl:b_code}' width='4' align='left' />
+			<col name='atr_descripcion' title='${lbl:b_description}' width='4' align='left' />
+			<col name='atr_comunidad' title='${lbl:b_community}' width='4' align='left' format='######' />
+			<col name='atr_auxiliar_corporacion' title='${lbl:b_outsourced_corporation}' width='4' align='left' format='######' />
+			<col name='atr_auxiliar_unidad_negocio' title='${lbl:b_outsourced_unit_business}' width='4' align='left' format='######' />
+			<col name='atr_maneja_sucursal_combo' title='${lbl:b_has_subsidiary}' width='4' align='left' />
+			<col name='atr_razon_social' title='${lbl:b_business_name}' width='4' align='left' />
+			<col name='atr_denom_comercial' title='${lbl:b_designation_commercial}' width='4' align='left' />
+			<col name='atr_beneficiario' title='${lbl:b_beneficiary}' width='4' align='left' />
+			<col name='atr_tipo_doc_oficial' title='${lbl:b_official_document_type}' width='4' align='left' format='######' />
+			<col name='atr_num_doc_oficial' title='${lbl:b_official_document_number}' width='4' align='left' />
+			<col name='atr_clasif_abc_combo' title='${lbl:b_abc_clasification}' width='4' align='left' />
+			<col name='atr_rif' title='${lbl:b_tax_id}' width='4' align='left' />
+			<col name='atr_direccion' title='${lbl:b_business_address}' width='4' align='left' format='######' />
+			<col name='atr_cuenta_bancaria' title='${lbl:b_auxiliary_bank_account}' width='4' align='left' format='######' />
+			<col name='atr_contactos' title='${lbl:b_auxiliary_contact}' width='4' align='left' format='######' />
+			<col name='atr_persona_contacto' title='${lbl:b_contact_person}' width='4' align='left' />
+			<col name='atr_representante_legal' title='${lbl:b_legal_representative}' width='4' align='left' />
+			<col name='atr_benef_pago' title='${lbl:b_beneficiary_payments}' width='4' align='left' />
+			<col name='atr_cond_pago' title='${lbl:b_condition_payments}' width='4' align='left' format='######' />
+			<col name='atr_tipo_facturac_combo' title='${lbl:b_billing_type}' width='4' align='left' />
+			<col name='atr_condicion_financiera' title='${lbl:b_financial_condition}' width='4' align='left' format='######' />
+			<col name='atr_observacion' title='${lbl:b_observation}' width='4' align='left' />
+			<col name='atr_fecha_registro' title='${lbl:b_store_date}' width='4' align='left' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

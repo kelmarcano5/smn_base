@@ -1,0 +1,1 @@
+select smn_base.smn_mensajes.smn_mensajes_id as id, smn_base.smn_mensajes.msj_asunto as item from smn_base.smn_mensajes

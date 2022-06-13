@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='coe_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='coe_nombre' type='varchar' required='true' label='${lbl:b_name} ' maxlen='48'/>
+	<parameter id='coe_niveles' type='integer' required='true' label='${lbl:b_levels}' maxlen='10'/>
+	<parameter id='coe_mascara' type='varchar' required='true' label='${lbl:b_mask}' maxlen='48'/>
+	<parameter id='coe_separador' type='varchar' required='true' label='${lbl:b_separator}' maxlen='1'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_structure_configuration}' maxlen='10'/>
+
+	<custom-validator
+		classname='custom.validators.CustomLevelMaskValidator'
+			on-error-label='${lbl:b_levels_not_equal_mask}.'
+			level='coe_niveles'
+			mask='coe_mascara'
+			id='coe_niveles'/>
+	
+	<custom-validator
+		classname='custom.validators.CustomMaskValidator'
+			on-error-label='${lbl:b_mask_contain_invalid_character}.'
+			mask='coe_mascara'
+			id='coe_mascara'/>
+			
+</validator>

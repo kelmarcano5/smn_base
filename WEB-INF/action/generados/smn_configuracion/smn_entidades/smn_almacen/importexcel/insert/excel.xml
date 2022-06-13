@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='alm_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='alm_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='alm_empresa' type='integer' required='false' maxlen='10'/>
+	<parameter id='alm_unidad_negocio' type='integer' required='false' maxlen='10'/>
+	<parameter id='alm_sucursal' type='integer' required='false' maxlen='10'/>
+	<parameter id='alm_area_servicio' type='integer' required='false' maxlen='10'/>
+	<parameter id='alm_unidad_servicio' type='integer' required='false' maxlen='10'/>
+</validator>

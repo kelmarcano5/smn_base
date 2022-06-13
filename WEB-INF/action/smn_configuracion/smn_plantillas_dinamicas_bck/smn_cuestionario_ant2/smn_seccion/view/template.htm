@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("cue_codigo_pl0","query-smnseccion.sql")'>${lbl:b_smn_cuestionario_id}</th>
+		<th class='sortable' onclick='sortBy("sec_codigo","query-smnseccion.sql")'>${lbl:b_sec_codigo}</th>
+		<th class='sortable' onclick='sortBy("sec_descripcion","query-smnseccion.sql")'>${lbl:b_sec_descripcion}</th>
+		<th class='sortable' onclick='sortBy("sec_secuencia","query-smnseccion.sql")'>${lbl:b_sec_secuencia}</th>
+		<th class='sortable' onclick='sortBy("sec_estatus_combo","query-smnseccion.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("cue_fecha_registro","query-smnseccion.sql")'>${lbl:b_store_date}</th>
+		<th></th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_seccion_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_seccion_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_seccion_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:cue_codigo_pl0}</td>
+		<td align='left'>${fld:sec_codigo}</td>
+		<td align='left'>${fld:sec_descripcion}</td>
+		<td>${fld:sec_secuencia}</td>
+		<td align='left'>${fld:sec_estatus_combo}</td>
+		<td>${fld:cue_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="relacion1('${fld:smn_seccion_id}','${fld:sec_descripcion}')" title="${lbl:b_smn_rel_cuestionario_seccion_id}"></td>
+
+
+	</tr>
+	</rows>
+
+</table>

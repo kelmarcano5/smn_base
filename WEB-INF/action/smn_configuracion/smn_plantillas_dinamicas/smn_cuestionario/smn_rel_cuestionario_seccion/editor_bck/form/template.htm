@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+
+<head>
+
+		<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+		<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog" id="encabezado_tabla">
+	${lbl:b_smn_rel_cuestionario_seccion}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+			<tr>
+			<td>${lbl:b_smn_cuestionario}*</td>
+			<td>
+				<input id="smn_cuestionario_id" name="smn_cuestionario_id" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<td>${lbl:b_smn_seccion_id}*</td>
+		<td>
+			<select name="smn_seccion_id" id="smn_seccion_id" onchange="chgCombo(smn_seccion_id.options[smn_seccion_id.selectedIndex].text,'smn_seccion_id_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_seccion_id_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_seccion_id_rows>
+			</select> 
+			<input id="smn_seccion_id_name" name="smn_seccion_id_name" type="hidden">
+		</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_rcs_tipo_seccion}*</td>
+			<td>
+				<select name="rcs_tipo_seccion" id="rcs_tipo_seccion">
+				<option>Tipo secci&oacute;n</option>
+				<option value="T">${lbl:b_titulo}</option>
+				<option value="D">${lbl:b_detalle}</option>
+
+				</select> 
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_rcs_secuencia}*</td>
+			<td>
+				<input id="rcs_secuencia" name="rcs_secuencia" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+		<td>
+			Estilo de Cuestionario
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${lbl:b_color_letra}
+		</td>
+		<td>
+			<input id="color_letra" name="color_letra" type="color" value="#000000" onchange="chgletracolor(color_letra.value,'smn_seccion_id');" />
+		</td>
+		<td>
+			<input id="rcs_color_letra" name="rcs_color_letra" type="text" disabled="true" maxlength="100"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${lbl:b_tipo_letra}
+		</td>
+		<td>
+			<select name="rcs_tipo_letra" id="rcs_tipo_letra" onchange="chgletra(rcs_tipo_letra.value,'smn_seccion_id');">
+				<option>Elige la tipografia</option>
+				<option value="arial black">Arial Black</option>
+				<option value="arial narrow">Arial Narrow</option>
+				<option value="century gothic">Century Gothic</option>
+				<option value="copperplate">Copperplate</option>
+				<option value="courier new">Courier new</option>
+				<option value="georgia">Georgia</option>
+				<option value="gill sans">Gill Sans</option>
+				<option value="impact">Impact</option>
+				<option value="lucida console">Lucida Console</option>
+				<option value="lucida sans unicode">Lucida Sans Unicode</option>
+				<option value="palatino linotype">Palatino Linotype</option>
+				<option value="tahoma">Tahoma</option>
+				<option value="times new roman">Times New Roman</option>
+				<option value="trebuchet ms">Trebuchet MS</option>
+				<option value="sans-serif">Sans Serif</option>
+				<option value="verdana">Verdana</option>
+			</select> 
+		</td>
+	</tr>
+		<tr>
+		<td>
+			${lbl:b_tamano_letra}
+		</td>
+		<td>
+		<input id="rcs_tamano_letra" name="rcs_tamano_letra" type="number" value="10" onchange="chgletratamano(rcs_tamano_letra.value,'smn_seccion_id');" /> 
+		</td>
+		<td>
+			PX
+		</td>
+	</tr>
+	</tr>
+		<tr>
+		<td>
+			${lbl:b_color_sombreado}
+		</td>
+		<td>
+		<input id="color_sombreado" name="color_sombreado" type="color" value="#ffffff" onchange="chgletrasombreado(color_sombreado.value,'smn_seccion_id');" />
+	</td>
+	<td>
+			<input id="rcs_color_sombreado" name="rcs_color_sombreado" type="text" disabled="true" maxlength="100"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${lbl:b_espacio_identacion}
+		</td>
+		<td>
+		<input id="rcs_espacio_identacion" name="rcs_espacio_identacion" type="number" value="5" onchange="chgidentacion(rcs_espacio_identacion.value,'smn_seccion_id');" /> 
+		</td>
+		<td>
+			px
+		</td>
+	</tr>
+		
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	<input id="lookandfeel" type="button" value="Estilo" onclick="cargarestilo()" class="button">
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+
+		document.getElementById("smn_cuestionario_id").value = '${fld:id2}';
+		document.form1.smn_cuestionario_id.disabled=true;
+
+	
+		if (id!="")
+			edit(id);
+	} 
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	function chgletracolor(text2,id2){
+		//alert("texto"+text2+" id2"+id2);
+		document.getElementById(id2).style.color = text2;
+		document.getElementById("rcs_color_letra").value= text2;
+	}
+	function chgletra(text2,id2){
+		//alert("texto"+text2+" id2"+id2);
+		document.getElementById(id2).style.fontFamily = text2;
+	}
+	function chgletratamano(text2,id2){
+		//alert("texto"+text2+" id2"+id2);
+		text2=text2+"px";
+		document.getElementById(id2).style.fontSize = text2;
+	}
+	function chgletrasombreado(text2,id2){
+		
+		document.getElementById(id2).style.backgroundColor = text2;
+		document.getElementById("rcs_color_sombreado").value= text2;
+
+	}
+	function chgidentacion(text2,id2){
+		//alert("texto"+text2+" id2"+id2);
+		text2=text2+"px";
+		document.getElementById(id2).style.marginLeft = text2;
+	}
+	function cargarestilo(){
+		//alert("valor"+cue_tipo_letra.value);
+		document.getElementById("smn_seccion_id").style.color = cue_color_letra.value;
+		//document.getElementById("color_letra").style.backgroundColor = cue_color_letra.value;
+		document.getElementById("smn_seccion_id").style.fontFamily = cue_tipo_letra.value;
+		text2=cue_tamano_letra.value+"px";
+		document.getElementById("smn_seccion_id").style.fontSize = text2;
+		document.getElementById("smn_seccion_id").style.backgroundColor = cue_color_sombreado.value;
+
+	}
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id + "&id2=" + "${fld:id2}", 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	
+</script>	
+</body>
+</html>

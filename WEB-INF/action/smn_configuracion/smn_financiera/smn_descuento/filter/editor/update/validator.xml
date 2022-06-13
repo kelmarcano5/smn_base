@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='dct_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='dct_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='dct_porcentaje' type='double' required='true' label='${lbl:b_percentage}' maxlen='10'/>
+	<parameter id='dct_aplica' type='varchar' required='true' label='${lbl:b_apply}' maxlen='1'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_discount}' maxlen='10'/>
+
+
+</validator>

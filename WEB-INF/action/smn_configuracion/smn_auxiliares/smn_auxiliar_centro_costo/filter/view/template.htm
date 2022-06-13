@@ -1,0 +1,58 @@
+<!--data grid-->
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('tco_codigo','query-smnauxiliarcentrocosto.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('tco_descripcion_larga','query-smnauxiliarcentrocosto.sql')" >${lbl:b_long_description}</th>
+		<th class='sortable' onclick="sortBy('cla_nombre','query-smnauxiliarcentrocosto.sql')" >${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick="sortBy('smn_item','query-smnauxiliarcentrocosto.sql')" >${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick="sortBy('tco_responsable','query-smnauxiliarcentrocosto.sql')" >${lbl:b_responsible}</th>
+		<th class='sortable' onclick="sortBy('tco_tipo_cco_combo','query-smnauxiliarcentrocosto.sql')" >${lbl:b_type}</th>
+		<th class='sortable' onclick="sortBy('tco_fecha_registro','query-smnauxiliarcentrocosto.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_auxiliar_centro_costo_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_auxiliar_centro_costo_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_auxiliar_centro_costo_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:tco_codigo}</td>
+		<td align="left">${fld:tco_descripcion_larga}</td>
+		<td align="left">${fld:cla_nombre}</td>
+		<td align="left">${fld:smn_item}</td>
+		<td align="left">${fld:tco_responsable}</td>
+		<td align="left">${fld:tco_tipo_cco_combo}</td>
+		<td align="center">${fld:tco_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

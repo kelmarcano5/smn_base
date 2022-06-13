@@ -1,0 +1,67 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="15">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('efi_codigo','query-smnentidadesfinancieras.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('efi_nombre','query-smnentidadesfinancieras.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('efi_direccion','query-smnentidadesfinancieras.sql')" >${lbl:b_address}</th>
+		<th class='sortable' onclick="sortBy('efi_telefono_fijo','query-smnentidadesfinancieras.sql')" >${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick="sortBy('efi_telefono_movil','query-smnentidadesfinancieras.sql')" >${lbl:b_mobile_phone}</th>
+		<th class='sortable' onclick="sortBy('efi_codigo_aba','query-smnentidadesfinancieras.sql')" >${lbl:b_aba_code}</th>
+		<th class='sortable' onclick="sortBy('efi_codigo_swift','query-smnentidadesfinancieras.sql')" >${lbl:b_swift_code}</th>
+		<th class='sortable' onclick="sortBy('efi_req_banco_intermediario_combo','query-smnentidadesfinancieras.sql')" >${lbl:b_req_intermediary_institution}</th>
+		<th class='sortable' onclick="sortBy('efi_banco_intermediario','query-smnentidadesfinancieras.sql')" >${lbl:b_intermediary_institution}</th>
+		<th class='sortable' onclick="sortBy('efi_routing','query-smnentidadesfinancieras.sql')" >${lbl:b_routing_code}</th>
+		<th class='sortable' onclick="sortBy('efi_contacto','query-smnentidadesfinancieras.sql')" >${lbl:b_account_executive}</th>
+		<th class='sortable' onclick="sortBy('efi_fecha_registro','query-smnentidadesfinancieras.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_entidades_financieras_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_entidades_financieras_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_entidades_financieras_id}')" title="Editar"></td>
+		<td align="left">${fld:efi_codigo}</td>
+		<td align="left">${fld:efi_nombre}</td>
+		<td align="left">${fld:efi_direccion}</td>
+		<td align="left">${fld:efi_telefono_fijo}</td>
+		<td align="left">${fld:efi_telefono_movil}</td>
+		<td align="left">${fld:efi_codigo_aba}</td>
+		<td align="left">${fld:efi_codigo_swift}</td>
+		<td align="left">${fld:efi_req_banco_intermediario_combo}</td>
+		<td align="left">${fld:efi_banco_intermediario}</td>
+		<td align="left">${fld:efi_routing}</td>
+		<td align="left">${fld:efi_contacto}</td>
+		<td align="left">${fld:efi_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

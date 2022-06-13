@@ -1,0 +1,3 @@
+<rows>
+alm_fecha_registro="${fld:alm_fecha_registro}"    alm_unidad_servicio="${fld:alm_unidad_servicio}"    alm_area_servicio="${fld:alm_area_servicio}"    alm_sucursal="${fld:alm_sucursal}"    alm_unidad_negocio="${fld:alm_unidad_negocio}"    alm_empresa="${fld:alm_empresa}"    alm_nombre="${fld:alm_nombre}"    alm_codigo="${fld:alm_codigo}"    
+</rows>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnclaseauxiliar-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnmodulos.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnnaturalezaauxiliar.sql' source='sql' scope='transaction' />
+	
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_auxiliares.smn_clase_auxiliar.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_auxiliary_classes}.xls'    
+		header-background='true' >
+		
+	<sheet recordset="query-smnclaseauxiliar-template.sql" sheetname="${lbl:b_auxiliary_classes}">
+		
+		<col id='cla_codigo' label='${lbl:b_code}' />
+		<col id='cla_nombre' label='${lbl:b_name}' />
+		<col id='cla_modulo' label='${lbl:b_module}' />
+		<col id='cla_naturaleza' label='${lbl:b_nature}' />
+		
+		<col id='cla_modulo_reference' label='${lbl:b_module}' />
+		<col id='cla_naturaleza_reference' label='${lbl:b_nature}' />
+
+	</sheet>
+	
+	<sheet recordset='query-smnmodulos.sql' sheetname='${lbl:b_module}'>
+		<col id='mod_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnnaturalezaauxiliar.sql' sheetname='${lbl:b_nature}'>
+		<col id='naa_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

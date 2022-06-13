@@ -1,0 +1,4 @@
+<rows>
+til_fecha_registro="${fld:til_fecha_registro}"    til_descripcion="${fld:til_descripcion}"    til_codigo="${fld:til_codigo}"    
+
+</rows>

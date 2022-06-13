@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='cmp_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='100'/>
+	<parameter id='cmp_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='cmp_tipo_componente' type='varchar' required='true' label='${lbl:b_type_component}' maxlen='2'/>
+	<parameter id='smn_grupo_componente_rf' type='integer' required='false' label='${lbl:b_group_component}' maxlen='10'/>
+	<parameter id='cmp_forma_calculo' type='varchar' required='true' label='${lbl:b_calculus_form}' maxlen='2'/>
+	<parameter id='cmp_vigencia_desde' type='date' required='false' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<parameter id='cmp_vigencia_hasta' type='date' required='false' label='${lbl:b_validation_date_to}' maxlen='10'/>
+	<parameter id='cmp_visible' type='varchar' required='true' label='${lbl:b_visible}' maxlen='1'/>
+	<parameter id='cmp_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='cmp_req_grupo_prestador' type='varchar' required='true' label='${lbl:b_require_providers_group}' maxlen='1'/>
+	<parameter id='cmp_tiempo_estimado' type='integer' required='false' label='${lbl:b_estimated_time}' maxlen='10'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' label='${lbl:b_measurement_unit}' maxlen='10'/>
+	<parameter id='smn_almacen_rf' type='integer' required='false' label='${lbl:b_store}' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='false' label='${lbl:b_item}' maxlen='10'/>
+	<parameter id='smn_tipo_gasto_rf' type='integer' required='false' label='${lbl:b_type_spent}' maxlen='10'/>
+	<parameter id='smn_sub_tipo_gasto_rf' type='integer' required='false' label='${lbl:b_sub_type_spent}' maxlen='10'/>
+	<parameter id='smn_imprime' type='varchar' required='false' label='${lbl:b_print}' maxlen='1'/>
+	<parameter id='smn_grupo_titulo_impresion_rf' type='integer' required='false' label='${lbl:b_group_title_print}' maxlen='10'/>
+	<parameter id='cmp_porcentaje' type='double' required='false' label='${lbl:b_percentage}' maxlen='10'/>
+	<parameter id='cmp_cantidad' type='double' required='false' label='${lbl:b_amount}' maxlen='10'/>
+	<parameter id='cmp_precio_moneda_local' type='double' required='false' label='${lbl:b_coin_local_price}' maxlen='10'/>
+	<parameter id='cmp_monto_moneda_local' type='double' required='false' label='${lbl:b_coin_local_amount}' maxlen='10'/>
+	<parameter id='smn_moneda_rf' type='integer' required='false' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='cmp_precio_moneda_alterna' type='double' required='false' label='${lbl:b_coin_altern_price}' maxlen='10'/>
+	<parameter id='cmp_monto_moneda_alterna' type='double' required='false' label='${lbl:b_coin_altern_amount}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_components}' maxlen='10'/>
+
+	<parameter id='cmp_genera_grupo_prestador' type='varchar' required='true' label='Genera grupo prestador' maxlen='2'/>
+
+	<parameter id='smn_servicios_id' type='varchar' required='false' label='Ítems'/>
+	<custom-validator classname='dinamica.validators.StringToRecordset' paramName='smn_servicios_id' recordsetId='query-smn_servicios.sql' separatorChar=';' colName='smn_servicios_id' colType='integer'/>
+	<parameter id='smn_servicios_rf' type='integer' required='false' label='${lbl:b_services}' maxlen='10'/>
+
+	<parameter id='smn_grupo_prestador_id' type='integer' required='false' label='${lbl:b_group_of_provider}' maxlen='10'/>
+		<parameter id='cmp_acumula_servicio' type='varchar' required='true' label='Acumula Servicio' maxlen='2'/>
+</validator>

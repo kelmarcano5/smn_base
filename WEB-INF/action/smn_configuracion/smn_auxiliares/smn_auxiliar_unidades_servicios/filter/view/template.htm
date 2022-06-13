@@ -1,0 +1,48 @@
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='22%'/>
+	<col width='22%'/>
+	<col width='22%'/>
+	<col width='22%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7" id="encabezado_tabla">
+			${req:controls}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('tse_codigo_pl0','query-smnauxiliarunidadesservicios.sql')" >${lbl:b_outsourced_service_area}</th>
+		<th class='sortable' onclick="sortBy('tns_codigo','query-smnauxiliarunidadesservicios.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('tns_descripcion','query-smnauxiliarunidadesservicios.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('tns_fecha_registro','query-smnauxiliarunidadesservicios.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_auxiliar_unidades_servicios_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_auxiliar_unidades_servicios_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_auxiliar_unidades_servicios_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:tse_codigo_pl0}</td>
+		<td align="left">${fld:tns_codigo}</td>
+		<td align="left">${fld:tns_descripcion}</td>
+		<td align="center">${fld:tns_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

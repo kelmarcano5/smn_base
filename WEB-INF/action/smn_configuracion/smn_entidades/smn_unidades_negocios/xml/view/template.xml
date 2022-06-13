@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_unidades_negocios>
+	<detail>
+		<rows>		
+		<record uen_fecha_registro="${fld:uen_fecha_registro}"    uen_email="${fld:uen_email}"    uen_telefono_movil="${fld:uen_telefono_movil}"    uen_telefono_fijo="${fld:uen_telefono_fijo}"    dir_descripcion="${fld:dir_descripcion}"    uen_responsable="${fld:uen_responsable}"    uen_nombre="${fld:uen_nombre}"    uen_codigo="${fld:uen_codigo}"    smn_entidades_id="${fld:smn_entidades_id}"    />
+		</rows>
+	</detail>
+</smn_unidades_negocios>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_baremos}</summary>
+	<filter>
+		<row field='bar_codigo' id='bar_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_baremos' len='16'/>
+		<row field='bar_descripcion' id='bar_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_baremos' len='48'/>
+		<row field='bar_entidad' id='bar_entidad' label='${lbl:b_entity}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || &apos; - &apos; || smn_base.smn_entidades.ent_descripcion_corta as item from smn_base.smn_entidades order by smn_base.smn_entidades.ent_descripcion_corta}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_baremos' len='2'/>
+		<row field='bar_tipo' id='bar_tipo' label='${lbl:b_type}@{GE=${lbl:b_general}|ES=${lbl:b_specific}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_baremos' len='2'/>
+		<row field='bar_vigencia_desde' id='bar_vigencia_desde' label='${lbl:b_validation_date_from}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_baremos' len='10'/>
+		<row field='bar_vigencia_hasta' id='bar_vigencia_hasta' label='${lbl:b_validation_date_to}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_baremos' len='10'/>
+		<row field='bar_fecha_registro' id='bar_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_baremos' len='10'/>
+		<row field='bar_fecha_registro' id='bar_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_baremos' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='bar_codigo' label='${lbl:b_code}' fk='' tableName='smn_baremos' len='16' type='varchar' align='left'/>
+		<row field='bar_descripcion' label='${lbl:b_description}' fk='' tableName='smn_baremos' len='48' type='varchar' align='left'/>
+		<row field='bar_entidad' label='${lbl:b_entity}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || &apos; - &apos; || smn_base.smn_entidades.ent_descripcion_corta as item from smn_base.smn_entidades order by smn_base.smn_entidades.ent_descripcion_corta}' fk='' tableName='smn_baremos' len='2' type='integer' align='left'/>
+		<row field='bar_tipo' label='${lbl:b_type}@{GE=${lbl:b_general}|ES=${lbl:b_specific}}' fk='' tableName='smn_baremos' len='2' type='varchar' align='left'/>
+		<row field='bar_vigencia_desde' label='${lbl:b_validation_date_from}' fk='' tableName='smn_baremos' len='10' type='date' align='center'/>
+		<row field='bar_vigencia_hasta' label='${lbl:b_validation_date_to}' fk='' tableName='smn_baremos' len='10' type='date' align='center'/>
+		<row field='bar_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_baremos' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

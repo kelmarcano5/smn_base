@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnnivelaprobacion.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_nivel_aprobacion}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_nivel_aprobacion}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnnivelaprobacion.sql' width='100' spacingBefore='40'>
+			<col name='smn_configuracion_estructura_id_combo' title='${lbl:b_configuracion_estructura}' width='16' align='left' format='######' />
+			<col name='nap_codigo' title='${lbl:b_code}' width='16' align='left' />
+			<col name='nap_descripcion' title='${lbl:b_description}' width='16' align='left' />
+			<col name='nap_rol_combo' title='${lbl:b_role}' width='16' align='left' />
+			<col name='nap_secuencia_aprobacion' title='${lbl:b_approval_sequence}' width='16' align='left' />
+			<col name='nap_fecha_registro' title='${lbl:b_store_date}' width='16' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

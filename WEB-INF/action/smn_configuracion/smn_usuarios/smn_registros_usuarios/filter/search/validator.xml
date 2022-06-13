@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_class_auxiliary}' maxlen='10'/>
+	<parameter id='aux_tipo_persona' type='varchar' required='false' label='${lbl:b_person_type}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='aux_tipo_persona' rule='like' />
+	<parameter id='aux_apellidos' type='varchar' required='false' label='${lbl:b_last_name}' maxlen='64'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='aux_apellidos' rule='like' />
+	<parameter id='aux_nombres' type='varchar' required='false' label='${lbl:b_first_name}' maxlen='64'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='aux_nombres' rule='like' />
+	<parameter id='aux_tipo_doc_oficial_rf' type='integer' required='false' label='${lbl:b_document_type_oficial}' maxlen='10'/>
+	<parameter id='aux_num_doc_oficial' type='varchar' required='false' label='${lbl:b_document_number_oficial}' maxlen='12'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='aux_num_doc_oficial' rule='like' />
+</validator>

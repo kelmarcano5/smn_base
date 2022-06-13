@@ -1,0 +1,3 @@
+<rows>
+fer_fecha_registro="${fld:fer_fecha_registro}"    fer_laborable="${fld:fer_laborable}"    fer_feriado="${fld:fer_feriado}"    fer_municipio="${fld:fer_municipio}"    fer_ciudad="${fld:fer_ciudad}"    fer_entidad_federal="${fld:fer_entidad_federal}"    fer_pais="${fld:fer_pais}"    fer_descripcion="${fld:fer_descripcion}"    fer_codigo="${fld:fer_codigo}"    
+</rows>

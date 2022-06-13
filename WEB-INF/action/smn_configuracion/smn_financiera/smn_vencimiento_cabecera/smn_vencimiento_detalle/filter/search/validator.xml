@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='tvd_titulo' type='varchar' required='false' label='${lbl:b_tittle}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='tvd_titulo' rule='like' />
+	<parameter id='tvd_tipo_aplicacion' type='varchar' required='false' label='${lbl:b_application}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='tvd_tipo_aplicacion' rule='like' />
+	<parameter id='tvd_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' date1='tvd_fecha_registro_ini' date2='tvd_fecha_registro_fin' id='tvd_fecha_registro_ini' />
+	<parameter id='tvd_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

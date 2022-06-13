@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_service_areas}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='query.sql' title='${lbl:b_service_areas}' width='60' spacingBefore='40'>
+			<col name='smn_auxiliar_tipos_servicios_id' title='${lbl:b_outsourced_type_of_service}' align='left' format='######' />
+			<col name='tse_codigo' title='${lbl:b_code}' align='left' />
+			<col name='tse_descripcion' title='${lbl:b_description}' align='left' />
+			<col name='tse_auxiliar' title='${lbl:b_auxiliary}' align='left' format='######' />
+			<col name='tse_auxiliar_sucursal' title='${lbl:b_outsourced_subsidiary}' align='left' format='######' />
+			<col name='tse_auxiliar_unidad_negocio' title='${lbl:b_outsourced_unit_business}' align='left' format='######' />
+			<col name='tse_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+
+	</pdf-report>
+</config>

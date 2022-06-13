@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='dir_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='dir_codigo' rule='like' />
+</validator>

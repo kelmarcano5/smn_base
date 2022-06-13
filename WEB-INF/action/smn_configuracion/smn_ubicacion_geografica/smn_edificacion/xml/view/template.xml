@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_edificacion>
+	<detail>
+		<rows>		
+		<record edf_fecha_registro="${fld:edf_fecha_registro}"    edf_descripcion="${fld:edf_descripcion}"    edf_codigo="${fld:edf_codigo}"    />
+		</rows>
+	</detail>
+</smn_edificacion>

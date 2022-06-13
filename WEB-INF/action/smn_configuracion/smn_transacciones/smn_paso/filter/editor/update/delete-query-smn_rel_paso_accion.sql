@@ -1,0 +1,1 @@
+delete from smn_base.smn_rel_paso_accion WHERE smn_paso_id= ${fld:id}

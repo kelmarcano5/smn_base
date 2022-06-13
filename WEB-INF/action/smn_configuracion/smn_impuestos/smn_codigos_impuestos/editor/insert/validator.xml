@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='imp_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='imp_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='imp_tipo_codigo' type='varchar' required='true' label='${lbl:b_code_type}' maxlen='2'/>
+	<parameter id='imp_modalidad_registro' type='varchar' required='true' label='${lbl:b_where_is_registered}' maxlen='2'/>
+	<parameter id='imp_porcentaje_base' type='double' required='false' label='${lbl:b_base_percentage}' maxlen='10'/>
+	<parameter id='imp_porcentaje_calculo' type='double' required='false' label='${lbl:b_calculation_percentage}' maxlen='10'/>
+	<parameter id='imp_tipo_libro' type='varchar' required='true' label='${lbl:b_book_type}' maxlen='2'/>
+	<parameter id='imp_tipo_persona' type='varchar' required='true' label='${lbl:b_kind_of_person}' maxlen='4'/>
+	<parameter id='imp_tipo_contribuyente' type='varchar' required='true' label='${lbl:b_type_of_taxpayer}' maxlen='2'/>
+	<parameter id='imp_unidad_impositiva' type='integer' required='true' label='${lbl:b_tax_unit}' maxlen='10'/>
+	<parameter id='imp_ui_minima' type='double' required='false' label='${lbl:b_minimum}' maxlen='10'/>
+	<parameter id='imp_ui_maxima' type='double' required='false' label='${lbl:b_maximum}' maxlen='10'/>
+	<parameter id='imp_ui_sustraendo' type='double' required='false' label='${lbl:b_subtrahend}' maxlen='10'/>
+	<parameter id='imp_monto_minimo' type='double' required='false' label='${lbl:b_minimum}' maxlen='10'/>
+	<parameter id='imp_monto_maximo' type='double' required='false' label='${lbl:b_maximum}' maxlen='10'/>
+	<parameter id='imp_monto_sustraendo' type='double' required='false' label='${lbl:b_subtrahend} ${lbl:b_amount}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='imp_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='imp_descripcion'/>
+
+	<!-- <custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='imp_tipo_codigo'/>
+ -->
+
+</validator>

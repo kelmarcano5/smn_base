@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_areas_servicios>
+	<detail>
+		<rows>		
+		<record ase_fecha_registro="${fld:ase_fecha_registro}"    uen_nombre="${fld:uen_nombre}"    suc_nombre="${fld:suc_nombre}"    ent_descripcion_corta="${fld:ent_descripcion_corta}"    ase_descripcion="${fld:ase_descripcion}"    ase_codigo="${fld:ase_codigo}"    smn_tipos_areas_id="${fld:smn_tipos_areas_id}"    />
+		</rows>
+	</detail>
+</smn_areas_servicios>

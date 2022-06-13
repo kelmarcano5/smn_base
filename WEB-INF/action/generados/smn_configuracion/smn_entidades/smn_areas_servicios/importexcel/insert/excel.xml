@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_tipos_servicios_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='ase_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='ase_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='ase_empresa' type='integer' required='true' maxlen='10'/>
+	<parameter id='ase_sucursal' type='integer' required='false' maxlen='10'/>
+	<parameter id='ase_unidad_negocio' type='integer' required='false' maxlen='10'/>
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-smn_tipos_servicios_id.sql"  id="smn_tipos_servicios_id" />
+</validator>

@@ -1,0 +1,55 @@
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('smn_vencimiento_cabecera_id','query-smnvencimientodetalle.sql')" >${lbl:b_header_expiration}</th>
+		<th class='sortable' onclick="sortBy('tvd_titulo','query-smnvencimientodetalle.sql')" >${lbl:b_tittle}</th>
+		<th class='sortable' onclick="sortBy('tvd_tipo_aplicacion','query-smnvencimientodetalle.sql')" >${lbl:b_application}</th>
+		<th class='sortable' onclick="sortBy('tvd_dias_desde','query-smnvencimientodetalle.sql')" >${lbl:b_day_init}</th>
+		<th class='sortable' onclick="sortBy('tvd_dias_hasta','query-smnvencimientodetalle.sql')" >${lbl:b_day_end}</th>
+		<th class='sortable' onclick="sortBy('tvd_fecha_registro','query-smnvencimientodetalle.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_vencimiento_detalle_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_vencimiento_detalle_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_vencimiento_detalle_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="center">${fld:smn_vencimiento_cabecera_id}</td>
+		<td align="left">${fld:tvd_titulo}</td>
+		<td align="left">${fld:tvd_tipo_aplicacion}</td>
+		<td align="center">${fld:tvd_dias_desde}</td>
+		<td align="center">${fld:tvd_dias_hasta}</td>
+		<td align="center">${fld:tvd_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

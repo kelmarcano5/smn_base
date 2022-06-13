@@ -1,0 +1,110 @@
+//Function para contactenar el id de la clase auxiliar y el numero de documento oficial Creada por Prog. Kelvin Marcano//
+	function mostrarValor(){
+		//CODIGO PARA OBTENER EL VALOR DEL COMBO ATRIBUTO
+		var atuno = document.getElementById('smn_atributo_uno').value;
+		var atdos = document.getElementById('smn_atributo_dos').value;
+		var attres = document.getElementById('smn_atributo_tres').value;
+		var atcuatro = document.getElementById('smn_atributo_cuatro').value;
+		var atcinco = document.getElementById('smn_atributo_cinco').value;
+		var atseis = document.getElementById('smn_atributo_seis').value;
+
+
+		//CODIGO PARA OBTENER EL VALOR DEL COMBO VALOR
+		var vuno = document.getElementById('smn_valor_uno').value;
+		var vdos = document.getElementById('smn_valor_dos').value;
+		var vtres = document.getElementById('smn_valor_tres').value;
+		var vcuatro = document.getElementById('smn_valor_cuatro').value;
+		var vcinco = document.getElementById('smn_valor_cinco').value;
+		var vseis = document.getElementById('smn_valor_seis').value;
+
+	 	var a = document.getElementById('smn_nivel_estructura');
+	 	var c = a.options[a.selectedIndex].text;
+	 	var d = c.substring(8,0);
+	 	 //alert(d);
+
+	 	 //CODIGO PARA CONCATENAR
+	    if (atuno != 0) {
+	     	  var a1 = document.getElementById('smn_valor_uno');
+	    	  var c1 = a1.options[a1.selectedIndex].text;
+	   	 	  var d1 = c1.substring(9,0);
+		 	alert(d1);	
+		 	  document.getElementById('itm_codigo').value = d+"_"+d1;
+	    }else{
+	     	d1="";
+	    }
+
+	    if (atdos != 0) {
+	     	  var a2 = document.getElementById('smn_atributo_dos');
+	    	  var c2 = a2.options[a2.selectedIndex].text;
+	   	 	  var d2 = c2.substring(2,0);
+		 	//alert(d1);	
+		 		if(d1==""){
+		 			document.getElementById('itm_codigo').value = d+"_"+d2;
+		 		}else{
+		 			document.getElementById('itm_codigo').value = d+"_"+d1+"_"+d2;
+		 		}
+	    }else{
+	     	d2="";
+	    }
+
+	    if (attres != 0) {
+	     	  var a3 = document.getElementById('smn_atributo_tres');
+	    	  var c3 = a3.options[a3.selectedIndex].text;
+	   	 	  var d3 = c3.substring(2,0);
+
+	   	 	  if(d1=="" && d2==""){
+		 			document.getElementById('itm_codigo').value = d+"_"+d3;
+		 		}else{
+		 			document.getElementById('itm_codigo').value = d+"_"+d1+"_"+d2+"_"+d3;
+		 		}
+	   }else{
+	     	d3="";
+	   }
+
+	    if (atcuatro != 0) {
+	     	  var a4 = document.getElementById('smn_atributo_cuatro');
+	    	  var c4 = a4.options[a4.selectedIndex].text;
+	   	 	  var d4 = c4.substring(2,0);
+		 	//alert(d1);	
+		 	if(d1=="" && d2=="" && d3==""){
+		 			document.getElementById('itm_codigo').value = d+"_"+d4;
+		 		}else{
+		 		 	document.getElementById('itm_codigo').value = d+"_"+d1+"_"+d2+"_"+d3+"_"+d4;
+		 		}
+		 	
+	    }else{
+	     	d4="";
+	    }
+
+
+	    if (atcinco != 0) {
+	     	  var a5 = document.getElementById('smn_atributo_cinco');
+	    	  var c5 = a5.options[a5.selectedIndex].text;
+	   	 	  var d5 = c5.substring(2,0);
+		 	//alert(d1);	
+
+			 	if(d1=="" && d2=="" && d3=="" && d4==""){
+		 			document.getElementById('itm_codigo').value = d+"_"+d5;
+		 		}else{
+		 		 	document.getElementById('itm_codigo').value = d+"_"+d1+"_"+d2+"_"+d3+"_"+d4+"_"+d5;
+		 		}
+		 }else{
+	     	d5="";
+	     }
+
+	    if (atseis != 0) {
+	     	  var a1 = document.getElementById('smn_atributo_seis');
+	    	  var c1 = a1.options[a1.selectedIndex].text;
+	   	 	  var d6 = c1.substring(2,0);
+		 	//alert(d1);	
+
+		 	if(d1=="" && d2=="" && d3=="" && d4=="" && d5==""){
+	 			document.getElementById('itm_codigo').value = d+"_"+d6;
+	 		}else{
+	 		 	document.getElementById('itm_codigo').value = d+"_"+d1+"_"+d2+"_"+d3+"_"+d4+"_"+d5+"_"+d6;
+	 		}
+		 	
+	    }else{
+	     	d6="";
+	    }
+	 }

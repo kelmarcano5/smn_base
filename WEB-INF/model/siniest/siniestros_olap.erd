@@ -1,0 +1,2598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net.java.amateras.db.visual.model.RootModel>
+  <listeners serialization="custom">
+    <java.beans.PropertyChangeSupport>
+      <default>
+        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+        <source class="net.java.amateras.db.visual.model.RootModel" reference="../../../.."/>
+      </default>
+      <null/>
+    </java.beans.PropertyChangeSupport>
+  </listeners>
+  <children>
+    <net.java.amateras.db.visual.model.TableModel>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+            <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>-1</height>
+        <width>-1</width>
+        <x>564</x>
+        <y>573</y>
+      </constraint>
+      <sourceConnections>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>289</x>
+              <y>499</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_ubicaciongeografica</tableName>
+            <logicalName>Tabla11</logicalName>
+            <description>Dimensión ubicación geográfica</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ug_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Codigo ubicación geográfica</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ug_descripcion</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>50</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Descripción de la ubicación geográfica por estado</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ug_codigo_ubge_id</columnName>
+                <logicalName>Columna2</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código asociado al estado</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_1</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>77</x>
+              <y>643</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_tiempo</tableName>
+            <logicalName>Tabla1</logicalName>
+            <description>Dimensión tiempo</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ti_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Tiempo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ti_fecha_siniestro</columnName>
+                <logicalName>Columna7</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>DATETIME</name>
+                  <logicalName>Datetime</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>93</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Fecha de ocurrencia del siniestro en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ti_periodo_fiscal</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>9</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Vigencia o periodo fiscal</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ti_dia_siniestro</columnName>
+                <logicalName>Columna6</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Día@{1=DOMINGO|2=LUNES|3=MARTES|4=MIERCOLES|5=JUEVES|6=VIERNES|7=SABADO}</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ti_mes_siniestro</columnName>
+                <logicalName>Columna5</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Mes@{1=01|2=02|3=03|4=04|5=05|6=06|7=07|8=08|9=09|10=10|11=11|12=12}</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ti_anio_siniestro</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>4</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Año calendario de ocurrencia del siniestro</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ti_trimestre_siniestro</columnName>
+                <logicalName>Columna4</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>2</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Trimestre@{T1=TRIMESTRE1|T2=TRIMESTRE2|T3=TRIMESTRE3|T4=TRIMESTRE4}</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ti_semestre_siniestro</columnName>
+                <logicalName>Columna8</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[7]/columnType"/>
+                <size>2</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Semestre@{S1=SEMESTRE1|S2=SEMESTRE2}</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>557</x>
+              <y>1170</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_unidadnegocio</tableName>
+            <logicalName>Tabla18</logicalName>
+            <description>Dimension Unidad de Negocio</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>un_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Unidad de Negocio</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>un_descripcion</columnName>
+                <logicalName>Columna2</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>50</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Descripción</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>un_codigo_negocio</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>un_codigo_orden</columnName>
+                <logicalName>Columna4</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Orden</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>754</x>
+              <y>1088</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_asegurado</tableName>
+            <logicalName>Tabla3</logicalName>
+            <description>Dimensión asegurado</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>as_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Código de asegurado</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>as_nombre</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>80</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Nombre del asegurado en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>as_codigo_aseg_id</columnName>
+                <logicalName>Columna2</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código del asegurado en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>987</x>
+              <y>709</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_ramo</tableName>
+            <logicalName>Tabla2</logicalName>
+            <description>Dimensión ramo</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ra_codigo_id</columnName>
+                <logicalName>Columna6</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Codigo Ramo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ra_descripcion</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>30</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Descripción del ramo en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ra_codigo_ramo_id</columnName>
+                <logicalName>Columna2</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código del ramo en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>838</x>
+              <y>500</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_agrupacion</tableName>
+            <logicalName>Tabla25</logicalName>
+            <description>Dimension agrupación</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>agr_codigo_id</columnName>
+                <logicalName>Columna5</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Codigo Agrupacion</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>af_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Vigencia</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>agr_codigo_grp</columnName>
+                <logicalName>Columna4</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código de agrupaciones</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>agr_descripcion</columnName>
+                <logicalName>Columna4</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>50</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Agrupación</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>763</x>
+              <y>335</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_causasiniestro</tableName>
+            <logicalName>Tabla4</logicalName>
+            <description>Dimensión causas de siniestros</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>cs_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Codigo causa de siniestro</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>cs_descripcion</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>50</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Descripción de la causa de siniestro en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>cs_codigo_casi_id</columnName>
+                <logicalName>Columna2</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código de la causa de siniestro en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>404</x>
+              <y>331</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_causarechazo</tableName>
+            <logicalName>Tabla12</logicalName>
+            <description>Dimensión causas de rechazos</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>cr_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Codigo Causa de rechazo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>cr_descripcion</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[5]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                <size>50</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Descripción de la causa de rechazo en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>cr_codigo_care_id</columnName>
+                <logicalName>Columna2</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código de la causa rechazo en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>276</x>
+              <y>880</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_estatussiniestro</tableName>
+            <logicalName></logicalName>
+            <description>Dimensión estatus de siniestros</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>es_codigo_id</columnName>
+                <logicalName></logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Codigo Estatus de Siniestros</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>es_descripcion</columnName>
+                <logicalName></logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>50</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Descripción del estatus de siniestro en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>es_codigo_essi_id</columnName>
+                <logicalName></logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código del estatus siniestro en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>es_estatus</columnName>
+                <logicalName>Columna5</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Situación de Estatus</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>576</x>
+              <y>243</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_moneda</tableName>
+            <logicalName>Tabla9</logicalName>
+            <description>Dimensión moneda</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>mo_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Codigo de la moneda</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>mo_simbolo</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>24</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Símbolo de la moneda en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>mo_codigo_mone_id</columnName>
+                <logicalName>Columna2</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código de la moneda en el iSeries</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>917</x>
+              <y>888</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_poliza</tableName>
+            <logicalName>Tabla13</logicalName>
+            <description>Dimensión póliza</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>po_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>ID Póliza</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>po_numero</columnName>
+                <logicalName>Columna7</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>15</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Número de póliza</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>po_compania</columnName>
+                <logicalName>Columna4</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Número de compañía de seguro</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>po_ramo</columnName>
+                <logicalName>Columna5</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Código de ramo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>po_certificado</columnName>
+                <logicalName>Columna6</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Número de certificado</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>dw_siniestros_FK_1</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <target class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>371</x>
+              <y>1086</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+            </targetConnections>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_estatuspago</tableName>
+            <logicalName>Tabla8</logicalName>
+            <description>Dimensión estatus de pago</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ep_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Codigo estatus de pago</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ep_descripcion</columnName>
+                <logicalName>Columna3</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>VARCHAR</name>
+                  <logicalName>String</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>12</type>
+                </columnType>
+                <size>64</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Descripción del estatus de pago</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ep_estatus</columnName>
+                <logicalName>Columna2</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Número asociado al estatus de pago</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor>
+              <red>231</red>
+              <green>232</green>
+              <blue>245</blue>
+            </backgroundColor>
+            <sql></sql>
+          </target>
+          <foreignKeyName>sin_siniestros_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+      </sourceConnections>
+      <targetConnections/>
+      <error></error>
+      <linkedPath></linkedPath>
+      <tableName>dw_siniestros</tableName>
+      <logicalName>Tabla6</logicalName>
+      <description>Tabla de Hechos de Siniestros</description>
+      <columns>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>INTEGER</name>
+            <logicalName>Integer</logicalName>
+            <supportSize>false</supportSize>
+            <type>4</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>true</primaryKey>
+          <description>Movimiento de Siniestros</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>un_codigo_id</columnName>
+          <logicalName>Columna20</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Unidad de Negocio</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>agr_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Agrupaciones</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>as_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Asegurado</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>po_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Numero de póliza</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>ra_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Codigo Ramo</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>mo_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Moneda</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>cs_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Causa de Siniestro</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>cr_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Causa de Rechazo</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>es_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Estatus de Siniestros</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>ug_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Ubicación Geográfica</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>ep_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Estatus de Pago</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>ti_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>INTEGER</name>
+            <logicalName>Integer</logicalName>
+            <supportSize>false</supportSize>
+            <type>4</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Tiempo</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_pagado</columnName>
+          <logicalName>Columna19</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>FLOAT</name>
+            <logicalName>Real</logicalName>
+            <supportSize>false</supportSize>
+            <type>8</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Monto Pagado</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_pagado_parcial</columnName>
+          <logicalName>Columna14</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[14]/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Monto Parcialmente Pagado</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_pendiente_pago</columnName>
+          <logicalName>Columna15</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[14]/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Monto Pendiente de Pago</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_prima</columnName>
+          <logicalName>Columna20</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>FLOAT</name>
+            <logicalName>Real</logicalName>
+            <supportSize>false</supportSize>
+            <type>8</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Monto Prima</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_psiniestralidad</columnName>
+          <logicalName>Columna21</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>FLOAT</name>
+            <logicalName>Real</logicalName>
+            <supportSize>false</supportSize>
+            <type>8</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>% Siniestralidad</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_tasa_cambio</columnName>
+          <logicalName>Columna21</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>FLOAT</name>
+            <logicalName>Real</logicalName>
+            <supportSize>false</supportSize>
+            <type>8</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Tasa</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_nivel</columnName>
+          <logicalName>Columna22</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>INTEGER</name>
+            <logicalName>Integer</logicalName>
+            <supportSize>false</supportSize>
+            <type>4</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Nivel</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_poliza_agrupadora</columnName>
+          <logicalName>Columna21</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>VARCHAR</name>
+            <logicalName>String</logicalName>
+            <supportSize>true</supportSize>
+            <type>12</type>
+          </columnType>
+          <size>15</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Póliza Agrupadora</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_codigo_sini_id</columnName>
+          <logicalName>Columna22</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>INTEGER</name>
+            <logicalName>Integer</logicalName>
+            <supportSize>false</supportSize>
+            <type>4</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Número de Siniestro</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>dw_monto_ajustado</columnName>
+          <logicalName>Columna23</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>FLOAT</name>
+            <logicalName>Real</logicalName>
+            <supportSize>false</supportSize>
+            <type>8</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Monto Ajustado</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+      </columns>
+      <indices/>
+      <backgroundColor>
+        <red>231</red>
+        <green>232</green>
+        <blue>245</blue>
+      </backgroundColor>
+      <sql></sql>
+    </net.java.amateras.db.visual.model.TableModel>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[7]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[10]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[8]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[9]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[2]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[3]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[4]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[5]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[11]/target"/>
+    <net.java.amateras.db.visual.model.TableModel>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+            <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>-1</height>
+        <width>-1</width>
+        <x>1459</x>
+        <y>1036</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections>
+        <net.java.amateras.db.visual.model.ForeignKeyModel>
+          <listeners serialization="custom">
+            <java.beans.PropertyChangeSupport>
+              <default>
+                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+              </default>
+              <null/>
+            </java.beans.PropertyChangeSupport>
+          </listeners>
+          <source class="net.java.amateras.db.visual.model.TableModel">
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                  <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>-1</height>
+              <width>-1</width>
+              <x>1765</x>
+              <y>602</y>
+            </constraint>
+            <sourceConnections>
+              <net.java.amateras.db.visual.model.ForeignKeyModel>
+                <listeners serialization="custom">
+                  <java.beans.PropertyChangeSupport>
+                    <default>
+                      <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                      <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+                    </default>
+                    <null/>
+                  </java.beans.PropertyChangeSupport>
+                </listeners>
+                <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+                <target class="net.java.amateras.db.visual.model.TableModel">
+                  <listeners serialization="custom">
+                    <java.beans.PropertyChangeSupport>
+                      <default>
+                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                        <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                      </default>
+                      <null/>
+                    </java.beans.PropertyChangeSupport>
+                  </listeners>
+                  <constraint>
+                    <height>-1</height>
+                    <width>-1</width>
+                    <x>2054</x>
+                    <y>490</y>
+                  </constraint>
+                  <sourceConnections/>
+                  <targetConnections>
+                    <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+                  </targetConnections>
+                  <error></error>
+                  <linkedPath></linkedPath>
+                  <tableName>dw_agrupacion</tableName>
+                  <logicalName>Tabla25</logicalName>
+                  <description>Dimension agrupación</description>
+                  <columns>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>agr_codigo_id</columnName>
+                      <logicalName>Columna5</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>true</primaryKey>
+                      <description>Codigo Agrupacion</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>af_codigo_id</columnName>
+                      <logicalName>Columna1</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Vigencia</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>agr_codigo_grp</columnName>
+                      <logicalName>Columna4</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Código de agrupaciones</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>agr_descripcion</columnName>
+                      <logicalName>Columna4</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/target/columns/net.java.amateras.db.visual.model.ColumnModel[4]/columnType"/>
+                      <size>50</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Agrupación</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                  </columns>
+                  <indices/>
+                  <backgroundColor reference="../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/target/backgroundColor"/>
+                  <sql></sql>
+                </target>
+                <foreignKeyName>dw_siniestralidad_FK_2</foreignKeyName>
+                <references/>
+                <onDeleteOption>CASCADE</onDeleteOption>
+              </net.java.amateras.db.visual.model.ForeignKeyModel>
+              <net.java.amateras.db.visual.model.ForeignKeyModel>
+                <listeners serialization="custom">
+                  <java.beans.PropertyChangeSupport>
+                    <default>
+                      <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                      <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+                    </default>
+                    <null/>
+                  </java.beans.PropertyChangeSupport>
+                </listeners>
+                <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+                <target class="net.java.amateras.db.visual.model.TableModel">
+                  <listeners serialization="custom">
+                    <java.beans.PropertyChangeSupport>
+                      <default>
+                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                        <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                      </default>
+                      <null/>
+                    </java.beans.PropertyChangeSupport>
+                  </listeners>
+                  <constraint>
+                    <height>-1</height>
+                    <width>-1</width>
+                    <x>1415</x>
+                    <y>494</y>
+                  </constraint>
+                  <sourceConnections/>
+                  <targetConnections>
+                    <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+                  </targetConnections>
+                  <error></error>
+                  <linkedPath></linkedPath>
+                  <tableName>dw_moneda</tableName>
+                  <logicalName>Tabla9</logicalName>
+                  <description>Dimensión moneda</description>
+                  <columns>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>mo_codigo_id</columnName>
+                      <logicalName>Columna1</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>true</primaryKey>
+                      <description>Codigo de la moneda</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>mo_simbolo</columnName>
+                      <logicalName>Columna3</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[10]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                      <size>24</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Símbolo de la moneda en el iSeries</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>mo_codigo_mone_id</columnName>
+                      <logicalName>Columna2</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[10]/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Código de la moneda en el iSeries</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                  </columns>
+                  <indices/>
+                  <backgroundColor reference="../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[10]/target/backgroundColor"/>
+                  <sql></sql>
+                </target>
+                <foreignKeyName>dw_siniestralidad_FK_2</foreignKeyName>
+                <references/>
+                <onDeleteOption>CASCADE</onDeleteOption>
+              </net.java.amateras.db.visual.model.ForeignKeyModel>
+              <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+              <net.java.amateras.db.visual.model.ForeignKeyModel>
+                <listeners serialization="custom">
+                  <java.beans.PropertyChangeSupport>
+                    <default>
+                      <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                      <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+                    </default>
+                    <null/>
+                  </java.beans.PropertyChangeSupport>
+                </listeners>
+                <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+                <target class="net.java.amateras.db.visual.model.TableModel">
+                  <listeners serialization="custom">
+                    <java.beans.PropertyChangeSupport>
+                      <default>
+                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                        <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                      </default>
+                      <null/>
+                    </java.beans.PropertyChangeSupport>
+                  </listeners>
+                  <constraint>
+                    <height>-1</height>
+                    <width>-1</width>
+                    <x>2053</x>
+                    <y>1038</y>
+                  </constraint>
+                  <sourceConnections/>
+                  <targetConnections>
+                    <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+                  </targetConnections>
+                  <error></error>
+                  <linkedPath></linkedPath>
+                  <tableName>dw_asegurado</tableName>
+                  <logicalName>Tabla3</logicalName>
+                  <description>Dimensión asegurado</description>
+                  <columns>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>as_codigo_id</columnName>
+                      <logicalName>Columna1</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>true</primaryKey>
+                      <description>Código de asegurado</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>as_nombre</columnName>
+                      <logicalName>Columna3</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[4]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                      <size>80</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Nombre del asegurado en el iSeries</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>as_codigo_aseg_id</columnName>
+                      <logicalName>Columna2</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[4]/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Código del asegurado en el iSeries</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                  </columns>
+                  <indices/>
+                  <backgroundColor reference="../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[4]/target/backgroundColor"/>
+                  <sql></sql>
+                </target>
+                <foreignKeyName>dw_siniestralidad_FK_2</foreignKeyName>
+                <references/>
+                <onDeleteOption>CASCADE</onDeleteOption>
+              </net.java.amateras.db.visual.model.ForeignKeyModel>
+              <net.java.amateras.db.visual.model.ForeignKeyModel>
+                <listeners serialization="custom">
+                  <java.beans.PropertyChangeSupport>
+                    <default>
+                      <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                      <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+                    </default>
+                    <null/>
+                  </java.beans.PropertyChangeSupport>
+                </listeners>
+                <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+                <target class="net.java.amateras.db.visual.model.TableModel">
+                  <listeners serialization="custom">
+                    <java.beans.PropertyChangeSupport>
+                      <default>
+                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                        <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                      </default>
+                      <null/>
+                    </java.beans.PropertyChangeSupport>
+                  </listeners>
+                  <constraint>
+                    <height>-1</height>
+                    <width>-1</width>
+                    <x>1739</x>
+                    <y>329</y>
+                  </constraint>
+                  <sourceConnections/>
+                  <targetConnections>
+                    <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+                  </targetConnections>
+                  <error></error>
+                  <linkedPath></linkedPath>
+                  <tableName>dw_poliza</tableName>
+                  <logicalName>Tabla13</logicalName>
+                  <description>Dimensión póliza</description>
+                  <columns>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>po_codigo_id</columnName>
+                      <logicalName>Columna1</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[11]/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>true</primaryKey>
+                      <description>ID Póliza</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>po_numero</columnName>
+                      <logicalName>Columna7</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[11]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                      <size>15</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Número de póliza</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>po_compania</columnName>
+                      <logicalName>Columna4</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[11]/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Número de compañía de seguro</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>po_ramo</columnName>
+                      <logicalName>Columna5</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[11]/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Código de ramo</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>po_certificado</columnName>
+                      <logicalName>Columna6</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[11]/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Número de certificado</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                  </columns>
+                  <indices/>
+                  <backgroundColor reference="../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[11]/target/backgroundColor"/>
+                  <sql></sql>
+                </target>
+                <foreignKeyName>dw_siniestralidad_FK_2</foreignKeyName>
+                <references/>
+                <onDeleteOption>CASCADE</onDeleteOption>
+              </net.java.amateras.db.visual.model.ForeignKeyModel>
+              <net.java.amateras.db.visual.model.ForeignKeyModel>
+                <listeners serialization="custom">
+                  <java.beans.PropertyChangeSupport>
+                    <default>
+                      <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                      <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+                    </default>
+                    <null/>
+                  </java.beans.PropertyChangeSupport>
+                </listeners>
+                <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+                <target class="net.java.amateras.db.visual.model.TableModel">
+                  <listeners serialization="custom">
+                    <java.beans.PropertyChangeSupport>
+                      <default>
+                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                        <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                      </default>
+                      <null/>
+                    </java.beans.PropertyChangeSupport>
+                  </listeners>
+                  <constraint>
+                    <height>-1</height>
+                    <width>-1</width>
+                    <x>2211</x>
+                    <y>802</y>
+                  </constraint>
+                  <sourceConnections/>
+                  <targetConnections>
+                    <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+                  </targetConnections>
+                  <error></error>
+                  <linkedPath></linkedPath>
+                  <tableName>dw_ramo</tableName>
+                  <logicalName>Tabla2</logicalName>
+                  <description>Dimensión ramo</description>
+                  <columns>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>ra_codigo_id</columnName>
+                      <logicalName>Columna6</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>true</primaryKey>
+                      <description>Codigo Ramo</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>ra_descripcion</columnName>
+                      <logicalName>Columna3</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[5]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                      <size>30</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Descripción del ramo en el iSeries</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>ra_codigo_ramo_id</columnName>
+                      <logicalName>Columna2</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Código del ramo en el iSeries</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                  </columns>
+                  <indices/>
+                  <backgroundColor reference="../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[5]/target/backgroundColor"/>
+                  <sql></sql>
+                </target>
+                <foreignKeyName>dw_siniestralidad_FK_2</foreignKeyName>
+                <references/>
+                <onDeleteOption>CASCADE</onDeleteOption>
+              </net.java.amateras.db.visual.model.ForeignKeyModel>
+              <net.java.amateras.db.visual.model.ForeignKeyModel>
+                <listeners serialization="custom">
+                  <java.beans.PropertyChangeSupport>
+                    <default>
+                      <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                      <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+                    </default>
+                    <null/>
+                  </java.beans.PropertyChangeSupport>
+                </listeners>
+                <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+                <target class="net.java.amateras.db.visual.model.TableModel">
+                  <listeners serialization="custom">
+                    <java.beans.PropertyChangeSupport>
+                      <default>
+                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                        <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                      </default>
+                      <null/>
+                    </java.beans.PropertyChangeSupport>
+                  </listeners>
+                  <constraint>
+                    <height>-1</height>
+                    <width>-1</width>
+                    <x>1385</x>
+                    <y>798</y>
+                  </constraint>
+                  <sourceConnections/>
+                  <targetConnections>
+                    <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+                  </targetConnections>
+                  <error></error>
+                  <linkedPath></linkedPath>
+                  <tableName>dw_aniofiscal</tableName>
+                  <logicalName>Tabla16</logicalName>
+                  <description>Tabla maestro transaccional vigencia</description>
+                  <columns>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>af_codigo_id</columnName>
+                      <logicalName>Columna1</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType">
+                        <name>INTEGER</name>
+                        <logicalName>Integer</logicalName>
+                        <supportSize>false</supportSize>
+                        <type>4</type>
+                      </columnType>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>true</primaryKey>
+                      <description>ID Vigencia</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>af_periodo_fiscal</columnName>
+                      <logicalName>Columna2</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType">
+                        <name>VARCHAR</name>
+                        <logicalName>String</logicalName>
+                        <supportSize>true</supportSize>
+                        <type>12</type>
+                      </columnType>
+                      <size>9</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Periodo asociado al año fiscal</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                  </columns>
+                  <indices/>
+                  <backgroundColor>
+                    <red>231</red>
+                    <green>232</green>
+                    <blue>245</blue>
+                  </backgroundColor>
+                  <sql></sql>
+                </target>
+                <foreignKeyName>dw_siniestralidad_FK_1</foreignKeyName>
+                <references/>
+                <onDeleteOption>CASCADE</onDeleteOption>
+              </net.java.amateras.db.visual.model.ForeignKeyModel>
+              <net.java.amateras.db.visual.model.ForeignKeyModel>
+                <listeners serialization="custom">
+                  <java.beans.PropertyChangeSupport>
+                    <default>
+                      <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                      <source class="net.java.amateras.db.visual.model.ForeignKeyModel" reference="../../../.."/>
+                    </default>
+                    <null/>
+                  </java.beans.PropertyChangeSupport>
+                </listeners>
+                <source class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+                <target class="net.java.amateras.db.visual.model.TableModel">
+                  <listeners serialization="custom">
+                    <java.beans.PropertyChangeSupport>
+                      <default>
+                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                        <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+                      </default>
+                      <null/>
+                    </java.beans.PropertyChangeSupport>
+                  </listeners>
+                  <constraint>
+                    <height>-1</height>
+                    <width>-1</width>
+                    <x>1756</x>
+                    <y>1100</y>
+                  </constraint>
+                  <sourceConnections/>
+                  <targetConnections>
+                    <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
+                  </targetConnections>
+                  <error></error>
+                  <linkedPath></linkedPath>
+                  <tableName>dw_estatuspago</tableName>
+                  <logicalName>Tabla8</logicalName>
+                  <description>Dimensión estatus de pago</description>
+                  <columns>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>ep_codigo_id</columnName>
+                      <logicalName>Columna1</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>true</primaryKey>
+                      <description>Codigo estatus de pago</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>ep_descripcion</columnName>
+                      <logicalName>Columna3</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[12]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+                      <size>64</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Descripción del estatus de pago</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                    <net.java.amateras.db.visual.model.ColumnModel>
+                      <columnName>ep_estatus</columnName>
+                      <logicalName>Columna2</logicalName>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[12]/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <size>10</size>
+                      <notNull>true</notNull>
+                      <primaryKey>false</primaryKey>
+                      <description>Número asociado al estatus de pago</description>
+                      <autoIncrement>false</autoIncrement>
+                      <defaultValue></defaultValue>
+                    </net.java.amateras.db.visual.model.ColumnModel>
+                  </columns>
+                  <indices/>
+                  <backgroundColor reference="../../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[12]/target/backgroundColor"/>
+                  <sql></sql>
+                </target>
+                <foreignKeyName>dw_siniestralidad_FK_2</foreignKeyName>
+                <references/>
+                <onDeleteOption>CASCADE</onDeleteOption>
+              </net.java.amateras.db.visual.model.ForeignKeyModel>
+            </sourceConnections>
+            <targetConnections/>
+            <error></error>
+            <linkedPath></linkedPath>
+            <tableName>dw_siniestralidad</tableName>
+            <logicalName>Tabla6</logicalName>
+            <description>Tabla de Hechos de Siniestralidad</description>
+            <columns>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>true</primaryKey>
+                <description>Siniestralidad</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>un_codigo_id</columnName>
+                <logicalName>Columna20</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Unidad de Negocio</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>agr_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Agrupaciones</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>as_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Asegurado</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>po_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Numero de póliza</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ra_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Ramo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>mo_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Moneda</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>af_codigo_id</columnName>
+                <logicalName>Columna1</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Tiempo</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>ep_codigo_id</columnName>
+                <logicalName>Columna18</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[6]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Estatus de Pago</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_prima</columnName>
+                <logicalName>Columna20</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/columns/net.java.amateras.db.visual.model.ColumnModel[17]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Monto Prima</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_pagado</columnName>
+                <logicalName>Columna19</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/columns/net.java.amateras.db.visual.model.ColumnModel[14]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Monto Pagado</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_pagado_parcial</columnName>
+                <logicalName>Columna14</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/columns/net.java.amateras.db.visual.model.ColumnModel[14]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Monto Parcialmente Pagado</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_pendiente_pago</columnName>
+                <logicalName>Columna15</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/columns/net.java.amateras.db.visual.model.ColumnModel[14]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Monto Pendiente de Pago</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_monto_ajustado</columnName>
+                <logicalName>Columna23</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/columns/net.java.amateras.db.visual.model.ColumnModel[23]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Monto Ajustado</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_tasa_cambio</columnName>
+                <logicalName>Columna21</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/columns/net.java.amateras.db.visual.model.ColumnModel[19]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Tasa</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_casos_pagado</columnName>
+                <logicalName>Columna17</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>INTEGER</name>
+                  <logicalName>Integer</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>4</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>N° Casos Pagados</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_casos_pagado_parcial</columnName>
+                <logicalName>Columna19</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[16]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>N° Casos Pagados Parcialmente</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_casos_pendiente_pago</columnName>
+                <logicalName>Columna20</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[16]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>N° Casos Pendiente Pago</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_casos_rechazados</columnName>
+                <logicalName>Columna21</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[16]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>N° Casos Rechazados</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_psiniestralidad</columnName>
+                <logicalName>Columna16</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>FLOAT</name>
+                  <logicalName>Real</logicalName>
+                  <supportSize>false</supportSize>
+                  <type>8</type>
+                </columnType>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>% Siniestralidad</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+              <net.java.amateras.db.visual.model.ColumnModel>
+                <columnName>dw_nivel</columnName>
+                <logicalName>Columna22</logicalName>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../net.java.amateras.db.visual.model.TableModel/columns/net.java.amateras.db.visual.model.ColumnModel[20]/columnType"/>
+                <size>10</size>
+                <notNull>true</notNull>
+                <primaryKey>false</primaryKey>
+                <description>Nivel</description>
+                <autoIncrement>false</autoIncrement>
+                <defaultValue></defaultValue>
+              </net.java.amateras.db.visual.model.ColumnModel>
+            </columns>
+            <indices/>
+            <backgroundColor reference="../../../../../net.java.amateras.db.visual.model.TableModel/backgroundColor"/>
+            <sql></sql>
+          </source>
+          <target class="net.java.amateras.db.visual.model.TableModel" reference="../../.."/>
+          <foreignKeyName>dw_siniestralidad_FK_2</foreignKeyName>
+          <references/>
+          <onDeleteOption>CASCADE</onDeleteOption>
+        </net.java.amateras.db.visual.model.ForeignKeyModel>
+      </targetConnections>
+      <error></error>
+      <linkedPath></linkedPath>
+      <tableName>dw_unidadnegocio</tableName>
+      <logicalName>Tabla18</logicalName>
+      <description>Dimension Unidad de Negocio</description>
+      <columns>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>un_codigo_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>true</primaryKey>
+          <description>Unidad de Negocio</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>un_descripcion</columnName>
+          <logicalName>Columna2</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[3]/target/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+          <size>50</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Descripción</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>un_codigo_negocio</columnName>
+          <logicalName>Columna3</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[3]/target/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Código</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>un_codigo_orden</columnName>
+          <logicalName>Columna4</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[3]/target/columns/net.java.amateras.db.visual.model.ColumnModel[4]/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>Orden</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+      </columns>
+      <indices/>
+      <backgroundColor reference="../../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[3]/target/backgroundColor"/>
+      <sql></sql>
+    </net.java.amateras.db.visual.model.TableModel>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel[13]/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[4]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel[13]/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[5]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel[13]/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel[13]/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel[13]/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[2]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel[13]/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel[13]/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[7]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[12]/target"/>
+    <net.java.amateras.db.visual.model.TableModel reference="../net.java.amateras.db.visual.model.TableModel[13]/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[8]/target"/>
+  </children>
+  <dommains/>
+  <dialectName>SQLServer</dialectName>
+  <logicalMode>false</logicalMode>
+  <jarFile>C:\tomcat6\lib\jtds-1.2.5.jar</jarFile>
+  <jdbcDriver>net.sourceforge.jtds.jdbc.Driver</jdbcDriver>
+  <jdbcUrl>jdbc:jtds:sqlserver://vecrs-i-ap1d:1433/WillisSiniestros</jdbcUrl>
+  <jdbcUser>usromz</jdbcUser>
+  <jdbcPassword>Car1ac0</jdbcPassword>
+  <jdbcSchema></jdbcSchema>
+  <jdbcCatalog></jdbcCatalog>
+  <includeView>true</includeView>
+</net.java.amateras.db.visual.model.RootModel>

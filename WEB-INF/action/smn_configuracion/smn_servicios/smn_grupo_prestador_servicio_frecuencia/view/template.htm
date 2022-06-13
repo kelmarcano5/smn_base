@@ -1,0 +1,49 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("gpp_codigo_pl0","query-smngrupoprestadorserviciofrecuencia.sql")'>${lbl:b_groups_of_providers}</th>
+		<th class='sortable' onclick='sortBy("prs_codigo_pl1","query-smngrupoprestadorserviciofrecuencia.sql")'>${lbl:b_service_provider}</th>
+		<th class='sortable' onclick='sortBy("svc_codigo_pl2","query-smngrupoprestadorserviciofrecuencia.sql")'>${lbl:b_service}</th>
+		<th class='sortable' onclick='sortBy("gps_frecuencia","query-smngrupoprestadorserviciofrecuencia.sql")'>${lbl:b_frecuency}</th>
+		<th class='sortable' onclick='sortBy("gps_fecha_registro","query-smngrupoprestadorserviciofrecuencia.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_grupo_prestador_servicio_frecuencia_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_grupo_prestador_servicio_frecuencia_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_grupo_prestador_servicio_frecuencia_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_grupos_prestadores_id}</td>
+		<td>${fld:smn_prestadores_servicios_id}</td>
+		<td>${fld:smn_servicios_id}</td>
+		<td align='right'>${fld:gps_frecuencia@#,###,##0.00}</td>
+		<td>${fld:gps_fecha_registro}</td>
+
+	</tr>
+	</rows>
+
+</table>

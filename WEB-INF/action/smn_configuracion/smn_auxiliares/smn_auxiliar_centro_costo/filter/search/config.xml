@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Ejecutar consulta y enrutar dependiendo de que un recordset
+		tenga o no registros
+	</summary>
+
+	<log>false</log>
+
+	<!--configura el control de paginacion-->
+	<set-request-attribute id="paging.recordset" value="query-smnauxiliarcentrocosto.sql" />
+	<set-request-attribute id="paging.pagesize" value="10" />
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>tco_codigo</colname>
+			<colname>tco_descripcion_larga</colname>
+			<colname>tco_clase_auxiliar</colname>
+			<colname>tco_auxiliar</colname>
+			<colname>tco_responsable</colname>
+			<colname>tco_tipo_cco</colname>
+		
+		</cols>
+		<table>smn_base.smn_auxiliar_centro_costo</table>
+		<oper>CONSULTA</oper>
+		<area>Consulta</area>
+		<!-- 
+ 			para auditoria de consulta permite obtener la cantidad de registro obtenidos
+ 			de la busqueda (opcional)
+ 		-->
+		<recordCount recordset="query-smnauxiliarcentrocosto.sql"/>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableSearch</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+	</transaction>
+	
+	<searchCols>tco_codigo;tco_descripcion_larga;tco_clase_auxiliar;tco_auxiliar;tco_responsable;tco_tipo_cco;</searchCols>
+
+	<on-exit return-code="0" forward-to="/action/initview" />
+	<on-exit return-code="1" forward-to="${def:actionroot}/notfound" />
+
+</config>

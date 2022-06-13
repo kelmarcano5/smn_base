@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='true' label='${lbl:b_class_auxiliary}' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='true' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='smn_tipo_contactos_rf' type='integer' required='true' label='${lbl:b_type_contact}' maxlen='10'/>
+	<parameter id='auc_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='24'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='auc_descripcion'/>
+
+		
+
+</validator>

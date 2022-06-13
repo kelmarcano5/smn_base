@@ -1,0 +1,38 @@
+UPDATE smn_base.smn_componentes SET
+	cmp_codigo=${fld:cmp_codigo},
+	cmp_descripcion=${fld:cmp_descripcion},
+	cmp_tipo_componente=${fld:cmp_tipo_componente},
+	smn_grupo_componente_rf=${fld:smn_grupo_componente_rf},
+	cmp_forma_calculo=${fld:cmp_forma_calculo},
+	cmp_vigencia_desde=${fld:cmp_vigencia_desde},
+	cmp_vigencia_hasta=${fld:cmp_vigencia_hasta},
+	cmp_visible=${fld:cmp_visible},
+	cmp_clase_auxiliar_rf=${fld:cmp_clase_auxiliar_rf},
+	cmp_req_grupo_prestador=${fld:cmp_req_grupo_prestador},
+	cmp_grupo_prestador=${fld:smn_grupo_prestador_id},
+	cmp_tiempo_estimado=${fld:cmp_tiempo_estimado},
+	smn_unidad_medida_rf=${fld:smn_unidad_medida_rf},
+	smn_almacen_rf=${fld:smn_almacen_rf},
+	smn_item_rf=${fld:smn_item_rf},
+	smn_tipo_gasto_rf=${fld:smn_tipo_gasto_rf},
+	smn_sub_tipo_gasto_rf=${fld:smn_sub_tipo_gasto_rf},
+	smn_imprime=${fld:smn_imprime},
+	smn_grupo_titulo_impresion_rf=${fld:smn_grupo_titulo_impresion_rf},
+	cmp_porcentaje=${fld:cmp_porcentaje},
+	cmp_cantidad=${fld:cmp_cantidad},
+	cmp_precio_moneda_local=${fld:cmp_precio_moneda_local},
+	cmp_monto_moneda_local=${fld:cmp_monto_moneda_local},
+	smn_moneda_rf=${fld:smn_moneda_rf},
+	cmp_precio_moneda_alterna=${fld:cmp_precio_moneda_alterna},
+	cmp_monto_moneda_alterna=${fld:cmp_monto_moneda_alterna},
+	cmp_idioma='${def:locale}',
+	cmp_usuario='${def:user}',
+	cmp_fecha_registro={d '${def:date}'},
+	cmp_hora='${def:time}',
+	smn_servicios_rf=${fld:smn_servicios_rf},
+	cmp_genera_grupo_prestador=${fld:cmp_genera_grupo_prestador},
+	cmp_acumula_servicio=${fld:cmp_acumula_servicio}
+
+WHERE
+	smn_componentes_id=${fld:id}
+

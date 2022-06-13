@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='eue_aplica_uen_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='eue_aplica_auxiliar_uen_desc' type='varchar' required='true' maxlen='48'/>
+	
+	<parameter id='eue_aplica_uen_ref' type='varchar' required='false' maxlen='48'/>
+	<parameter id='eue_aplica_auxiliar_uen_ref' type='varchar' required='false' maxlen='48'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_business_unit_not_recorded}.' 
+		parameter='eue_aplica_uen_ref' 
+		sql='uen.sql'
+		id='eue_aplica_uen_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_aux_business_unit_not_recorded}.' 
+		parameter='eue_aplica_auxiliar_uen_ref' 
+		sql='uen-auxiliar.sql'
+		id='eue_aplica_auxiliar_uen_ref'/>
+
+</validator>

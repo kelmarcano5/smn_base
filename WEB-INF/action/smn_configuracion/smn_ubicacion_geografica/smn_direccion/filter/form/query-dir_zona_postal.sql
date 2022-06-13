@@ -1,0 +1,1 @@
+select smn_base.smn_zonas_postales.smn_zonas_postales_id as id, smn_base.smn_zonas_postales.zpo_codigo as item from smn_base.smn_zonas_postales order by  smn_base.smn_zonas_postales.zpo_codigo

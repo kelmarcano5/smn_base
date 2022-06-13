@@ -1,0 +1,13 @@
+select
+		smn_base.smn_rel_grupo_prestador_servicio.smn_grupos_prestadores_id,
+	smn_base.smn_rel_grupo_prestador_servicio.smn_prestadores_servicios_id,
+	smn_base.smn_rel_grupo_prestador_servicio.smn_grupos_prestadores_id,
+	smn_base.smn_rel_grupo_prestador_servicio.smn_prestadores_servicios_id,
+	smn_base.smn_rel_grupo_prestador_servicio.smn_grupos_prestadores_id,
+	smn_base.smn_rel_grupo_prestador_servicio.smn_prestadores_servicios_id,
+	smn_base.smn_rel_grupo_prestador_servicio.smn_grupos_prestadores_id,
+	smn_base.smn_rel_grupo_prestador_servicio.smn_prestadores_servicios_id
+from
+	smn_base.smn_rel_grupo_prestador_servicio 
+where
+	smn_base.smn_rel_grupo_prestador_servicio.smn_rel_grupo_prestador_servicio_id = ${fld:id}

@@ -1,0 +1,1 @@
+select smn_base.smn_auxiliar_cuenta.smn_auxiliar_cuenta_id as id, smn_base.smn_auxiliar_cuenta.cta_codigo||'-'||smn_base.smn_auxiliar_cuenta.cta_descripcion as item from smn_base.smn_auxiliar_cuenta ORDER BY id

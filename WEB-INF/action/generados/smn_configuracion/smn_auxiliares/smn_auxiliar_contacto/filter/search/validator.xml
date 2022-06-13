@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='acn_telefono_fijo' type='varchar' required='false' label='${lbl:b_fixed_phone}' maxlen='24'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='acn_telefono_fijo' rule='contains' />
+	<parameter id='acn_telefono_movil' type='varchar' required='false' label='${lbl:b_mobile_phone}' maxlen='24'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='acn_telefono_movil' rule='contains' />
+	<parameter id='acn_email' type='varchar' required='false' label='${lbl:s_profile_email}' maxlen='96'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='acn_email' rule='contains' />
+	<parameter id='acn_swift' type='varchar' required='false' label='${lbl:b_swift_code}' maxlen='24'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='acn_swift' rule='contains' />
+	<parameter id='acn_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='acn_fecha_registro_ini' date2='acn_fecha_registro_fin' id='acn_fecha_registro_ini' />
+	<parameter id='acn_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

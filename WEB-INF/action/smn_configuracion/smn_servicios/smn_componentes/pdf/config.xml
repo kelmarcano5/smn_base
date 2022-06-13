@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncomponentes.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_components}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_components}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smncomponentes.sql' width='100' spacingBefore='40'>
+			<col name='cmp_codigo' title='${lbl:b_code}' width='14' align='left' />
+			<col name='cmp_descripcion' title='${lbl:b_description}' width='14' align='left' />
+			<col name='cmp_tipo_componente' title='${lbl:b_type_component}' width='14' align='left' />
+			<col name='smn_grupo_componente_rf' title='${lbl:b_group_component}' width='14' align='left'  />
+			<col name='cmp_forma_calculo' title='${lbl:b_calculus_form}' width='14' align='left' />
+			<col name='cla_nombre' title='${lbl:b_auxiliary_class}' width='14' align='left'  />
+			<col name='cmp_fecha_registro' title='${lbl:b_store_date}' width='14' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

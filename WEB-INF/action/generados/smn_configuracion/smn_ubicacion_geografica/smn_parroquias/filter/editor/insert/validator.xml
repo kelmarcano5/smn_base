@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='prr_municipios' type='integer' required='true' label='${lbl:b_municipality}' maxlen='10'/>
+	<parameter id='prr_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='prr_nombre_corto' type='varchar' required='true' label='${lbl:b_short_name}' maxlen='24'/>
+	<parameter id='prr_nombre_largo' type='varchar' required='true' label='${lbl:b_long_name}' maxlen='48'/>
+</validator>

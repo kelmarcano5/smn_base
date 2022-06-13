@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Insertar registro 
+	</summary>
+
+	<log>true</log>
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>smn_naturaleza_auxiliar_rf</colname>
+			<colname>smn_clase_auxiliar_rf</colname>
+			<colname>aux_tipo_persona</colname>
+			<colname>aux_apellidos</colname>
+			<colname>aux_nombres</colname>
+			<colname>aux_tipo_doc_oficial_rf</colname>
+			<colname>aux_num_doc_oficial</colname>	
+		</cols>
+		<table>smn_base.smn_auxiliar</table>
+		<oper>AÑADIR</oper>
+		<area>Carga de datos</area>
+		<!--
+			query para obtener el ID generado o nombre de 
+			la columna que contiene el pkey, si es query, 
+			el alias del campo debe ser "id" <query>insert-email.sql</query>
+	<query>insert-phone.sql</query>
+		-->
+		<pkey>select ${seq:currval@smn_base.seq_smn_auxiliar} as id</pkey>
+	</audit>
+
+	<!-- <colname>service_id</colname> -->
+<!-- 	<sql-template>insert-rol.sql</sql-template> -->
+
+	<transaction>
+		<classname>dinamica.audit.AuditableTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<!-- <recordset id="getuserrole.sql" source="sql" scope="transaction"/> -->
+		<recordset id="getid.sql" source="sql" scope="request"/>
+		<recordset id="nextval.sql" source="sql" scope="transaction" />
+		<recordset id="query-smn_service.sql" source="request" scope="transaction" />
+	</transaction>
+
+	<query>insert.sql</query>
+	<query>insert-passlog.sql</query>
+	<query>insert-usuarios.sql</query>
+	<query>insert-email.sql</query>
+	<query>insert-phone.sql</query>
+	<!-- <query params="getuserrole.sql">insert-roles1.sql</query> -->
+	<!-- <colname>service_id</colname> -->
+	<!-- <sql-template>insert-rol.sql</sql-template> -->
+	<query params="query-smn_service.sql">insert-rol.sql</query>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript</content-type>
+		<expiration>0</expiration>
+		<print mode="form" recordset="_request" />
+		<print mode="form" recordset="nextval.sql" />
+	</output>
+	
+	<mail enabled="false">
+		<subject recordset="_request">${lbl:b_confirm_register} ${fld:aux_nombres} ${fld:aux_apellidos}</subject>
+		<mail-to recordset="_request" colname="email"/>
+		<body recordset="getid.sql">message.txt</body>
+	</mail>
+
+</config>

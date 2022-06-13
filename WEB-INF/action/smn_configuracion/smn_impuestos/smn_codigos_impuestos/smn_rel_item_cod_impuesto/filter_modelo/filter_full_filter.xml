@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_relacion_item_codigos_impuestos}</summary>
+	<filter>
+		<row field='smn_item_id' id='smn_item_id' label='${lbl:b_item}@{select smn_base.smn_item.smn_item_id as id, smn_base.smn_item.itm_codigo|| &apos; - &apos; || smn_base.smn_item.itm_nombre as item from smn_base.smn_item order by itm_nombre}' required='NO' fk='itm_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_rel_item_cod_impuesto' len='10'/>
+		<row field='smn_codigos_impuestos_id' id='smn_codigos_impuestos_id' label='${lbl:b_taxes}@{select smn_base.smn_codigos_impuestos.smn_codigos_impuestos_id as id, smn_base.smn_codigos_impuestos.imp_codigo|| &apos; - &apos; || smn_base.smn_codigos_impuestos.imp_descripcion as item from smn_base.smn_codigos_impuestos order by imp_descripcion}' required='NO' fk='imp_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_rel_item_cod_impuesto' len='10'/>
+		<row field='rii_fecha_registro' id='rii_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_rel_item_cod_impuesto' len='10'/>
+		<row field='rii_fecha_registro' id='rii_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_rel_item_cod_impuesto' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_item_id' label='${lbl:b_item}@{select smn_base.smn_item.smn_item_id as id, smn_base.smn_item.itm_codigo|| &apos; - &apos; || smn_base.smn_item.itm_nombre as item from smn_base.smn_item order by itm_nombre}' fk='itm_codigo' tableName='smn_rel_item_cod_impuesto' len='10' type='integer' align='center'/>
+		<row field='smn_codigos_impuestos_id' label='${lbl:b_taxes}@{select smn_base.smn_codigos_impuestos.smn_codigos_impuestos_id as id, smn_base.smn_codigos_impuestos.imp_codigo|| &apos; - &apos; || smn_base.smn_codigos_impuestos.imp_descripcion as item from smn_base.smn_codigos_impuestos order by imp_descripcion}' fk='imp_codigo' tableName='smn_rel_item_cod_impuesto' len='10' type='integer' align='center'/>
+		<row field='rii_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_rel_item_cod_impuesto' len='2' type='varchar' align='left'/>
+		<row field='rii_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_rel_item_cod_impuesto' len='10' type='varchar' align='left'/>
+		<row field='rii_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_rel_item_cod_impuesto' len='10' type='date' align='center'/>
+		<row field='rii_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_rel_item_cod_impuesto' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

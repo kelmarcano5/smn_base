@@ -1,0 +1,49 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('gpp_codigo','query-smngruposprestadores.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('gpp_descripcion','query-smngruposprestadores.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('gpp_area_servicio','query-smngruposprestadores.sql')" >${lbl:b_service_area}</th>
+		<th class='sortable' onclick="sortBy('gpp_unidad_servicio','query-smngruposprestadores.sql')" >${lbl:b_service_unit}</th>
+		<th class='sortable' onclick="sortBy('gpp_orden_atencion_combo','query-smngruposprestadores.sql')" >${lbl:b_in_order_of_attention}</th>
+		<th class='sortable' onclick="sortBy('gpp_fecha_registro','query-smngruposprestadores.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_grupos_prestadores_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_grupos_prestadores_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_grupos_prestadores_id}')" title="Editar"></td>
+		<td align="left">${fld:gpp_codigo}</td>
+		<td align="left">${fld:gpp_descripcion}</td>
+		<td align="left">${fld:gpp_area_servicio}</td>
+		<td align="left">${fld:gpp_unidad_servicio}</td>
+		<td align="left">${fld:gpp_orden_atencion_combo}</td>
+		<td align="center">${fld:gpp_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

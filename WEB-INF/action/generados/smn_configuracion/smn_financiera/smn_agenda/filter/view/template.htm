@@ -1,0 +1,67 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="15">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('age_codigo','query-smnagenda.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('age_descripcion','query-smnagenda.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('age_dia_semana_combo','query-smnagenda.sql')" >${lbl:b_weekday}</th>
+		<th class='sortable' onclick="sortBy('age_hora_desde','query-smnagenda.sql')" >${lbl:b_time_since}</th>
+		<th class='sortable' onclick="sortBy('age_hora_hasta','query-smnagenda.sql')" >${lbl:b_time_until}</th>
+		<th class='sortable' onclick="sortBy('age_localidad','query-smnagenda.sql')" >${lbl:b_location}</th>
+		<th class='sortable' onclick="sortBy('age_jornada_combo','query-smnagenda.sql')" >${lbl:b_working_day}</th>
+		<th class='sortable' onclick="sortBy('age_frecuencia','query-smnagenda.sql')" >${lbl:b_frecuency}</th>
+		<th class='sortable' onclick="sortBy('age_idioma','query-smnagenda.sql')" >${lbl:s_profile_lang}</th>
+		<th class='sortable' onclick="sortBy('age_usuario','query-smnagenda.sql')" >${lbl:b_users}</th>
+		<th class='sortable' onclick="sortBy('age_fecha_registro','query-smnagenda.sql')" >${lbl:b_store_date}</th>
+		<th class='sortable' onclick="sortBy('age_hora','query-smnagenda.sql')" >${lbl:s_loginhist_col2}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_agenda_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_agenda_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_agenda_id}')" title="Editar"></td>
+		<td align="left">${fld:age_codigo}</td>
+		<td align="left">${fld:age_descripcion}</td>
+		<td align="left">${fld:age_dia_semana_combo}</td>
+		<td align="left">${fld:age_hora_desde}</td>
+		<td align="left">${fld:age_hora_hasta}</td>
+		<td align="left">${fld:age_localidad}</td>
+		<td align="left">${fld:age_jornada_combo}</td>
+		<td align="right">${fld:age_frecuencia@#,###,##0.00}</td>
+		<td align="left">${fld:age_idioma}</td>
+		<td align="left">${fld:age_usuario}</td>
+		<td align="center">${fld:age_fecha_registro@dd-MM-yyyy}</td>
+		<td align="left">${fld:age_hora}</td>
+	</tr>
+	</rows>
+
+</table>

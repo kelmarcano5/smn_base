@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnrelzonacoordenadas.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_relationship_zone_coordenate}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' align="left" />
+	<pdf-file-name>${lbl:b_relationship_zone_coordenate}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='filter.params' title='${lbl:b_filter_find}' noFilterMsg='-- ${lbl:b_all_message} --' width='55' spacingBefore='15'>
+			<col name='smn_zona_id_name' title='${lbl:b_zone}'  align='left' />
+			<col name='smn_pais_rf' title='${lbl:b_country}'  format='######' align='left' />
+			<col name='smn_entidad_federal_rf' title='${lbl:b_federal_entity}'  format='######' align='left' />
+			<col name='smn_ciudad_rf' title='${lbl:b_city}'  format='######' align='left' />
+			<col name='smn_municipio_rf' title='${lbl:b_municipality}'  format='######' align='left' />
+			<col name='smn_parroquia_rf' title='${lbl:b_parish}'  format='######' align='left' />
+			<col name='rzc_fecha_registro_ini' title='${lbl:b_store_date}'  format='dd-MM-yyyy' align='left' />
+			<col name='rzc_fecha_registro_fin' title='${lbl:b_store_date}'  format='dd-MM-yyyy' align='left' />
+
+		</record>
+		<record recordset='query-smnrelzonacoordenadas.sql' width='100' spacingBefore='10'>
+			<col name='smn_zona_id' title='${lbl:b_zone}' width='11' align='left' format='######' />
+			<col name='smn_pais_rf' title='${lbl:b_country}' width='11' align='left' format='######' />
+			<col name='smn_entidad_federal_rf' title='${lbl:b_federal_entity}' width='11' align='left' format='######' />
+			<col name='smn_ciudad_rf' title='${lbl:b_city}' width='11' align='left' format='######' />
+			<col name='smn_municipio_rf' title='${lbl:b_municipality}' width='11' align='left' format='######' />
+			<col name='smn_parroquia_rf' title='${lbl:b_parish}' width='11' align='left' format='######' />
+			<col name='rzc_latitud' title='${lbl:b_longitude}' width='11' align='left' format='#,###,##0.00' />
+			<col name='rzc_longitud' title='${lbl:b_latitude}' width='11' align='left' format='#,###,##0.00' />
+			<col name='rzc_fecha_registro' title='${lbl:b_store_date}' width='11' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

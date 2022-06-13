@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='true' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='true' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='adl_nombre_compania' type='varchar' required='true' label='${lbl:b_company_name}' maxlen='100'/>
+	<parameter id='adl_rif' type='varchar' required='false' label='${lbl:b_rif}' maxlen='16'/>
+	<parameter id='adl_departamento' type='varchar' required='true' label='${lbl:b_departament}' maxlen='100'/>
+	<parameter id='adl_cargo' type='varchar' required='true' label='${lbl:b_job_title}' maxlen='100'/>
+	<parameter id='smn_paises_rf' type='integer' required='true' label='${lbl:b_country}' maxlen='10'/>
+	<parameter id='smn_entidades_federales_rf' type='integer' required='true' label='${lbl:b_federal_entity}' maxlen='10'/>
+	<parameter id='smn_ciudades_rf' type='integer' required='true' label='${lbl:b_cities}' maxlen='10'/>
+	<parameter id='adl_direccion' type='varchar' required='false' label='${lbl:b_addresses}' maxlen='100'/>
+	<parameter id='adl_telefono_oficina' type='varchar' required='false' label='${lbl:b_office_phone}' maxlen='64'/>
+	<parameter id='adl_email' type='varchar' required='false' label='${lbl:s_profile_email}' maxlen='100'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_auxiliary_labor_data}' maxlen='50'/>
+
+
+</validator>

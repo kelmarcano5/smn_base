@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='rgu_tipo_doc_oficial' type='integer' required='true' maxlen='16'/>
+	<parameter id='rgu_num_doc_oficial' type='varchar' required='true' maxlen='12'/>
+	<parameter id='rgu_nro_id_fiscal' type='varchar' required='true' maxlen='16'/>
+	<parameter id='rgu_nombres' type='varchar' required='true' maxlen='32'/>
+	<parameter id='rgu_apellidos' type='varchar' required='true' maxlen='32'/>
+	<parameter id='rgu_tipo_registro' type='integer' required='true' maxlen='10'/>
+	<parameter id='rgu_email' type='varchar' required='true' maxlen='96'/>
+</validator>

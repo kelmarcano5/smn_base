@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_register_users}</summary>
+	<filter>
+		<row field='rgu_tipo_doc_oficial' id='rgu_tipo_doc_oficial' label='${lbl:b_official_document_type}@{select smn_base.smn_tipo_doc_oficial.smn_tipo_doc_oficial_id as id, smn_base.smn_tipo_doc_oficial.tdo_codigo || &apos; - &apos; || smn_base.smn_tipo_doc_oficial.tdo_descripcion as item from smn_base.smn_tipo_doc_oficial order by smn_base.smn_tipo_doc_oficial.tdo_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_registros_usuarios' len='16'/>
+		<row field='rgu_num_doc_oficial' id='rgu_num_doc_oficial' label='${lbl:b_official_document_number}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_registros_usuarios' len='12'/>
+		<row field='rgu_nro_id_fiscal' id='rgu_nro_id_fiscal' label='${lbl:b_tax_identification_number}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_registros_usuarios' len='16'/>
+		<row field='rgu_nombres' id='rgu_nombres' label='${lbl:s_profile_fname}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_registros_usuarios' len='32'/>
+		<row field='rgu_apellidos' id='rgu_apellidos' label='${lbl:s_profile_lname}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_registros_usuarios' len='32'/>
+		<row field='rgu_tipo_registro' id='rgu_tipo_registro' label='${lbl:b_register_type}@{select smn_base.smn_tipo_registro.smn_tipo_registro_id as id, smn_base.smn_tipo_registro.trg_codigo || &apos; - &apos; || smn_base.smn_tipo_registro.trg_descripcion as item from smn_base.smn_tipo_registro order by smn_base.smn_tipo_registro.trg_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_registros_usuarios' len='10'/>
+		<row field='rgu_fecha_registro' id='rgu_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_registros_usuarios' len='10'/>
+		<row field='rgu_fecha_registro' id='rgu_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_registros_usuarios' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='rgu_tipo_doc_oficial' label='${lbl:b_official_document_type}@{select smn_base.smn_tipo_doc_oficial.smn_tipo_doc_oficial_id as id, smn_base.smn_tipo_doc_oficial.tdo_codigo || &apos; - &apos; || smn_base.smn_tipo_doc_oficial.tdo_descripcion as item from smn_base.smn_tipo_doc_oficial order by smn_base.smn_tipo_doc_oficial.tdo_descripcion}' fk='' tableName='smn_registros_usuarios' len='16' type='integer' align='left'/>
+		<row field='rgu_num_doc_oficial' label='${lbl:b_official_document_number}' fk='' tableName='smn_registros_usuarios' len='12' type='varchar' align='left'/>
+		<row field='rgu_nro_id_fiscal' label='${lbl:b_tax_identification_number}' fk='' tableName='smn_registros_usuarios' len='16' type='varchar' align='left'/>
+		<row field='rgu_nombres' label='${lbl:s_profile_fname}' fk='' tableName='smn_registros_usuarios' len='32' type='varchar' align='left'/>
+		<row field='rgu_apellidos' label='${lbl:s_profile_lname}' fk='' tableName='smn_registros_usuarios' len='32' type='varchar' align='left'/>
+		<row field='rgu_tipo_registro' label='${lbl:b_register_type}@{select smn_base.smn_tipo_registro.smn_tipo_registro_id as id, smn_base.smn_tipo_registro.trg_codigo || &apos; - &apos; || smn_base.smn_tipo_registro.trg_descripcion as item from smn_base.smn_tipo_registro order by smn_base.smn_tipo_registro.trg_descripcion}' fk='' tableName='smn_registros_usuarios' len='10' type='integer' align='left'/>
+		<row field='rgu_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_registros_usuarios' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

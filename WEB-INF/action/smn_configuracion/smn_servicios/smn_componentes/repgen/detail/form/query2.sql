@@ -1,0 +1,28 @@
+select
+		smn_base.smn_componentes.cmp_codigo,
+	smn_base.smn_componentes.cmp_descripcion,
+	smn_base.smn_componentes.cmp_tipo_componente,
+	smn_base.smn_componentes.smn_grupo_componente_rf,
+	smn_base.smn_componentes.cmp_forma_calculo,
+	smn_base.smn_componentes.cmp_vigencia_desde,
+	smn_base.smn_componentes.cmp_vigencia_hasta,
+	smn_base.smn_componentes.cmp_visible,
+	smn_base.smn_componentes.cmp_clase_auxiliar_rf,
+	smn_base.smn_componentes.cmp_req_grupo_prestador,
+	smn_base.smn_componentes.cmp_grupo_prestador,
+	smn_base.smn_componentes.cmp_tiempo_estimado,
+	smn_base.smn_componentes.smn_unidad_medida_rf,
+	smn_base.smn_componentes.smn_almacen_rf,
+	smn_base.smn_componentes.smn_item_rf,
+	smn_base.smn_componentes.cmp_porcentaje,
+	smn_base.smn_componentes.cmp_cantidad,
+	smn_base.smn_componentes.cmp_precio_moneda_local,
+	smn_base.smn_componentes.cmp_monto_moneda_local,
+	smn_base.smn_componentes.smn_moneda_rf,
+	smn_base.smn_componentes.cmp_precio_moneda_alterna,
+	smn_base.smn_componentes.cmp_monto_moneda_alterna,
+	smn_base.smn_componentes.cmp_fecha_registro
+from
+	smn_base.smn_componentes 
+where
+	smn_base.smn_componentes.smn_componentes_id = ${fld:id}

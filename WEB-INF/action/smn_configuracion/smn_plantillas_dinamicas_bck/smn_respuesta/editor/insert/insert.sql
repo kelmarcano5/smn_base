@@ -1,0 +1,30 @@
+INSERT INTO smn_base.smn_respuesta
+(
+	smn_respuesta_id,
+	smn_cuestionario_id,
+	smn_seccion_id,
+	smn_pregunta_id,
+	smn_tipo_variable_id,
+	smn_tipo_respuesta_id,
+	smn_variable_id,
+	res_texto_respuesta,
+	res_idioma,
+	res_usuario,
+	res_fecha_registro,
+	res_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_respuesta},
+	${fld:smn_cuestionario_id},
+	${fld:smn_seccion_id},
+	${fld:smn_pregunta_id},
+	${fld:smn_tipo_variable_id},
+	${fld:smn_tipo_respuesta_id},
+	${fld:smn_variable_id},
+	${fld:res_texto_respuesta},
+	'${def:locale}',
+	'${def:user}',
+	'${def:date}',
+	'${def:time}'
+)

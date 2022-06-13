@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnferiados.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnferiados.sql' sheetname='${lbl:b_holidays}' filename='smn_feriados.xls'>
+		<col id='fer_codigo' label='${lbl:b_code}' />
+		<col id='fer_descripcion' label='${lbl:b_description}' />
+		<col id='fer_pais' label='${lbl:b_country}' />
+		<col id='fer_entidad_federal' label='${lbl:b_federal_entities}' />
+		<col id='fer_ciudad' label='${lbl:b_city}' />
+		<col id='fer_municipio' label='${lbl:b_municipality}' />
+		<col id='fer_feriado' label='${lbl:b_holliday}' />
+		<col id='fer_laborable_combo' label='${lbl:b_workable}' />
+		<col id='fer_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

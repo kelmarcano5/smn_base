@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='prs_nombres' type='varchar' required='true' label='${lbl:s_profile_fname}' maxlen='32'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='prs_nombres' rule='like' />
+</validator>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='set_app_id' type='integer' required='false' label='${lbl:b_application}' maxlen='10'/>
+	<parameter id='set_menu_id' type='integer' required='false' label='${lbl:b_menu}' maxlen='10'/>
+	<parameter id='set_servicio_id' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='set_servicio' type='varchar' required='false' label='${lbl:b_service_title}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='set_servicio' rule='contains' />
+	<parameter id='set_locale' type='varchar' required='false' label='${lbl:b_idiom}' maxlen='2'/>
+	<parameter id='set_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='set_fecha_registro_ini' date2='set_fecha_registro_fin' id='set_fecha_registro_ini' />
+	<parameter id='set_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

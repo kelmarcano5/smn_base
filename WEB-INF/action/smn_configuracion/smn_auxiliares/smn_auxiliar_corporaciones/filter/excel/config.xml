@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarcorporaciones.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="3" cellStep="0" name="${lbl:b_corporations}"/>
+	
+	<excel 
+		recordset='query-smnauxiliarcorporaciones.sql' 
+		sheetname='${lbl:b_corporations}' 
+		filename='${lbl:b_corporations}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='tcp_codigo' label='${lbl:b_code}' />
+		<col id='tcp_nombre' label='${lbl:b_name}' />
+		<col id='tun_nombre' label='${lbl:b_outsourced_unit_business}' />
+		<col id='mon_nombre' label='${lbl:b_coin}' />
+		<col id='dir_descripcion' label='${lbl:b_address}' />
+		<col id='tcp_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

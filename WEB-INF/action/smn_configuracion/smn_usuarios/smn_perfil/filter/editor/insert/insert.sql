@@ -1,0 +1,40 @@
+INSERT INTO smn_base.smn_perfil
+(
+	smn_perfil_id,
+	prf_codigo,
+	prf_descripcion,
+	role_id,
+	prf_tipo_acceso,
+	prf_add,
+	prf_del,
+	prf_edit,
+	prf_view,
+	prf_export,
+	prf_find,
+	prf_import,
+	prf_idioma,
+	prf_usuario,
+	prf_fecha_registro,
+	prf_hora,
+	smn_app_id
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_perfil},
+	${fld:prf_codigo},
+	${fld:prf_descripcion},
+	${fld:role_id},
+	${fld:prf_tipo_acceso},
+	${fld:prf_add},
+	${fld:prf_del},
+	${fld:prf_edit},
+	${fld:prf_view},
+	${fld:prf_export},
+	${fld:prf_find},
+	${fld:prf_import},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}',
+	${fld:app_id}
+)

@@ -1,0 +1,79 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+	<col width='5%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="17">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('ent_codigo','query-smnentidades.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('ent_comunidad','query-smnentidades.sql')" >${lbl:b_community}</th>
+		<th class='sortable' onclick="sortBy('ent_corporacion','query-smnentidades.sql')" >${lbl:b_corporation}</th>
+		<th class='sortable' onclick="sortBy('ent_unidad_negocio','query-smnentidades.sql')" >${lbl:b_business_unit}</th>
+		<th class='sortable' onclick="sortBy('ent_maneja_sucursal_combo','query-smnentidades.sql')" >${lbl:b_has_subsidiary}</th>
+		<th class='sortable' onclick="sortBy('ent_moneda','query-smnentidades.sql')" >${lbl:b_currency}</th>
+		<th class='sortable' onclick="sortBy('ent_sector_economico','query-smnentidades.sql')" >${lbl:b_economic_sector}</th>
+		<th class='sortable' onclick="sortBy('ent_descripcion_corta','query-smnentidades.sql')" >${lbl:b_short_description}</th>
+		<th class='sortable' onclick="sortBy('ent_descripcion_larga','query-smnentidades.sql')" >${lbl:b_long_description}</th>
+		<th class='sortable' onclick="sortBy('ent_nro_id_fiscal','query-smnentidades.sql')" >${lbl:b_tax_identification_number}</th>
+		<th class='sortable' onclick="sortBy('ent_direccion','query-smnentidades.sql')" >${lbl:b_address}</th>
+		<th class='sortable' onclick="sortBy('ent_contacto','query-smnentidades.sql')" >${lbl:b_contact_person}</th>
+		<th class='sortable' onclick="sortBy('ent_telefono_fijo','query-smnentidades.sql')" >${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick="sortBy('ent_telefono_movil','query-smnentidades.sql')" >${lbl:b_mobile_phone}</th>
+		<th class='sortable' onclick="sortBy('ent_email','query-smnentidades.sql')" >${lbl:s_profile_email}</th>
+		<th class='sortable' onclick="sortBy('ent_act_economica','query-smnentidades.sql')" >${lbl:b_economic_activity}</th>
+		<th class='sortable' onclick="sortBy('ent_fecha_registro','query-smnentidades.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:ent_codigo}</td>
+		<td align="left">${fld:ent_comunidad}</td>
+		<td align="left">${fld:ent_corporacion}</td>
+		<td align="left">${fld:ent_unidad_negocio}</td>
+		<td align="left">${fld:ent_maneja_sucursal_combo}</td>
+		<td align="left">${fld:ent_moneda}</td>
+		<td align="left">${fld:ent_sector_economico}</td>
+		<td align="left">${fld:ent_descripcion_corta}</td>
+		<td align="left">${fld:ent_descripcion_larga}</td>
+		<td align="left">${fld:ent_nro_id_fiscal}</td>
+		<td align="left">${fld:ent_direccion}</td>
+		<td align="left">${fld:ent_contacto}</td>
+		<td align="left">${fld:ent_telefono_fijo}</td>
+		<td align="left">${fld:ent_telefono_movil}</td>
+		<td align="left">${fld:ent_email}</td>
+		<td align="left">${fld:ent_act_economica}</td>
+		<td align="left">${fld:ent_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

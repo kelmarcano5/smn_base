@@ -1,0 +1,2 @@
+ and
+ 	smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_tipos_servicios_id=${fld:smn_auxiliar_tipos_servicios_id}

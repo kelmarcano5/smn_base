@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_auxiliar_tipos_servicios_id_name' type='varchar' required='true' label='${lbl:b_outsourced_type_of_service}'/>
+	<parameter id='smn_auxiliar_tipos_servicios_id' type='integer' required='false' label='${lbl:b_outsourced_type_of_service}' maxlen='10'/>
+	<parameter id='tse_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='tse_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='tse_auxiliar' type='integer' required='true' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='tse_auxiliar_sucursal' type='integer' required='false' label='${lbl:b_outsourced_subsidiary}' maxlen='10'/>
+	<parameter id='tse_auxiliar_unidad_negocio' type='integer' required='false' label='${lbl:b_outsourced_unit_business}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_service_area}' maxlen='10'/>
+
+
+
+</validator>

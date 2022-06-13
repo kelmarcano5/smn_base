@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_tipos_servicios_id_name' type='varchar' required='false' label='${lbl:b_service_type}'/>
+	<parameter id='smn_tipos_servicios_id' type='integer' required='false' label='${lbl:b_service_type}' maxlen='10'/>
+	<parameter id='ase_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='ase_codigo' rule='contains' />
+	<parameter id='ase_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='48'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='ase_descripcion' rule='contains' />
+	<parameter id='ase_empresa' type='integer' required='false' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='ase_sucursal' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+	<parameter id='ase_unidad_negocio' type='integer' required='false' label='${lbl:b_business_unit}' maxlen='10'/>
+	<parameter id='ase_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='ase_fecha_registro_ini' date2='ase_fecha_registro_fin' id='ase_fecha_registro_ini' />
+	<parameter id='ase_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

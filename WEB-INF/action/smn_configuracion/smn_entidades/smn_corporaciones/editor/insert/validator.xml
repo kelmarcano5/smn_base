@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='crp_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='crp_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='crp_unidad_negocio' type='integer' required='false' label='${lbl:b_business_unit}' maxlen='10'/>
+	<parameter id='crp_moneda' type='integer' required='true' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='crp_direccion' type='integer' required='false' label='${lbl:b_address}' maxlen='10'/>
+	<parameter id='reference' type='varchar' required='false' label='Reference' maxlen='5' />
+	
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='crp_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='crp_nombre'/>
+
+
+</validator>

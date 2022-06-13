@@ -1,0 +1,430 @@
+<!doctype html>
+<html>
+
+<head>
+
+		<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+		<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog" id="encabezado_tabla">
+	${lbl:b_smn_rel_cues_secc_preg}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+			<tr>
+			<td>${lbl:b_smn_rel_cuestionario_seccion_id}*</td>
+			<td>
+				<input id="smn_rel_cuestionario_seccion_id" name="smn_rel_cuestionario_seccion_id" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+		<td>${lbl:b_smn_pregunta_id}*</td>
+		<td>
+			<select name="smn_pregunta_id" id="smn_pregunta_id" onchange="chgCombo(smn_pregunta_id.options[smn_pregunta_id.selectedIndex].text,'smn_pregunta_id_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_pregunta_id_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_pregunta_id_rows>
+			</select> 
+			<input id="smn_pregunta_id_name" name="smn_pregunta_id_name" type="hidden">
+		</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_csp_tipo_pregunta}*</td>
+			<td>
+				<select name="csp_tipo_pregunta" id="csp_tipo_pregunta">
+					<option value="">[Cualquiera]</option>
+					<option value="T ">${lbl:b_titulo}</option>
+					<option value="D ">${lbl:b_detalle}</option>
+				</select> 
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_csp_secuencia}*</td>
+			<td>
+				<input id="csp_secuencia" name="csp_secuencia" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+	<tr>
+	<td>
+		Estilo de Pregunta
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${lbl:b_color_letra}
+		</td>
+		<td>
+			<input id="color_letra" name="color_letra" type="color" value="#000000" onchange="chgletracolor(color_letra.value,'smn_pregunta_id');" />
+		</td>
+		<td>
+			<input id="csp_color_letra" name="csp_color_letra" type="text" disabled="true" maxlength="100"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${lbl:b_tipo_letra}
+		</td>
+		<td>
+			<select name="csp_tipo_letra" id="csp_tipo_letra" onchange="chgletra(csp_tipo_letra.value,'smn_pregunta_id');">
+				<option>Elige la tipografia</option>
+				<option value="arial black">Arial Black</option>
+				<option value="arial narrow">Arial Narrow</option>
+				<option value="century gothic">Century Gothic</option>
+				<option value="copperplate">Copperplate</option>
+				<option value="courier new">Courier new</option>
+				<option value="georgia">Georgia</option>
+				<option value="gill sans">Gill Sans</option>
+				<option value="impact">Impact</option>
+				<option value="lucida console">Lucida Console</option>
+				<option value="lucida sans unicode">Lucida Sans Unicode</option>
+				<option value="palatino linotype">Palatino Linotype</option>
+				<option value="tahoma">Tahoma</option>
+				<option value="times new roman">Times New Roman</option>
+				<option value="trebuchet ms">Trebuchet MS</option>
+				<option value="sans-serif">Sans Serif</option>
+				<option value="verdana">Verdana</option>
+			</select> 
+		</td>
+	</tr>
+		<tr>
+		<td>
+			${lbl:b_tamano_letra}
+		</td>
+		<td>
+		<input id="csp_tamano_letra" name="csp_tamano_letra" type="number" value="10" onchange="chgletratamano(csp_tamano_letra.value,'smn_pregunta_id');" /> 
+		</td>
+		<td>
+			PX
+		</td>
+	</tr>
+	</tr>
+		<tr>
+		<td>
+			${lbl:b_color_sombreado}
+		</td>
+		<td>
+		<input id="color_sombreado" name="color_sombreado" type="color" value="#ffffff" onchange="chgletrasombreado(color_sombreado.value,'smn_pregunta_id');" />
+	</td>
+	<td>
+			<input id="csp_color_sombreado" name="csp_color_sombreado" type="text" disabled="true" maxlength="100"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			${lbl:b_espacio_identacion}
+		</td>
+		<td>
+		<input id="csp_espacio_identacion" name="csp_espacio_identacion" type="number" value="5" onchange="chgidentacion(csp_espacio_identacion.value,'smn_pregunta_id');" /> 
+		</td>
+		<td>
+			px
+		</td>
+	</tr>
+
+	<!-- combobox tipo de valor Actualizado por Keiner Negrin -->
+	<!-- combobox tipo de valor con valores predeterminados -->
+	<tr>  
+		<td>${lbl:b_var_tipo_valor}*</td>
+		<td>
+			<select name="csp_tipo_valor" id="csp_tipo_valor" onchange="chgCombo(csp_tipo_valor.options[csp_tipo_valor.selectedIndex].text,'csp_tipo_valor_name');">
+				<option value="">[Cualquiera]</option>
+				<option value="IN">Entero</option>
+				<option value="TX">Texto</option>
+				<option value="DC">Decimal</option>
+				<option value="DT">Fecha</option>
+				<option value="HR">Hora</option>
+			</select> 
+			<input id="csp_tipo_valor_name" name="csp_tipo_valor_name" type="hidden">
+		</td>
+		</tr>
+<!---------------------------Cobobox keiner negrin variable 1,2,3 y 4 ---------------------------------->
+<!---------------------------Cobobox con consulta sql ---------------------------------->
+
+
+<!---------------------------------VARIABLE 1------------------------------------------------->
+	<tr>
+		<td>${lbl:b_variable_columna} 1*</td>
+		<td>
+			<select name="smn_tipo_variable_col_1_id" id="smn_tipo_variable_col_1_id" onchange="chgCombo(smn_tipo_variable_col_1_id.options[smn_tipo_variable_col_1_id.selectedIndex].text,'smn_tipo_variable_col_1_id_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_tipo_variable_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_tipo_variable_rows>
+			</select> 
+			<input id="smn_tipo_variable_col_1_id_name" name="smn_tipo_variable_col_1_id_name" type="hidden">
+		</td>
+		</tr>
+
+<!---------------------------------VARIABLE 2------------------------------------------------->
+
+     <tr>
+		<td>${lbl:b_variable_columna} 2*</td>
+		<td>
+			<select name="smn_tipo_variable_col_2_id" id="smn_tipo_variable_col_2_id" onchange="chgCombo(smn_tipo_variable_col_2_id.options[smn_tipo_variable_col_2_id.selectedIndex].text,'smn_tipo_variable_col_2_id_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_tipo_variable_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_tipo_variable_rows>
+			</select> 
+			<input id="smn_tipo_variable_col_2_id_name" name="smn_tipo_variable_col_2_id_name" type="hidden">
+		</td>
+	</tr>
+	<!--<tr>
+			<td>${lbl:b_smn_tipo_variable_col_2_id}</td>
+			<td>
+				<input id="smn_tipo_variable_col_2_id" name="smn_tipo_variable_col_2_id" type="number" maxlength="10" class="numeric">
+			</td>
+		</tr>
+	<tr> -->
+
+<!---------------------------------VARIABLE 3------------------------------------------------->
+
+<tr>
+		<td>${lbl:b_variable_columna} 3*</td>
+		<td>
+			<select name="smn_tipo_variable_col_3_id" id="smn_tipo_variable_col_3_id" onchange="chgCombo(smn_tipo_variable_col_3_id.options[smn_tipo_variable_col_3_id.selectedIndex].text,'smn_tipo_variable_col_3_id_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_tipo_variable_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_tipo_variable_rows>
+			</select> 
+			<input id="smn_tipo_variable_col_3_id_name" name="smn_tipo_variable_col_3_id_name" type="hidden">
+		</td>
+	</tr>
+
+<!--	<tr>
+			<td>${lbl:b_smn_tipo_variable_col_3_id}</td>
+			<td>
+				<input id="smn_tipo_variable_col_3_id" name="smn_tipo_variable_col_3_id" type="number" maxlength="10" class="numeric">
+			</td>
+		</tr>
+	<tr> -->
+
+<!---------------------------------VARIABLE 4------------------------------------------------->
+
+<tr>
+		<td>${lbl:b_variable_columna} 4*</td>
+		<td>
+			<select name="smn_tipo_variable_col_4_id" id="smn_tipo_variable_col_4_id" onchange="chgCombo(smn_tipo_variable_col_4_id.options[smn_tipo_variable_col_4_id.selectedIndex].text,'smn_tipo_variable_col_4_id_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_tipo_variable_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_tipo_variable_rows>
+			</select> 
+			<input id="smn_tipo_variable_col_4_id_name" name="smn_tipo_variable_col_4_id_name" type="hidden">
+		</td>
+	</tr>
+<!--
+	<tr>
+			<td>${lbl:b_smn_tipo_variable_col_4_id}</td>
+			<td>
+				<input id="smn_tipo_variable_col_4_id" name="smn_tipo_variable_col_4_id" type="number" maxlength="10" class="numeric">
+			</td>
+		</tr>
+	<tr> -->
+
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	<input id="lookandfeel" type="button" value="Estilo" onclick="cargarestilo()" class="button">
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	var id = "${fld:id}";
+
+	onload = function()
+	{ 
+		addNew();
+		document.getElementById("smn_rel_cuestionario_seccion_id").value = '${fld:id2}';
+		document.form1.smn_rel_cuestionario_seccion_id.disabled=true;
+
+		if (id!="")
+			edit(id);
+	} 
+
+	function search(){
+		addNew();
+			document.getElementById("smn_rel_cuestionario_seccion_id").value = '${fld:id2}';
+			document.form1.smn_rel_cuestionario_seccion_id.disabled=true;
+		if (id!="")
+			edit(id);
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	function chgletracolor(text2,id2){
+		//alert("texto"+text2+" id2"+id2);
+		document.getElementById(id2).style.color = text2;
+		document.getElementById("csp_color_letra").value= text2;
+	}
+	function chgletra(text2,id2){
+		//alert("texto"+text2+" id2"+id2);
+		document.getElementById(id2).style.fontFamily = text2;
+	}
+	function chgletratamano(text2,id2){
+		//alert("texto"+text2+" id2"+id2);
+		text2=text2+"px";
+		document.getElementById(id2).style.fontSize = text2;
+	}
+	function chgletrasombreado(text2,id2){
+		
+		document.getElementById(id2).style.backgroundColor = text2;
+		document.getElementById("csp_color_sombreado").value= text2;
+
+	}
+	function chgidentacion(text2,id2){
+		//alert("texto"+text2+" id2"+id2);
+		text2=text2+"px";
+		document.getElementById(id2).style.marginLeft = text2;
+	}
+	function cargarestilo(){
+		//alert("valor"+cue_tipo_letra.value);
+		document.getElementById("smn_pregunta_id").style.color = cue_color_letra.value;
+		//document.getElementById("color_letra").style.backgroundColor = cue_color_letra.value;
+		document.getElementById("smn_pregunta_id").style.fontFamily = cue_tipo_letra.value;
+		text2=cue_tamano_letra.value+"px";
+		document.getElementById("smn_pregunta_id").style.fontSize = text2;
+		document.getElementById("smn_pregunta_id").style.backgroundColor = cue_color_sombreado.value;
+
+	}
+
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	//Author     : SIMONE
+//Description: Set selected index into combo box
+//Return     : None
+function setSelectedIndexValue(value, combo) 
+{
+	for (var i = 0; i < combo.options.length; i++) 
+	{					
+		if (combo.options[i].text == value) 
+		{
+			combo.options[i].selected = true;
+			return;
+		}
+	} 
+}
+</script>	
+</body>
+</html>

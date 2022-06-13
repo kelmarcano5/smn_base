@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntasasdecambio.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smntasasdecambio.sql' sheetname='${lbl:b_exchange_rates}' filename='smn_tasas_de_cambio.xls'>
+		<col id='mon_codigo_pl0' label='${lbl:b_coin}' />
+		<col id='tca_moneda_referencia' label='${lbl:b_referenced_coin}' />
+		<col id='tca_fecha_vigencia' label='${lbl:b_validation_date}' />
+		<col id='tca_tasa_cambio' label='${lbl:b_rate}' />
+		<col id='tca_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

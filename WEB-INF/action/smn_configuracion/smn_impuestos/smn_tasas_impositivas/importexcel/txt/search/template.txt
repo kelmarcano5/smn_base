@@ -1,0 +1,3 @@
+<rows>
+tim_fecha_registro="${fld:tim_fecha_registro}"    tim_valor="${fld:tim_valor}"    tim_fecha_vigencia="${fld:tim_fecha_vigencia}"    smn_unidades_impositivas_id="${fld:smn_unidades_impositivas_id}"    
+</rows>

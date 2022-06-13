@@ -1,0 +1,3 @@
+<rows>
+tco_fecha_registro="${fld:tco_fecha_registro}"    tco_estatus="${fld:tco_estatus}"    tco_descripcion="${fld:tco_descripcion}"    tco_codigo="${fld:tco_codigo}"    
+</rows>

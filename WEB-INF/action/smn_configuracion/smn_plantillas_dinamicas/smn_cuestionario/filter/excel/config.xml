@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncuestionario.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="5" cellStep="0" name="${lbl:b_smn_cuestionario}"/>
+	
+	<excel 
+		recordset='query-smncuestionario.sql' 
+		sheetname='${lbl:b_smn_cuestionario}' 
+		filename='${lbl:b_smn_cuestionario}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='cue_codigo' label='${lbl:b_cue_codigo}' />
+		<col id='cue_descripcion' label='${lbl:b_cue_descripcion}' />
+		<col id='smn_modulo_rf_combo' label='${lbl:b_smn_modulo_rf}' />
+		<col id='smn_esquema_rf_combo' label='${lbl:b_smn_esquema_rf}' />
+		<col id='smn_campo_rf_combo' label='${lbl:b_smn_campo_rf}' />
+		<col id='cue_estatus_combo' label='${lbl:b_status}' />
+		<col id='cue_idioma' label='${lbl:s_profile_lang}' />
+		<col id='cue_usuario' label='${lbl:b_users}' />
+		<col id='cue_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='cue_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

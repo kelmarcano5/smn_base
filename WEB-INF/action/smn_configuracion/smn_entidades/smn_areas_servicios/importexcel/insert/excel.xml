@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_tipos_areas_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='ase_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='ase_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='ase_empresa_desc_ref' type='varchar' required='true' maxlen='10'/>
+	<parameter id='ase_sucursal_desc_ref' type='varchar' required='false' maxlen='10'/>
+	<parameter id='ase_unidad_negocio_desc_ref' type='varchar' required='false' maxlen='10'/>
+
+	<parameter id='ase_empresa_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='ase_sucursal_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='ase_unidad_negocio_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='ase_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='ase_descripcion'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ase_empresa' 
+		parameter='ase_empresa_ref' 
+		sql='ase_empresa.sql' 
+		id='ase_empresa_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ase_sucursal' 
+		parameter='ase_sucursal_ref' 
+		sql='ase_sucursal.sql' 
+		id='ase_sucursal_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ase_unidad_negocio' 
+		parameter='ase_unidad_negocio_ref' 
+		sql='ase_unidad_negocio.sql' 
+		id='ase_unidad_negocio_ref'/>
+
+</validator>

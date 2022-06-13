@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnservicios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnservicios.sql' sheetname='${lbl:b_services}' filename='smn_servicios.xls'>
+		<col id='svc_descripcion' label='${lbl:b_description}' />
+		<col id='svc_clase_auxiliar' label='${lbl:b_auxiliary_class}' />
+		<col id='svc_tipo_servicio' label='${lbl:b_service_type}' />
+		<col id='svc_area_servicio' label='${lbl:b_service_area}' />
+		<col id='svc_unidad_servicio' label='${lbl:b_service_unit}' />
+		<col id='svc_inactivo_combo' label='${lbl:b_inactive}' />
+		<col id='svc_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

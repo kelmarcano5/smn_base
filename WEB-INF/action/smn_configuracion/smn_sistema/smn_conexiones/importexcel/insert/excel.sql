@@ -1,0 +1,40 @@
+INSERT INTO smn_conexiones
+(
+	smn_conexiones_bd_id,
+	con_sistema,
+	con_descripcion,
+	smn_entidad_rf,
+	smn_sucursal_rf,
+	con_ip_servidor,
+	con_hostname_instancia,
+	con_nombre_bd,
+	con_usuario_bd,
+	con_clave_bd,
+	con_puerto_bd,
+	con_estatus,
+	con_vigencia,
+	con_idioma,
+	con_usuario,
+	con_fecha_registro,
+	con_hora
+)
+VALUES
+(
+	${seq:nextval@seq_smn_conexiones},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

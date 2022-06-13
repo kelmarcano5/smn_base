@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		<recordset id='detail-smnservicioscomponentes.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnserviciosbaremos.sql' source='session' scope='transaction' />
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_service}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_service}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='query.sql' title='${lbl:b_service}' width='60' spacingBefore='40'>
+			<col name='svc_codigo' title='${lbl:b_code}' align='left' />
+			<col name='svc_descripcion' title='${lbl:b_description}' align='left' />
+			<col name='smn_tipo_servicio_rf' title='${lbl:b_service_type}' align='left' format='######' />
+			<col name='svc_frecuencia' title='${lbl:b_frecuency}' align='left' format='######' />
+			<col name='smn_unidad_medida_rf' title='${lbl:b_measurement_unit}' align='left' format='######' />
+			<col name='smn_precio_moneda_local' title='${lbl:b_coin_local_price}' align='left' format='#,###,##0.00' />
+			<col name='smn_moneda_rf' title='${lbl:b_coin}' align='left' format='######' />
+			<col name='smn_precio_moneda_alterna' title='${lbl:b_coin_altern_price}' align='left' format='#,###,##0.00' />
+			<col name='smn_descuento_rf' title='${lbl:b_discount}' align='left' format='######' />
+			<col name='svc_monto_desc_ml' title='${lbl:b_amount_desc_ml}' align='left' format='#,###,##0.00' />
+			<col name='svc_monto_desc_ma' title='${lbl:b_amount_desc_ma}' align='left' format='#,###,##0.00' />
+			<col name='svr_precio_neto' title='${lbl:b_price_net}' align='left' format='#,###,##0.00' />
+			<col name='svc_precio_neto_ma' title='${lbl:b_price_net_ma}' align='left' format='#,###,##0.00' />
+			<col name='svc_req_prestador' title='${lbl:b_require_providers_group}' align='left' />
+			<col name='smn_clase_auxiliar_rf' title='${lbl:b_auxiliary_class}' align='left' format='######' />
+			<col name='svc_requisitos' title='${lbl:b_requirements}' align='left' />
+			<col name='svc_vigencia_desde' title='${lbl:b_validation_date_from}' align='left' format='dd-MM-yyyy' />
+			<col name='svc_vigencia_hasta' title='${lbl:b_validation_date_to}' align='left' format='dd-MM-yyyy' />
+			<col name='smn_documento_general_rf' title='${lbl:b_documents_general}' align='left' format='######' />
+			<col name='svc_inactivo' title='${lbl:b_inactive}' align='left' />
+			<col name='svc_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+		<table recordset='detail-smnservicioscomponentes.sql' width='100' spacingBefore='40'>
+			<col name='smn_servicios_componentes_id' title='${lbl:b_services_components}' width='50' align='left' format='######' />
+		</table>
+		<table recordset='detail-smnserviciosbaremos.sql' width='100' spacingBefore='40'>
+			<col name='smn_servicios_baremos_id' title='${lbl:b_services_list_prices}' width='50' align='left' format='######' />
+		</table>
+
+
+	</pdf-report>
+</config>

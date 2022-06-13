@@ -1,0 +1,3 @@
+<rows>
+smn_auxiliar_rf="${fld:smn_auxiliar_rf}"    smn_clase_auxiliar_rf="${fld:smn_clase_auxiliar_rf}"    pry_fecha_registro="${fld:pry_fecha_registro}"    pry_estatus="${fld:pry_estatus}"     pry_fecha_inicio="${fld:pry_fecha_inicio}"    pry_nombre="${fld:pry_nombre}"    pry_codigo="${fld:pry_codigo}"    
+</rows>

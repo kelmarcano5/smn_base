@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntipovia.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smntipovia.sql' sheetname='${lbl:b_types_of_routes}' filename='filter.xls'>
+		<col id='tiv_codigo' label='${lbl:b_code}' />
+		<col id='tiv_descripcion' label='${lbl:b_description}' />
+		<col id='tiv_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

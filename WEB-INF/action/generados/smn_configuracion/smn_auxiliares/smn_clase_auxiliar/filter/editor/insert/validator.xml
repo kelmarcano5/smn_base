@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='cla_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='cla_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='cla_modulo' type='integer' required='true' label='${lbl:b_module}' maxlen='3'/>
+	<parameter id='cla_naturaleza' type='integer' required='true' label='${lbl:b_nature}' maxlen='10'/>
+</validator>

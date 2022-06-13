@@ -1,0 +1,34 @@
+INSERT INTO smn_base.smn_baremos_detalle
+(
+	smn_baremos_detalle_id,
+	smn_baremos_id,
+	smn_servicios_rf,
+	bad_tipo_componente,
+	smn_clase_auxiliar_rf,
+	smn_item_rf,
+	smn_almacen_rf,
+	bad_cantidad,
+	bad_precio_moneda_local,
+	smn_moneda_rf,
+	bad_precio_moneda_alterna,
+	smn_descuento_rf,
+	bad_estatus,
+	bad_fecha_registro
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_baremos_detalle},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	{d '${def:date}'}
+)

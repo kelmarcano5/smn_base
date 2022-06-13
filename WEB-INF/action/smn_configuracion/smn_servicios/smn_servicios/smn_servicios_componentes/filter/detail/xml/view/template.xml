@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_servicios_componentes>
+	<detail>
+		<rows>		
+		<record smn_componentes_id="${fld:smn_componentes_id}"    smn_servicios_id="${fld:smn_servicios_id}"    smn_componentes_id="${fld:smn_componentes_id}"    smn_servicios_id="${fld:smn_servicios_id}"    smn_componentes_id="${fld:smn_componentes_id}"    smn_servicios_id="${fld:smn_servicios_id}"    />
+		</rows>
+	</detail>
+</smn_servicios_componentes>

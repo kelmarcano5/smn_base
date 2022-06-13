@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_contrato_base>
+	<detail>
+		<rows>		
+		<record ctr_fecha_registro="${fld:ctr_fecha_registro}"   crp_direccion="${fld:crp_direccion}"       ctr_fecha_vencimiento="${fld:ctr_fecha_vencimiento}"   ctr_tipo="${fld:ctr_tipo}"    trg_descripcion="${fld:trg_descripcion}"    ctr_nombre="${fld:ctr_nombre}"    ctr_codigo="${fld:ctr_codigo}"    />
+		</rows>
+	</detail>
+</smn_contrato_base>

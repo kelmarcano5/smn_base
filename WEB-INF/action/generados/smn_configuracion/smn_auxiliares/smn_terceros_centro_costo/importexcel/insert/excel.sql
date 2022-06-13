@@ -1,0 +1,34 @@
+INSERT INTO smn_base.smn_terceros_centro_costo
+(
+	smn_terceros_centro_costo_id,
+	smn_terceros_id,
+	trc_codigo,
+	trc_descripcion_corta,
+	trc_descripcion_larga,
+	trc_responsable,
+	trc_tipo_cco,
+	trc_nivel,
+	trc_clase_auxiliar,
+	trc_auxiliar,
+	trc_idioma,
+	trc_usuario,
+	trc_fecha_registro,
+	trc_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_terceros_centro_costo},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

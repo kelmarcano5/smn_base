@@ -1,0 +1,3 @@
+<rows>
+smn_auxiliar_contacto_id="${fld:smn_auxiliar_contacto_id}"    smn_auxiliar_id="${fld:smn_auxiliar_id}"    
+</rows>

@@ -1,0 +1,8 @@
+select
+	smn_base.smn_auxiliar_banco.*
+from 
+	smn_base.smn_auxiliar_banco,
+	smn_base.smn_auxiliar_categoria
+where
+	smn_base.smn_auxiliar_banco.smn_auxiliar_categoria_id=smn_base.smn_auxiliar_categoria.smn_auxiliar_categoria_id and 
+	smn_base.smn_auxiliar_categoria.smn_auxiliar_categoria_id=${fld:id}

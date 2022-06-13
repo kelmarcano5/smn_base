@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_rel_entidad_estructura>
+	<detail>
+		<rows>		
+		<record rec_fecha_registro="${fld:rec_fecha_registro}"    rec_status="${fld:rec_status}"    smn_configuracion_estructura_id="${fld:smn_configuracion_estructura_id}"    smn_entidades_id="${fld:smn_entidades_id}"    />
+		</rows>
+	</detail>
+</smn_rel_entidad_estructura>

@@ -1,0 +1,19 @@
+select
+		smn_base.smn_medio_pago.mpa_codigo,
+	smn_base.smn_medio_pago.mpa_descripcion,
+	smn_base.smn_medio_pago.mpa_efectivo,
+	smn_base.smn_medio_pago.mpa_fecha_registro,
+	smn_base.smn_medio_pago.mpa_codigo,
+	smn_base.smn_medio_pago.mpa_descripcion,
+	smn_base.smn_medio_pago.mpa_tipo_medio_pago,
+	smn_base.smn_medio_pago.mpa_estatus,
+	smn_base.smn_medio_pago.mpa_vigencia,
+	smn_base.smn_medio_pago.mpa_fecha_registro,
+	smn_base.smn_medio_pago.mpa_codigo,
+	smn_base.smn_medio_pago.mpa_descripcion,
+	smn_base.smn_medio_pago.mpa_efectivo,
+	smn_base.smn_medio_pago.mpa_fecha_registro
+from
+	smn_base.smn_medio_pago 
+where
+	smn_base.smn_medio_pago.smn_medio_pago_id = ${fld:id}

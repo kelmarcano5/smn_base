@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_condicion_financiera>
+	<detail>
+		<rows>		
+		<record cfi_fecha_registro="${fld:cfi_fecha_registro}"    cfi_vigencia="${fld:cfi_vigencia}"    cfi_estatus="${fld:cfi_estatus}"    cfi_num_cheques_devuel="${fld:cfi_num_cheques_devuel}"    cfi_dias_adic_saldos_venc="${fld:cfi_dias_adic_saldos_venc}"    cfi_valida_saldos_vec="${fld:cfi_valida_saldos_vec}"    cfi_porc_exceso_limite="${fld:cfi_porc_exceso_limite}"    cfi_limite_credito="${fld:cfi_limite_credito}"    cfi_cant_dias="${fld:cfi_cant_dias}"    cfi_description="${fld:cfi_description}"    cfi_codigo="${fld:cfi_codigo}"    />
+		</rows>
+	</detail>
+</smn_condicion_financiera>

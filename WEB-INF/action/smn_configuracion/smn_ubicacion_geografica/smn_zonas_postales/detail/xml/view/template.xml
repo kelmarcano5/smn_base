@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_zonas_postales>
+	<detail>
+		<rows>		
+		<record zpo_fecha_registro="${fld:zpo_fecha_registro}"    zpo_codigo="${fld:zpo_codigo}"    zpo_sector="${fld:zpo_sector}"    prr_nombre_corto="${fld:prr_nombre_corto}"    zpo_fecha_registro="${fld:zpo_fecha_registro}"    zpo_codigo="${fld:zpo_codigo}"    prr_nombre_corto="${fld:prr_nombre_corto}"    />
+		</rows>
+	</detail>
+</smn_zonas_postales>

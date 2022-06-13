@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='adl_nombre_compania' type='varchar' required='false' label='${lbl:b_company_name}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='adl_nombre_compania' rule='like' />
+	<parameter id='adl_rif' type='varchar' required='false' label='${lbl:b_rif}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='adl_rif' rule='like' />
+	<parameter id='adl_departamento' type='varchar' required='false' label='${lbl:b_departament}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='adl_departamento' rule='like' />
+	<parameter id='adl_cargo' type='varchar' required='false' label='${lbl:b_job_title}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='adl_cargo' rule='like' />
+	<parameter id='adl_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' date1='adl_fecha_registro_ini' date2='adl_fecha_registro_fin' id='adl_fecha_registro_ini' />
+	<parameter id='adl_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

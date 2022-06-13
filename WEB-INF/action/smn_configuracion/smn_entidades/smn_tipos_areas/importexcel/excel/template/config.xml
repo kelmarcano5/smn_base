@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntiposareas.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_types_area}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_types_area}">
+				<col id='tar_codigo' label='${lbl:b_code}' />
+		<col id='tar_descripcion' label='${lbl:b_description}' />
+		<col id='tar_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

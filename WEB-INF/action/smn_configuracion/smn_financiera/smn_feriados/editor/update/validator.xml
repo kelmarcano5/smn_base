@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='fer_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='fer_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='fer_pais' type='integer' required='false' label='${lbl:b_country}' maxlen='10'/>
+	<parameter id='fer_entidad_federal' type='integer' required='false' label='${lbl:b_federal_entities}' maxlen='10'/>
+	<parameter id='fer_ciudad' type='integer' required='false' label='${lbl:b_city}' maxlen='10'/>
+	<parameter id='fer_municipio' type='integer' required='false' label='${lbl:b_municipality}' maxlen='10'/>
+	<parameter id='fer_feriado' type='varchar' required='true' label='${lbl:b_holliday}' maxlen='5' regexp="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])$" regexp-error-label="${lbl:b_date_mask}"/>	
+	<parameter id='fer_laborable' type='varchar' required='true' label='${lbl:b_workable}' maxlen='1'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_holiday}' maxlen='10'/>
+</validator>

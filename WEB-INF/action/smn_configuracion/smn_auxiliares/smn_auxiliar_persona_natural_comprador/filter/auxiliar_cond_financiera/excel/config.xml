@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarcondfinanciera.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="5" cellStep="0" name="${lbl:b_financial_condition}"/>
+	
+	<excel 
+		recordset='query-smnauxiliarcondfinanciera.sql' 
+		sheetname='${lbl:b_financial_condition}' 
+		filename='${lbl:b_financial_condition}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='cfn_codigo' label='${lbl:b_code}' />
+		<col id='cfn_descripcion' label='${lbl:b_description}' />
+		<col id='cla_nombre' label='${lbl:b_auxiliary_class}' />
+		<col id='smn_item' label='${lbl:b_auxiliary}' />
+		<col id='cfn_limite_credito' label='${lbl:b_credit_limit}' />
+		<col id='cfn_porc_exceso_limite' label='${lbl:b_percent_excess_credit_limit}' />
+		<col id='cfn_valida_saldos_vec_combo' label='${lbl:b_percent_excess_credit_limit}' />
+		<col id='cfn_dias_adic_saldos_venc' label='${lbl:b_validates_overcome_balances}' />
+		<col id='cfn_num_cheques_devuel' label='${lbl:b_number_returned_checks}' />
+		<col id='cfn_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

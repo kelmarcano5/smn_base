@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		onload = function()
+			{
+				document.getElementById('cuestionario').style.width = '90%';
+				document.getElementById('cuestionario').style.margin = 'auto';
+				document.getElementById('cuestionario').style.marginTop = '20px';
+				document.getElementById('cuestionario').style.border = '${fld:color_formulario}';
+				document.getElementById('cuestionario').style.background = '${fld:cue_color_formulario}';
+				document.getElementById('text_cue').style.fontSize = '${fld:tamano_letra2}';
+				document.getElementById('text_cue').style.color = '${fld:cue_color_letra}';
+				document.getElementById('text_cue').style.fontFamily = '${fld:cue_tipo_letra}';
+				document.getElementById('text_cue').innerHTML = '${fld:cue_descripcion}';
+
+				<row>
+					addTable('seccion${fld:smn_rel_cuestionario_seccion_id}');
+					// Llama a addRow() con el ID de la tabla 
+					addRow('seccion${fld:smn_rel_cuestionario_seccion_id}','${fld:seccion_combo}','${fld:rcs_color_sombreado}','${fld:rcs_tipo_letra}','${fld:rcs_color_letra}','${fld:tamano_letra}','${fld:identacion}','${fld:smn_rel_cuestionario_seccion_id}');
+					getPreguntas('${fld:smn_rel_cuestionario_seccion_id}','${fld:seccion_combo}');
+
+				</row>
+			}
+
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		function getPreguntas(id,text)
+		{
+			if (id!=null && id!="") 
+			{
+				return ajaxCall(	
+							httpMethod="GET", 
+							uri="${def:actionroot}/form/preguntas?id=" +id+"&seccion="+text, 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, //function 'setElementFirstIndex' select first element of combo list
+							onErrorFn=null);				
+			}
+		
+		}
+
+		function addTable(id) 
+		{
+			var body = document.getElementsByTagName("body")[0];
+			var seccion = document.getElementById('seccion');
+			var tabla = document.createElement("table");
+			var tblBody = document.createElement("tbody");
+			tabla.appendChild(tblBody);
+			body.appendChild(tabla);
+			tabla.setAttribute("id",id);
+			tabla.setAttribute("style","width:100%;");
+			seccion.appendChild(tabla);
+		}
+
+		function addRow(tableID,texto,background,text_font,text_color,size,indent,seccion_id) 
+		{
+			if (background == null)
+				background = 'white';
+
+			if (text_font==null)
+				text_font=='Calibri';
+
+			if (text_color==null)
+				text_color=='black';
+
+			if (size==null)
+				size=='10px';
+
+			if (indent==null)
+				indent=='0px';
+
+			 // Obtiene una referencia a la tabla
+			var tableRef = document.getElementById(tableID);
+
+			// Inserta una fila en la tabla, en el índice 0
+			var newRow   = tableRef.insertRow(0);
+			newRow.style.background = background;
+
+			// Inserta una celda en la fila, en el índice 0
+			var newCell  = newRow.insertCell(0);
+			var newText  = document.createTextNode(texto);
+			newCell.appendChild(newText);
+			newCell.style.fontFamily = text_font;
+			newCell.style.color = text_color;
+			newCell.style.fontSize = size;
+			newCell.style.textIndent = indent;
+			newCell.setAttribute("id","preguntas"+seccion_id);
+		}
+
+		//exportar a excel
+		function openExcel() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a xml
+		function openXml(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a texto
+		function openTxt(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 980, 600);	
+		}
+	</script>
+	
+	
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog" id="encabezado_tabla">
+		${lbl:b_monitor_cuestionario}
+		<!--<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="${lbl:b_export_pdf}" style="cursor:pointer; margin-left:3px;"/>
+		smn_cuestionario.<img src="${def:context}/images/excel.png" onclick="openExcel()" title="${lbl:b_export_excel}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/file-xml4.png" onclick="openXml('${fld:smn_rel_cuestionario_seccion_id}')" title="${lbl:b_export_xml}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/file-text.png" onclick="openTxt('${fld:smn_rel_cuestionario_seccion_id}')" title="${lbl:b_export_txt}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/emails.png" onclick="openEmails()" title="${lbl:s_profile_email}" style="cursor:pointer; margin-left:3px;"/>-->
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="${lbl:b_close_button}" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<div id="cuestionario">
+		<div id="text_cue">
+				
+		</div>
+		<div id="seccion">
+			
+		</div>
+		<!--<table id="seccion">
+			<tbody>
+				
+			</tbody>
+		</table>-->
+	</div>
+
+	<br>
+	<div  align="center">
+		<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog()" class="button">
+	</div>
+
+</body>
+
+</html>

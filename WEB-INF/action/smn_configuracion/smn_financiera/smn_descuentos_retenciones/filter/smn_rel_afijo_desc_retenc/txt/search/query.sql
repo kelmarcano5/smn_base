@@ -1,0 +1,28 @@
+select
+		smn_base.smn_rel_afijo_desc_retenc.smn_rel_afijo_desc_retenc_id,
+	smn_base.smn_descuentos_retenciones.smn_descuentos_retenciones_id,
+	smn_base.smn_descuentos_retenciones.dyr_codigo as dyr_codigo_pl0,
+	smn_base.smn_activo_fijo.smn_afijo_id,
+	smn_base.smn_activo_fijo.acf_codigo as acf_codigo_pl1,
+select
+		smn_base.smn_rel_afijo_desc_retenc.smn_rel_afijo_desc_retenc_id,
+select
+		smn_base.smn_rel_afijo_desc_retenc.smn_rel_afijo_desc_retenc_id,
+	smn_base.smn_activo_fijo.acf_codigo as acf_codigo_pl1,
+	smn_base.smn_rel_afijo_desc_retenc.smn_descuentos_retenciones_id,
+	smn_base.smn_rel_afijo_desc_retenc.smn_afijo_id,
+	smn_base.smn_rel_afijo_desc_retenc.rad_idioma,
+	smn_base.smn_rel_afijo_desc_retenc.rad_usuario,
+	smn_base.smn_rel_afijo_desc_retenc.rad_fecha_registro,
+	smn_base.smn_rel_afijo_desc_retenc.rad_hora,
+		smn_base.smn_rel_afijo_desc_retenc.smn_rel_afijo_desc_retenc_id
+	
+from
+	smn_base.smn_descuentos_retenciones,
+	smn_base.smn_activo_fijo,
+	smn_base.smn_rel_afijo_desc_retenc
+where
+	smn_base.smn_descuentos_retenciones.smn_descuentos_retenciones_id=smn_base.smn_rel_afijo_desc_retenc.smn_descuentos_retenciones_id and
+	smn_base.smn_activo_fijo.smn_afijo_id=smn_base.smn_rel_afijo_desc_retenc.smn_afijo_id
+order by
+		smn_rel_afijo_desc_retenc_id

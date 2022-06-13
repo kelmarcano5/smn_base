@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='atr_codigo2' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='atr_descripcion2' type='varchar' required='true' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='atr_comunidad2_name' type='varchar' required='false' label='${lbl:b_community}'/>
+	<parameter id='atr_comunidad2' type='integer' required='false' label='${lbl:b_community}' maxlen='10'/>
+	<parameter id='atr_auxiliar_corporacion2_name' type='varchar' required='false' label='${lbl:b_outsourced_corporation}'/>
+	<parameter id='atr_auxiliar_corporacion2' type='integer' required='false' label='${lbl:b_outsourced_corporation}' maxlen='10'/>
+	<parameter id='atr_auxiliar_unidad_negocio2_name' type='varchar' required='false' label='${lbl:b_outsourced_unit_business}'/>
+	<parameter id='atr_auxiliar_unidad_negocio2' type='integer' required='false' label='${lbl:b_outsourced_unit_business}' maxlen='10'/>
+	<parameter id='atr_maneja_sucursal2_name' type='varchar' required='false' label='${lbl:b_has_subsidiary}'/>
+	<parameter id='atr_maneja_sucursal2' type='varchar' required='true' label='${lbl:b_has_subsidiary}' maxlen='1'/>
+	<parameter id='atr_razon_social2' type='varchar' required='false' label='${lbl:b_business_name}' maxlen='64'/>
+	<parameter id='atr_denom_comercial2' type='varchar' required='false' label='${lbl:b_designation_commercial}' maxlen='64'/>
+	<parameter id='atr_beneficiario2' type='varchar' required='false' label='${lbl:b_beneficiary}' maxlen='96'/>
+	<parameter id='atr_tipo_doc_oficial2_name' type='varchar' required='false' label='${lbl:b_official_document_type}'/>
+	<parameter id='atr_tipo_doc_oficial2' type='integer' required='false' label='${lbl:b_official_document_type}' maxlen='10'/>
+	<parameter id='atr_num_doc_oficial2' type='varchar' required='false' label='${lbl:b_official_document_number}' maxlen='12'/>
+	<parameter id='atr_clasif_abc2_name' type='varchar' required='false' label='${lbl:b_abc_clasification}'/>
+	<parameter id='atr_clasif_abc2' type='varchar' required='false' label='${lbl:b_abc_clasification}' maxlen='1'/>
+	<parameter id='atr_rif2' type='varchar' required='false' label='${lbl:b_tax_id}' maxlen='16'/>
+	<parameter id='atr_direccion2_name' type='varchar' required='false' label='${lbl:b_business_address}'/>
+	<parameter id='atr_direccion2' type='integer' required='false' label='${lbl:b_business_address}' maxlen='10'/>
+	<parameter id='atr_cuenta_bancaria2_name' type='varchar' required='false' label='${lbl:b_auxiliary_bank_account}'/>
+	<parameter id='atr_cuenta_bancaria2' type='integer' required='false' label='${lbl:b_auxiliary_bank_account}' maxlen='10'/>
+	<parameter id='atr_contactos2_name' type='varchar' required='false' label='${lbl:b_auxiliary_contact}'/>
+	<parameter id='atr_contactos2' type='integer' required='false' label='${lbl:b_auxiliary_contact}' maxlen='10'/>
+	<parameter id='atr_persona_contacto2' type='varchar' required='false' label='${lbl:b_contact_person}' maxlen='48'/>
+	<parameter id='atr_representante_legal2' type='varchar' required='false' label='${lbl:b_legal_representative}' maxlen='64'/>
+	<parameter id='atr_benef_pago2' type='varchar' required='false' label='${lbl:b_beneficiary_payments}' maxlen='112'/>
+	<parameter id='atr_cond_pago2_name' type='varchar' required='false' label='${lbl:b_condition_payments}'/>
+	<parameter id='atr_cond_pago2' type='integer' required='false' label='${lbl:b_condition_payments}' maxlen='2'/>
+	<parameter id='atr_tipo_facturac2_name' type='varchar' required='false' label='${lbl:b_billing_type}'/>
+	<parameter id='atr_tipo_facturac2' type='varchar' required='false' label='${lbl:b_billing_type}' maxlen='2'/>
+	<parameter id='atr_condicion_financiera2_name' type='varchar' required='false' label='${lbl:b_financial_condition}'/>
+	<parameter id='atr_condicion_financiera2' type='integer' required='false' label='${lbl:b_financial_condition}' maxlen='10'/>
+	<parameter id='atr_observacion2' type='varchar' required='false' label='${lbl:b_observation}' maxlen='96'/>
+</validator>

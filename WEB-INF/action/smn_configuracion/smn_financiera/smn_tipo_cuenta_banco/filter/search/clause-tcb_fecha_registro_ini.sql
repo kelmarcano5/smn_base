@@ -1,0 +1,2 @@
+ and
+ 	smn_base.smn_tipo_cuenta_banco.tcb_fecha_registro>=${fld:tcb_fecha_registro_ini}

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnrelafijodescretenc.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_relacion_af_descuentos_retenciones}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_relacion_af_descuentos_retenciones}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnrelafijodescretenc.sql' width='100' spacingBefore='40'>
+			<col name='smn_descuentos_retenciones_id_combo' title='${lbl:b_discount_tax}' width='33' align='left' format='######' />
+			<col name='smn_afijo_id_combo' title='${lbl:b_fixed_assets}' width='33' align='left' format='######' />
+			<col name='rad_fecha_registro' title='${lbl:b_store_date}' width='33' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_general_transaction}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-trg_modulo_origen.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_modulos.sql' source='sql' scope='transaction'/>
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-trg_modulo_origen.sql' tag='trg_modulo_origen_rows'/>
+		<print mode='table' recordset='query-smn_modulos.sql' tag='smn_modulos_rows'/>
+
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

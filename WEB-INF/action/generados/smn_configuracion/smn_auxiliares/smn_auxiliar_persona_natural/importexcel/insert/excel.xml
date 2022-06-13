@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_naturaleza_auxiliar_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_clase_auxiliar_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_tipo_persona' type='varchar' required='true' maxlen='2'/>
+	<parameter id='aux_apellidos' type='varchar' required='false' maxlen='64'/>
+	<parameter id='aux_nombres' type='varchar' required='false' maxlen='64'/>
+	<parameter id='aux_tipo_doc_oficial_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_num_doc_oficial' type='varchar' required='false' maxlen='12'/>
+	<parameter id='aux_rif' type='varchar' required='false' maxlen='16'/>
+	<parameter id='aux_sexo' type='varchar' required='false' maxlen='2'/>
+	<parameter id='aux_estado_civil' type='varchar' required='false' maxlen='2'/>
+	<parameter id='aux_fecha_nac' type='date' required='false' maxlen='10'/>
+	<parameter id='aux_lugar_nac' type='varchar' required='false' maxlen='64'/>
+	<parameter id='aux_direccion_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_nacionalidad_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_nacionalizado' type='varchar' required='false' maxlen='2'/>
+	<parameter id='aux_fecha_gaceta_nac' type='date' required='false' maxlen='10'/>
+	<parameter id='aux_num_gaceta' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_afiliacion' type='varchar' required='false' maxlen='2'/>
+	<parameter id='aux_condicion_financiera_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_cuenta_bancaria_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_persona_contacto' type='varchar' required='false' maxlen='48'/>
+	<parameter id='aux_titular_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_observacion' type='varchar' required='false' maxlen='96'/>
+	<parameter id='aux_peso' type='double' required='false' maxlen='10'/>
+	<parameter id='aux_unidad_med_peso_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_estatura' type='double' required='false' maxlen='10'/>
+	<parameter id='aux_unidad_med_estatura_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_lateralidad' type='varchar' required='false' maxlen='1'/>
+	<parameter id='aux_talla_camisa' type='double' required='false' maxlen='10'/>
+	<parameter id='aux_unidad_med_camisa_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_talla_pantalon' type='double' required='false' maxlen='10'/>
+	<parameter id='aux_unidad_med_pantalon_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_talla_zapato' type='double' required='false' maxlen='10'/>
+	<parameter id='aux_unidad_med_zapato_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_talla_braga' type='double' required='false' maxlen='10'/>
+	<parameter id='aux_unidad_med_braga_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='aux_talla_casco' type='double' required='false' maxlen='10'/>
+	<parameter id='aux_unidad_med_casco_rf' type='integer' required='false' maxlen='10'/>
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-smn_naturaleza_auxiliar_id.sql"  id="smn_naturaleza_auxiliar_id" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-smn_clase_auxiliar_id.sql"  id="smn_clase_auxiliar_id" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_tipo_doc_oficial_rf.sql"  id="aux_tipo_doc_oficial_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_direccion_rf.sql"  id="aux_direccion_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_nacionalidad_rf.sql"  id="aux_nacionalidad_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_comunidad_rf.sql"  id="aux_comunidad_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_auxiliar_corporacion_rf.sql"  id="aux_auxiliar_corporacion_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_auxiliar_unidad_negocio_rf.sql"  id="aux_auxiliar_unidad_negocio_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_sector_economico_rf.sql"  id="aux_sector_economico_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_cond_pago_rf.sql"  id="aux_cond_pago_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_titular_rf.sql"  id="aux_titular_rf" />
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-aux_unidad_med_peso_rf.sql"  id="aux_unidad_med_peso_rf" />
+</validator>

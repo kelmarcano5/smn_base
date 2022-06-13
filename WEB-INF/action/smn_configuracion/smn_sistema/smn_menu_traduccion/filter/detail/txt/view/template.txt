@@ -1,0 +1,4 @@
+<rows>
+mnt_fecha_registro="${fld:mnt_fecha_registro}"    mnt_locale="${fld:mnt_locale}"    mnt_title="${fld:mnt_title}"    title="${fld:title}"    app_alias="${fld:app_alias}"    
+
+</rows>

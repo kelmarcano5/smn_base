@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('svc_codigo','query-smnservicios.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('svc_descripcion','query-smnservicios.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('svc_tipo_servicio','query-smnservicios.sql')" >${lbl:b_service_type}</th>
+		<th class='sortable' onclick="sortBy('svc_area_servicio','query-smnservicios.sql')" >${lbl:b_service_area}</th>
+		<th class='sortable' onclick="sortBy('svc_unidad_servicio','query-smnservicios.sql')" >${lbl:b_service_unit}</th>
+		<th class='sortable' onclick="sortBy('svc_inactivo_combo','query-smnservicios.sql')" >${lbl:b_inactive}</th>
+		<th class='sortable' onclick="sortBy('svc_fecha_registro','query-smnservicios.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_servicios_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_servicios_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_servicios_id}')" title="Editar"></td>
+		<td align="left">${fld:svc_codigo}</td>
+		<td align="left">${fld:svc_descripcion}</td>
+		<td align="left">${fld:svc_tipo_servicio}</td>
+		<td align="left">${fld:svc_area_servicio}</td>
+		<td align="left">${fld:svc_unidad_servicio}</td>
+		<td align="left">${fld:svc_inactivo_combo}</td>
+		<td align="center">${fld:svc_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("dir_codigo","query-smndireccion.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("dir_descripcion","query-smndireccion.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("dir_pais","query-smndireccion.sql")'>${lbl:b_country}</th>
+		<th class='sortable' onclick='sortBy("dir_entidad_federal","query-smndireccion.sql")'>${lbl:b_federal_entity}</th>
+		<th class='sortable' onclick='sortBy("dir_ciudad","query-smndireccion.sql")'>${lbl:b_city}</th>
+		<th class='sortable' onclick='sortBy("dir_municipio","query-smndireccion.sql")'>${lbl:b_municipality}</th>
+		<th class='sortable' onclick='sortBy("dir_fecha_registro","query-smndireccion.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:dir_codigo}</td>
+		<td align='left'>${fld:dir_descripcion}</td>
+		<td align='left'>${fld:dir_pais}</td>
+		<td align='left'>${fld:dir_entidad_federal}</td>
+		<td align='left'>${fld:dir_ciudad}</td>
+		<td align='left'>${fld:dir_municipio}</td>
+		<td>${fld:dir_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

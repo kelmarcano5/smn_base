@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncentrocosto-template.sql" source="sql" scope="transaction"/>
+		<recordset id="query-smnunidadesservicios.sql" source="sql" scope="transaction"/>
+		<recordset id="query-smnalmacen.sql" source="sql" scope="transaction"/>
+		<recordset id="query-smnsucursales.sql" source="sql" scope="transaction"/>
+		<recordset id="query-cconivel.sql" source="sql" scope="transaction"/>
+		<recordset id="query-smnentidades.sql" source="sql" scope="transaction"/>
+		<recordset id="query-smnareasservicios.sql" source="sql" scope="transaction"/>
+	</transaction>
+
+	<output>
+		<classname>smn_domain.smn_configuracion.smn_entidades.smn_centro_costo.importexcel.excel.template.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename="${lbl:b_cost_centers}.xls" 
+		header-background="true">
+		
+	<sheet recordset="query-smncentrocosto-template.sql" sheetname="${lbl:b_cost_centers}">
+		<col id="cco_descripcion_larga" label="${lbl:b_long_description}"/>
+		<col id="cco_unidad_servicio" label="${lbl:b_service_unit}"/>
+		<col id="cco_almacen" label="${lbl:b_store}"/>
+		<col id="cco_sucursal" label="${lbl:b_subsidiary}"/>
+		<col id="cco_codigo" label="${lbl:b_code}"/>
+		<col id="cco_nivel" label="${lbl:b_level}"/>
+		<col id="cco_descripcion_corta" label="${lbl:b_short_description}"/>
+		<col id="cco_empresa" label="${lbl:b_entity}"/>
+		<col id="cco_area_servicio" label="${lbl:b_service_area}"/>
+		<col id="cco_unidad_servicio_reference" label="${lbl:b_service_unit}"/>
+		<col id="cco_almacen_reference" label="${lbl:b_store}"/>
+		<col id="cco_sucursal_reference" label="${lbl:b_subsidiary}"/>
+		<col id="cco_nivel_reference" label="${lbl:b_level}"/>
+		<col id="cco_empresa_reference" label="${lbl:b_entity}"/>
+		<col id="cco_area_servicio_reference" label="${lbl:b_service_area}"/>
+	</sheet>
+	
+	<sheet recordset="query-smnunidadesservicios.sql" sheetname="${lbl:b_service_unit}">
+		<col id="uns_descripcion" label="${lbl:b_service_unit}"/>
+	</sheet>
+	
+	<sheet recordset="query-smnalmacen.sql" sheetname="${lbl:b_store}">
+		<col id="alm_nombre" label="${lbl:b_store}"/>
+	</sheet>
+	
+	<sheet recordset="query-smnsucursales.sql" sheetname="${lbl:b_subsidiary}">
+		<col id="suc_nombre" label="${lbl:b_subsidiary}"/>
+	</sheet>
+	
+	<sheet recordset="query-cconivel.sql" sheetname="${lbl:b_level}">
+		<col id="nivel" label="${lbl:b_level}"/>
+	</sheet>
+	
+	<sheet recordset="query-smnentidades.sql" sheetname="${lbl:b_entity}">
+		<col id="ent_descripcion_corta" label="${lbl:b_entity}"/>
+	</sheet>
+	
+	<sheet recordset="query-smnareasservicios.sql" sheetname="${lbl:b_service_area}">
+		<col id="ase_descripcion" label="${lbl:b_service_area}"/>
+	</sheet>
+	
+	</excel>
+
+</config>

@@ -1,0 +1,10 @@
+select
+		smn_base.smn_grupo_prestador_servicio_frecuencia.smn_grupos_prestadores_id,
+	smn_base.smn_grupo_prestador_servicio_frecuencia.smn_prestadores_servicios_id,
+	smn_base.smn_grupo_prestador_servicio_frecuencia.smn_servicios_id,
+	smn_base.smn_grupo_prestador_servicio_frecuencia.gps_frecuencia,
+	smn_base.smn_grupo_prestador_servicio_frecuencia.gps_fecha_registro
+from
+	smn_base.smn_grupo_prestador_servicio_frecuencia 
+where
+	smn_base.smn_grupo_prestador_servicio_frecuencia.smn_grupo_prestador_servicio_frecuencia_id = ${fld:id}

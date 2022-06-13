@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='ctr_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='ctr_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='300'/>
+	<parameter id='ctr_transaccion_rf' type='integer' required='true' label='${lbl:b_transaction}' maxlen='10'/>
+	<parameter id='ctr_tipo' type='varchar' required='true' label='${lbl:b_type}' maxlen='2'/>
+	<parameter id='ctr_consecutivo' type='integer' required='true' label='${lbl:b_consecutive}' maxlen='10'/>
+	<parameter id='ctr_fecha_inicio' type='date' required='true' label='${lbl:b_date_init}' maxlen='10'/>
+	<parameter id='ctr_fec_registro' type='date' required='true' label='${lbl:b_date_registry}' maxlen='10'/>
+	<parameter id='ctr_fecha_vencimiento' type='date' required='true' label='${lbl:b_date_expired}' maxlen='10'/>
+	<parameter id='ctr_dias_renovacion' type='integer' required='true' label='${lbl:b_renovation_days}' maxlen='10'/>
+	<parameter id='ctr_frecuencia_pago_dias' type='integer' required='true' label='${lbl:b_frecuency_pay_day}' maxlen='10'/>
+	<parameter id='ctr_moneda_rf' type='integer' required='false' label='${lbl:b_coins}' maxlen='10'/>
+	<parameter id='ctr_monto_otra_moneda' type='double' required='true' label='${lbl:b_amount_other_coins}' maxlen='10'/>
+	<parameter id='ctr_corporacion_rf' type='integer' required='false' label='${lbl:b_corporation}' maxlen='10'/>
+	<parameter id='ctr_empresa_rf' type='integer' required='false' label='${lbl:b_entities}' maxlen='10'/>
+	<parameter id='ctr_sucursal_rf' type='integer' required='false' label='${lbl:b_subsidiaries}' maxlen='10'/>
+	<parameter id='ctr_area_servicio_rf' type='integer' required='false' label='${lbl:b_area_service}' maxlen='10'/>
+	<parameter id='ctr_unidad_servicio_rf' type='integer' required='false' label='${lbl:b_units_service}' maxlen='10'/>
+	<parameter id='ctr_centro_costo_rf' type='integer' required='true' label='${lbl:b_cost_centers}' maxlen='10'/>
+	<parameter id='ctr_observaciones' type='varchar' required='false' label='${lbl:b_observations}' maxlen='250'/>
+	<parameter id='ctr_vigencia' type='varchar' required='true' label='${lbl:b_vigency}' maxlen='2'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='ctr_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='ctr_nombre'/>
+
+
+</validator>

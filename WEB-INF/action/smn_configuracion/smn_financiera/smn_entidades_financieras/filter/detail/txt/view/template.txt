@@ -1,0 +1,3 @@
+<rows>
+efi_fecha_registro="${fld:efi_fecha_registro}"    efi_contacto="${fld:efi_contacto}"    efi_routing="${fld:efi_routing}"    efi_nombre="${fld:efi_nombre}"    efi_req_banco_intermediario="${fld:efi_req_banco_intermediario}"    efi_codigo_swift="${fld:efi_codigo_swift}"    efi_codigo_aba="${fld:efi_codigo_aba}"    efi_telefono_movil="${fld:efi_telefono_movil}"    efi_telefono_fijo="${fld:efi_telefono_fijo}"    dir_descripcion="${fld:dir_descripcion}"    efi_nombre="${fld:efi_nombre}"    efi_codigo="${fld:efi_codigo}"    
+</rows>

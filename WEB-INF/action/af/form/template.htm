@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+
+<!--biblioteca generica JS/Dinamica-->
+<script type="text/javascript" src="${def:context}/action/script">
+</script>
+
+<title>ACtivos Fijos</title>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="banner">
+	ACtivos Fijos
+	${req:progress}
+</div>
+
+<!--formulario de filtro-->
+<form name="form1" onsubmit="return search()" style="width:530px;">
+
+	<!--titulo-->
+	<h1>Filtro de búsqueda</h1>
+	
+	<table>
+	
+	<!--ancho de la columna de etiquetas-->
+	<col style="width:40%">
+
+	<!--campos-->
+		<tr>
+		<td>Fecha desde*</td>
+		<td>
+			<input id="acf_fecha_registro" name="acf_fecha_registro" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('acf_fecha_registro')">
+		</td>
+	</tr>
+	<tr>
+		<td>Fechahasta*</td>
+		<td>
+			<input id="acf_fecha_registro2" name="acf_fecha_registro2" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('acf_fecha_registro2')">
+		</td>
+	</tr>
+
+	
+	</table>
+	
+	<!--botones-->
+	<input type="submit" value="Buscar" class="button">
+	<input type="button" value="Limpiar" class="button" onclick="showFilter();clearForm('form1')">
+	
+</form>
+
+<!--panel de respuesta AJAX #1-->
+<div id="response" style="display:none; width:100%; margin-top:10px;"></div>
+
+</body>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	//apuntador a funcion para retornar dependiendo de donde este
+	var _goBackFn = null;
+	//variable global para el tipo de plugin de grafico
+	var _plugin = null;
+
+	//inicializacion de la pagina cuando carga
+	onload = function()
+	{ 
+		showFilter();
+		document.form1.acf_fecha_registro.onkeypress = keypressDate;
+		document.form1.acf_fecha_registro2.onkeypress = keypressDate;
+
+	} 
+	
+
+
+
+
+	//mostrar filtro de busqueda
+	function showFilter()
+	{
+		document.getElementById("response").style.display='none';
+		setFocusOnForm("form1");			
+		_plugin = null;
+	}
+
+	//ejecutar consulta
+	function search()
+	{
+
+		clearErrorMessages();
+
+		//definir funcion goBack()
+		_goBackFn = showFilter;
+
+		//llamada Ajax...
+		return ajaxCall(	httpMethod="POST", 
+							uri="${def:actionroot}/search", 
+							divResponse="response", 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=showGrid, 
+							onErrorFn=showFilter);
+	
+	}
+
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+
+	//invoca la generacion de un PDF en un popup
+	function openPDF()
+	{
+		var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+		var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+		if (_plugin!=null)
+			url = "${def:context}${def:actionroot}/pdf?random=" + Math.random() + "&plugin=" + _plugin;
+		var w = window.open(url, null, features);
+	}
+
+	//invoca la generacion de un Excel en un popup
+	function openExcel()
+	{
+		var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+		var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+		var w = window.open(url, null, features);
+	}
+	
+	//cambiar el tipo de gráfica
+	function changeChart(plugin, chartID) {
+		_plugin = plugin;
+		document.getElementById(chartID + "_wait").style.display='';
+		document.getElementById(chartID).src = "${def:context}${def:actionroot}/chart?dummy=" + Math.random() + "&plugin=" + plugin;
+	}
+		
+	//mostrar imagen y esconder su indicador de progreso de carga
+	function displayChart(chartID) {
+		document.getElementById(chartID + "_wait").style.display='none';
+		document.getElementById(chartID).style.display='';
+	}
+
+	//mostrar detalle de un registro
+	function drillDown(id)
+	{
+		alert('Colocar su código aquí.')
+		/*var uri = "${def:context}${def:actionroot}/drilldown/form?id=" + id;
+		openDialog("dialog", uri, 500, 280);*/
+	}
+	
+	//mostrar grid principal
+	function showGrid()
+	{
+		document.getElementById("response").style.display="block";
+		
+		//restaura el goBack que corresponde a este estado
+		_goBackFn = showFilter;
+	}
+			
+</script>
+
+</html>

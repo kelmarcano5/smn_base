@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnatributovalor.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="4" cellStep="0" name="${lbl:b_valor_atributo}"/>
+	
+	<excel 
+		recordset='query-smnatributovalor.sql' 
+		sheetname='${lbl:b_valor_atributo}' 
+		filename='${lbl:b_valor_atributo}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='smn_atributo_item_id_combo' label='${lbl:b_atributos_item}' />
+		<col id='atv_codigo' label='${lbl:b_code}' />
+		<col id='atv_descripcion' label='${lbl:b_description}' />
+		<col id='atv_fecha_vigencia_desde' label='${lbl:b_validation_date_from}' />
+		<col id='atv_fecha_vigencia_hasta' label='${lbl:b_validation_date_until}' />
+		<col id='atv_idioma' label='${lbl:s_profile_lang}' />
+		<col id='atv_usuario' label='${lbl:b_users}' />
+		<col id='atv_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='atv_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

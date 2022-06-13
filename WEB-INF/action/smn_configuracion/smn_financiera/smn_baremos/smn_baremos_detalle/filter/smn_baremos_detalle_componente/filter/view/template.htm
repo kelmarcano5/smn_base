@@ -1,0 +1,61 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="12" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_tipo_compuesto_rf_combo","query-smnbaremosdetallecomponente.sql")'>${lbl:b_type}</th>
+		<th class='sortable' onclick='sortBy("smn_componente_rf_combo","query-smnbaremosdetallecomponente.sql")'>${lbl:b_components}</th>
+		<th class='sortable' onclick='sortBy("smn_forma_calculo_rf_combo","query-smnbaremosdetallecomponente.sql")'>${lbl:b_calculus_form}</th>
+		<th class='sortable' onclick='sortBy("bdc_cantidad","query-smnbaremosdetallecomponente.sql")'>${lbl:b_quantity}</th>
+		<th class='sortable' onclick='sortBy("bdc_precio_ml","query-smnbaremosdetallecomponente.sql")'>${lbl:b_price}</th>
+		<th class='sortable' onclick='sortBy("bdc_monto_ml","query-smnbaremosdetallecomponente.sql")'>${lbl:b_amount}</th>
+		<th class='sortable' onclick='sortBy("bdc_precio_ma","query-smnbaremosdetallecomponente.sql")'>${lbl:b_coin_altern_price}</th>
+		<th class='sortable' onclick='sortBy("bdc_monto_ma","query-smnbaremosdetallecomponente.sql")'>${lbl:b_coin_altern_amount}</th>
+		<th class='sortable' onclick='sortBy("bdc_fecha_registro","query-smnbaremosdetallecomponente.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_baremos_detalle_componente_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_baremos_detalle_componente_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_baremos_detalle_componente_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:smn_tipo_compuesto_rf_combo}</td>
+		<td>${fld:smn_componente_rf_combo}</td>
+		<td>${fld:smn_forma_calculo_rf_combo}</td>
+		<td>${fld:bdc_cantidad}</td>
+		<td align='right'>${fld:bdc_precio_ml@#,###,##0.00}</td>
+		<td align='right'>${fld:bdc_monto_ml@#,###,##0.00}</td>
+		<td align='right'>${fld:bdc_precio_ma@#,###,##0.00}</td>
+		<td align='right'>${fld:bdc_monto_ma@#,###,##0.00}</td>
+		<td>${fld:bdc_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

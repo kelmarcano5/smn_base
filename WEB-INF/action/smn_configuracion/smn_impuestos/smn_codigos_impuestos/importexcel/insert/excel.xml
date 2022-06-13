@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='imp_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='imp_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='imp_tipo_codigo_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='imp_modalidad_registro_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='imp_porcentaje_base' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_porcentaje_calculo' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_tipo_libro_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='imp_tipo_persona_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='imp_tipo_contribuyente_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='imp_unidad_impositiva_desc' type='varchar' required='true' maxlen='10'/>
+	<parameter id='imp_ui_minima' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_ui_maxima' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_ui_sustraendo' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_monto_minimo' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_monto_maximo' type='double' required='false' maxlen='10'/>
+	<parameter id='imp_monto_sustraendo' type='double' required='false' maxlen='10'/>
+
+	<parameter id='imp_tipo_libro_ref' type='varchar' required='false' maxlen='2'/>
+	<parameter id='imp_tipo_persona_ref' type='varchar' required='false' maxlen='2'/>
+	<parameter id='imp_tipo_contribuyente_ref' type='varchar' required='false' maxlen='2'/>
+	<parameter id='imp_tipo_codigo_ref' type='varchar' required='false' maxlen='2'/>
+	<parameter id='imp_modalidad_registro_ref' type='varchar' required='false' maxlen='2'/>
+	<parameter id='imp_unidad_impositiva_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_code_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='imp_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_desc_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='imp_descripcion'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: imp_unidad_impositiva_ref' 
+		parameter='imp_unidad_impositiva_ref' 
+		sql='imp_unidad_impositiva.sql' 
+		id='imp_unidad_impositiva_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: imp_tipo_persona_ref' 
+		parameter='imp_tipo_persona_ref' 
+		sql='imp_tipo_persona.sql' 
+		id='imp_tipo_persona_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: imp_tipo_libro_ref' 
+		parameter='imp_tipo_libro_ref' 
+		sql='imp_tipo_libro.sql' 
+		id='imp_tipo_libro_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: imp_tipo_contribuyente_ref' 
+		parameter='imp_tipo_contribuyente_ref' 
+		sql='imp_tipo_contribuyente.sql' 
+		id='imp_tipo_contribuyente_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: imp_tipo_codigo_ref' 
+		parameter='imp_tipo_codigo_ref' 
+		sql='imp_tipo_codigo.sql' 
+		id='imp_tipo_codigo_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: imp_modalidad_registro_ref' 
+		parameter='imp_modalidad_registro_ref' 
+		sql='imp_modalidad_registro.sql' 
+		id='imp_modalidad_registro_ref'/>
+
+</validator>

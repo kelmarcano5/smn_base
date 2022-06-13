@@ -1,0 +1,1 @@
+select smn_base.smn_vencimiento_cabecera.smn_vencimiento_cabecera_id as id, smn_base.smn_vencimiento_cabecera.tve_codigo ||'-'|| smn_base.smn_vencimiento_cabecera.tve_descripcion as item FROM smn_base.smn_vencimiento_cabecera

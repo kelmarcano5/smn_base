@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnpregunta.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_smn_pregunta}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_smn_pregunta}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnpregunta.sql' width='100' spacingBefore='40'>
+			<col name='tva_codigo_pl0' title='${lbl:b_smn_tipo_variable_id}' width='16' align='left' />
+			<col name='prg_codigo' title='${lbl:b_prg_codigo}' width='16' align='left' />
+			<col name='prg_descripcion' title='${lbl:b_prg_descripcion}' width='16' align='left' />
+			<col name='prg_tipo_respuesta_combo' title='${lbl:b_prg_tipo_respuesta}' width='16' align='left' />
+			<col name='sec_estatus_combo' title='${lbl:b_status}' width='16' align='left' />
+			<col name='cue_fecha_registro' title='${lbl:s_loginhist_col2}' width='16' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

@@ -1,0 +1,1 @@
+delete from smn_base.smn_rel_prestadores_servicios_componentes WHERE smn_rel_prestadores_servicios_componentes_id= ${fld:id}

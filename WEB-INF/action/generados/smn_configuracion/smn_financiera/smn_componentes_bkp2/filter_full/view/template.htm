@@ -1,0 +1,97 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="23">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('gpp_codigo_pl0','query-smncomponentes.sql')" >${lbl:b_group_of_provider}</th>
+		<th class='sortable' onclick="sortBy('svc_codigo_pl1','query-smncomponentes.sql')" >${lbl:b_service}</th>
+		<th class='sortable' onclick="sortBy('cmp_codigo','query-smncomponentes.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('cmp_descripcion','query-smncomponentes.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('cmp_area_servicio','query-smncomponentes.sql')" >${lbl:b_service_area}</th>
+		<th class='sortable' onclick="sortBy('cmp_unidad_servicio','query-smncomponentes.sql')" >${lbl:b_service_unit}</th>
+		<th class='sortable' onclick="sortBy('cmp_vigencia_desde','query-smncomponentes.sql')" >${lbl:b_validation_date_from}</th>
+		<th class='sortable' onclick="sortBy('cmp_vigencia_hasta','query-smncomponentes.sql')" >${lbl:b_validation_date_to}</th>
+		<th class='sortable' onclick="sortBy('cmp_visible_combo','query-smncomponentes.sql')" >Visible</th>
+		<th class='sortable' onclick="sortBy('cmp_req_honorario_combo','query-smncomponentes.sql')" >Requiere Honorario</th>
+		<th class='sortable' onclick="sortBy('cmp_tiempo_estimado','query-smncomponentes.sql')" >${lbl:b_estimated_time}</th>
+		<th class='sortable' onclick="sortBy('cmp_clase_auxiliar','query-smncomponentes.sql')" >${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick="sortBy('cmp_tipo_combo','query-smncomponentes.sql')" >${lbl:b_type}</th>
+		<th class='sortable' onclick="sortBy('cmp_almacen','query-smncomponentes.sql')" >${lbl:b_store}</th>
+		<th class='sortable' onclick="sortBy('cmp_calculo_combo','query-smncomponentes.sql')" >${lbl:b_calculus}</th>
+		<th class='sortable' onclick="sortBy('cmp_cantidad','query-smncomponentes.sql')" >${lbl:b_amount}</th>
+		<th class='sortable' onclick="sortBy('cmp_precio','query-smncomponentes.sql')" >${lbl:b_price}</th>
+		<th class='sortable' onclick="sortBy('cmp_porcentaje','query-smncomponentes.sql')" >${lbl:b_percentage}</th>
+		<th class='sortable' onclick="sortBy('cmp_trans_general','query-smncomponentes.sql')" >${lbl:b_general_transaction}</th>
+		<th class='sortable' onclick="sortBy('cmp_idioma','query-smncomponentes.sql')" >${lbl:s_profile_lang}</th>
+		<th class='sortable' onclick="sortBy('cmp_usuario','query-smncomponentes.sql')" >${lbl:b_users}</th>
+		<th class='sortable' onclick="sortBy('cmp_fecha_registro','query-smncomponentes.sql')" >${lbl:b_store_date}</th>
+		<th class='sortable' onclick="sortBy('cmp_hora','query-smncomponentes.sql')" >${lbl:s_loginhist_col2}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:gpp_codigo_pl0}</td>
+		<td align="left">${fld:svc_codigo_pl1}</td>
+		<td align="left">${fld:cmp_codigo}</td>
+		<td align="left">${fld:cmp_descripcion}</td>
+		<td align="left">${fld:cmp_area_servicio}</td>
+		<td align="left">${fld:cmp_unidad_servicio}</td>
+		<td align="left">${fld:cmp_vigencia_desde@dd-MM-yyyy}</td>
+		<td align="left">${fld:cmp_vigencia_hasta@dd-MM-yyyy}</td>
+		<td align="left">${fld:cmp_visible_combo}</td>
+		<td align="left">${fld:cmp_req_honorario_combo}</td>
+		<td align="left">${fld:cmp_tiempo_estimado@#,###,##0.00}</td>
+		<td align="left">${fld:cmp_clase_auxiliar}</td>
+		<td align="left">${fld:cmp_tipo_combo}</td>
+		<td align="left">${fld:cmp_almacen}</td>
+		<td align="left">${fld:cmp_calculo_combo}</td>
+		<td align="left">${fld:cmp_cantidad@#,###,##0.00}</td>
+		<td align="left">${fld:cmp_precio@#,###,##0.00}</td>
+		<td align="left">${fld:cmp_porcentaje@#,###,##0.00}</td>
+		<td align="left">${fld:cmp_trans_general}</td>
+		<td align="left">${fld:cmp_idioma}</td>
+		<td align="left">${fld:cmp_usuario}</td>
+		<td align="left">${fld:cmp_fecha_registro@dd-MM-yyyy}</td>
+		<td align="left">${fld:cmp_hora}</td>
+	</tr>
+	</rows>
+
+</table>

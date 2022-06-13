@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_cost_centers}</summary>
+	<filter>
+		<row field='tco_codigo' id='tco_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_centro_costo' len='16'/>
+		<row field='tco_descripcion_larga' id='tco_descripcion_larga' label='${lbl:b_long_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_centro_costo' len='48'/>
+		<row field='tco_clase_auxiliar' id='tco_clase_auxiliar' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo || &apos; - &apos; || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_centro_costo' len='10'/>
+		<row field='tco_auxiliar' id='tco_auxiliar' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar.smn_codigo || &apos; - &apos; || smn_base.smn_v_auxiliar.smn_item as item from smn_base.smn_v_auxiliar order by smn_base.smn_v_auxiliar.smn_item}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_centro_costo' len='10'/>
+		<row field='tco_responsable' id='tco_responsable' label='${lbl:b_responsible}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_centro_costo' len='48'/>
+		<row field='tco_tipo_cco' id='tco_tipo_cco' label='${lbl:b_type}@{SR=${lbl:b_profitable}|SE=${lbl:b_services}|SP=${lbl:b_support}|DG=${lblb_distribution}}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_centro_costo' len='2'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='tco_codigo' label='${lbl:b_code}' fk='' tableName='smn_auxiliar_centro_costo' len='16' type='varchar' align='left'/>
+		<row field='tco_descripcion_larga' label='${lbl:b_long_description}' fk='' tableName='smn_auxiliar_centro_costo' len='48' type='varchar' align='left'/>
+		<row field='tco_clase_auxiliar' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo || &apos; - &apos; || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' fk='' tableName='smn_auxiliar_centro_costo' len='10' type='integer' align='left'/>
+		<row field='tco_auxiliar' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar.smn_codigo || &apos; - &apos; || smn_base.smn_v_auxiliar.smn_item as item from smn_base.smn_v_auxiliar order by smn_base.smn_v_auxiliar.smn_item}' fk='' tableName='smn_auxiliar_centro_costo' len='10' type='integer' align='left'/>
+		<row field='tco_responsable' label='${lbl:b_responsible}' fk='' tableName='smn_auxiliar_centro_costo' len='48' type='varchar' align='left'/>
+		<row field='tco_tipo_cco' label='${lbl:b_type}@{SR=${lbl:b_profitable}|SE=${lbl:b_services}|SP=${lbl:b_support}|DG=${lblb_distribution}}' fk='' tableName='smn_auxiliar_centro_costo' len='2' type='varchar' align='left'/>
+		<row field='tco_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_auxiliar_centro_costo' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_naturaleza_auxiliar>
+	<detail>
+		<rows>		
+		<record naa_fecha_registro="${fld:naa_fecha_registro}"    naa_nombre="${fld:naa_nombre}"    naa_codigo="${fld:naa_codigo}"    />
+		</rows>
+	</detail>
+</smn_naturaleza_auxiliar>

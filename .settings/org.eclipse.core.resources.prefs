@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//WEB-INF/labels.xml=UTF-8
+encoding//WEB-INF/model/auxiliares/smn_base_markers.sql=Cp1252
+encoding//WEB-INF/model/conexiones.sql=Cp1252
+encoding//WEB-INF/model/old/smn_base.sql=Cp1252
+encoding//WEB-INF/model/old/smn_base_markers.sql=Cp1252
+encoding//WEB-INF/model/old/smn_base_markers_test.sql=Cp1252
+encoding//WEB-INF/model/old/smn_base_test.sql=Cp1252
+encoding//WEB-INF/model/smn_base_markers.sql=Cp1252
+encoding//WEB-INF/model/smn_base_markers_new.sql=Cp1252
+encoding//WEB-INF/web.xml=UTF-8

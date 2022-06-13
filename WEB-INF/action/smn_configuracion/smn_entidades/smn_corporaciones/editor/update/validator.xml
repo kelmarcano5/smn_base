@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='crp_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='crp_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='crp_unidad_negocio' type='integer' required='false' label='${lbl:b_business_unit}' maxlen='10'/>
+	<parameter id='crp_moneda' type='integer' required='true' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='crp_direccion' type='integer' required='false' label='${lbl:b_address}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_corporation}' maxlen='10'/>
+
+
+</validator>

@@ -1,0 +1,2 @@
+ and
+ 	smn_base.smn_clasificacion_abc.clf_fecha_registro>=${fld:clf_fecha_registro_ini}

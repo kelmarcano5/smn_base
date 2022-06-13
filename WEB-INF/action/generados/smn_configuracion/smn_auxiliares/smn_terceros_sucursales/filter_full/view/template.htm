@@ -1,0 +1,64 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+	<col width='8%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="12">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('ter_descripcion_corta_pl0','query-smntercerossucursales.sql')" >${lbl:b_outsourced_company}</th>
+		<th class='sortable' onclick="sortBy('trs_codigo','query-smntercerossucursales.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('trs_nombre','query-smntercerossucursales.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('trs_responsable','query-smntercerossucursales.sql')" >${lbl:b_responsible}</th>
+		<th class='sortable' onclick="sortBy('trs_direccion','query-smntercerossucursales.sql')" >${lbl:b_address}</th>
+		<th class='sortable' onclick="sortBy('trs_telefono_fijo','query-smntercerossucursales.sql')" >${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick="sortBy('trs_telefono_movil','query-smntercerossucursales.sql')" >${lbl:b_mobile_phone}</th>
+		<th class='sortable' onclick="sortBy('trs_email','query-smntercerossucursales.sql')" >${lbl:s_profile_email}</th>
+		<th class='sortable' onclick="sortBy('trs_idioma','query-smntercerossucursales.sql')" >${lbl:s_profile_lang}</th>
+		<th class='sortable' onclick="sortBy('trs_usuario','query-smntercerossucursales.sql')" >${lbl:b_users}</th>
+		<th class='sortable' onclick="sortBy('trs_fecha_registro','query-smntercerossucursales.sql')" >${lbl:b_store_date}</th>
+		<th class='sortable' onclick="sortBy('trs_hora','query-smntercerossucursales.sql')" >${lbl:s_loginhist_col2}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:ter_descripcion_corta_pl0}</td>
+		<td align="left">${fld:trs_codigo}</td>
+		<td align="left">${fld:trs_nombre}</td>
+		<td align="left">${fld:trs_responsable}</td>
+		<td align="left">${fld:trs_direccion}</td>
+		<td align="left">${fld:trs_telefono_fijo}</td>
+		<td align="left">${fld:trs_telefono_movil}</td>
+		<td align="left">${fld:trs_email}</td>
+		<td align="left">${fld:trs_idioma}</td>
+		<td align="left">${fld:trs_usuario}</td>
+		<td align="left">${fld:trs_fecha_registro@dd-MM-yyyy}</td>
+		<td align="left">${fld:trs_hora}</td>
+	</tr>
+	</rows>
+
+</table>

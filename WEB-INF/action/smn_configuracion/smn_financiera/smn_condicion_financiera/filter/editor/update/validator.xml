@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='cfi_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='cfi_description' type='varchar' required='true' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='cfi_cant_dias' type='integer' required='true' label='${lbl:b_quantity_days}' maxlen='10'/>
+	<parameter id='cfi_limite_credito' type='double' required='false' label='${lbl:b_credit_limit}' maxlen='10'/>
+	<parameter id='cfi_porc_exceso_limite' type='double' required='false' label='${lbl:b_porcentage_excess_limit}' maxlen='10'/>
+	<parameter id='cfi_valida_saldos_vec' type='varchar' required='false' label='${lbl:b_validate_balance}' maxlen='1'/>
+	<parameter id='cfi_dias_adic_saldos_venc' type='integer' required='false' label='${lbl:b_days_adic_balance_expire}' maxlen='10'/>
+	<parameter id='cfi_num_cheques_devuel' type='integer' required='false' label='${lbl:b_refused_cheq_number}' maxlen='10'/>
+	<parameter id='cfi_estatus' type='varchar' required='true' label='${lbl:b_estatus}' maxlen='2'/>
+	<parameter id='cfi_vigencia' type='date' required='true' label='${lbl:b_vigency}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_financiery_conditions}' maxlen='10'/>
+
+
+</validator>

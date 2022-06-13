@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='efi_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='efi_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='efi_direccion' type='integer' required='true' label='${lbl:b_address}' maxlen='10'/>
+	<parameter id='efi_telefono_fijo' type='varchar' required='true' label='${lbl:b_fixed_phone}' maxlen='24'/>
+	<parameter id='efi_telefono_movil' type='varchar' required='true' label='${lbl:b_mobile_phone}' maxlen='24'/>
+	<parameter id='efi_codigo_aba' type='varchar' required='false' label='${lbl:b_aba_code}' maxlen='24'/>
+	<parameter id='efi_codigo_swift' type='varchar' required='false' label='${lbl:b_swift_code}' maxlen='24'/>
+	<parameter id='efi_req_banco_intermediario' type='varchar' required='true' label='${lbl:b_req_intermediary_institution}' maxlen='1'/>
+	<parameter id='efi_banco_intermediario' type='integer' required='false' label='${lbl:b_intermediary_institution}' maxlen='10'/>
+	<parameter id='efi_routing' type='varchar' required='false' label='${lbl:b_routing_code}' maxlen='24'/>
+	<parameter id='efi_contacto' type='varchar' required='false' label='${lbl:b_account_executive}' maxlen='48'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='efi_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='efi_nombre'/>
+			
+	<custom-validator
+		classname='domain.repgen.smn_configuracion.smn_financiera.smn_entidades_financieras.AbaSwiftCodeValidator'
+			on-error-label='${lbl:b_integer_range_aba_swift}.'
+			code='efi_codigo_aba'
+			min='8'
+			max='11'
+			id='efi_codigo_aba'/>
+			
+	<custom-validator
+		classname='domain.repgen.smn_configuracion.smn_financiera.smn_entidades_financieras.AbaSwiftCodeValidator'
+			on-error-label='${lbl:b_integer_range_aba_swift}.'
+			code='efi_codigo_swift'
+			min='8'
+			max='11'
+			id='efi_codigo_swift'/>
+
+	<custom-validator
+		classname='domain.repgen.smn_configuracion.smn_financiera.smn_entidades_financieras.AbaSwiftDigitsCodeValidator'
+			on-error-label='${lbl:b_verify_digits_aba_swift}.'
+			code='efi_codigo_aba'
+			id='efi_codigo_aba'/>
+			
+	<custom-validator
+		classname='domain.repgen.smn_configuracion.smn_financiera.smn_entidades_financieras.AbaSwiftDigitsCodeValidator'
+			on-error-label='${lbl:b_verify_digits_aba_swift}.'
+			code='efi_codigo_swift'
+			id='efi_codigo_swift'/>
+
+
+</validator>

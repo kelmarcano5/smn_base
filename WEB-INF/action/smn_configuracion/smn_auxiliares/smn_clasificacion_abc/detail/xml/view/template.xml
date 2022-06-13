@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_clasificacion_abc>
+	<detail>
+		<rows>		
+		<record clf_fecha_registro="${fld:clf_fecha_registro}"    clf_ponderacion="${fld:clf_ponderacion}"    clf_descripcion="${fld:clf_descripcion}"    clf_codigo="${fld:clf_codigo}" />
+		</rows>
+	</detail>
+</smn_clasificacion_abc>

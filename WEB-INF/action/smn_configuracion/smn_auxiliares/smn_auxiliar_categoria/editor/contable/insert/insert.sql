@@ -1,0 +1,30 @@
+INSERT INTO smn_base.smn_auxiliar_categoria
+(
+	smn_auxiliar_categoria_id,
+	aca_naturaleza_auxiliar,
+	aca_tipo_persona,
+	aca_empresa,
+	aca_sucursal,
+	aca_unidad_negocio,
+	aca_area_servicio,
+	aca_unidad_servicio,
+	aca_idioma,
+	aca_usuario,
+	aca_fecha_registro,
+	aca_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_auxiliar_categoria},
+	${fld:aca_naturaleza_auxiliar},
+	${fld:aca_tipo_persona},
+	${fld:aca_empresa},
+	${fld:aca_sucursal},
+	${fld:aca_unidad_negocio},
+	${fld:aca_area_servicio},
+	${fld:aca_unidad_servicio},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

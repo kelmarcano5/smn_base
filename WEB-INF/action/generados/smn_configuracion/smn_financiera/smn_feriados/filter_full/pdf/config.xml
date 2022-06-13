@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnferiados.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_holidays}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='fer_codigo' title='${lbl:b_code}'  align='center' />
+		</record>
+		<table recordset='query-smnferiados.sql' width='100' spacingBefore='10'>
+			<col name='fer_codigo' title='${lbl:b_code}' width='11' align='left' />
+			<col name='fer_descripcion' title='${lbl:b_description}' width='11' align='left' />
+			<col name='fer_pais' title='${lbl:b_country}' width='11' align='left' format='######' />
+			<col name='fer_entidad_federal' title='${lbl:b_federal_entities}' width='11' align='left' format='######' />
+			<col name='fer_ciudad' title='${lbl:b_city}' width='11' align='left' format='######' />
+			<col name='fer_municipio' title='${lbl:b_municipality}' width='11' align='left' format='######' />
+			<col name='fer_feriado' title='${lbl:b_holliday}' width='11' align='left' />
+			<col name='fer_laborable_combo' title='${lbl:b_workable}' width='11' align='left' />
+			<col name='fer_fecha_registro' title='${lbl:b_store_date}' width='11' align='left' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

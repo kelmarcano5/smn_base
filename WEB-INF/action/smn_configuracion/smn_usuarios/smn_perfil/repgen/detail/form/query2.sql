@@ -1,0 +1,27 @@
+select
+		smn_base.smn_perfil.role_id,
+	smn_base.smn_perfil.service_id,
+	smn_base.smn_perfil.prf_tipo_acceso,
+	smn_base.smn_perfil.prf_add,
+	smn_base.smn_perfil.prf_del,
+	smn_base.smn_perfil.prf_edit,
+	smn_base.smn_perfil.prf_view,
+	smn_base.smn_perfil.prf_export,
+	smn_base.smn_perfil.prf_find,
+	smn_base.smn_perfil.prf_import,
+	smn_base.smn_perfil.prf_fecha_registro,
+	smn_base.smn_perfil.role_id,
+	smn_base.smn_perfil.service_id,
+	smn_base.smn_perfil.prf_tipo_acceso,
+	smn_base.smn_perfil.prf_add,
+	smn_base.smn_perfil.prf_del,
+	smn_base.smn_perfil.prf_edit,
+	smn_base.smn_perfil.prf_view,
+	smn_base.smn_perfil.prf_export,
+	smn_base.smn_perfil.prf_find,
+	smn_base.smn_perfil.prf_import,
+	smn_base.smn_perfil.prf_fecha_registro
+from
+	smn_base.smn_perfil 
+where
+	smn_base.smn_perfil.smn_perfil_id = ${fld:id}

@@ -1,0 +1,3 @@
+<rows>
+cfn_fecha_registro="${fld:cfn_fecha_registro}"    cfn_num_cheques_devuel="${fld:cfn_num_cheques_devuel}"    cfn_dias_adic_saldos_venc="${fld:cfn_dias_adic_saldos_venc}"    cfn_valida_saldos_vec="${fld:cfn_valida_saldos_vec}"    cfn_porc_exceso_limite="${fld:cfn_porc_exceso_limite}"    cfn_limite_credito="${fld:cfn_limite_credito}"    aux_descripcion="${fld:smn_item}"    cla_nombre="${fld:cla_nombre}"    cfn_descripcion="${fld:cfn_descripcion}"    cfn_codigo="${fld:cfn_codigo}"    
+</rows>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		<recordset id='detail-smnareasservicios.sql' source='session' scope='transaction' />
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_types_area}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_types_area}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='query.sql' title='${lbl:b_types_area}' width='60' spacingBefore='40'>
+			<col name='tar_codigo' title='${lbl:b_code}' align='left' />
+			<col name='tar_descripcion' title='${lbl:b_description}' align='left' />
+			<col name='tar_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+		<table recordset='detail-smnareasservicios.sql' width='100' spacingBefore='40'>
+			<col name='smn_areas_servicios_id' title='${lbl:b_service_area}' width='14' align='left' format='######' />
+			<col name='ase_codigo' title='${lbl:b_code}' width='14' align='left' />
+			<col name='ase_descripcion' title='${lbl:b_description}' width='14' align='left' />
+			<col name='ase_empresa_combo' title='${lbl:b_entity}' width='14' align='left' format='######' />
+			<col name='ase_sucursal_combo' title='${lbl:b_subsidiary}' width='14' align='left' format='######' />
+			<col name='ase_unidad_negocio_combo' title='${lbl:b_business_unit}' width='14' align='left' format='######' />
+			<col name='ase_fecha_registro' title='${lbl:b_store_date}' width='14' align='left' format='dd-MM-yyyy' />
+		</table>
+
+
+	</pdf-report>
+</config>

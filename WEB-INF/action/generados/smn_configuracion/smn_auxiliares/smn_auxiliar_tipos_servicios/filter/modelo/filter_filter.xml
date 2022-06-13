@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_outsourced_types_of_services}</summary>
+	<filter>
+		<row field='tts_codigo' id='tts_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_tipos_servicios' len='16'/>
+		<row field='tts_descripcion' id='tts_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_tipos_servicios' len='48'/>
+		<row field='tts_fecha_registro' id='tts_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_auxiliar_tipos_servicios' len='10'/>
+		<row field='tts_fecha_registro' id='tts_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_auxiliar_tipos_servicios' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='tts_codigo' label='${lbl:b_code}' fk='' tableName='smn_auxiliar_tipos_servicios' len='16' type='varchar' align='left'/>
+		<row field='tts_descripcion' label='${lbl:b_description}' fk='' tableName='smn_auxiliar_tipos_servicios' len='48' type='varchar' align='left'/>
+		<row field='tts_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_auxiliar_tipos_servicios' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='set_app_id' type='integer' required='true' label='${lbl:b_application}' maxlen='10'/>
+	<parameter id='set_menu_id' type='integer' required='true' label='${lbl:b_menu}' maxlen='10'/>
+	<parameter id='set_servicio_id' type='integer' required='true' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='set_servicio' type='varchar' required='true' label='${lbl:b_service_title}' maxlen='100'/>
+	<parameter id='set_locale' type='varchar' required='true' label='${lbl:b_idiom}' maxlen='2'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_service_translation}' maxlen='10'/>
+
+
+</validator>

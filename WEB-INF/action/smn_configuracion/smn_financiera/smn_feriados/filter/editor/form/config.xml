@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_holidays}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-fer_pais.sql' source='sql' scope='transaction'/>
+		<recordset id='query-fer_entidad_federal.sql' source='sql' scope='transaction'/>
+		<recordset id='query-fer_ciudad.sql' source='sql' scope='transaction'/>
+		<recordset id='query-fer_municipio.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-fer_pais.sql' tag='fer_pais_rows'/>
+		<print mode='table' recordset='query-fer_entidad_federal.sql' tag='fer_entidad_federal_rows'/>
+		<print mode='table' recordset='query-fer_ciudad.sql' tag='fer_ciudad_rows'/>
+		<print mode='table' recordset='query-fer_municipio.sql' tag='fer_municipio_rows'/>
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

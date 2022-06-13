@@ -1,0 +1,3 @@
+<rows>
+idi_fecha_registro="${fld:idi_fecha_registro}"    idi_descripcion="${fld:idi_descripcion}"    idi_codigo="${fld:idi_codigo}"    
+</rows>

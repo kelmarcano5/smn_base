@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Actualiza valores de un formulario en una tabla
+	</summary>
+
+	<log>false</log>
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>smn_entidades_id</colname>
+			<colname>usr_usuario_id</colname>
+			<colname>usr_nombres</colname>
+			<colname>usr_apellidos</colname>
+			<colname>usr_nacionalidad</colname>
+			<colname>usr_nro_doc_identidad</colname>
+			<colname>usr_nro_id_fiscal</colname>
+			<colname>usr_direccion</colname>
+			<colname>usr_email</colname>
+			<colname>usr_telefono_fijo</colname>
+			<colname>usr_telefono_movil</colname>
+		
+		</cols>
+		<table>smn_base.smn_usuarios</table>
+		<oper>ACTUALIZAR</oper>
+		<area>Carga de datos</area>
+		<!--
+			query para obtener el ID generado o nombre de 
+			la columna que contiene el pkey, si es query, 
+			el alias del campo debe ser "id"
+		-->
+		<pkey>id</pkey>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+	</transaction>
+
+	<query>update.sql</query>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript; charset=iso-8859-1</content-type>
+		<expiration>0</expiration>
+	</output>
+
+</config>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_structure_configuration}</summary>
+	<filter>
+		<row field='coe_codigo' id='coe_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_configuracion_estructura' len='16'/>
+		<row field='coe_nombre' id='coe_nombre' label='${lbl:b_name} ' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_configuracion_estructura' len='48'/>
+		<row field='coe_niveles' id='coe_niveles' label='${lbl:b_levels}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_configuracion_estructura' len='10'/>
+		<row field='coe_fecha_registro' id='coe_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_configuracion_estructura' len='10'/>
+		<row field='coe_fecha_registro' id='coe_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_configuracion_estructura' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='coe_codigo' label='${lbl:b_code}' fk='' tableName='smn_configuracion_estructura' len='16' type='varchar' align='left'/>
+		<row field='coe_nombre' label='${lbl:b_name} ' fk='' tableName='smn_configuracion_estructura' len='48' type='varchar' align='left'/>
+		<row field='coe_niveles' label='${lbl:b_levels}' fk='' tableName='smn_configuracion_estructura' len='10' type='integer' align='center'/>
+		<row field='coe_mascara' label='${lbl:b_mask}' fk='' tableName='smn_configuracion_estructura' len='48' type='varchar' align='left'/>
+		<row field='coe_separador' label='${lbl:b_separator}' fk='' tableName='smn_configuracion_estructura' len='1' type='varchar' align='left'/>
+		<row field='coe_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_configuracion_estructura' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

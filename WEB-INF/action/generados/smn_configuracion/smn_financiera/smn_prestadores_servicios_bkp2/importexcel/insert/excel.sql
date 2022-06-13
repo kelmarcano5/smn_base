@@ -1,0 +1,40 @@
+INSERT INTO smn_base.smn_prestadores_servicios
+(
+	smn_prestadores_servicios_id,
+	smn_grupos_prestadores_id,
+	prs_codigo,
+	prs_nombres,
+	prs_apellidos,
+	prs_area_servicio,
+	prs_unidad_servicio,
+	prs_clase_auxiliar,
+	prs_auxiliar,
+	prs_direccion,
+	prs_telefono_fijo,
+	prs_telefono_movil,
+	prs_frecuencia,
+	prs_idioma,
+	prs_usuario,
+	prs_fecha_registro,
+	prs_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_prestadores_servicios},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

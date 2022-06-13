@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/crud'>
+	<parameter id='ciu_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='3'/>
+	<parameter id='ciu_nombre_corto' type='varchar' required='false' label='${lbl:b_short_name}' maxlen='32'/>
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="ciu_codigo" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="ciu_nombre_corto" rule="contains" />
+</validator>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnplantillacabecera.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_header_stencil}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_header_stencil}">
+				<col id='pca_codigo' label='${lbl:b_code}' />
+		<col id='pca_descripcion' label='${lbl:b_description}' />
+		<col id='smn_modulo_rf' label='${lbl:b_modules}' />
+		<col id='pca_status' label='${lbl:b_status}' />
+		<col id='pca_idioma' label='${lbl:s_profile_lang}' />
+		<col id='pca_usuario' label='${lbl:b_users}' />
+		<col id='pca_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

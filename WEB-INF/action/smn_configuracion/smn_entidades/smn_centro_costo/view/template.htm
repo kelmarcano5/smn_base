@@ -1,0 +1,58 @@
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='8%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='13%'/>
+	<col width='12%'/>
+	<col width='14%'/>
+	<col width='12%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("cco_codigo","query-smncentrocosto.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("cco_descripcion_larga","query-smncentrocosto.sql")'>${lbl:b_long_description}</th>
+		<th class='sortable' onclick='sortBy("ent_descripcion_corta","query-smncentrocosto.sql")'>${lbl:b_entity}</th>
+		<th class='sortable' onclick='sortBy("suc_nombre","query-smncentrocosto.sql")'>${lbl:b_subsidiary}</th>
+		<th class='sortable' onclick='sortBy("ase_descripcion","query-smncentrocosto.sql")'>${lbl:b_service_area}</th>
+		<th class='sortable' onclick='sortBy("uns_descripcion","query-smncentrocosto.sql")'>${lbl:b_service_unit}</th>
+		<th class='sortable' onclick='sortBy("cco_fecha_registro","query-smncentrocosto.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_centro_costo_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_centro_costo_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_centro_costo_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:cco_codigo}</td>
+		<td align='left'>${fld:cco_descripcion_larga}</td>
+		<td align='left'>${fld:ent_descripcion_corta}</td>
+		<td align='left'>${fld:suc_nombre}</td>
+		<td align='left'>${fld:ase_descripcion}</td>
+		<td align='left'>${fld:uns_descripcion}</td>
+		<td>${fld:cco_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

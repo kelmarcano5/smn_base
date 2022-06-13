@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_auxiliar_sucursales
+(
+	smn_auxiliar_sucursales_id,
+	trs_codigo,
+	trs_nombre,
+	trs_auxiliar_unidad_negocio,
+	trs_responsable,
+	trs_direccion,
+	trs_telefono_fijo,
+	trs_telefono_movil,
+	trs_email,
+	trs_idioma,
+	trs_usuario,
+	trs_fecha_registro,
+	trs_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_auxiliar_sucursales},
+	${fld:trs_codigo},
+	${fld:trs_nombre},
+	${fld:trs_auxiliar_unidad_negocio},
+	${fld:trs_responsable},
+	${fld:trs_direccion},
+	${fld:trs_telefono_fijo},
+	${fld:trs_telefono_movil},
+	${fld:trs_email},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

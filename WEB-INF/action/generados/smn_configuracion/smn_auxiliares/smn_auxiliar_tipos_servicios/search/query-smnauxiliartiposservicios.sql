@@ -1,0 +1,7 @@
+select
+	smn_base.smn_auxiliar_tipos_servicios.tts_codigo,
+	smn_base.smn_auxiliar_tipos_servicios.tts_descripcion,
+	smn_base.smn_auxiliar_tipos_servicios.tts_fecha_registro
+
+from 
+	smn_base.smn_auxiliar_tipos_servicios

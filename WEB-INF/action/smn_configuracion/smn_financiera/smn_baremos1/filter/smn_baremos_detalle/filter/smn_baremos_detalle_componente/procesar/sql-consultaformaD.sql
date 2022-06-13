@@ -1,0 +1,9 @@
+SELECT 
+SUM(smn_base.smn_baremos_detalle_componente.bdc_monto_ml) - smn_base.smn_baremos_detalle.bad_precio_moneda_local as montofinal,
+SUM(smn_base.smn_baremos_detalle_componente.bdc_monto_ma) - smn_base.smn_baremos_detalle.bad_precio_moneda_alterna as montofinal_alt,
+smn_base.smn_baremos_detalle_componente.smn_baremos_detalle_id as idbd
+FROM smn_base.smn_baremos_detalle_componente
+inner join smn_base.smn_baremos_detalle on smn_base.smn_baremos_detalle.smn_baremos_detalle_id = smn_base.smn_baremos_detalle_componente.smn_baremos_detalle_id
+where smn_base.smn_baremos_detalle_componente.smn_baremos_detalle_id=${fld:id_badet} and smn_base.smn_baremos_detalle_componente.smn_forma_calculo_rf = 'D'
+GROUP BY  smn_base.smn_baremos_detalle_componente.smn_baremos_detalle_id, smn_base.smn_baremos_detalle.bad_precio_moneda_local,
+smn_base.smn_baremos_detalle.bad_precio_moneda_alterna

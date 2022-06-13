@@ -1,0 +1,346 @@
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+	
+	<title>Registro de Usuario</title>
+
+	<style>
+		body {margin:10px;}
+	</style>
+	
+</head>
+
+<body>
+
+	<div style="float:left">
+
+		<div style="height:350px;float:left">
+			<img src="${def:context}/images/trabajos-del-futuro.jpg">
+		</div>
+		
+		<h1 style="margin-top:0px;margin-left:320px">Registro de Usuario</h1>
+
+		<p style="width:450px;margin-left:320px" align="justify">
+		Solo debes llenar este breve formulario para quedar registrado como Usuario del sistema. 
+		<span style="font-weight:bold;color:red;background-color:yellow">Debes indicar un email válido</span>, 
+		ya que recibirás de inmediato un mensaje solicitando la confirmación de tu registro, en cuanto hayas 
+		confirmado el registro tu cuenta quedará activada y podrás ingresar al sistema.
+		</p>
+		
+	</div>
+
+	<div style="float:right">
+
+	<!--formulario-->
+	<div id="form">		
+	
+		<form name="form1" onsubmit="return insert()">
+		
+		<div style="width:400px">
+			<table class="formgrid" width="100%">
+			
+				<!--ancho de la columna de etiquetas-->
+				<col width="40%">
+				<col width="60%">
+			
+				<!--titulo-->
+				<tr align="center">
+					<th colspan="2">
+						<span id="formTitle">
+							Aperturar Cuenta en el Sistema
+						</span>
+					</th>
+				</tr>
+					
+				<!--separador-->
+				<tr height="10px">
+					<td colspan="2"></td>
+				</tr>
+			
+				<!--campos
+				<tr>
+					<td class="formlabel">
+						Identificador
+					</td>
+					<td><input name="userlogin" type="text" size="25" maxlength="25"></td>
+				</tr>
+				<tr>
+					<td class="formlabel">
+						Contraseña
+					</td>
+					<td><input name="passwd" type="password" size="25" maxlength="15"></td>
+				</tr>
+				<tr>
+					<td class="formlabel">
+						Repita Contraseña 
+					</td>
+					<td><input name="confirm" type="password" size="25" maxlength="15"></td>
+				</tr>
+				
+				<tr>
+					<td class="formlabel">
+						Apellido
+					</td>
+					<td><input name="lname" type="text" size="25" maxlength="25"></td>
+				</tr>
+				<tr>
+					<td class="formlabel">
+						Nombre
+					</td>
+					<td><input name="fname" type="text" size="25" maxlength="25"></td>
+				</tr>
+				<tr>
+					<td class="formlabel">
+						E-mail
+					</td>
+					<td><input name="email" type="text" size="30" maxlength="80"></td>
+				</tr>
+				-->
+				
+							<tr>
+		<td>${lbl:b_official_document_type}*</td>
+		<td>
+			<select name="rgu_tipo_doc_oficial" id="rgu_tipo_doc_oficial" onchange="chgCombo(rgu_tipo_doc_oficial.options[rgu_tipo_doc_oficial.selectedIndex].text,'rgu_tipo_doc_oficial_name');">
+				<option value="">[Cualquiera]</option>
+				<rgu_tipo_doc_oficial_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</rgu_tipo_doc_oficial_rows>
+			</select> 
+			<input id="rgu_tipo_doc_oficial_name" name="rgu_tipo_doc_oficial_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_official_document_number}*</td>
+			<td>
+				<input id="rgu_num_doc_oficial" name="rgu_num_doc_oficial" type="text" maxlength="12" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_tax_identification_number}*</td>
+			<td>
+				<input id="rgu_nro_id_fiscal" name="rgu_nro_id_fiscal" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:s_profile_fname}*</td>
+			<td>
+				<input id="rgu_nombres" name="rgu_nombres" type="text" maxlength="32" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:s_profile_lname}*</td>
+			<td>
+				<input id="rgu_apellidos" name="rgu_apellidos" type="text" maxlength="32" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_register_type}*</td>
+		<td>
+			<select name="rgu_tipo_registro" id="rgu_tipo_registro" onchange="chgCombo(rgu_tipo_registro.options[rgu_tipo_registro.selectedIndex].text,'rgu_tipo_registro_name');">
+				<option value="">[Cualquiera]</option>
+				<rgu_tipo_registro_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</rgu_tipo_registro_rows>
+			</select> 
+			<input id="rgu_tipo_registro_name" name="rgu_tipo_registro_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_business_name}</td>
+			<td>
+				<input id="rgu_razon_social" name="rgu_razon_social" type="text" maxlength="64" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_responsible}</td>
+			<td>
+				<input id="rgu_responsable" name="rgu_responsable" type="text" maxlength="96" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_job_title}</td>
+		<td>
+			<select name="rgu_cargo" id="rgu_cargo" onchange="chgCombo(rgu_cargo.options[rgu_cargo.selectedIndex].text,'rgu_cargo_name');">
+				<option value="">[[${lbl:b_choose}]]</option>
+				<rgu_cargo_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</rgu_cargo_rows>
+			</select> 
+			<input id="rgu_cargo_name" name="rgu_cargo_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_number_health_ministry}</td>
+			<td>
+				<input id="rgu_num_minist_salud" name="rgu_num_minist_salud" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_number_medical_school}</td>
+			<td>
+				<input id="rgu_num_coleg_medicos" name="rgu_num_coleg_medicos" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:s_profile_email}*</td>
+			<td>
+				<input id="rgu_email" name="rgu_email" type="text" maxlength="96" >
+			</td>
+		</tr>
+				
+				
+				<!--separador-->
+				<tr height="10px">
+					<td colspan="2"></td>
+				</tr>		
+			
+				<!--seccion del captcha-->
+				<tr>
+					<td class="formlabel" valign="top">
+					</td>
+					<td align="left"  valign="top">
+						<!--indicador de progreso de carga del captcha-->
+						[<a href="javascript:reloadCaptcha('captchaimg')">Refrescar imagen</a>]
+						<img id="captchaimg_wait" src="${def:context}/images/progress.gif">
+						<img 
+							id="captchaimg" 
+							style="display:none" 
+							src="${def:context}/action/security/getcaptcha" 
+							border="1" 
+							onload="displayCaptcha('captchaimg')">
+						<br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="formlabel" valign="top">
+						Protección Anti-Spam
+					</td>
+					<td>
+						<input id="captcha" name="captcha" type="text" value="" maxlength="6" style="width:150px"><br>
+						Favor tipear los caracteres que aparecen en la imagen de arriba.
+					</td>
+				</tr>
+								
+				<!--separador-->
+				<tr height="10px">
+					<td colspan="2"></td>
+				</tr>
+			
+				<!--botones-->
+				<tr>
+					<td colspan="2" align="center">
+						<input id="grabar" type="submit" value="Registrarse" class="button">
+						<input id="cancelar" type="button" value="Cancelar" onclick="cancel()" class="button">				
+					</td>
+				</tr>
+				
+				<!--separador-->
+				<tr height="10px">
+					<td colspan="2"></td>
+				</tr>
+	
+			</table>
+		</div>
+	
+		</form>
+	</div>
+	
+	<br>
+	<br>
+	<div align="center">
+		<a href="${def:httpserver}/${def:context}" align="left" title="Sistema de Reclutamiento"><img src="${def:context}/images/arrow_left.png" width="30" height="30"></a>
+	</div>
+	
+	<!--panel de respuesta-->
+	<div id="response" style="display:none;width:400px">
+	</div>
+	
+	<!--indicador de progreso-->
+	<br>
+	<div id="status" class="alert" style="text-align:center; display:none;color:gray;width:400px;font-weight:normal;font-family:Arial">
+		<img src="${def:context}/images/progress.gif"> Por favor espere...
+	</div>
+
+</div>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		document.form1.userlogin.focus();
+	} 
+
+	function cancel() {
+		window.location = "${def:context}/index.htm";
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse="response", 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=hideForm, 
+							onErrorFn=displayForm);	
+	}
+	
+	function hideForm() {
+		document.getElementById("form").style.display="none";
+	}
+
+	//muestra el formulario principal para editar
+	function displayForm()
+	{
+		document.getElementById("grabar").disabled=false;
+		document.getElementById("form").style.display="";
+		document.getElementById("response").style.display="none";
+		document.form1.userlogin.focus();
+		
+	}
+	
+	//mostrar imagen y esconder su indicador de progreso de carga
+	function displayCaptcha(captchaID)
+	{
+		document.getElementById(captchaID + "_wait").style.display='none';
+		document.getElementById(captchaID).style.display='';
+	}	
+
+	function reloadCaptcha(captchaID) {
+		document.getElementById(captchaID + "_wait").style.display='';
+		document.getElementById(captchaID).src = "${def:context}/action/security/getcaptcha?dummy=" + Math.random();
+	}
+	
+</script>	
+</body>
+</html>

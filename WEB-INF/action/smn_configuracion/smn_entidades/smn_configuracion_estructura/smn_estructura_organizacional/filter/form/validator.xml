@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax' id='estructura_organizacional'>
+	<parameter id="id" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id="detalle_id" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id='codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='nombre' type='varchar' required='false' label='${lbl:b_name} ' maxlen='48'/>
+</validator>

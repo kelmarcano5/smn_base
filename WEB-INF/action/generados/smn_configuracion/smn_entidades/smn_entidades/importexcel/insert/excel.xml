@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='ent_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='ent_comunidad' type='integer' required='false' maxlen='8'/>
+	<parameter id='ent_corporacion' type='integer' required='false' maxlen='8'/>
+	<parameter id='ent_unidad_negocio' type='integer' required='false' maxlen='10'/>
+	<parameter id='ent_maneja_sucursal' type='varchar' required='true' maxlen='1'/>
+	<parameter id='ent_moneda' type='integer' required='true' maxlen='10'/>
+	<parameter id='ent_sector_economico' type='integer' required='false' maxlen='10'/>
+	<parameter id='ent_descripcion_corta' type='varchar' required='true' maxlen='24'/>
+	<parameter id='ent_descripcion_larga' type='varchar' required='true' maxlen='56'/>
+	<parameter id='ent_nro_id_fiscal' type='varchar' required='true' maxlen='12'/>
+	<parameter id='ent_direccion' type='integer' required='true' maxlen='10'/>
+	<parameter id='ent_contacto' type='varchar' required='true' maxlen='56'/>
+	<parameter id='ent_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='ent_telefono_movil' type='varchar' required='false' maxlen='24'/>
+	<parameter id='ent_email' type='varchar' required='true' maxlen='96'/>
+	<parameter id='ent_act_economica' type='varchar' required='true' maxlen='1024'/>
+</validator>

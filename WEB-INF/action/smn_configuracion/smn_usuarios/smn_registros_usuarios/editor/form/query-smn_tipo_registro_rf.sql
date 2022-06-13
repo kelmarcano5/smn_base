@@ -1,0 +1,1 @@
+select smn_base.smn_tipo_registro.smn_tipo_registro_id as id, smn_base.smn_tipo_registro.trg_codigo|| ' - ' ||smn_base.smn_tipo_registro.trg_descripcion as item from smn_base.smn_tipo_registro

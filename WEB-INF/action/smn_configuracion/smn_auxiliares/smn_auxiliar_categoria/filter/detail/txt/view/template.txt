@@ -1,0 +1,3 @@
+<rows>
+aca_fecha_registro="${fld:aca_fecha_registro}"    aca_tipo_persona="${fld:aca_tipo_persona}"    aca_clase_auxiliar="${fld:aca_clase_auxiliar}"    
+</rows>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnzonaspostales-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnparroquias.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_ubicacion_geografica.smn_zonas_postales.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_postal_zones}.xls'
+		header-background='true' >
+		
+	<sheet recordset="query-smnzonaspostales-template.sql" sheetname="${lbl:b_postal_zones}">
+		
+		<col id='zpo_parroquias' label='${lbl:b_parish}' />
+		<col id='zpo_codigo' label='${lbl:b_code}' />
+		<col id='zpo_sector' label='${lbl:b_sector}' />
+				
+		<col id='zpo_parroquias_reference' label='${lbl:b_parish}' />
+
+	</sheet>
+		<sheet recordset='query-smnparroquias.sql' sheetname='${lbl:b_parish}'>
+		<col id='prr_nombre_corto' label='${lbl:b_name}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

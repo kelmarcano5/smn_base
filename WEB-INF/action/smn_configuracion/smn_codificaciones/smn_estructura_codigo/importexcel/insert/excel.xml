@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_modulos_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='eco_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='eco_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='eco_niveles' type='integer' required='true' maxlen='10'/>
+	<parameter id='eco_mascara' type='varchar' required='true' maxlen='48'/>
+	<parameter id='eco_separador' type='varchar' required='true' maxlen='1'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='eco_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='eco_nombre'/>
+
+
+</validator>

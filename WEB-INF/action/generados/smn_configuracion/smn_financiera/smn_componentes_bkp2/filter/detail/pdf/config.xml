@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_components}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='query.sql' title='${lbl:b_components}' width='60' spacingBefore='40'>
+			<col name='smn_grupos_prestadores_id' title='${lbl:b_group_of_provider}' align='left' format='######' />
+			<col name='smn_servicios_id' title='${lbl:b_service}' align='left' format='######' />
+			<col name='cmp_codigo' title='${lbl:b_code}' align='left' />
+			<col name='cmp_descripcion' title='${lbl:b_description}' align='left' />
+			<col name='cmp_area_servicio' title='${lbl:b_service_area}' align='left' format='######' />
+			<col name='cmp_unidad_servicio' title='${lbl:b_service_unit}' align='left' format='######' />
+			<col name='cmp_vigencia_desde' title='${lbl:b_validation_date_from}' align='left' format='dd-MM-yyyy' />
+			<col name='cmp_vigencia_hasta' title='${lbl:b_validation_date_to}' align='left' format='dd-MM-yyyy' />
+			<col name='cmp_visible_combo' title='Visible' align='left' />
+			<col name='cmp_req_honorario_combo' title='Requiere Honorario' align='left' />
+			<col name='cmp_tiempo_estimado' title='${lbl:b_estimated_time}' align='left' format='#,###,##0.00' />
+			<col name='cmp_clase_auxiliar' title='${lbl:b_auxiliary_class}' align='left' format='######' />
+			<col name='cmp_tipo_combo' title='${lbl:b_type}' align='left' />
+			<col name='cmp_almacen' title='${lbl:b_store}' align='left' format='######' />
+			<col name='cmp_calculo_combo' title='${lbl:b_calculus}' align='left' />
+			<col name='cmp_cantidad' title='${lbl:b_amount}' align='left' format='#,###,##0.00' />
+			<col name='cmp_precio' title='${lbl:b_price}' align='left' format='#,###,##0.00' />
+			<col name='cmp_porcentaje' title='${lbl:b_percentage}' align='left' format='#,###,##0.00' />
+			<col name='cmp_trans_general' title='${lbl:b_general_transaction}' align='left' format='######' />
+			<col name='cmp_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+
+	</pdf-report>
+</config>

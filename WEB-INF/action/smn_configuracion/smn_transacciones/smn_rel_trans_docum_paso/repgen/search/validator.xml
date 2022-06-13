@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='smn_transaccion_general_rf' type='integer' required='false' label='${lbl:b_transaccion_general}' maxlen='10'/>
+	<parameter id='smn_documentos_generales_rf' type='integer' required='false' label='${lbl:b_documentos_generales}' maxlen='10'/>
+	<parameter id='smn_paso_id' type='integer' required='false' label='${lbl:b_paso}' maxlen='10'/>
+	<parameter id='tpa_tiempo_paso' type='integer' required='false' label='${lbl:b_time_step}' maxlen='10'/>
+	<parameter id='smn_nivel_aprobacion_inicial_rf' type='integer' required='false' label='${lbl:b_nivel_aprobacion_inicial}' maxlen='10'/>
+	<parameter id='smn_nivel_aprobacion_final_rf' type='integer' required='false' label='${lbl:b_nivel_aprobacion_final}' maxlen='10'/>
+
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

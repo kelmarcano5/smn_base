@@ -1,0 +1,767 @@
+<!doctype html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/select2.min.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script"></script>
+	<script type="text/javascript" src="${def:context}/action/jquery"></script>
+	<script type="text/javascript" src="${def:context}/action/select2"></script>
+</head>
+
+	<body>
+	<!--banner-->
+	<div class="bannerDialog" id="encabezado_tabla">
+		${lbl:b_addresses}
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+		${req:progress}
+	</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+		<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+	<table>
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+		<tr>
+			<td>${lbl:b_zone}*</td>
+			<td>
+				<select class="zona" name="smn_zona_rf" id="smn_zona_rf" onchange="chgCombo_zona(smn_zona_rf.options[smn_zona_rf.selectedIndex].text,'smn_zona_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_zona_rf_rows>
+					<option value="${fld:id}">${fld:items}</option>
+	
+					</smn_zona_rf_rows>
+				</select> 
+				<input id="smn_zona_rf_name" name="smn_zona_rf_name" type="hidden">
+			</td>
+		</tr>
+		<tr>
+				<td>${lbl:b_code}*</td>
+				<td>
+					<input id="dir_codigo" name="dir_codigo" type="text" maxlength="16"  >
+				</td>
+			</tr>
+			<tr >
+				<td>${lbl:b_description}*</td>
+				<td>
+					<textarea id="dir_descripcion" name="dir_descripcion" type="text" disabled="true"  maxlength="1000" rows="10" cols="30"></textarea>  
+				</td>
+			</tr>
+		<tr>
+			<td>${lbl:b_country}*</td>
+			<td>
+				<select name="dir_pais" id="dir_pais" onchange="chgCombo(dir_pais.options[dir_pais.selectedIndex].text,'dir_pais_name'); concatenar();">
+					<option value="">[${lbl:b_choose}]</option>
+					<dir_pais_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</dir_pais_rows>
+				</select> 
+				<input id="dir_pais_name" name="dir_pais_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="pais()" title="${lbl:b_country}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_federal_entity}*</td>
+			<td>
+				<select name="dir_entidad_federal" id="dir_entidad_federal" onchange="chgCombo(dir_entidad_federal.options[dir_entidad_federal.selectedIndex].text,'dir_entidad_federal_name'); concatenar1();">
+					<option value="">[${lbl:b_choose}]</option>
+					<dir_entidad_federal_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</dir_entidad_federal_rows>
+				</select> 
+				<input id="dir_entidad_federal_name" name="dir_entidad_federal_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="entidadfederal()" title="${lbl:b_federal_entity}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_city}*</td>
+			<td>
+				<select name="dir_ciudad" id="dir_ciudad" onchange="chgCombo(dir_ciudad.options[dir_ciudad.selectedIndex].text,'dir_ciudad_name'); concatenar2();">
+					<option value="">[${lbl:b_choose}]</option>
+					<dir_ciudad_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</dir_ciudad_rows>
+				</select> 
+				<input id="dir_ciudad_name" name="dir_ciudad_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="ciudad()" title="${lbl:b_city}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_municipality}*</td>
+			<td>
+				<select name="dir_municipio" id="dir_municipio" onchange="chgCombo(dir_municipio.options[dir_municipio.selectedIndex].text,'dir_municipio_name'); concatenar3();">
+					<option value="">[${lbl:b_choose}]</option>
+					<dir_municipio_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</dir_municipio_rows>
+				</select> 
+				<input id="dir_municipio_name" name="dir_municipio_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="municipio()" title="${lbl:b_municipality}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_parish}*</td>
+			<td>
+				<select name="dir_parroquia" id="dir_parroquia" onchange="chgCombo(dir_parroquia.options[dir_parroquia.selectedIndex].text,'dir_parroquia_name'); concatenar4();">
+					<option value="">[${lbl:b_choose}]</option>
+					<dir_parroquia_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</dir_parroquia_rows>
+				</select> 
+				<input id="dir_parroquia_name" name="dir_parroquia_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="parroquia()" title="${lbl:b_parish}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr id="zona_postal">
+			<td>${lbl:b_postal_zone}*</td>
+			<td>
+				<select name="dir_zona_postal" id="dir_zona_postal" onchange="concatenar5();"">
+					
+					<option value="">[${lbl:b_choose}]</option>
+					
+					<dir_zona_postal_rows>
+					<option value="${fld:id}">${fld:item}</option>
+		
+					</dir_zona_postal_rows>
+				</select> 
+				<input id="dir_zona_postal_name" name="dir_zona_postal_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="zonapostal()" title="${lbl:b_postal_zone}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_type_of_route}</td>
+			<td>
+				<select name="dir_tipo_via" id="dir_tipo_via" onchange="chgCombo(dir_tipo_via.options[dir_tipo_via.selectedIndex].text,'dir_tipo_via_name'); concatenar6();" >
+					<option value="">[${lbl:b_choose}]</option>
+					<dir_tipo_via_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</dir_tipo_via_rows>
+				</select> 
+				<input id="dir_tipo_via_name" name="dir_tipo_via_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="tipovia()" title="${lbl:b_type_of_route}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_name}</td>
+			<td>
+				<input id="dir_tipo_via_nom" name="dir_tipo_via_nom" type="text" maxlength="48" onchange="concatenar_tipo_via_nom();" >
+			</td>
+		</tr>
+		<tr id="tipovianum">
+			<td>${lbl:b_number}</td>
+			<td>
+				<input id="dir_tipo_via_num" name="dir_tipo_via_num" type="text" maxlength="16" onchange="concatenar_tipo_via_num();" >
+			</td>
+		</tr>
+		<tr id="edificacion">
+			<td>${lbl:b_edification}*</td>
+			<td>
+				<select name="dir_edificacion" id="dir_edificacion" onchange="chgCombo(dir_edificacion.options[dir_edificacion.selectedIndex].text,'dir_edificacion_name'); concatenar7();">
+					<option value="">[${lbl:b_choose}]</option>
+					<dir_edificacion_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</dir_edificacion_rows>
+				</select> 
+				<input id="dir_edificacion_name" name="dir_edificacion_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="edificacion()" title="${lbl:b_edification}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+			<tr id="edificacion_nom">
+				<td>${lbl:b_name}</td>
+				<td>
+					<input id="dir_edificacion_nom" name="dir_edificacion_nom" type="text" maxlength="48" onchange="concatenar_edificacion_nom();">
+				</td>
+			</tr>
+			<tr id="edificacion_num">
+				<td>${lbl:b_number}</td>
+				<td>
+					<input id="dir_edificacion_num" name="dir_edificacion_num" type="text" maxlength="16" onchange="concatenar_edificacion_num();">
+				</td>
+			</tr>
+		<tr>
+			<td>${lbl:b_location_type}*</td>
+			<td>
+				<select name="dir_tipo_localidad" id="dir_tipo_localidad" onchange="chgCombo(dir_tipo_localidad.options[dir_tipo_localidad.selectedIndex].text,'dir_tipo_localidad_name');concatenar8();">
+					<option value="">[${lbl:b_choose}]</option>
+					<dir_tipo_localidad_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</dir_tipo_localidad_rows>
+				</select> 
+				<input id="dir_tipo_localidad_name" name="dir_tipo_localidad_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="tipolocalidad()" title="${lbl:b_location_type}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_name}</td>
+			<td>
+				<input id="dir_tipo_localidad_nom" name="dir_tipo_localidad_nom" type="text" maxlength="48" onchange="concatenar_localidad_nom();">
+			</td>
+		</tr>
+		<tr id="apartado">
+			<td>${lbl:b_postal_mail}</td>
+			<td>
+				<input id="dir_apartado_postal" name="dir_apartado_postal" type="text" maxlength="208" onchange="concatenar_apartado_postal();">
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<input id="id2" name="id2" type="hidden">
+			</td>
+		</tr>
+
+</table>	
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	
+	<!-- PK-->
+	<input type="hidden" name="id" value="">
+	<input type="hidden" name="dir_mapa_longitud" id="dir_mapa_longitud" value="">
+	<input type="hidden" name="dir_mapa_latitud" id="dir_mapa_latitud" value="">
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+	// var direction = "";
+	// var reg_addr;
+	
+	onload = function()
+	{ 
+		addNew();
+		
+		$('.smn_zona_rf').select2();
+
+		$('#edificacion').hide();
+		$('#edificacion_num').hide();
+		$('#edificacion_nom').hide();
+		$('#apartado').hide();
+		$('#zona_postal').hide();
+		$('#tipovianum').hide();
+
+		$("#dir_pais").attr('disabled','disabled');
+		$("#dir_tipo_via").attr('disabled','disabled');
+		$("#dir_tipo_via_nom").attr('disabled','disabled');
+		$("#dir_tipo_via_num").attr('disabled','disabled');
+		$("#dir_tipo_localidad").attr('disabled','disabled');
+		$("#dir_tipo_localidad_nom").attr('disabled','disabled');
+		$("#dir_apartado_postal").attr('disabled','disabled');
+
+		//Set first value for all combo linked
+		setElementFirstIndex('dir_pais');
+		setElementFirstIndex('dir_entidad_federal');
+		setElementFirstIndex('dir_ciudad');
+		setElementFirstIndex('dir_municipio');
+		setElementFirstIndex('dir_parroquia');
+		setElementFirstIndex('dir_zona_postal');
+		
+		//Disabled all combo linked
+		document.form1.dir_entidad_federal.disabled = true;
+		document.form1.dir_ciudad.disabled = true;
+		document.form1.dir_municipio.disabled = true;
+		document.form1.dir_parroquia.disabled = true;
+		document.form1.dir_zona_postal.disabled = true;
+		
+		//Set automatic correlative number
+		document.form1.dir_codigo.disabled = true;
+		document.form1.dir_codigo.value = '${fld:correlative}';
+		
+		//initialize();
+		//findLocation('#51-33, Carrera 25, Medellin, Colombia', 'Postobon');
+		
+		// if ('${fld:register_address}' == null)
+		// {
+		// 	reg_addr = 'smn_direccion';
+		// }
+		// else
+		// {
+		// 	reg_addr = '${fld:register_address}';
+		// }
+
+		if (id!="")
+			edit(id);
+	} 
+
+	
+	//Author     : SIMONE
+	//Description: Set first element as selected value
+	//Return     : None
+	function setElementFirstIndex(id)
+	{
+		var combo = document.getElementById(id);
+		combo.selectedIndex = 0;
+	}
+
+	//Author     : SIMONE
+	//Description: Insert new value into combo box
+	//Return     : None
+	function insertComboBox(code, combo, description) {
+		var valueText = code;
+		if (description != null)
+		{
+			valueText = valueText + ' - ' + description;
+		}
+		//alert("Insert Combo: "+valueText);
+        combo.options[combo.options.length] = new Option(valueText);
+	}
+	
+	//Author     : SIMONE
+	//Description: Add new value to combo box
+	//Return     : None
+	function addValueToCombo(code, description, field) 
+	{
+	    var combo = document.getElementById(field);	    
+	    insertComboBox(code, combo, description);
+	}
+	
+	//Author     : SIMONE
+	//Description: Set selected index into combo box
+	//Return     : None
+	function setSelectedIndex(code, combo, description) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+			var valueText = code;
+			if (description != null)
+			{
+				valueText = valueText + ' - ' + description;
+			}
+	        if (combo.options[i].text == valueText) 
+	        {
+	        	combo.options[i].selected = true;
+	            return;
+	        }
+	    }
+	}
+	
+	//Author     : SIMONE
+	//Description: Get text valueof selected index
+	//Return     : Text associated to index
+	function getSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].text;
+	        }
+	    }
+	}
+	function getIDSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].value;
+	        }
+	    }
+	}
+	
+	var bdID;
+	function setID(id)
+	{
+		bdID = id;
+	}
+
+	//Author     : SIMONE
+	//Description: Set value to combo box
+	//Parameters : code - it is code associated into each database table 
+	//             descripcion - it is description associated into each database table 
+	//             field - name combo field
+	//             id - identifier retrieved after transaction
+	//             linked - flag indicates 'true' when combos are linked and 'false' otherwise
+	//Return     : None
+	function setValueComboBox(code, description, field, linked)
+	{
+		//add value text to combo
+		addValueToCombo(code,description,field);
+
+		//get select object 
+		var combo = document.getElementById(field);
+		
+		//set element selected to field referenced
+		setSelectedIndex(code,combo, description);
+		
+		//set text value to combo field
+		var valueText = getSelectedIndex(combo);		
+		
+		//get hidden field in order to set any value
+		var combo = document.getElementById(field+'_name');
+		
+		alert("Text: "+valueText+" - bdID: "+bdID);
+		
+		combo.text  = valueText;
+		combo.value = bdID;
+		
+		//enable linked fields
+		if (linked)
+		{
+			if (field == 'dir_pais')
+			{
+				document.form1.dir_entidad_federal.disabled = false;
+			}
+			if (field == 'dir_entidad_federal')
+			{
+				document.form1.dir_ciudad.disabled = false;
+			}
+			if (field == 'dir_ciudad')
+			{
+				document.form1.dir_zona_postal.disabled = false;
+			}
+			if (field == 'dir_municipio')
+			{
+				document.form1.dir_parroquia.disabled = false;
+			}
+			if (field == 'dir_parroquia')
+			{
+				document.form1.dir_zona_postal.disabled = false;
+			}
+		}
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//alert("${def:actionroot}/insert?reference=${fld:reference}&longitude=" + longitude + "&latitude=" + latitude + "&register_address=" + reg_addr);
+			var uri="${def:actionroot}/insert?reference=${fld:reference}";
+			//alert(uri);
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri, 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		var result;
+		if (document.form1.id.value=="")
+			result = insert();
+		else
+			result = update();
+		
+		
+			  setTimeout(function(){
+						if ('${fld:reference}' == 'true')
+						{
+							//debugger;
+							//alert('${fld:reference} - ${fld:source}')
+							var cod = document.getElementById("id2").value;
+							//alert(cod);
+							//alert('${fld:reference} - ${fld:source}')						
+							var cod1 = document.form1.dir_codigo.value;	
+							var nom = document.form1.dir_descripcion.value;	
+							nom1 = cod1 +'-'+ nom;	
+							
+							//alert('Código: ' + cod + ' - Nombre: ' + nom)
+								if ('${fld:source}' == 'entities')
+								{
+									//alert('llama desde ciudad')
+									parent.setValueComboBox(cod,
+															nom1,
+															'ent_direccion',
+															true);
+								}
+								if ('${fld:source}' == 'auxiliar')
+								{
+									//alert('llama desde auxiliar')
+									parent.setValueComboBox(cod,
+															nom1,
+															'aux_direccion_rf',
+															true);
+								}
+								if ('${fld:source}' == 'contrato')
+								{
+									//alert('llama desde auxiliar')
+									parent.setValueComboBox(cod,
+															nom1,
+															'ctm_direccion_rf',
+															true);
+								}
+						}
+					 },1000);			
+		return result;
+	}
+
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+			
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	//muestra un DIV+IFRAME con el formulario de CRUD para los combos
+	function pais()
+	{
+		//alert('Colocar su código aquí.')
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_paises/editor/form?reference=true&source=address";
+		openDialog("editor10", uri, 580, 320);
+	}
+	
+	function entidadfederal()
+	{
+		//alert('Colocar su código aquí.')
+		
+		//get select object 
+		var combo = document.getElementById('dir_pais');
+		
+		//set text value to combo field
+		var idValue = getIDSelectedIndex(combo);	
+		
+		//the country sesion variable is because we need filter states by country
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_entidades_federales/editor/form?reference=true&country="+idValue+"&source=address";	
+		openDialog("editor11", uri, 580, 250);
+	}
+	
+	function ciudad()
+	{
+		//alert('Colocar su código aquí.')
+		
+		//get select object 
+		var combo = document.getElementById('dir_pais');
+		
+		//set text value to combo field
+		var idValue = getIDSelectedIndex(combo);
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_ciudades/editor/form?reference=true&country="+idValue+"&source=address";		
+		openDialog("editor12", uri, 580, 250);
+	}
+	
+	function zonapostal()
+	{
+		//alert('Colocar su código aquí.')
+		
+		//get select object 
+		var combo = document.getElementById('dir_entidad_federal');
+		
+		//set text value to combo field
+		var idValue = getIDSelectedIndex(combo);
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_zonas_postales/editor/form?reference=true&federal_entity="+idValue+"&source=address";			
+		openDialog("editor13", uri, 580, 420);
+	}
+	
+	function tipovia()
+	{
+		//alert('Colocar su código aquí.')
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_tipo_via/editor/form?reference=true&source=address";			
+		openDialog("editor14", uri, 580, 180);
+	}
+	
+	function edificacion()
+	{
+		//alert('Colocar su código aquí.')
+		//Se incorpora variable de sesion para manejar la referencia
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_edificacion/editor/form?reference=true&source=address";			
+		openDialog("editor15", uri, 580, 180);
+	}
+	
+	function tipolocalidad()
+	{
+		//alert('Colocar su código aquí.')
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_tipo_localidad/editor/form?reference=true&source=address";			
+		openDialog("editor16", uri, 580, 180);
+	}
+	
+    function chgCombo_zona(text, id) {
+    	var zona = $('#smn_zona_rf').val();
+
+		//findLocation(geo_id0, '');
+		
+		if (zona!=null && zona!="") 
+		{
+			return ajaxCall(	
+							httpMethod="GET", 
+							uri="${def:actionroot}/getZonaCoordenadas?id=" + zona, 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, //function 'setElementFirstIndex' select first element of combo list
+							onErrorFn=null);				
+		}
+    }
+
+
+    function concatenar6() {
+    	var tipovia = $('#dir_tipo_via option:selected').text();
+    	var descrip = $('#dir_descripcion').val();
+    	console.log(tipovia);
+
+    	if ($('#dir_tipo_via option:selected').val()!="") {
+    		var descrip_tipo_via = descrip +", "+tipovia;
+    		$('#dir_descripcion').val(descrip_tipo_via);
+    	}
+    	
+
+    }
+
+    function concatenar8() {
+    	var tipolocalidad = $('#dir_tipo_localidad option:selected').text();
+    	var descrip = $('#dir_descripcion').val();
+    	console.log(tipovia);
+
+		if ($('#dir_tipo_localidad option:selected').val()!="") {
+	    	var descrip_tipo_localidad = descrip +", "+tipolocalidad;
+	    	$('#dir_descripcion').val(descrip_tipo_localidad);
+    	}
+    }
+
+    function concatenar_tipo_via_nom() {
+	 	var tipo_nom = document.getElementById('dir_tipo_via_nom').value;
+		var descripcion = document.getElementById('dir_descripcion').value;
+		var descrip = "";
+
+		if(tipo_nom != ""){
+			descrip = descripcion +':'+ tipo_nom;
+			document.getElementById('dir_descripcion').value = descrip;
+		}	
+	}
+
+	function concatenar_tipo_via_num() {
+		var tipo_num = document.getElementById('dir_tipo_via_num').value;
+		var descripcion = document.getElementById('dir_descripcion').value;
+		var descrip = "";
+
+		if(tipo_num != ""){
+			descrip = descripcion +' '+ tipo_num;
+			document.getElementById('dir_descripcion').value = descrip;
+		}
+	}
+
+	function concatenar_localidad_nom() {
+		var local_nom = document.getElementById('dir_tipo_localidad_nom').value;
+		var descripcion = document.getElementById('dir_descripcion').value;
+		var descrip = "";
+
+		if(local_nom != ""){
+			descrip = descripcion +':'+ local_nom;
+			document.getElementById('dir_descripcion').value = descrip;
+		}	
+	}
+
+	function concatenar_apartado_postal() {
+		var apart_postal = document.getElementById('dir_apartado_postal').value;
+		var descripcion = document.getElementById('dir_descripcion').value;
+		var descrip = "";
+
+		if(apart_postal != ""){
+			descrip = descripcion +' '+ apart_postal;
+			document.getElementById('dir_descripcion').value = descrip;
+		}	
+	}
+
+</script>	
+</body>
+</html>

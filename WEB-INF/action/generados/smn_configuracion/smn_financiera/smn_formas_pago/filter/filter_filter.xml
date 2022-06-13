@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_way_to_pay}</summary>
+	<filter>
+		<row field='fop_codigo' id='fop_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_formas_pago' len='16'/>
+		<row field='fop_descripcion' id='fop_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_formas_pago' len='48'/>
+		<row field='fop_fecha_registro' id='fop_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_formas_pago' len='10'/>
+		<row field='fop_fecha_registro' id='fop_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_formas_pago' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='fop_codigo' label='${lbl:b_code}' fk='' tableName='smn_formas_pago' len='16' type='varchar' align='left'/>
+		<row field='fop_descripcion' label='${lbl:b_description}' fk='' tableName='smn_formas_pago' len='48' type='varchar' align='left'/>
+		<row field='fop_medio_pago' label='${lbl:b_medio_pago}@{select smn_base.smn_medio_pago.smn_medio_pago_id as id, smn_base.smn_medio_pago.mpa_codigo|| ' - ' || smn_base.smn_medio_pago.mpa_descripcion as item from smn_base.smn_medio_pago order by 2}' fk='' tableName='smn_formas_pago' len='10' type='integer' align='left'/>
+		<row field='fop_requiere_banco' label='${lbl:b_bank}@{S=${lbl:b_yes}|N=${lbl:b_not}}' fk='' tableName='smn_formas_pago' len='1' type='varchar' align='left'/>
+		<row field='fop_franquicia' label='${lbl:b_franquicias}@{select smn_base.smn_franquicias.smn_franquicias_id as id, smn_base.smn_franquicias.fra_codigo|| ' - ' || smn_base.smn_franquicias.fra_descripcion as item from smn_base.smn_franquicias order by 2}' fk='' tableName='smn_formas_pago' len='10' type='integer' align='left'/>
+		<row field='fop_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_formas_pago' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

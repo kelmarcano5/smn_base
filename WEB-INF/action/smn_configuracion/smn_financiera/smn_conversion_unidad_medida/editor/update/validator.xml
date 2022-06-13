@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_unidad_medida_origen_rf' type='integer' required='true' label='${lbl:b_unidad_medida_origen}' maxlen='10'/>
+	<parameter id='smn_unidad_medida_destino_rf' type='integer' required='true' label='${lbl:b_unidad_medida_destino}' maxlen='10'/>
+	<parameter id='cou_factor_conversion' type='double' required='true' label='${lbl:b_factor_conversion}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_conversion_unidad_medida}' maxlen='10'/>
+	<parameter id='cou_signo_conversion' type='varchar' required='true' label='${lbl:b_conversion_sign}' maxlen='1'/>
+	
+</validator>

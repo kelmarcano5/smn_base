@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_codigo,
+	age_descripcion,
+	age_dia_semana,
+	age_hora_desde,
+	age_jornada_desde,
+	age_hora_hasta,
+	age_jornada_hasta,
+	age_localidad,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_agenda},
+	${fld:age_codigo},
+	${fld:age_descripcion},
+	${fld:age_dia_semana},
+	${fld:age_hora_desde},
+	${fld:age_jornada_desde},
+	${fld:age_hora_hasta},
+	${fld:age_jornada_hasta},
+	${fld:age_localidad},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog" id="encabezado_tabla">
+	${lbl:b_organizational_structure}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search('${fld:detalle_id}');" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+			<tr>
+		<td>${lbl:b_configuration_structure}*</td>
+		<td>
+			<select name="smn_configuracion_estructura_id" id="smn_configuracion_estructura_id" onchange="chgCombo(smn_configuracion_estructura_id.options[smn_configuracion_estructura_id.selectedIndex].text,'smn_configuracion_estructura_id_name');">
+				<option value="">[${lbl:b_choose}]</option>
+				<smn_configuracion_estructura_id_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_configuracion_estructura_id_rows>
+			</select> 
+			<input id="smn_configuracion_estructura_id_name" name="smn_configuracion_estructura_id_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="eor_codigo" name="eor_codigo" type="text" maxlength="24" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_name}*</td>
+			<td>
+				<input id="eor_nombre" name="eor_nombre" type="text" maxlength="64" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_auxiliary}*</td>
+		<td>
+			<select name="eor_auxiliar" id="eor_auxiliar" onchange="chgCombo(eor_auxiliar.options[eor_auxiliar.selectedIndex].text,'eor_auxiliar_name');">
+				<option value="">[${lbl:b_choose}]</option>
+				<eor_auxiliar_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</eor_auxiliar_rows>
+			</select> 
+			<input id="eor_auxiliar_name" name="eor_auxiliar_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_auxiliary_class}</td>
+		<td>
+			<select name="eor_clase_auxiliar" id="eor_clase_auxiliar" onchange="chgCombo(eor_clase_auxiliar.options[eor_clase_auxiliar.selectedIndex].text,'eor_clase_auxiliar_name');">
+				<option value="">[${lbl:b_choose}]</option>
+				<eor_clase_auxiliar_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</eor_clase_auxiliar_rows>
+			</select> 
+			<input id="eor_clase_auxiliar_name" name="eor_clase_auxiliar_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_cost_centers}*</td>
+		<td>
+			<select name="eor_centro_costo" id="eor_centro_costo" onchange="chgCombo(eor_centro_costo.options[eor_centro_costo.selectedIndex].text,'eor_centro_costo_name');">
+				<option value="">[${lbl:b_choose}]</option>
+				<eor_centro_costo_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</eor_centro_costo_rows>
+			</select> 
+			<input id="eor_centro_costo_name" name="eor_centro_costo_name" type="hidden">
+		</td>
+	</tr>
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search('${fld:detalle_id}');" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+		
+		//get select object 
+		var combo = document.getElementById('smn_configuracion_estructura_id');
+		
+		//set element selected to field referenced
+		setSelectedIndex('${fld:codigo}',combo, '${fld:nombre}');
+		
+		document.form1.smn_configuracion_estructura_id.disabled = true;
+		
+		//alert('Detalle: ${fld:detalle_id} -  Codigo: ${fld:codigo} - Nombre: ${fld:nombre}');
+
+		if (id!="")
+			edit(id);
+	} 
+	
+	//Author     : SIMONE
+	//Description: Set first element as selected value
+	//Return     : None
+	function setElementFirstIndex(id)
+	{
+		var combo = document.getElementById(id);
+		combo.selectedIndex = 0;
+	}
+
+	//Author     : SIMONE
+	//Description: Insert new value into combo box
+	//Return     : None
+	function insertComboBox(code, combo, description) {
+		var valueText = code;
+		if (description != null)
+		{
+			valueText = valueText + ' - ' + description;
+		}
+        //combo.options[combo.options.length] = new Option(valueText);
+		var option = document.createElement("option");
+		option.text = valueText; 
+		option.value = bdID;
+		
+		//alert('Text: ' + option.text + '  Value: ' + option.value);
+		document.form1.smn_configuracion_estructura_id.add(option, combo.options.length);
+	}
+	
+	//Author     : SIMONE
+	//Description: Add new value to combo box
+	//Return     : None
+	function addValueToCombo(code, description, field) 
+	{
+	    var combo = document.getElementById(field);	    
+	    insertComboBox(code, combo, description);
+	}
+	
+	//Author     : SIMONE
+	//Description: Set selected index into combo box
+	//Return     : None
+	function setSelectedIndex(code, combo, description) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+			var valueText = code;
+			if (description != null)
+			{
+				valueText = valueText + ' - ' + description;
+			}
+	        if (combo.options[i].text == valueText) 
+	        {
+	        	//alert('setSelectedIndex - ' + valueText)
+	        	combo.options[i].selected = true;
+	            return;
+	        }
+	    }
+	}
+		
+	//Author     : SIMONE
+	//Description: Get text valueof selected index
+	//Return     : Text associated to index
+	function getSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].text;
+	        }
+	    }
+	}
+	function getIDSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].value;
+	        }
+	    }
+	}
+	
+	var bdID;
+	function setID(id)
+	{
+		bdID = id;
+	}
+
+	//Author     : SIMONE
+	//Description: Set value to combo box
+	//Parameters : code - it is code associated into each database table 
+	//             descripcion - it is description associated into each database table 
+	//             field - name combo field
+	//             id - identifier retrieved after transaction
+	//             linked - flag indicates 'true' when combos are linked and 'false' otherwise
+	//Return     : None
+	function setValueComboBox(code, description, field, linked)
+	{
+		//add valur text to combo
+		addValueToCombo(code,description,field);
+
+		//get select object 
+		var combo = document.getElementById(field);
+		
+		//set element selected to field referenced
+		setSelectedIndex(code,combo, description);
+		
+		//set text value to combo field
+		var valueText = getSelectedIndex(combo);		
+		
+		//This case is used when exists a foreign key between two tables
+		//get hidden field in order to set any value
+		var combo = document.getElementById(field+'_name');
+
+		combo.text=valueText;
+		combo.value=bdID;
+		//This case is used when exists a foreign key between two tables
+		
+		setSelectedIndex(bdID, combo, valueText); 
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	
+</script>	
+</body>
+</html>

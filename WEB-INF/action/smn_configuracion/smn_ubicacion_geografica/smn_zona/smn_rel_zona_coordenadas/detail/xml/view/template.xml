@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_rel_zona_coordenadas>
+	<detail>
+		<rows>		
+		<record rzc_fecha_registro="${fld:rzc_fecha_registro}"    rzc_longitud="${fld:rzc_longitud}"    rzc_latitud="${fld:rzc_latitud}"    smn_parroquia_rf="${fld:smn_parroquia_rf}"    smn_municipio_rf="${fld:smn_municipio_rf}"    smn_ciudad_rf="${fld:smn_ciudad_rf}"    smn_entidad_federal_rf="${fld:smn_entidad_federal_rf}"    smn_pais_rf="${fld:smn_pais_rf}"    smn_zona_id="${fld:smn_zona_id}"    />
+		</rows>
+	</detail>
+</smn_rel_zona_coordenadas>

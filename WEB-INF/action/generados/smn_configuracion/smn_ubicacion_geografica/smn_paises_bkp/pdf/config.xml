@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnpaises.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_countries}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smnpaises.sql' width='100' spacingBefore='40'>
+			<col name='pai_codigo' title='${lbl:b_code}' width='14' align='left' />
+			<col name='pai_nombre_largo' title='${lbl:b_long_name}' width='14' align='left' />
+			<col name='pai_gentilicio' title='${lbl:b_citizenship}' width='14' align='left' />
+			<col name='pai_codigo_ddi' title='${lbl:b_international_dailing_code}' width='14' align='left' />
+			<col name='pai_idioma_oficial' title='${lbl:b_official_lenguage}' width='14' align='left' format='######' />
+			<col name='pai_moneda_oficial' title='${lbl:b_official_coin}' width='14' align='left' format='######' />
+			<col name='pai_fecha_registro' title='${lbl:b_store_date}' width='14' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

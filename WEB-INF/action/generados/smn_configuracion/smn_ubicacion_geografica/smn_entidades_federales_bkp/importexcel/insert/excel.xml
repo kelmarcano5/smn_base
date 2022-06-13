@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='efe_paises' type='integer' required='true' maxlen='10'/>
+	<parameter id='efe_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='efe_nombre_corto' type='varchar' required='true' maxlen='24'/>
+	<parameter id='efe_nombre_largo' type='varchar' required='true' maxlen='48'/>
+</validator>

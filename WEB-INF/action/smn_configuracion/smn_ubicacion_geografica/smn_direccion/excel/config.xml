@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smndireccion.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="10" cellStep="0" name="${lbl:b_addresses}"/>
+	
+	<excel 
+		recordset='query-smndireccion.sql' 
+		sheetname='${lbl:b_addresses}' 
+		filename='${lbl:b_addresses}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='dir_codigo' label='${lbl:b_code}' />
+		<col id='dir_descripcion' label='${lbl:b_description}' />
+		<col id='pai_nombre_corto' label='${lbl:b_country}' />
+		<col id='efe_nombre_corto' label='${lbl:b_federal_entity}' />
+		<col id='ciu_nombre_corto' label='${lbl:b_city}' />
+		<col id='mun_nombre_corto' label='${lbl:b_municipality}' />
+		<col id='prr_nombre_corto' label='${lbl:b_parish}' />
+		<col id='zpo_codigo' label='${lbl:b_postal_zone}' />
+		<col id='tiv_descripcion' label='${lbl:b_type_of_route}' />
+		<col id='tiv_descripcion_nom' label='${lbl:b_name}' />
+		<col id='tiv_descripcion_num' label='${lbl:b_number}' />
+		<col id='edf_descripcion' label='${lbl:b_edification}' />
+		<col id='edf_descripcion_nom' label='${lbl:b_name}' />
+		<col id='edf_descripcion_num' label='${lbl:b_number}' />
+		<col id='til_descripcion' label='${lbl:b_location_type}' />
+		<col id='til_descripcion_nom' label='${lbl:b_name}' />
+		<col id='dir_apartado_postal' label='${lbl:b_postal_mail}' />
+		<col id='dir_mapa_longitud' label='${lbl:b_longitude}' />
+		<col id='dir_mapa_latitud' label='${lbl:b_latitude}' />
+		<col id='dir_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

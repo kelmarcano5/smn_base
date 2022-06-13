@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog">
+	${lbl:b_bank_accounts}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">Añadir registro</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+			<tr>
+		<td>${lbl:b_financial_entity}*</td>
+		<td>
+			<select name="cba_entidades_financieras" id="cba_entidades_financieras" onchange="chgCombo(cba_entidades_financieras.options[cba_entidades_financieras.selectedIndex].text,'cba_entidades_financieras_name');">
+				<option value="">[Cualquiera]</option>
+				<cba_entidades_financieras_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cba_entidades_financieras_rows>
+			</select> 
+			<input id="cba_entidades_financieras_name" name="cba_entidades_financieras_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="cba_codigo" name="cba_codigo" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_name}*</td>
+			<td>
+				<input id="cba_nombre" name="cba_nombre" type="text" maxlength="48" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_bank_account_number}*</td>
+			<td>
+				<input id="cba_nro_cuenta" name="cba_nro_cuenta" type="text" maxlength="24" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_account_bank_type}*</td>
+		<td>
+			<select name="cba_tipo_cta_banco" id="cba_tipo_cta_banco" onchange="chgCombo(cba_tipo_cta_banco.options[cba_tipo_cta_banco.selectedIndex].text,'cba_tipo_cta_banco_name');">
+				<option value="">[Cualquiera]</option>
+				<cba_tipo_cta_banco_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cba_tipo_cta_banco_rows>
+			</select> 
+			<input id="cba_tipo_cta_banco_name" name="cba_tipo_cta_banco_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_coin}*</td>
+		<td>
+			<select name="cba_moneda" id="cba_moneda" onchange="chgCombo(cba_moneda.options[cba_moneda.selectedIndex].text,'cba_moneda_name');">
+				<option value="">[Cualquiera]</option>
+				<cba_moneda_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cba_moneda_rows>
+			</select> 
+			<input id="cba_moneda_name" name="cba_moneda_name" type="hidden">
+		</td>
+	</tr>
+
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="Grabar" class="button">
+	<input id="cancelar" type="button" value="Cancelar" onclick="addNew()" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+
+		if (id!="")
+			edit(id);
+	} 
+	
+
+
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "Añadir registro";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	
+</script>	
+</body>
+</html>

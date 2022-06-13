@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_tipo_localidad>
+	<detail>
+		<rows>		
+		<record til_fecha_registro="${fld:til_fecha_registro}"    til_descripcion="${fld:til_descripcion}"    til_codigo="${fld:til_codigo}"    />
+		</rows>
+	</detail>
+</smn_tipo_localidad>

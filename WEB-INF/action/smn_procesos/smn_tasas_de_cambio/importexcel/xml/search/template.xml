@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_tasas_de_cambio>
+	<detail>
+		<rows>		
+		<record tca_fecha_registro="${fld:tca_fecha_registro}"    tca_tasa_cambio="${fld:tca_tasa_cambio}"    tca_fecha_vigencia="${fld:tca_fecha_vigencia}"    tca_moneda_referencia="${fld:tca_moneda_referencia}"    smn_monedas_id="${fld:smn_monedas_id}"    />
+		</rows>
+	</detail>
+</smn_tasas_de_cambio>

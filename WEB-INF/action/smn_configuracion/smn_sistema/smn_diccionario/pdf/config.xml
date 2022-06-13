@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smndiccionario.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_dictionary}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_dictionary}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smndiccionario.sql' width='100' spacingBefore='40'>
+			<col name='dic_codigo' title='${lbl:b_code}' width='7' align='left' />
+			<col name='dic_descripcion' title='${lbl:b_description}' width='7' align='left' />
+			<col name='dic_esquema' title='${lbl:b_smn_esquema_rf}' width='7' align='left' />
+			<col name='dic_tabla' title='${lbl:b_smn_tabla_rf}' width='7' align='left' />
+			<col name='dic_campo' title='${lbl:b_smn_campo_rf}' width='7' align='left' />
+			<col name='dic_tipo_dato' title='${lbl:b_date_type}' width='7' align='left' />
+			<col name='dic_tamano' title='${lbl:b_size}' width='7' align='left' format='######' />
+			<col name='dic_posicion_inicial' title='${lbl:b_initial_position}' width='7' align='left' format='######' />
+			<col name='dic_posicion_final' title='${lbl:b_final_position}' width='7' align='left' format='######' />
+			<col name='dic_ruta' title='${lbl:b_route}' width='7' align='left' />
+			<col name='dic_observacion' title='${lbl:b_observation}' width='7' align='left' />
+			<col name='dic_estatus' title='${lbl:b_status}' width='7' align='left' />
+			<col name='dic_fecha_estatus' title='${lbl:b_status_date}' width='7' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

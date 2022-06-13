@@ -1,0 +1,1 @@
+select smn_seguridad.s_role.role_id as id, smn_seguridad.s_role.rolename ||' - '||smn_seguridad.s_role.description as item from smn_seguridad.s_role

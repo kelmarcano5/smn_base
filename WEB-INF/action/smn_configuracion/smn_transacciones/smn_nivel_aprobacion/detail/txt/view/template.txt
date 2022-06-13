@@ -1,0 +1,3 @@
+<rows>
+nap_fecha_registro="${fld:nap_fecha_registro}"    nap_secuencia_aprobacion="${fld:nap_secuencia_aprobacion}"    nap_rol="${fld:nap_rol}"    nap_descripcion="${fld:nap_descripcion}"    nap_codigo="${fld:nap_codigo}"    smn_configuracion_estructura_id="${fld:smn_configuracion_estructura_id}"    
+</rows>

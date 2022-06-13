@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_panel}</summary>
+	<filter>
+		<row field='pan_service_description' id='pan_service_description' label='${lbl:b_service_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_panel' len='350'/>
+		<row field='pan_app_id' id='pan_app_id' label='${lbl:b_application}@{select smn_seguridad.s_application.app_id as id, smn_seguridad.s_application.app_alias as item from smn_seguridad.s_application order by 1}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_panel' len='10'/>
+		<row field='pan_role_id' id='pan_role_id' label='${lbl:b_role}@{select smn_seguridad.s_role.role_id as id, smn_seguridad.s_role.rolename as item from smn_seguridad.s_role where smn_seguridad.s_role.app_id = (select ${schema}s_application.app_id from ${schema}s_application where ${schema}s_application.app_alias = "${def:alias}") order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_panel' len='10'/>
+		<row field='pan_fecha_registro' id='pan_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_panel' len='10'/>
+		<row field='pan_fecha_registro' id='pan_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_panel' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='pan_service_description' label='${lbl:b_service_description}' fk='' tableName='smn_panel' len='350' type='varchar' align='left'/>
+		<row field='pan_service_path' label='${lbl:b_service_path}' fk='' tableName='smn_panel' len='150' type='varchar' align='left'/>
+		<row field='pan_icon_path' label='${lbl:b_icon_path}' fk='' tableName='smn_panel' len='200' type='varchar' align='left'/>
+		<row field='pan_app_id' label='${lbl:b_application}@{select smn_seguridad.s_application.app_id as id, smn_seguridad.s_application.app_alias as item from smn_seguridad.s_application order by 1}' fk='' tableName='smn_panel' len='10' type='integer' align='left'/>
+		<row field='pan_role_id' label='${lbl:b_role}@{select smn_seguridad.s_role.role_id as id, smn_seguridad.s_role.rolename as item from smn_seguridad.s_role where smn_seguridad.s_role.app_id = (select ${schema}s_application.app_id from ${schema}s_application where ${schema}s_application.app_alias = "${def:alias}") order by 2}' fk='' tableName='smn_panel' len='10' type='integer' align='left'/>
+		<row field='pan_orden' label='${lbl:b_order}' fk='' tableName='smn_panel' len='10' type='integer' align='left'/>
+		<row field='pan_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_panel' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

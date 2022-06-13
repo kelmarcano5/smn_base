@@ -1,0 +1,3 @@
+<rows>
+cmn_fecha_registro="${fld:cmn_fecha_registro}"    cmn_unidad_negocio="${fld:cmn_unidad_negocio}"    cmn_nombre="${fld:cmn_nombre}"    cmn_codigo="${fld:cmn_codigo}"    
+</rows>

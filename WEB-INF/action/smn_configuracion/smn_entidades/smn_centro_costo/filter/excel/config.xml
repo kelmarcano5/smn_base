@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncentrocosto.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="5" cellStep="0" name="${lbl:b_cost_centers}"/>
+	
+	<excel 
+		recordset='query-smncentrocosto.sql' 
+		sheetname='${lbl:b_cost_centers}' 
+		filename='${lbl:b_cost_centers}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='cco_codigo' label='${lbl:b_code}' />
+		<col id='cco_descripcion_corta' label='${lbl:b_short_description}' />
+		<col id='cco_descripcion_larga' label='${lbl:b_long_description}' />
+		<col id='ent_descripcion_corta' label='${lbl:b_entity}' />
+		<col id='suc_nombre' label='${lbl:b_subsidiary}' />
+		<col id='ase_descripcion' label='${lbl:b_service_area}' />
+		<col id='uns_descripcion' label='${lbl:b_service_unit}' />
+		<col id='alm_nombre' label='${lbl:b_store}' />
+		<col id='cco_nivel_combo' label='${lbl:b_level}' />
+		<col id='cco_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

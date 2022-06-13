@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='cue_codigo' type='varchar' required='false' label='${lbl:b_cue_codigo}' maxlen='48'/>
+	<parameter id='cue_descripcion' type='varchar' required='false' label='${lbl:b_cue_descripcion}' maxlen='100'/>
+	<parameter id='smn_modulo_rf' type='integer' required='false' label='${lbl:b_smn_modulo_rf}' maxlen='10'/>
+	<parameter id='smn_esquema_rf' type='integer' required='false' label='${lbl:b_smn_esquema_rf}' maxlen='10'/>
+	<parameter id='smn_campo_rf' type='integer' required='false' label='${lbl:b_smn_campo_rf}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='cue_codigo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+parameter='cue_descripcion'
+		rule='contains' />
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cue_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='cue_descripcion'/>
+
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

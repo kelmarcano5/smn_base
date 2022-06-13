@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnbaremos.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_baremos}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_baremos}">
+				<col id='bar_codigo' label='${lbl:b_code}' />
+		<col id='bar_descripcion' label='${lbl:b_description}' />
+		<col id='smn_entidades_rf' label='${lbl:b_entity}' />
+		<col id='smn_sucursales_rf' label='${lbl:b_subsidiary}' />
+		<col id='bar_vigencia_desde' label='${lbl:b_validation_date_from}' />
+		<col id='bar_vigencia_hasta' label='${lbl:b_validation_date_to}' />
+		<col id='bar_tipo' label='${lbl:b_type}' />
+		<col id='smn_clase_auxiliar_rf' label='${lbl:b_auxiliary_class}' />
+		<col id='smn_auxiliar_rf' label='${lbl:b_auxiliary}' />
+		<col id='bar_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

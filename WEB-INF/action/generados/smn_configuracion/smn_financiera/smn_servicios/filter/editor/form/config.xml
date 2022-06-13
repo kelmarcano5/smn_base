@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_services}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-svc_clase_auxiliar.sql' source='sql' scope='transaction'/><recordset id='query-svc_tipo_servicio.sql' source='sql' scope='transaction'/><recordset id='query-svc_area_servicio.sql' source='sql' scope='transaction'/><recordset id='query-svc_unidad_servicio.sql' source='sql' scope='transaction'/><recordset id='query-svc_centro_costo.sql' source='sql' scope='transaction'/><recordset id='query-svc_trans_general.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-svc_clase_auxiliar.sql' tag='svc_clase_auxiliar_rows'/><print mode='table' recordset='query-svc_tipo_servicio.sql' tag='svc_tipo_servicio_rows'/><print mode='table' recordset='query-svc_area_servicio.sql' tag='svc_area_servicio_rows'/><print mode='table' recordset='query-svc_unidad_servicio.sql' tag='svc_unidad_servicio_rows'/><print mode='table' recordset='query-svc_centro_costo.sql' tag='svc_centro_costo_rows'/><print mode='table' recordset='query-svc_trans_general.sql' tag='svc_trans_general_rows'/>
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

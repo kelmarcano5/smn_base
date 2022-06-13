@@ -1,0 +1,56 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='3%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("gpp_codigo","query-smngruposprestadores.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("gpp_descripcion","query-smngruposprestadores.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("ase_descripcion","query-smngruposprestadores.sql")'>${lbl:b_service_area}</th>
+		<th class='sortable' onclick='sortBy("uns_descripcion","query-smngruposprestadores.sql")'>${lbl:b_service_unit}</th>
+		<th class='sortable' onclick='sortBy("gpp_orden_atencion","query-smngruposprestadores.sql")'>${lbl:b_in_order_of_attention}</th>
+		<th class='sortable' onclick='sortBy("gpp_fecha_registro","query-smngruposprestadores.sql")'>${lbl:b_store_date}</th>
+		<th>RGP</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_grupos_prestadores_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_grupos_prestadores_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_grupos_prestadores_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:gpp_codigo}</td>
+		<td align='left'>${fld:gpp_descripcion}</td>
+		<td align='left'>${fld:ase_descripcion}</td>
+		<td align='left'>${fld:uns_descripcion}</td>
+		<td align='left'>${fld:gpp_orden_atencion}</td>
+		<td>${fld:gpp_fecha_registro@dd-MM-yyyy}</td>
+
+		<td><img src="${def:context}/images/view-list-details.png" onclick="prestador('${fld:smn_grupos_prestadores_id}','${fld:gpp_codigo}','${fld:gpp_descripcion}')" title="${lbl:b_relationship_group_provider_service}"></td>
+
+	</tr>
+	</rows>
+
+</table>

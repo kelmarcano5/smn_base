@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Ejecutar consulta y enrutar dependiendo de que un recordset
+		tenga o no registros
+	</summary>
+
+	<log>false</log>
+
+	<!--configura el control de paginacion-->
+	<set-request-attribute id="paging.recordset" value="query-smnplantilladetalle.sql" />
+	<set-request-attribute id="paging.pagesize" value="10" />
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>smn_plantilla_cabecera_id</colname>
+			<colname>smn_seccion_rf</colname>
+			<colname>pde_sec_seccion</colname>
+			<colname>smn_pregunta_rf</colname>
+			<colname>pde_sec_pregunta</colname>
+			<colname>pde_status</colname>
+			<colname>pde_fecha_registro_ini</colname>
+			<colname>pde_fecha_registro_fin</colname>
+		
+		</cols>
+		<table>smn_base.smn_plantilla_detalle</table>
+		<oper>CONSULTA</oper>
+		<area>Consulta</area>
+		<!-- 
+ 			para auditoria de consulta permite obtener la cantidad de registro obtenidos
+ 			de la busqueda (opcional)
+ 		-->
+		<recordCount recordset="query-smnplantilladetalle.sql"/>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableSearch</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+	</transaction>
+	
+	<searchCols>smn_plantilla_cabecera_id;smn_seccion_rf;pde_sec_seccion;smn_pregunta_rf;pde_sec_pregunta;pde_status;pde_fecha_registro_ini;pde_fecha_registro_fin;</searchCols>
+
+	<on-exit return-code="0" forward-to="/action/initview" />
+	<on-exit return-code="1" forward-to="${def:actionroot}/notfound" />
+
+</config>

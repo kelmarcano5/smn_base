@@ -1,0 +1,486 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/select2.min.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script"></script>
+	<script type="text/javascript" src="${def:context}/action/jquery"></script>
+	<script type="text/javascript" src="${def:context}/action/select2"></script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog" id="encabezado_tabla">
+	${lbl:b_service_provider}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+			<tr>
+		<td style='display:none'>${lbl:b_nature_auxiliary}*</td>
+		<td>
+			<select style='display:none' name="smn_naturaleza_auxiliar_rf" id="smn_naturaleza_auxiliar_rf" onchange="chgCombo(smn_naturaleza_auxiliar_rf.options[smn_naturaleza_auxiliar_rf.selectedIndex].text,'smn_naturaleza_auxiliar_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_naturaleza_auxiliar_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_naturaleza_auxiliar_rf_rows>
+			</select> 
+			<input id="smn_naturaleza_auxiliar_rf_name" name="smn_naturaleza_auxiliar_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_class_auxiliary}*</td>
+		<td>
+			<select name="smn_clase_auxiliar_rf" id="smn_clase_auxiliar_rf" onchange="chgCombo(smn_clase_auxiliar_rf.options[smn_clase_auxiliar_rf.selectedIndex].text,'smn_clase_auxiliar_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_clase_auxiliar_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_clase_auxiliar_rf_rows>
+			</select> 
+			<input id="smn_clase_auxiliar_rf_name" name="smn_clase_auxiliar_rf_name" type="hidden">
+		</td>
+		<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+		<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="claseauxiliar()" title="${lbl:b_class_auxiliary}" >
+		</td>
+		<td>
+			&nbsp;&nbsp;
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_person_type}*</td>
+			<td>
+				<select name="aux_tipo_persona" id="aux_tipo_persona">
+				<option value="PJ">${lbl:b_legal_person_value}</option>
+				<option value="PN">${lbl:b_natural_person_value}</option>
+				<option value="GO">${lbl:b_government_person}
+</option>
+
+				</select> 
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_code}</td>
+			<td>
+				<input id="aux_codigo" name="aux_codigo" type="text" maxlength="16" onchange="setearapellido();">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_description}</td>
+			<td>
+				<input id="aux_descripcion" name="aux_descripcion" type="text" maxlength="64" onchange="setearnombre();">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_legal_represent}</td>
+			<td>
+				<textarea id="aux_representante_legal" name="aux_representante_legal" cols="30" rows="3"></textarea>
+			</td>
+		</tr>
+		<tr>
+		<td>${lbl:b_document_type_oficial}</td>
+		<td>
+			<select name="aux_tipo_doc_oficial_rf" id="aux_tipo_doc_oficial_rf" onchange="chgCombo(aux_tipo_doc_oficial_rf.options[aux_tipo_doc_oficial_rf.selectedIndex].text,'aux_tipo_doc_oficial_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<aux_tipo_doc_oficial_rf_rows>
+				<option value="${fld:smn_tipo_doc_oficial_id}">${fld:item}</option>
+
+				</aux_tipo_doc_oficial_rf_rows>
+			</select> 
+			<input id="aux_tipo_doc_oficial_rf_name" name="aux_tipo_doc_oficial_rf_name" type="hidden">
+		</td>
+		<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+		<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="tipodoc()" title="${lbl:b_document_type_oficial}" >
+		</td>
+		<td>
+			&nbsp;&nbsp;
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_document_number_oficial}</td>
+			<td>
+				<input id="aux_num_doc_oficial" name="aux_num_doc_oficial" type="text" maxlength="12" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_rif}</td>
+			<td>
+				<input id="aux_rif" name="aux_rif" type="text" maxlength="16" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_address}</td>
+		<td>
+			<select name="aux_direccion_rf" id="aux_direccion_rf" onchange="chgCombo(aux_direccion_rf.options[aux_direccion_rf.selectedIndex].text,'aux_direccion_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<aux_direccion_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</aux_direccion_rf_rows>
+			</select> 
+			<input id="aux_direccion_rf_name" name="aux_direccion_rf_name" type="hidden">
+		</td>
+				<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+			<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="direccion()" title="${lbl:b_address}" >
+		</td>
+		<td>
+			&nbsp;&nbsp;
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_beneficiary_payments}</td>
+			<td>
+				<textarea id="aux_benef_pago" name="aux_benef_pago" cols="30" rows="3"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_beneficiary}</td>
+			<td>
+				<input id="aux_beneficiario" name="aux_beneficiario" type="text" maxlength="96" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_condition_payments}</td>
+		<td>
+			<select name="aux_cond_pago_rf" id="aux_cond_pago_rf" onchange="chgCombo(aux_cond_pago_rf.options[aux_cond_pago_rf.selectedIndex].text,'aux_cond_pago_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<aux_cond_pago_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</aux_cond_pago_rf_rows>
+			</select> 
+			<input id="aux_cond_pago_rf_name" name="aux_cond_pago_rf_name" type="hidden">
+		</td>
+			<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+		<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="condicionpago()" title="${lbl:b_condition_payments}" >
+		</td>
+		<td>
+			&nbsp;&nbsp;
+		</td>
+	</tr>
+	<tr style='display:none'>
+		<td style='display:none'>${lbl:b_bank_account_number}</td>
+		<td style='display:none'>
+			<select name="aux_cuenta_bancaria_rf" id="aux_cuenta_bancaria_rf" onchange="chgCombo(aux_cuenta_bancaria_rf.options[aux_cuenta_bancaria_rf.selectedIndex].text,'aux_cuenta_bancaria_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<aux_cuenta_bancaria_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</aux_cuenta_bancaria_rf_rows>
+			</select> 
+			<input id="aux_cuenta_bancaria_rf_name" name="aux_cuenta_bancaria_rf_name" type="hidden">
+		</td>
+		<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+		<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="cuentabancaria()" title="${lbl:b_bank_account_number}" >
+		</td>
+		<td>
+			&nbsp;&nbsp;
+		</td>
+	</tr>
+		<tr style='display:none'>
+			<td>${lbl:b_contact_person}</td>
+			<td style='display:none'>
+				<input id="aux_persona_contacto" name="aux_persona_contacto" type="text" maxlength="48" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_observations}</td>
+			<td>
+				<input id="aux_observacion" name="aux_observacion" type="text" maxlength="96" >
+			</td>
+		</tr>
+
+			<tr>
+	<!-- titulo -->
+
+	<td><h1 id="formTitle">${lbl:b_data_contact}</h1></td>
+	<!--<td>${lbl:b_data_contact}*</td>-->
+	</tr>
+	<tr>
+		<td>${lbl:b_type_contact}*</td>
+		<td>
+			<select name="smn_tipo_contactos_rf" id="smn_tipo_contactos_rf" onchange="chgCombo(smn_tipo_contactos_rf.options[smn_tipo_contactos_rf.selectedIndex].text,'smn_tipo_contactos_rf_name');habilitar();">
+				<option value="">[Cualquiera]</option>
+				<smn_tipo_contactos_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_tipo_contactos_rf_rows>
+			</select> 
+			<input id="smn_tipo_contactos_rf_name" name="smn_tipo_contactos_rf_name" type="hidden">
+		</td>
+		<!--<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="tipocontacto()" title="${lbl:b_type_contact}" >
+		</td>-->
+	</tr>
+	<tr>
+		<td>${lbl:b_description}*</td>
+		<td>
+			<input id="cnt_descripcion" name="cnt_descripcion" type="text" maxlength="50">
+		</td>
+	</tr>
+
+	<tr>
+		<td>${lbl:b_type_contact}*</td>
+		<td>
+			<select name="smn_tipo_contactos_rf1" id="smn_tipo_contactos_rf1" onchange="chgCombo(smn_tipo_contactos_rf1.options[smn_tipo_contactos_rf1.selectedIndex].text,'smn_tipo_contactos_rf1_name');habilitar1();">
+				<option value="">[Cualquiera]</option>
+				<smn_tipo_contactos_rf1_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_tipo_contactos_rf1_rows>
+			</select> 
+			<input id="smn_tipo_contactos_rf1_name" name="smn_tipo_contactos_rf1_name" type="hidden">
+		</td>
+		<!--<td>
+			<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="tipocontacto()" title="${lbl:b_type_contact}" >
+		</td>-->
+	</tr>
+		<tr>
+			<td>${lbl:b_description}*</td>
+			<td>
+				<input id="cnt_descripcion1" name="cnt_descripcion1" type="text" maxlength="50">
+			</td>
+		</tr>
+
+		<!--DESARROLLO DE CONTACTO-->
+		<tr>
+		<!-- titulo -->
+		</tr>
+		<tr>
+			<td>${lbl:s_profile_lname}*</td>
+			<td>
+				<input id="cnt_apellidos" name="cnt_apellidos" type="text" maxlength="64" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:s_profile_fname}*</td>
+			<td>
+				<input id="cnt_nombres" name="cnt_nombres" type="text" maxlength="64" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_phone}</td>
+			<td>
+				<input id="cnt_telefono_contacto" name="cnt_telefono_contacto" type="text" maxlength="64" onchange="validarPhone();" >
+			</td>
+		</tr>
+	<tr>
+	<tr>
+	<td>
+		<input id="id2" name="id2" type="hidden">
+	</td>
+	</tr>
+
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+
+		if (id!="")
+			edit(id);
+	} 
+
+	function setearapellido() {
+	 	var ap = document.getElementById('aux_apellidos').value;
+	 	console.log("apellid:" + ap);
+	 	$('#cnt_apellidos').val(ap);
+	 	document.getElementById("cnt_apellidos").disabled=true;
+	 } 
+
+	 function setearnombre() {
+	 	var nom = document.getElementById('aux_nombres').value;
+	 	console.log("nombre:" + nom);
+	 	$('#cnt_nombres').val(nom);
+	 	document.getElementById("cnt_nombres").disabled=true;
+	 }
+
+	function habilitar() {
+		var tipo = document.getElementById('smn_tipo_contactos_rf').value;
+		if (tipo!='') {
+			document.getElementById("cnt_descripcion").disabled=false;
+		} else {
+			document.getElementById("cnt_descripcion").disabled=true;
+		}
+	}
+
+	function habilitar1() {
+		var tipo = document.getElementById('smn_tipo_contactos_rf1').value;
+		if (tipo!='') {
+			document.getElementById("cnt_descripcion1").disabled=false;
+		} else {
+			document.getElementById("cnt_descripcion1").disabled=true;
+		}
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+
+	function claseauxiliar()
+		{
+		//alert ('Colocar su código aquí­.')
+			var uri = "/smn_base/action/smn_configuracion/smn_auxiliares/smn_clase_auxiliar/editor/form";	
+			openDialog("editor20", uri, 650, 580);
+		}
+
+
+	function condicionpago()
+		{
+		//alert ('Colocar su código aquí­.')
+			var uri = "/smn_base/action/smn_configuracion/smn_financiera/smn_condicion_pago/editor/form";	
+			openDialog("editor20", uri, 650, 580);
+		}
+
+	function cuentabancaria()
+		{
+		//alert ('Colocar su código aquí­.')
+			var uri = "/smn_base/action/smn_configuracion/smn_financiera/smn_cuentas_bancarias/editor/form";	
+			openDialog("editor20", uri, 650, 580);
+		}
+
+	function direccion()
+		{
+		//alert ('Colocar su código aquí­.')
+			var uri = "/smn_base/action/smn_configuracion/smn_ubicacion_geografica/smn_direccion/editor/form";	
+			openDialog("editor20", uri, 650, 580);
+		}
+
+		
+		function tipodoc(){
+			//alert ('Colocar su código aquí­.')
+			var uri = "/smn_base/action/smn_configuracion/smn_financiera/smn_tipo_doc_oficial/editor/form";
+			openDialog("editor20", uri, 650, 580);
+	
+
+		}
+
+	
+</script>	
+</body>
+</html>

@@ -1,0 +1,3 @@
+<rows>
+ent_fecha_registro="${fld:ent_fecha_registro}"    ent_act_economica="${fld:ent_act_economica}"    ent_email="${fld:ent_email}"    ent_telefono_movil="${fld:ent_telefono_movil}"    ent_telefono_fijo="${fld:ent_telefono_fijo}"    ent_contacto="${fld:ent_contacto}"    dir_descripcion="${fld:dir_descripcion}"    ent_nro_id_fiscal="${fld:ent_nro_id_fiscal}"    ent_descripcion_larga="${fld:ent_descripcion_larga}"    ent_descripcion_corta="${fld:ent_descripcion_corta}"    sec_descripcion="${fld:sec_descripcion}"    mon_nombre="${fld:mon_nombre}"    ent_maneja_sucursal="${fld:ent_maneja_sucursal}"    uen_nombre="${fld:uen_nombre}"    crp_nombre="${fld:crp_nombre}"    cmn_nombre="${fld:cmn_nombre}"    ent_codigo="${fld:ent_codigo}"    
+</rows>

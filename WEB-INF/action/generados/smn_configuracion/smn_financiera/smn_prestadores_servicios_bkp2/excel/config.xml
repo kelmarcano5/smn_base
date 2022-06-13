@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnprestadoresservicios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnprestadoresservicios.sql' sheetname='${lbl:b_services_providers}' filename='smn_prestadores_servicios.xls'>
+		<col id='gpp_codigo_pl0' label='${lbl:b_group_of_provider}' />
+		<col id='prs_nombres' label='${lbl:s_profile_fname}' />
+		<col id='prs_apellidos' label='${lbl:s_profile_lname}' />
+		<col id='prs_area_servicio' label='${lbl:b_service_area}' />
+		<col id='prs_clase_auxiliar' label='${lbl:b_auxiliary_class}' />
+		<col id='prs_auxiliar' label='${lbl:b_auxiliary}' />
+		<col id='prs_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

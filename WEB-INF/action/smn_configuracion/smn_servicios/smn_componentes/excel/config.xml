@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncomponentes.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="3" cellStep="0" name="${lbl:b_components}"/>
+	
+	<excel 
+		recordset='query-smncomponentes.sql' 
+		sheetname='${lbl:b_components}' 
+		filename='${lbl:b_components}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='cmp_codigo' label='${lbl:b_code}' />
+		<col id='cmp_descripcion' label='${lbl:b_description}' />
+		<col id='cmp_tipo_componente
+
+b_access_control' label='${lbl:b_type_component}' />
+		<col id='smn_grupo_componente_rf
+
+b_access_control' label='${lbl:b_group_component}' />
+		<col id='cmp_forma_calculo
+
+b_access_control' label='${lbl:b_calculus_form}' />
+		<col id='cla_nombre
+
+b_access_control' label='${lbl:b_auxiliary_class}' />
+		<col id='cmp_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

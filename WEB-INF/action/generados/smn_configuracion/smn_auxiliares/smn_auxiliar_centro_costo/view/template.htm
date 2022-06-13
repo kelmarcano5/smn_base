@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("tco_codigo","query-smnauxiliarcentrocosto.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("tco_descripcion_larga","query-smnauxiliarcentrocosto.sql")'>${lbl:b_long_description}</th>
+		<th class='sortable' onclick='sortBy("tco_clase_auxiliar","query-smnauxiliarcentrocosto.sql")'>${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick='sortBy("tco_auxiliar","query-smnauxiliarcentrocosto.sql")'>${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick='sortBy("tco_responsable","query-smnauxiliarcentrocosto.sql")'>${lbl:b_responsible}</th>
+		<th class='sortable' onclick='sortBy("tco_tipo_cco_combo","query-smnauxiliarcentrocosto.sql")'>${lbl:b_type}</th>
+		<th class='sortable' onclick='sortBy("tco_fecha_registro","query-smnauxiliarcentrocosto.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:tco_codigo}</td>
+		<td align='left'>${fld:tco_descripcion_larga}</td>
+		<td align='left'>${fld:tco_clase_auxiliar}</td>
+		<td align='left'>${fld:tco_auxiliar}</td>
+		<td align='left'>${fld:tco_responsable}</td>
+		<td align='left'>${fld:tco_tipo_cco_combo}</td>
+		<td>${fld:tco_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

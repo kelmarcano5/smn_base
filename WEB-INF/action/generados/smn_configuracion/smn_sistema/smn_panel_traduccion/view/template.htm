@@ -1,0 +1,34 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="4">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("pat_panel","query-smnpaneltraduccion.sql")'>${lbl:b_service_description}{select ${schema}s_service.service_id as id, ${schema}s_service.description || ' - ' || ${schema}s_service.path as item from ${schema}s_service order by ${schema}s_service.description}</th>
+		<th class='sortable' onclick='sortBy("pat_description","query-smnpaneltraduccion.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("pat_locale_combo","query-smnpaneltraduccion.sql")'>${lbl:b_idiom}</th>
+		<th class='sortable' onclick='sortBy("pat_fecha_registro","query-smnpaneltraduccion.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:pat_panel}</td>
+		<td align='left'>${fld:pat_description}</td>
+		<td align='left'>${fld:pat_locale_combo}</td>
+		<td>${fld:pat_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

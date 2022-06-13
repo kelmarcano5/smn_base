@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_auxiliary_contact}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_fixed_phone}</td>
+			<td style="background-color: white">${fld:acn_telefono_fijo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_mobile_phone}</td>
+			<td style="background-color: white">${fld:acn_telefono_movil}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:s_profile_email}</td>
+			<td style="background-color: white">${fld:acn_email}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_facebook}</td>
+			<td style="background-color: white">${fld:acn_facebook}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_linkedin}</td>
+			<td style="background-color: white">${fld:acn_linkedin}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_twitter}</td>
+			<td style="background-color: white">${fld:acn_twitter}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_swift_code}</td>
+			<td style="background-color: white">${fld:acn_swift}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:acn_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+
+
+</body>
+
+</html>

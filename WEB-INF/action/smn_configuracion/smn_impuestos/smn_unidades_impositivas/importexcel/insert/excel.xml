@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='uim_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='uim_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='uim_moneda_referencia_desc' type='varchar' required='true' maxlen='48'/>
+
+	<parameter id='uim_moneda_referencia_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_code_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='uim_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_desc_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='uim_descripcion'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: uim_moneda_referencia' 
+		parameter='uim_moneda_referencia_ref' 
+		sql='uim_moneda_referencia.sql' 
+		id='uim_moneda_referencia_ref'/>
+
+</validator>

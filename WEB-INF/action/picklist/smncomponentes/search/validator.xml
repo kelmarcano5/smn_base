@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/crud'>
+	<parameter id='cmp_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='50'/>
+	<parameter id='cmp_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='cmp_tipo_componente' type='varchar' required='false' label='${lbl:b_type_component}' maxlen='2'/>
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="cmp_codigo" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="cmp_descripcion" rule="contains" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="cmp_tipo_componente" rule="contains" />
+</validator>

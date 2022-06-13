@@ -1,0 +1,34 @@
+INSERT INTO smn_base.smn_terceros_centro_costo
+(
+	smn_terceros_centro_costo_id,
+	smn_terceros_id,
+	trc_codigo,
+	trc_descripcion_corta,
+	trc_descripcion_larga,
+	trc_responsable,
+	trc_tipo_cco,
+	trc_nivel,
+	trc_clase_auxiliar,
+	trc_auxiliar,
+	trc_idioma,
+	trc_usuario,
+	trc_fecha_registro,
+	trc_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_terceros_centro_costo},
+	${fld:smn_terceros_id},
+	${fld:trc_codigo},
+	${fld:trc_descripcion_corta},
+	${fld:trc_descripcion_larga},
+	${fld:trc_responsable},
+	${fld:trc_tipo_cco},
+	${fld:trc_nivel},
+	${fld:trc_clase_auxiliar},
+	${fld:trc_auxiliar},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

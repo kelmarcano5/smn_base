@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnrelzonacoordenadas.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_relationship_zone_coordenate}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_relationship_zone_coordenate}">
+				<col id='smn_zona_id' label='${lbl:b_zone}' />
+		<col id='smn_pais_rf' label='${lbl:b_country}' />
+		<col id='smn_entidad_federal_rf' label='${lbl:b_federal_entity}' />
+		<col id='smn_ciudad_rf' label='${lbl:b_city}' />
+		<col id='smn_municipio_rf' label='${lbl:b_municipality}' />
+		<col id='smn_parroquia_rf' label='${lbl:b_parish}' />
+		<col id='rzc_latitud' label='${lbl:b_longitude}' />
+		<col id='rzc_longitud' label='${lbl:b_latitude}' />
+		<col id='rzc_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

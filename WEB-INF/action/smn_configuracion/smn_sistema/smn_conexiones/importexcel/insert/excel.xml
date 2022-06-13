@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='con_sistema' type='varchar' required='true' maxlen='64'/>
+	<parameter id='con_descripcion' type='varchar' required='true' maxlen='100'/>
+	<parameter id='smn_entidad_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='smn_sucursal_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='con_ip_servidor' type='varchar' required='true' maxlen='64'/>
+	<parameter id='con_hostname_instancia' type='varchar' required='true' maxlen='64'/>
+	<parameter id='con_nombre_bd' type='varchar' required='true' maxlen='64'/>
+	<parameter id='con_usuario_bd' type='varchar' required='true' maxlen='64'/>
+	<parameter id='con_clave_bd' type='varchar' required='true' maxlen='64'/>
+	<parameter id='con_puerto_bd' type='varchar' required='true' maxlen='64'/>
+	<parameter id='con_estatus' type='varchar' required='true' maxlen='2'/>
+	<parameter id='con_vigencia' type='date' required='true' maxlen='10'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='con_descripcion'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='con_nombre_bd'/>
+
+
+</validator>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		<recordset id='detail-smnauxiliarcontable.sql' source='session' scope='transaction' />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_auxiliary}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='query.sql' title='${lbl:b_auxiliary}' width='60' spacingBefore='40'>
+			<col name='aca_clase_auxiliar_combo' title='${lbl:b_auxiliary_class}' align='left' format='######' />
+			<col name='aca_tipo_persona_combo' title='${lbl:b_kind_of_person}' align='left' />
+			<col name='aca_empresa_combo' title='${lbl:b_entity}' align='left' format='######' />
+			<col name='aca_sucursal_combo' title='${lbl:b_subsidiary}' align='left' format='######' />
+			<col name='aca_unidad_negocio_combo' title='${lbl:b_business_unit}' align='left' format='######' />
+			<col name='aca_area_servicio_combo' title='${lbl:b_service_area}' align='left' format='######' />
+			<col name='aca_unidad_servicio_combo' title='${lbl:b_service_unit}' align='left' format='######' />
+			<col name='aca_idioma' title='${lbl:s_profile_lang}' align='left' />
+			<col name='aca_usuario' title='${lbl:b_users}' align='left' />
+			<col name='aca_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+			<col name='aca_hora' title='${lbl:s_loginhist_col2}' align='left' />
+		</record>
+		<table recordset='detail-smnauxiliarcontable.sql' width='100' spacingBefore='40'>
+			<col name='smn_auxiliar_contable_id' title='${lbl:b_accounting_assistant}' width='11' align='center' format='######' />
+			<col name='aac_codigo' title='${lbl:b_code}' width='11' align='left' />
+			<col name='aac_descripcion' title='${lbl:b_description}' width='11' align='left' />
+			<col name='aac_tipo_doc_oficial_combo' title='${lbl:b_official_document_type}' width='11' align='center' format='######' />
+			<col name='aac_num_doc_oficial' title='${lbl:b_official_document_number}' width='11' align='left' />
+			<col name='aac_idioma' title='${lbl:s_profile_lang}' width='11' align='left' />
+			<col name='aac_usuario' title='${lbl:b_users}' width='11' align='left' />
+			<col name='aac_fecha_registro' title='${lbl:b_store_date}' width='11' align='center' format='dd-MM-yyyy' />
+			<col name='aac_hora' title='${lbl:s_loginhist_col2}' width='11' align='left' />
+		</table>
+
+	</pdf-report>
+</config>

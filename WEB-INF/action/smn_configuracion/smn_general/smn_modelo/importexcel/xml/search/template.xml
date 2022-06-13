@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_modelo>
+	<detail>
+		<rows>		
+		<record mod_fecha_registro="${fld:mod_fecha_registro}"    mod_descripcion="${fld:mod_descripcion}"    mod_codigo="${fld:mod_codigo}"    mod_fecha_registro="${fld:mod_fecha_registro}"    mod_descripcion="${fld:mod_descripcion}"    mod_codigo="${fld:mod_codigo}"    />
+		</rows>
+	</detail>
+</smn_modelo>

@@ -1,0 +1,1 @@
+select smn_base.smn_edificacion.smn_edificacion_id as id, smn_base.smn_edificacion.edf_codigo || ' - ' || smn_base.smn_edificacion.edf_descripcion as item from smn_base.smn_edificacion order by smn_base.smn_edificacion.edf_descripcion

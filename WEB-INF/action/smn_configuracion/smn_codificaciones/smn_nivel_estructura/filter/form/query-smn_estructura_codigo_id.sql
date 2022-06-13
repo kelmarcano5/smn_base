@@ -1,0 +1,1 @@
+select smn_base.smn_estructura_codigo.smn_estructura_codigo_id as id, smn_base.smn_estructura_codigo.eco_codigo|| ' - ' || smn_base.smn_estructura_codigo.eco_nombre as item from smn_base.smn_estructura_codigo order by eco_nombre

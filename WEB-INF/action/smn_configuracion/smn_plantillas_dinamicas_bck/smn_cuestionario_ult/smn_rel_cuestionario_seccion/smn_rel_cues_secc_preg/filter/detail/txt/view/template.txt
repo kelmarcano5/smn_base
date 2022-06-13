@@ -1,0 +1,3 @@
+<rows>
+smn_pregunta_id="${fld:smn_pregunta_id}"    smn_rel_cuestionario_seccion_id="${fld:smn_rel_cuestionario_seccion_id}"    
+</rows>

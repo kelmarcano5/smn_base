@@ -1,0 +1,1 @@
+delete from smn_base.smn_rel_perfil_usuarios WHERE smn_perfil_id= ${fld:id}

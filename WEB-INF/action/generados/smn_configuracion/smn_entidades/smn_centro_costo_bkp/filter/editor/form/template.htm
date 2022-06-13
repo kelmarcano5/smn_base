@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog">
+	${lbl:b_cost_centers}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">Añadir registro</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+			<tr>
+		<td>${lbl:b_entity}*</td>
+		<td>
+			<select name="smn_entidades_id" id="smn_entidades_id" onchange="chgCombo(smn_entidades_id.options[smn_entidades_id.selectedIndex].text,'smn_entidades_id_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_entidades_id_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_entidades_id_rows>
+			</select> 
+			<input id="smn_entidades_id_name" name="smn_entidades_id_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="cco_codigo" name="cco_codigo" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_short_description}*</td>
+			<td>
+				<input id="cco_descripcion_corta" name="cco_descripcion_corta" type="text" maxlength="24" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_long_description}*</td>
+			<td>
+				<input id="cco_descripcion_larga" name="cco_descripcion_larga" type="text" maxlength="48" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_responsible}*</td>
+			<td>
+				<input id="cco_responsable" name="cco_responsable" type="text" maxlength="48" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_type}*</td>
+			<td>
+				<select name="cco_tipo_cco" id="cco_tipo_cco">
+				<option value="SR">${lbl:b_profitable}</option>
+				<option value="SE">${lbl:b_services}</option>
+				<option value="SP">${lbl:b_support}</option>
+				<option value="DG">${lblb_distribution}</option>
+
+				</select> 
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_level}*</td>
+			<td>
+				<input id="cco_nivel" name="cco_nivel" type="text" maxlength="2" class="numeric">
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_auxiliary_class}</td>
+		<td>
+			<select name="cco_clase_auxiliar" id="cco_clase_auxiliar" onchange="chgCombo(cco_clase_auxiliar.options[cco_clase_auxiliar.selectedIndex].text,'cco_clase_auxiliar_name');">
+				<option value="">[Cualquiera]</option>
+				<cco_clase_auxiliar_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cco_clase_auxiliar_rows>
+			</select> 
+			<input id="cco_clase_auxiliar_name" name="cco_clase_auxiliar_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_auxiliary}</td>
+		<td>
+			<select name="cco_auxiliar" id="cco_auxiliar" onchange="chgCombo(cco_auxiliar.options[cco_auxiliar.selectedIndex].text,'cco_auxiliar_name');">
+				<option value="">[Cualquiera]</option>
+				<cco_auxiliar_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cco_auxiliar_rows>
+			</select> 
+			<input id="cco_auxiliar_name" name="cco_auxiliar_name" type="hidden">
+		</td>
+	</tr>
+
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="Grabar" class="button">
+	<input id="cancelar" type="button" value="Cancelar" onclick="addNew()" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+		var txt_cco_nivel = new NumericInput(document.form1.cco_nivel, 0);
+
+		if (id!="")
+			edit(id);
+	} 
+	
+
+
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "Añadir registro";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	
+</script>	
+</body>
+</html>

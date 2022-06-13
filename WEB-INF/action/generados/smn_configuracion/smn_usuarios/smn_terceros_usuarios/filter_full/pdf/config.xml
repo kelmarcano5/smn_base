@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntercerosusuarios.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_users}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='smn_terceros_id_name' title='${lbl:b_outsourced_company}'  align='center' />
+		</record>
+		<table recordset='query-smntercerosusuarios.sql' width='100' spacingBefore='10'>
+			<col name='ter_descripcion_corta_pl0' title='${lbl:b_outsourced_company}' width='7' align='left' />
+			<col name='tru_usuario_id' title='${lbl:b_user}' width='7' align='left' format='######' />
+			<col name='tru_comunidad' title='${lbl:b_community}' width='7' align='left' format='######' />
+			<col name='tru_nombres' title='${lbl:s_profile_fname}' width='7' align='left' />
+			<col name='tru_apellidos' title='${lbl:s_profile_lname}' width='7' align='left' />
+			<col name='tru_nacionalidad' title='${lbl:b_citizenship}' width='7' align='left' format='######' />
+			<col name='tru_nro_doc_identidad' title='${lbl:b_identification_doc_number}' width='7' align='left' />
+			<col name='tru_nro_id_fiscal' title='${lbl:b_tax_identification_number}' width='7' align='left' />
+			<col name='tru_direccion' title='${lbl:b_address}' width='7' align='left' format='######' />
+			<col name='tru_email' title='${lbl:s_profile_email}' width='7' align='left' />
+			<col name='tru_telefono_fijo' title='${lbl:b_fixed_phone}' width='7' align='left' />
+			<col name='tru_telefono_movil' title='${lbl:b_mobile_phone}' width='7' align='left' />
+			<col name='tru_fecha_registro' title='${lbl:b_store_date}' width='7' align='left' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

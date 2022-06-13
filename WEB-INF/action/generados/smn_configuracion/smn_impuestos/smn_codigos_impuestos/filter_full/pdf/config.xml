@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncodigosimpuestos.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_taxes}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='imp_codigo' title='${lbl:b_code}'  align='center' />
+		</record>
+		<table recordset='query-smncodigosimpuestos.sql' width='100' spacingBefore='10'>
+			<col name='imp_codigo' title='${lbl:b_code}' width='5' align='left' />
+			<col name='imp_descripcion' title='${lbl:b_description}' width='5' align='left' />
+			<col name='imp_tipo_codigo_combo' title='${lbl:b_code_type}' width='5' align='left' />
+			<col name='imp_modalidad_registro_combo' title='${lbl:b_where_is_registered}' width='5' align='left' />
+			<col name='imp_porcentaje_base' title='${lbl:b_base_percentage}' width='5' align='left' format='#,###,##0.00' />
+			<col name='imp_porcentaje_calculo' title='${lbl:b_calculation_percentage}' width='5' align='left' format='#,###,##0.00' />
+			<col name='imp_tipo_libro_combo' title='${lbl:b_book_type}' width='5' align='left' />
+			<col name='imp_tipo_persona_combo' title='${lbl:b_kind_of_person}' width='5' align='left' />
+			<col name='imp_tipo_contribuyente_combo' title='${lbl:b_type_of_taxpayer}' width='5' align='left' />
+			<col name='imp_unidad_impositiva' title='${lbl:b_tax_unit}' width='5' align='left' format='######' />
+			<col name='imp_ui_minima' title='${lbl:b_minimum}' width='5' align='left' format='#,###,##0.00' />
+			<col name='imp_ui_maxima' title='${lbl:b_maximum}' width='5' align='left' format='#,###,##0.00' />
+			<col name='imp_ui_sustraendo' title='${lbl:b_subtrahend}' width='5' align='left' format='#,###,##0.00' />
+			<col name='imp_monto_minimo' title='${lbl:b_minimum}' width='5' align='left' format='#,###,##0.00' />
+			<col name='imp_monto_maximo' title='${lbl:b_maximum}' width='5' align='left' format='#,###,##0.00' />
+			<col name='imp_monto_sustraendo' title='${lbl:b_subtrahend} ${lbl:b_amount}' width='5' align='left' format='#,###,##0.00' />
+			<col name='imp_fecha_registro' title='${lbl:b_store_date}' width='5' align='left' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

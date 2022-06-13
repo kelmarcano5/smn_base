@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_franquicias>
+	<detail>
+		<rows>		
+		<record fra_fecha_registro="${fld:fra_fecha_registro}"    fra_descripcion="${fld:fra_descripcion}"    fra_codigo="${fld:fra_codigo}"    />
+		</rows>
+	</detail>
+</smn_franquicias>

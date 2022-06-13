@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnnivelestructura.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_nivel_estructura}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_nivel_estructura}">
+				<col id='smn_estructura_codigo_id_combo' label='${lbl:b_estructura_codigo}' />
+		<col id='nes_niveles' label='${lbl:b_levels}' />
+		<col id='nes_codigo' label='${lbl:b_code}' />
+		<col id='nes_nombre' label='${lbl:b_name}' />
+		<col id='nes_tipo_combo' label='${lbl:b_type}' />
+		<col id='nes_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

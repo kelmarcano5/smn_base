@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_organizational_structure}</summary>
+	<filter>
+		<row field='smn_configuracion_estructura_id' id='smn_configuracion_estructura_id' label='${lbl:b_structure_configuration}@{select smn_base.smn_configuracion_estructura.smn_configuracion_estructura_id as id, smn_base.smn_configuracion_estructura.coe_codigo || &apos; - &apos; || smn_base.smn_configuracion_estructura.coe_nombre as item from smn_base.smn_configuracion_estructura order by smn_base.smn_configuracion_estructura.coe_nombre}' required='NO' fk='coe_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_estructura_organizacional' len='10'/>
+		<row field='eor_codigo' id='eor_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_estructura_organizacional' len='24'/>
+		<row field='eor_nombre' id='eor_nombre' label='${lbl:b_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_estructura_organizacional' len='64'/>
+		<row field='eor_centro_costo' id='eor_centro_costo' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo || &apos; - &apos; || smn_base.smn_centro_costo.cco_descripcion_corta as item from smn_base.smn_centro_costo order by  smn_base.smn_centro_costo.cco_descripcion_corta}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_estructura_organizacional' len='2'/>
+		<row field='eor_clase_auxiliar' id='eor_clase_auxiliar' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo || &apos; - &apos; || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_estructura_organizacional' len='10'/>
+		<row field='eor_auxiliar' id='eor_auxiliar' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar.smn_codigo || &apos; - &apos; || smn_base.smn_v_auxiliar.smn_item as item from smn_base.smn_v_auxiliar order by smn_base.smn_v_auxiliar.smn_item}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_estructura_organizacional' len='10'/>
+		<row field='eor_fecha_registro' id='eor_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_estructura_organizacional' len='10'/>
+		<row field='eor_fecha_registro' id='eor_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_estructura_organizacional' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_configuracion_estructura_id' label='${lbl:b_structure_configuration}@{select smn_base.smn_configuracion_estructura.smn_configuracion_estructura_id as id, smn_base.smn_configuracion_estructura.coe_codigo || &apos; - &apos; || smn_base.smn_configuracion_estructura.coe_nombre as item from smn_base.smn_configuracion_estructura order by smn_base.smn_configuracion_estructura.coe_nombre}' fk='coe_codigo' tableName='smn_estructura_organizacional' len='10' type='integer' align='left'/>
+		<row field='eor_codigo' label='${lbl:b_code}' fk='' tableName='smn_estructura_organizacional' len='24' type='varchar' align='left'/>
+		<row field='eor_nombre' label='${lbl:b_name}' fk='' tableName='smn_estructura_organizacional' len='64' type='varchar' align='left'/>
+		<row field='eor_centro_costo' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo || &apos; - &apos; || smn_base.smn_centro_costo.cco_descripcion_corta as item from smn_base.smn_centro_costo order by  smn_base.smn_centro_costo.cco_descripcion_corta}' fk='' tableName='smn_estructura_organizacional' len='2' type='integer' align='left'/>
+		<row field='eor_clase_auxiliar' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo || &apos; - &apos; || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' fk='' tableName='smn_estructura_organizacional' len='10' type='integer' align='left'/>
+		<row field='eor_auxiliar' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar.smn_codigo || &apos; - &apos; || smn_base.smn_v_auxiliar.smn_item as item from smn_base.smn_v_auxiliar order by smn_base.smn_v_auxiliar.smn_item}' fk='' tableName='smn_estructura_organizacional' len='10' type='integer' align='left'/>
+		<row field='eor_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_estructura_organizacional' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

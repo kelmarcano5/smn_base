@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator>
+	<parameter id='smn_estructura_organizacional_id' type='integer' required='true' label='${lbl:b_organizational_structure}' maxlen='10'/>
+	<parameter id='smn_configuracion_estructura_id' type='integer' required='true' label='${lbl:b_structure_configuration}@{select smn_base.smn_configuracion_estructura.smn_configuracion_estructura_id as id, smn_base.smn_configuracion_estructura.coe_codigo || " - " || smn_base.smn_configuracion_estructura.coe_nombre as item from smn_base.smn_configuracion_estructura order by smn_base.smn_configuracion_estructura.coe_nombre}' maxlen='10'/>
+	<parameter id='eor_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='24'/>
+	<parameter id='eor_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='64'/>
+	<parameter id='eor_centro_costo' type='integer' required='true' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo || " - " || smn_base.smn_centro_costo.cco_descripcion_corta as item from smn_base.smn_centro_costo order by  smn_base.smn_centro_costo.cco_descripcion_corta}' maxlen='2'/>
+	<parameter id='eor_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo || " - " || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' maxlen='10'/>
+	<parameter id='eor_auxiliar' type='integer' required='true' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar.smn_codigo || " - " || smn_base.smn_v_auxiliar.smn_item as item from smn_base.smn_v_auxiliar order by smn_base.smn_v_auxiliar.smn_item}' maxlen='10'/>
+	<parameter id='eor_idioma' type='varchar' required='true' label='${lbl:s_profile_lang}@{${def:locale}}' maxlen='2'/>
+	<parameter id='eor_usuario' type='varchar' required='true' label='${lbl:b_users}@{${def:user}}' maxlen='10'/>
+	<parameter id='eor_fecha_registro' type='date' required='true' label='${lbl:b_store_date}@{${def:date}}' maxlen='10'/>
+	<parameter id='eor_hora' type='varchar' required='true' label='${lbl:s_loginhist_col2}@{${def:time}}' maxlen='8'/>
+</validator>

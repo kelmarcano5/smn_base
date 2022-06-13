@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='age_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='age_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='age_dia_semana' type='varchar' required='true' maxlen='2'/>
+	<parameter id='age_hora_desde' type='varchar' required='false' maxlen='5'/>
+	<parameter id='age_hora_hasta' type='varchar' required='false' maxlen='5'/>
+	<parameter id='age_localidad' type='varchar' required='false' maxlen='56'/>
+	<parameter id='age_jornada' type='varchar' required='true' maxlen='2'/>
+	<parameter id='age_frecuencia' type='double' required='false' maxlen='10'/>
+</validator>

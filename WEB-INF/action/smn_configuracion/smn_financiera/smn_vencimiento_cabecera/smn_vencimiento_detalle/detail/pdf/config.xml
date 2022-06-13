@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		<recordset id='detail-smndescuentosretenciones.sql' source='session' scope='transaction' />
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_detail_expiration}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_detail_expiration}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='query.sql' title='${lbl:b_detail_expiration}' width='60' spacingBefore='40'>
+			<col name='smn_vencimiento_cabecera_id' title='${lbl:b_header_expiration}' align='left' format='######' />
+			<col name='tvd_titulo' title='${lbl:b_tittle}' align='left' />
+			<col name='tvd_tipo_aplicacion' title='${lbl:b_application}' align='left' />
+			<col name='tvd_dias_desde' title='${lbl:b_day_init}' align='left' format='######' />
+			<col name='tvd_dias_hasta' title='${lbl:b_day_end}' align='left' format='######' />
+			<col name='tvd_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+		<table recordset='detail-smndescuentosretenciones.sql' width='100' spacingBefore='40'>
+			<col name='smn_descuentos_retenciones_id' title='${lbl:b_discount_tax}' width='10' align='left' format='######' />
+			<col name='dyr_codigo' title='${lbl:b_code}' width='10' align='left' />
+			<col name='dyr_descripcion' title='${lbl:b_description}' width='10' align='left' />
+			<col name='tve_codigo_pl0' title='${lbl:b_expiration_header}' width='10' align='left' />
+			<col name='dyr_apli_cant_precio' title='${lbl:b_apply_quantity_price}' width='10' align='left' />
+			<col name='dyr_porcentaje_base' title='${lbl:b_percentage_base}' width='10' align='left' format='#,###,##0.00' />
+			<col name='dyr_porcentaje_descuento' title='${lbl:b_percentage_discount}' width='10' align='left' format='#,###,##0.00' />
+			<col name='dyr_estatus' title='${lbl:b_status}' width='10' align='left' />
+			<col name='dyr_vigencia' title='${lbl:b_validity}' width='10' align='left' format='dd-MM-yyyy' />
+			<col name='dyr_fecha_registro' title='${lbl:b_store_date}' width='10' align='left' format='dd-MM-yyyy' />
+		</table>
+
+
+	</pdf-report>
+</config>

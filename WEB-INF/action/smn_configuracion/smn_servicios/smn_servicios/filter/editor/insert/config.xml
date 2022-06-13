@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Insertar registro 
+	</summary>
+
+	<log>false</log>
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>svc_codigo</colname>
+			<colname>svc_descripcion</colname>
+			<colname>smn_tipo_servicio_rf</colname>
+			<colname>svc_frecuencia</colname>
+			<colname>smn_unidad_medida_rf</colname>
+			<colname>smn_precio_moneda_local</colname>
+			<colname>smn_moneda_rf</colname>
+			<colname>smn_precio_moneda_alterna</colname>
+			<colname>smn_descuento_rf</colname>
+			<colname>svc_monto_desc_ml</colname>
+			<colname>svc_monto_desc_ma</colname>
+			<colname>svr_precio_neto</colname>
+			<colname>svc_precio_neto_ma</colname>
+			<colname>svc_req_prestador</colname>
+			<colname>smn_clase_auxiliar_rf</colname>
+			<colname>svc_requisitos</colname>
+			<colname>svc_vigencia_desde</colname>
+			<colname>svc_vigencia_hasta</colname>
+			<colname>smn_documento_general_rf</colname>
+			<colname>svc_inactivo</colname>
+			<colname>smn_grupo_titulo_impresion_rf</colname>
+			<colname>smn_baremos_id</colname>
+		
+		</cols>
+		<table>smn_base.smn_servicios</table>
+		<oper>AÑADIR</oper>
+		<area>Carga de datos</area>
+		<!--
+			query para obtener el ID generado o nombre de 
+			la columna que contiene el pkey, si es query, 
+			el alias del campo debe ser "id"
+		-->
+		<pkey>select ${seq:currval@smn_base.seq_smn_servicios} as id</pkey>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="nextval.sql" source="sql" scope="transaction" />
+		<!-- <recordset id="query-smn_servicios.sql" source="request" scope="transaction" /> -->
+	</transaction>
+
+	<query>insert.sql</query>
+	<!-- <query params="query-smn_servicios.sql">insert-query-smn_rel_servicio_area_unidad.sql</query> -->
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript</content-type>
+		<expiration>0</expiration>
+		<print mode="form" recordset="_request" />
+		<print mode="form" recordset="nextval.sql" />
+	</output>
+	
+	<!-- Envio de email declarativo -->
+	<mail enabled="false">
+		<subject>Subject</subject>
+		<mail-to>martin.cordova@gmail.com</mail-to>
+		<body>body.txt</body>
+	</mail>
+
+</config>

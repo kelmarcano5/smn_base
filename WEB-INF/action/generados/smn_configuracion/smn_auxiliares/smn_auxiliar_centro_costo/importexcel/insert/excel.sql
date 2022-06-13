@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_auxiliar_centro_costo
+(
+	smn_auxiliar_centro_costo_id,
+	tco_codigo,
+	tco_descripcion_corta,
+	tco_descripcion_larga,
+	tco_clase_auxiliar,
+	tco_auxiliar,
+	tco_responsable,
+	tco_tipo_cco,
+	tco_nivel,
+	tco_idioma,
+	tco_usuario,
+	tco_fecha_registro,
+	tco_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_auxiliar_centro_costo},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

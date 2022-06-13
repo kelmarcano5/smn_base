@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_grupos_prestadores_id_name' type='varchar' required='true' label='${lbl:b_group_of_provider}'/>
+	<parameter id='smn_grupos_prestadores_id' type='integer' required='false' label='${lbl:b_group_of_provider}' maxlen='10'/>
+	<parameter id='prs_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='prs_nombres' type='varchar' required='true' label='${lbl:s_profile_fname}' maxlen='32'/>
+	<parameter id='prs_apellidos' type='varchar' required='true' label='${lbl:s_profile_lname}' maxlen='32'/>
+	<parameter id='prs_area_servicio' type='integer' required='true' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='prs_unidad_servicio' type='integer' required='true' label='${lbl:b_service_unit}' maxlen='10'/>
+	<parameter id='prs_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='prs_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='prs_direccion' type='integer' required='true' label='${lbl:b_address}' maxlen='10'/>
+	<parameter id='prs_telefono_fijo' type='varchar' required='true' label='${lbl:b_fixed_phone}' maxlen='24'/>
+	<parameter id='prs_telefono_movil' type='varchar' required='true' label='${lbl:b_movile_phone}' maxlen='24'/>
+	<parameter id='prs_frecuencia' type='double' required='false' label='${lbl:b_frecuency}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.ArrayNotEmptyValidator' on-error-label='Seleccione al menos un ítem.' parameter-name='smn_agenda_id' id='smn_agenda_id'/>
+	<custom-validator classname='dinamica.validators.ArrayToRecordset' paramName='smn_agenda_id' recordsetId='query-smn_agenda.sql' colName='smn_agenda_id' colType='integer'/>
+</validator>

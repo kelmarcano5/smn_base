@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cnt_nombres' type='varchar' required='true' maxlen='100'/>
+	<parameter id='cnt_apellidos' type='varchar' required='true' maxlen='100'/>
+	<parameter id='cnt_email' type='varchar' required='true' maxlen='96'/>
+	<parameter id='smn_auxiliar_id' type='integer' required='true' maxlen='10'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='smn_tipo_contactos_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='cnt_descripcion' type='varchar' required='false' maxlen='100'/>
+	<parameter id='smn_tipo_contactos_rf1' type='integer' required='false' maxlen='10'/>
+	<parameter id='cnt_descripcion1' type='varchar' required='false' maxlen='255'/>
+	<parameter id='cnt_telefono_contacto' type='varchar' required='false' maxlen='32'/>
+</validator>

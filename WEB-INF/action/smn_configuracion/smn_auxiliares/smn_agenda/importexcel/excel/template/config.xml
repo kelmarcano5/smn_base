@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnagenda-template.sql" source="sql" scope="transaction" />
+		<recordset id="query-agediasemana.sql" source="sql" scope="transaction" />
+		<recordset id="query-agejornadadesde.sql" source="sql" scope="transaction" />
+		<recordset id="query-agejornadahasta.sql" source="sql" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_auxiliares.smn_agenda.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_timetable}.xls'      
+		header-background='true' >
+		
+	<sheet recordset="query-smnagenda-template.sql" sheetname="${lbl:b_timetable}">
+		
+		<col id='age_codigo' label='${lbl:b_code}' />
+		<col id='age_descripcion' label='${lbl:b_description}' />
+		<col id='age_dia_semana_combo' label='${lbl:b_weekday}' />
+		<col id='age_hora_desde' label='${lbl:b_time_since}' />
+		<col id='age_jornada_desde_combo' label='${lbl:b_working_day_from}' />
+		<col id='age_hora_hasta' label='${lbl:b_time_until}' />
+		<col id='age_jornada_hasta_combo' label='${lbl:b_working_day_until}' />
+		<col id='age_localidad' label='${lbl:b_location}' />
+				
+		<col id='age_dia_semana_combo_reference' label='${lbl:b_weekday}' />
+		<col id='age_jornada_desde_combo_reference' label='${lbl:b_working_day_from}' />
+		<col id='age_jornada_hasta_combo_reference' label='${lbl:b_working_day_until}' />
+		
+	</sheet>
+	
+	<sheet recordset='query-agediasemana.sql' sheetname='${lbl:b_weekday}'>
+		<col id='dia_semana' label='${lbl:b_weekday}' />
+	</sheet>
+	
+	<sheet recordset='query-agejornadadesde.sql' sheetname='${lbl:b_working_day_from}'>
+		<col id='jornada_desde' label='${lbl:b_working_day_from}' />
+	</sheet>
+	
+	<sheet recordset='query-agejornadahasta.sql' sheetname='${lbl:b_working_day_until}'>
+		<col id='jornada_hasta' label='${lbl:b_working_day_until}' />
+	</sheet>
+	
+	</excel>
+
+</config>

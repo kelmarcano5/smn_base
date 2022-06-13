@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_terceros_id_name' type='varchar' required='true' label='${lbl:b_outsourced_company}'/>
+	<parameter id='smn_terceros_id' type='integer' required='false' label='${lbl:b_outsourced_company}' maxlen='10'/>
+	<parameter id='trc_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='trc_descripcion_corta' type='varchar' required='true' label='${lbl:b_short_description}' maxlen='32'/>
+	<parameter id='trc_descripcion_larga' type='varchar' required='true' label='${lbl:b_long_description}' maxlen='48'/>
+	<parameter id='trc_responsable' type='varchar' required='true' label='${lbl:b_responsible}' maxlen='48'/>
+	<parameter id='trc_tipo_cco' type='varchar' required='true' label='${lbl:b_type}' maxlen='2'/>
+	<parameter id='trc_nivel' type='integer' required='true' label='${lbl:b_level}' maxlen='2'/>
+	<parameter id='trc_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='trc_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_cost_centers}' maxlen='10'/>
+</validator>
+

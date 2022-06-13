@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='alm_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='alm_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='alm_empresa_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='alm_unidad_negocio_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='alm_sucursal_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='alm_area_servicio_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='alm_unidad_servicio_desc' type='varchar' required='false' maxlen='48'/>
+
+	<parameter id='alm_empresa_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='alm_unidad_negocio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='alm_sucursal_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='alm_area_servicio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='alm_unidad_servicio_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='alm_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='alm_nombre'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: alm_empresa' 
+		parameter='alm_empresa_ref' 
+		sql='alm_empresa.sql' 
+		id='alm_empresa_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: alm_unidad_negocio' 
+		parameter='alm_unidad_negocio_ref' 
+		sql='alm_unidad_negocio.sql' 
+		id='alm_unidad_negocio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: alm_sucursal' 
+		parameter='alm_sucursal_ref' 
+		sql='alm_sucursal.sql' 
+		id='alm_sucursal_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: alm_area_servicio' 
+		parameter='alm_area_servicio_ref' 
+		sql='alm_area_servicio.sql' 
+		id='alm_area_servicio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: alm_unidad_servicio' 
+		parameter='alm_unidad_servicio_ref' 
+		sql='alm_unidad_servicio.sql' 
+		id='alm_unidad_servicio_ref'/>
+
+</validator>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smngrupoprestadorserviciofrecuencia.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_groups_providers_services_frecuency}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_groups_providers_services_frecuency}">
+				<col id='gpp_codigo_pl0' label='${lbl:b_groups_of_providers}' />
+		<col id='prs_codigo_pl1' label='${lbl:b_service_provider}' />
+		<col id='svc_codigo_pl2' label='${lbl:b_service}' />
+		<col id='gps_frecuencia' label='${lbl:b_frecuency}' />
+		<col id='gps_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

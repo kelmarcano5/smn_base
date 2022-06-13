@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog" id="encabezado_tabla">
+	${lbl:b_parishes}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+			<tr>
+		<td>${lbl:b_municipality}*</td>
+		<td>
+			<select name="prr_municipios" id="prr_municipios" onchange="chgCombo(prr_municipios.options[prr_municipios.selectedIndex].text,'prr_municipios_name');">
+				<option value="">[${lbl:b_choose}]</option>
+				<prr_municipios_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</prr_municipios_rows>
+			</select> 
+			<input id="prr_municipios_name" name="prr_municipios_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="prr_codigo" name="prr_codigo" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_short_name}*</td>
+			<td>
+				<input id="prr_nombre_corto" name="prr_nombre_corto" type="text" maxlength="24" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_long_name}*</td>
+			<td>
+				<input id="prr_nombre_largo" name="prr_nombre_largo" type="text" maxlength="48" >
+			</td>
+		</tr>
+
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+
+		if (id!="")
+			edit(id);
+	} 
+	
+	//Author     : SIMONE
+	//Description: Set first element as selected value
+	//Return     : None
+	function setElementFirstIndex(id)
+	{
+		var combo = document.getElementById(id);
+		combo.selectedIndex = 0;
+	}
+
+	//Author     : SIMONE
+	//Description: Insert new value into combo box
+	//Return     : None
+	function insertComboBox(code, combo, description) {
+		var valueText = code;
+		if (description != null)
+		{
+			valueText = valueText + ' - ' + description;
+		}
+        combo.options[combo.options.length] = new Option(valueText);
+	}
+	
+	//Author     : SIMONE
+	//Description: Add new value to combo box
+	//Return     : None
+	function addValueToCombo(code, description, field) 
+	{
+	    var combo = document.getElementById(field);	    
+	    insertComboBox(code, combo, description);
+	}
+	
+	//Author     : SIMONE
+	//Description: Set selected index into combo box
+	//Return     : None
+	function setSelectedIndex(code, combo, description) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+			var valueText = code;
+			if (description != null)
+			{
+				valueText = valueText + ' - ' + description;
+			}
+	        if (combo.options[i].text == valueText) 
+	        {
+	        	combo.options[i].selected = true;
+	            return;
+	        }
+	    }
+	}
+	
+	//Author     : SIMONE
+	//Description: Get text valueof selected index
+	//Return     : Text associated to index
+	function getSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].text;
+	        }
+	    }
+	}
+	function getIDSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].value;
+	        }
+	    }
+	}
+	
+	var bdID;
+	function setID(id)
+	{
+		bdID = id;
+	}
+
+	//Author     : SIMONE
+	//Description: Set value to combo box
+	//Parameters : code - it is code associated into each database table 
+	//             descripcion - it is description associated into each database table 
+	//             field - name combo field
+	//             id - identifier retrieved after transaction
+	//             linked - flag indicates 'true' when combos are linked and 'false' otherwise
+	//Return     : None
+	function setValueComboBox(code, description, field, linked)
+	{
+		//add valur text to combo
+		addValueToCombo(code,description,field);
+
+		//get select object 
+		var combo = document.getElementById(field);
+		
+		//set element selected to field referenced
+		setSelectedIndex(code,combo, description);
+		
+		//set text value to combo field
+		var valueText = getSelectedIndex(combo);		
+		
+		//get hidden field in order to set any value
+		var combo = document.getElementById(field+'_name');
+		
+		combo.text  = valueText;
+		combo.value = bdID;
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert?reference=${fld:reference}",
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	function save()
+	{
+		//determina si es un insert o un update
+		var result;
+		if (document.form1.id.value=="")
+			result = insert();
+		else
+			result = update();
+			
+		if ('${fld:reference}' == 'true')
+		{
+			alert('${fld:reference} - ${fld:source}')			
+			var cod = document.form1.prr_codigo.value;	
+			var nom = document.form1.prr_nombre_corto.value;	
+			
+			if ('${fld:source}' == 'address')
+			{
+				alert('llama desde direccion')
+				parent.setValueComboBox(cod,
+										nom,
+										'dir_parroquia',
+										true);
+			}
+			else if ('${fld:source}' == 'postal_zone')
+			{
+				alert('llama desde zona postal')
+				parent.setValueComboBox(cod,
+										nom,
+										'zpo_parroquias',
+										false);
+			}
+		}
+				
+		return result;
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	
+</script>	
+</body>
+</html>

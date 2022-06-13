@@ -1,0 +1,1 @@
+select smn_base.smn_rel_aux_contacto.smn_rel_aux_contacto_id as id from smn_base.smn_rel_aux_contacto

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='tva_codigo' type='varchar' required='true' label='${lbl:b_tva_codigo}' maxlen='16'/>
+	<parameter id='tva_descripcion' type='varchar' required='true' label='${lbl:b_tva_descripcion}' maxlen='100'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_smn_tipo_variable_id}' maxlen='10'/>
+
+
+
+</validator>

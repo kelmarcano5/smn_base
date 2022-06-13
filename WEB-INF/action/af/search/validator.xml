@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='viewchart.filter' onerror='/action/error/validation/ajax'>
+	<parameter id='acf_fecha_registro' type='date' required='true' label='Fecha desde' maxlen='13'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[Fecha desde mayor o igual que] no puede ser mayor que [Fechahasta menor o igual que].' date1='acf_fecha_registro' date2='acf_fecha_registro2' id='acf_fecha_registro' />
+	<parameter id='acf_fecha_registro2' type='date' required='true' label='Fechahasta' maxlen='13'/>
+</validator>

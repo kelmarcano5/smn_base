@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_areas_servicios_id_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='uns_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='uns_descripcion' type='varchar' required='true' maxlen='48'/>
+	
+	<parameter id='smn_areas_servicios_id_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='uns_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='uns_descripcion'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: smn_areas_servicios' 
+		parameter='smn_areas_servicios_id_ref' 
+		sql='smn_areas_servicios_id.sql' 
+		id='smn_areas_servicios_id_ref'/>
+
+</validator>

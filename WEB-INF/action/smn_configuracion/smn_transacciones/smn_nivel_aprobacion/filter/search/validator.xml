@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_configuracion_estructura_id' type='integer' required='false' label='${lbl:b_configuracion_estructura}' maxlen='10'/>
+	<parameter id='nap_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='nap_codigo' rule='like' />
+	<parameter id='nap_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='nap_descripcion' rule='like' />
+	<parameter id='nap_rol' type='varchar' required='false' label='${lbl:b_role}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='nap_rol' rule='like' />
+	<parameter id='nap_fecha_registro' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

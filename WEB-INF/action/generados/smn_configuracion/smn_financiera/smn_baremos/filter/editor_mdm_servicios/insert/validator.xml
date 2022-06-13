@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='bar_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='bar_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='bar_entidad' type='integer' required='true' label='${lbl:b_entity}' maxlen='2'/>
+	<parameter id='bar_vigencia_desde' type='date' required='true' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<parameter id='bar_vigencia_hasta' type='date' required='true' label='${lbl:b_validation_date_to}' maxlen='10'/>
+	<parameter id='smn_servicios_id' type='varchar' required='true' label='Ítems'/>
+	<custom-validator classname='dinamica.validators.StringToRecordset' paramName='smn_servicios_id' recordsetId='query-smn_servicios.sql' separatorChar=';' colName='smn_servicios_id' colType='integer'/>
+</validator>

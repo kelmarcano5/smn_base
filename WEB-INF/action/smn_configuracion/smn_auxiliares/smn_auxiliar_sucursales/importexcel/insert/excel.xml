@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='trs_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='trs_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='trs_auxiliar_unidad_negocio_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='trs_responsable' type='varchar' required='true' maxlen='48'/>
+	<parameter id='trs_direccion_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='trs_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='trs_telefono_movil' type='varchar' required='true' maxlen='24'/>
+	<parameter id='trs_email' type='varchar' required='true' maxlen='96'/>
+	
+	<parameter id='trs_auxiliar_unidad_negocio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='trs_direccion_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='trs_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='trs_nombre'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: trs_auxiliar_unidad_negocio' 
+		parameter='trs_auxiliar_unidad_negocio_ref' 
+		sql='trs_auxiliar_unidad_negocio.sql' 
+		id='trs_auxiliar_unidad_negocio_ref'/>
+		
+		<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: trs_direccion' 
+		parameter='trs_direccion_ref' 
+		sql='trs_direccion.sql' 
+		id='trs_direccion_ref'/>
+</validator>

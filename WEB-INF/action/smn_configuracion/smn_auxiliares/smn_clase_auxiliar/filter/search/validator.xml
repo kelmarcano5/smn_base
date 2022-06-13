@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='cla_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cla_codigo' rule='contains' />
+	<parameter id='cla_nombre' type='varchar' required='false' label='${lbl:b_name}' maxlen='48'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cla_nombre' rule='contains' />
+	<parameter id='cla_modulo' type='integer' required='false' label='${lbl:b_module}' maxlen='3'/>
+	<parameter id='cla_naturaleza' type='integer' required='false' label='${lbl:b_nature}' maxlen='10'/>
+	<parameter id='cla_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='cla_fecha_registro_ini' date2='cla_fecha_registro_fin' id='cla_fecha_registro_ini' />
+	<parameter id='cla_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

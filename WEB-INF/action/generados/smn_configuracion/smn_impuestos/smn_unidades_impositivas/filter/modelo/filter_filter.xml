@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_tax_units}</summary>
+	<filter>
+		<row field='uim_codigo' id='uim_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_unidades_impositivas' len='16'/>
+		<row field='uim_descripcion' id='uim_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_unidades_impositivas' len='48'/>
+		<row field='uim_moneda_referencia' id='uim_moneda_referencia' label='${lbl:b_referenced_coin}@{select smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || &apos; - &apos; || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by smn_base.smn_monedas.mon_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_unidades_impositivas' len='10'/>
+		<row field='uim_fecha_registro' id='uim_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_unidades_impositivas' len='10'/>
+		<row field='uim_fecha_registro' id='uim_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_unidades_impositivas' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='uim_codigo' label='${lbl:b_code}' fk='' tableName='smn_unidades_impositivas' len='16' type='varchar' align='left'/>
+		<row field='uim_descripcion' label='${lbl:b_description}' fk='' tableName='smn_unidades_impositivas' len='48' type='varchar' align='left'/>
+		<row field='uim_moneda_referencia' label='${lbl:b_referenced_coin}@{select smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || &apos; - &apos; || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by smn_base.smn_monedas.mon_nombre}' fk='' tableName='smn_unidades_impositivas' len='10' type='integer' align='left'/>
+		<row field='uim_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_unidades_impositivas' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

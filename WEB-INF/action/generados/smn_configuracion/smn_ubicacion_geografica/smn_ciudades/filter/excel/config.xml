@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnciudades.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnciudades.sql' sheetname='${lbl:b_cities}' filename='filter.xls'>
+		<col id='ciu_entidades_federales' label='${lbl:b_federal_entity}' />
+		<col id='ciu_codigo' label='${lbl:b_code}' />
+		<col id='ciu_nombre_corto' label='${lbl:b_short_name}' />
+		<col id='ciu_nombre_largo' label='${lbl:b_long_name}' />
+		<col id='ciu_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

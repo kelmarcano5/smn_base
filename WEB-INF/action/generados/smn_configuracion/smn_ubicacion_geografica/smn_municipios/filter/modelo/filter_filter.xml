@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_municipalities}</summary>
+	<filter>
+		<row field='mun_ciudades' id='mun_ciudades' label='${lbl:b_city}@{select smn_base.smn_ciudades.smn_ciudades_id as id, smn_base.smn_ciudades.ciu_codigo || &apos; - &apos; || smn_base.smn_ciudades.ciu_nombre_corto as item from smn_base.smn_ciudades order by smn_base.smn_ciudades.ciu_nombre_corto}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_municipios' len='10'/>
+		<row field='mun_codigo' id='mun_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_municipios' len='16'/>
+		<row field='mun_nombre_largo' id='mun_nombre_largo' label='${lbl:b_long_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_municipios' len='48'/>
+		<row field='mun_fecha_registro' id='mun_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_municipios' len='10'/>
+		<row field='mun_fecha_registro' id='mun_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_municipios' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='mun_ciudades' label='${lbl:b_city}@{select smn_base.smn_ciudades.smn_ciudades_id as id, smn_base.smn_ciudades.ciu_codigo || &apos; - &apos; || smn_base.smn_ciudades.ciu_nombre_corto as item from smn_base.smn_ciudades order by smn_base.smn_ciudades.ciu_nombre_corto}' fk='' tableName='smn_municipios' len='10' type='integer' align='left'/>
+		<row field='mun_codigo' label='${lbl:b_code}' fk='' tableName='smn_municipios' len='16' type='varchar' align='left'/>
+		<row field='mun_nombre_corto' label='${lbl:b_short_name}' fk='' tableName='smn_municipios' len='24' type='varchar' align='left'/>
+		<row field='mun_nombre_largo' label='${lbl:b_long_name}' fk='' tableName='smn_municipios' len='48' type='varchar' align='left'/>
+		<row field='mun_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_municipios' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

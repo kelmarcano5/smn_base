@@ -1,0 +1,3 @@
+<rows>
+uim_fecha_registro="${fld:uim_fecha_registro}"    mon_nombre="${fld:mon_nombre}"    uim_descripcion="${fld:uim_descripcion}"    uim_codigo="${fld:uim_codigo}"    
+</rows>

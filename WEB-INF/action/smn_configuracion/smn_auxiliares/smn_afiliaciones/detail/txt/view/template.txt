@@ -1,0 +1,3 @@
+<rows>
+afc_fecha_registro="${fld:afc_fecha_registro}"    ptz_descripcion="${fld:ptz_descripcion}"    afc_es_titular="${fld:afc_es_titular}"    mod_nombre="${fld:mod_nombre}"    ant_apellidos="${fld:ant_apellidos}"    afc_descripcion="${fld:afc_descripcion}"    afc_codigo="${fld:afc_codigo}"    
+</rows>

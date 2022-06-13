@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnservicios.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_service}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_service}">
+				<col id='svc_codigo' label='${lbl:b_code}' />
+		<col id='svc_descripcion' label='${lbl:b_description}' />
+		<col id='smn_tipo_servicio_rf' label='${lbl:b_service_type}' />
+		<col id='svc_frecuencia' label='${lbl:b_frecuency}' />
+		<col id='smn_unidad_medida_rf' label='${lbl:b_measurement_unit}' />
+		<col id='smn_precio_moneda_local' label='${lbl:b_coin_local_price}' />
+		<col id='smn_moneda_rf' label='${lbl:b_coin}' />
+		<col id='smn_precio_moneda_alterna' label='${lbl:b_coin_altern_price}' />
+		<col id='smn_descuento_rf' label='${lbl:b_discount}' />
+		<col id='svc_monto_desc_ml' label='${lbl:b_amount_desc_ml}' />
+		<col id='svc_monto_desc_ma' label='${lbl:b_amount_desc_ma}' />
+		<col id='svr_precio_neto' label='${lbl:b_price_net}' />
+		<col id='svc_precio_neto_ma' label='${lbl:b_price_net_ma}' />
+		<col id='svc_req_prestador' label='${lbl:b_require_providers_group}' />
+		<col id='smn_clase_auxiliar_rf' label='${lbl:b_auxiliary_class}' />
+		<col id='svc_requisitos' label='${lbl:b_requirements}' />
+		<col id='svc_vigencia_desde' label='${lbl:b_validation_date_from}' />
+		<col id='svc_vigencia_hasta' label='${lbl:b_validation_date_to}' />
+		<col id='smn_documento_general_rf' label='${lbl:b_documents_general}' />
+		<col id='svc_inactivo' label='${lbl:b_inactive}' />
+		<col id='svc_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

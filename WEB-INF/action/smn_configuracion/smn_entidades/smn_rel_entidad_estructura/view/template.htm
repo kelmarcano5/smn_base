@@ -1,0 +1,46 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_entidades_id","query-smnrelentidadestructura.sql")'>${lbl:b_entities}</th>
+		<th class='sortable' onclick='sortBy("smn_configuracion_estructura_id","query-smnrelentidadestructura.sql")'>${lbl:b_structure_organizational}</th>
+		<th class='sortable' onclick='sortBy("rec_status","query-smnrelentidadestructura.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("rec_fecha_registro","query-smnrelentidadestructura.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_rel_entidad_estructura_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_rel_entidad_estructura_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_rel_entidad_estructura_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_entidades_id}</td>
+		<td>${fld:smn_configuracion_estructura_id}</td>
+		<td>${fld:rec_status}</td>
+		<td>${fld:rec_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

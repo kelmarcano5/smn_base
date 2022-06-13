@@ -1,0 +1,3 @@
+<rows>
+sec_fecha_registro="${fld:sec_fecha_registro}"    sec_descripcion="${fld:sec_descripcion}"    sec_codigo="${fld:sec_codigo}"    
+</rows>

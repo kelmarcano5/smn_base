@@ -1,0 +1,3 @@
+<rows>
+eue_fecha_registro="${fld:eue_fecha_registro}"    eue_aplica_auxiliar_uen="${fld:eue_aplica_auxiliar_uen}"    eue_aplica_uen="${fld:eue_aplica_uen}"    
+</rows>

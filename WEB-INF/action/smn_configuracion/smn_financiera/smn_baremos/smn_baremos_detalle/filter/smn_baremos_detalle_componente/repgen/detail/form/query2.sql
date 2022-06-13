@@ -1,0 +1,19 @@
+select
+		smn_base.smn_baremos_detalle_componente.smn_baremos_detalle_id,
+	smn_base.smn_baremos_detalle_componente.smn_tipo_compuesto_rf,
+	smn_base.smn_baremos_detalle_componente.smn_componente_rf,
+	smn_base.smn_baremos_detalle_componente.smn_almacen_rf,
+	smn_base.smn_baremos_detalle_componente.smn_item_rf,
+	smn_base.smn_baremos_detalle_componente.smn_forma_calculo_rf,
+	smn_base.smn_baremos_detalle_componente.smn_porcentaje_rf,
+	smn_base.smn_baremos_detalle_componente.bdc_cantidad,
+	smn_base.smn_baremos_detalle_componente.bdc_precio_ml,
+	smn_base.smn_baremos_detalle_componente.bdc_monto_ml,
+	smn_base.smn_baremos_detalle_componente.smn_moneda_rf,
+	smn_base.smn_baremos_detalle_componente.bdc_precio_ma,
+	smn_base.smn_baremos_detalle_componente.bdc_monto_ma,
+	smn_base.smn_baremos_detalle_componente.bdc_fecha_registro
+from
+	smn_base.smn_baremos_detalle_componente 
+where
+	smn_base.smn_baremos_detalle_componente.smn_baremos_detalle_componente_id = ${fld:id}

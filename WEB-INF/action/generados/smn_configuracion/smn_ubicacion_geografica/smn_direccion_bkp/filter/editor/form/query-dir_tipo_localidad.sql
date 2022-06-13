@@ -1,0 +1,1 @@
+select smn_base.smn_tipo_localidad.smn_tipo_localidad_id as id, smn_base.smn_tipo_localidad.til_codigo || ' - ' || smn_base.smn_tipo_localidad.til_descripcion as item from smn_base.smn_tipo_localidad order by 2

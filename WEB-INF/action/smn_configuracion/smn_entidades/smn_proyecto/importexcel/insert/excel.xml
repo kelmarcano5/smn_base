@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='pry_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='pry_nombre' type='varchar' required='true' maxlen='256'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='pry_fecha_inicio' type='date' required='true' maxlen='10'/>
+	<parameter id='pry_estatus' type='varchar' required='true' maxlen='2'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='pry_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='pry_nombre'/>
+
+
+</validator>

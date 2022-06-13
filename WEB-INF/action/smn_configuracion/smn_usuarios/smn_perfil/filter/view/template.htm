@@ -1,0 +1,48 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<!--<col width='9%'/>-->
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='12%'/>
+	<col width='9%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("nombre_perfil","query-smnperfil.sql")'>${lbl:b_name}</th>
+		<th class='sortable' onclick='sortBy("rol","query-smnperfil.sql")'>${lbl:b_rol}</th>
+		<th class='sortable' onclick='sortBy("prf_tipo_acceso","query-smnperfil.sql")'>${lbl:b_type_access}</th>
+		
+		<th class='sortable' onclick='sortBy("prf_fecha_registro","query-smnperfil.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_perfil_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_perfil_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_perfil_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:nombre_perfil}</td>
+		<td>${fld:rol}</td>
+		<td>${fld:prf_tipo_acceso}</td>
+		<td>${fld:prf_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

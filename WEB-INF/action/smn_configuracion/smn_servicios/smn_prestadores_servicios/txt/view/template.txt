@@ -1,0 +1,13 @@
+<rows>
+		prs_fecha_registro="${fld:prs_fecha_registro}"   
+		 prs_frecuencia="${fld:prs_frecuencia}"    
+		 prs_fecha_inicio_estatus="${fld:prs_fecha_inicio_estatus}"    
+		 prs_fecha_final_estatus="${fld:prs_fecha_final_estatus}"   
+		  prs_estatus="${fld:prs_estatus}"    
+		 smn_item="${fld:smn_item}"   
+		  smn_clase_auxiliar_rf="${fld:smn_clase_auxiliar_rf}"    
+		  uns_descripcion="${fld:uns_descripcion}"    
+		  ase_descripcion="${fld:ase_descripcion}" 
+		  prs_descripcion="${fld:prs_descripcion}"  
+		  prs_codigo="${fld:prs_codigo}"     
+</rows>

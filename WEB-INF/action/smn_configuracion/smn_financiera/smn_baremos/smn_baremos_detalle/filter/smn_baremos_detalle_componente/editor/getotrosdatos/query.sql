@@ -1,0 +1,10 @@
+SELECT smn_base.smn_componentes.cmp_cantidad as cant, smn_base.smn_componentes.cmp_monto_moneda_local as mont_local, smn_base.smn_componentes.cmp_porcentaje as porc,
+smn_base.smn_baremos_detalle.bad_precio_moneda_local as prec_local, smn_base.smn_componentes.cmp_porcentaje*smn_base.smn_baremos_detalle.bad_precio_moneda_local/100 as prec2,
+  smn_base.smn_componentes.cmp_forma_calculo AS CALCULO,
+ smn_base.smn_componentes.cmp_precio_moneda_local as prec_local_comp,
+smn_base.smn_componentes.cmp_monto_moneda_local as mont_local_comp,
+smn_base.smn_baremos_detalle.smn_baremos_detalle_id as id_detalle
+FROM smn_base.smn_componentes
+inner join smn_base.smn_servicios_componentes on smn_base.smn_servicios_componentes.smn_componentes_id = smn_base.smn_componentes.smn_componentes_id
+inner join smn_base.smn_baremos_detalle on smn_base.smn_baremos_detalle.smn_servicios_rf = smn_base.smn_servicios_componentes.smn_servicios_id
+where smn_base.smn_componentes.smn_componentes_id=${fld:id}

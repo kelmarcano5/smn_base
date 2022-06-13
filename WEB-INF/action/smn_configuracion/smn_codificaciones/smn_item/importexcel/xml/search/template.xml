@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_item>
+	<detail>
+		<rows>		
+		<record itm_fecha_registro="${fld:itm_fecha_registro}"    smn_almacenado="${fld:smn_almacenado}"    itm_proveedor_exclusivo="${fld:itm_proveedor_exclusivo}"    itm_nombre="${fld:itm_nombre}"    itm_codigo="${fld:itm_codigo}"    itm_fecha_registro="${fld:itm_fecha_registro}"    smn_almacenado="${fld:smn_almacenado}"    itm_proveedor_exclusivo="${fld:itm_proveedor_exclusivo}"    itm_nombre="${fld:itm_nombre}"    itm_codigo="${fld:itm_codigo}"    />
+		</rows>
+	</detail>
+</smn_item>

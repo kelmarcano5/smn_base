@@ -1,0 +1,8 @@
+select
+	smn_base.smn_unidades_impositivas.uim_codigo,
+	smn_base.smn_unidades_impositivas.uim_descripcion,
+	smn_base.smn_unidades_impositivas.uim_moneda_referencia,
+	smn_base.smn_unidades_impositivas.uim_fecha_registro
+
+from 
+	smn_base.smn_unidades_impositivas

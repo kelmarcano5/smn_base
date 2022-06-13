@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net.java.amateras.db.visual.model.RootModel>
+  <listeners serialization="custom">
+    <java.beans.PropertyChangeSupport>
+      <default>
+        <source class="net.java.amateras.db.visual.model.RootModel" reference="../../../.."/>
+        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+      </default>
+      <null/>
+    </java.beans.PropertyChangeSupport>
+  </listeners>
+  <children>
+    <net.java.amateras.db.visual.model.TableModel>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.db.visual.model.TableModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>-1</height>
+        <width>-1</width>
+        <x>37</x>
+        <y>24</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <error></error>
+      <linkedPath></linkedPath>
+      <tableName>smn_conexiones</tableName>
+      <logicalName>Tabla1</logicalName>
+      <description>${lbl:b_coneccion_bd}</description>
+      <columns>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>smn_conexiones_bd_id</columnName>
+          <logicalName>Columna1</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>INTEGER</name>
+            <logicalName>Integer</logicalName>
+            <supportSize>false</supportSize>
+            <type>4</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>true</primaryKey>
+          <description>${lbl:b_coneccion_bd}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_sistema</columnName>
+          <logicalName>Columna2</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>VARCHAR</name>
+            <logicalName>String</logicalName>
+            <supportSize>true</supportSize>
+            <type>12</type>
+          </columnType>
+          <size>64</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_system}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_descripcion</columnName>
+          <logicalName>Columna3</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>VARCHAR</name>
+            <logicalName>String</logicalName>
+            <supportSize>true</supportSize>
+            <type>12</type>
+          </columnType>
+          <size>100</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_description}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>smn_entidad_rf</columnName>
+          <logicalName>Columna4</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>INTEGER</name>
+            <logicalName>Integer</logicalName>
+            <supportSize>false</supportSize>
+            <type>4</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_company}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || &apos; - &apos; || smn_base.smn_entidades.ent_descripcion_larga as item from smn_base.smn_entidades order by smn_base.smn_entidades.ent_descripcion_larga}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>smn_sucursal_rf</columnName>
+          <logicalName>Columna5</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[4]/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_subsidiary}@{select smn_base.smn_sucursales.smn_sucursales_id as id, smn_base.smn_sucursales.suc_codigo || &apos; - &apos; || smn_base.smn_sucursales.suc_nombre as item from smn_base.smn_sucursales order by smn_base.smn_sucursales.suc_nombre}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_ip_servidor</columnName>
+          <logicalName>Columna6</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+          <size>64</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_ip_server}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_hostname_instancia</columnName>
+          <logicalName>Columna7</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+          <size>64</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_server_name}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_nombre_bd</columnName>
+          <logicalName>Columna8</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+          <size>64</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_database_name}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_usuario_bd</columnName>
+          <logicalName>Columna9</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+          <size>64</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_database_user}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_clave_bd</columnName>
+          <logicalName>Columna10</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+          <size>64</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_database_password}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_puerto_bd</columnName>
+          <logicalName>Columna11</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+          <size>64</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_database_port}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_estatus</columnName>
+          <logicalName>Columna12</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>CHARACTER</name>
+            <logicalName>Character</logicalName>
+            <supportSize>true</supportSize>
+            <type>1</type>
+          </columnType>
+          <size>2</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_status}@{AC=${lbl:b_active}||IN=${lbl:b_inactive}}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_vigencia</columnName>
+          <logicalName>Columna13</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>DATE</name>
+            <logicalName>Date</logicalName>
+            <supportSize>false</supportSize>
+            <type>91</type>
+          </columnType>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_effectivity_date}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_idioma</columnName>
+          <logicalName>Columna14</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[12]/columnType"/>
+          <size>2</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:s_profile_lang}@{${def:locale}}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_usuario</columnName>
+          <logicalName>Columna15</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_users}@{${def:user}}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_fecha_registro</columnName>
+          <logicalName>Columna16</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[13]/columnType"/>
+          <size>10</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:b_store_date}@{${def:date}}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>con_hora</columnName>
+          <logicalName>Columna17</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[12]/columnType"/>
+          <size>8</size>
+          <notNull>true</notNull>
+          <primaryKey>false</primaryKey>
+          <description>${lbl:s_loginhist_col2}@{${def:time}}</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+      </columns>
+      <indices/>
+      <backgroundColor>
+        <red>224</red>
+        <green>224</green>
+        <blue>224</blue>
+      </backgroundColor>
+      <sql></sql>
+      <isSP>false</isSP>
+    </net.java.amateras.db.visual.model.TableModel>
+  </children>
+  <dommains/>
+  <dialectName>DB2</dialectName>
+  <logicalMode>false</logicalMode>
+  <jarFile>C:\tomcat7\lib\postgresql-9.4.1209.jar</jarFile>
+  <jdbcDriver>org.postgresql.Driver</jdbcDriver>
+  <jdbcUrl>jdbc:postgresql://localhost:5432/simonedb_qa</jdbcUrl>
+  <jdbcUser>postgres</jdbcUser>
+  <jdbcPassword>postgres</jdbcPassword>
+  <jdbcSchema>smn_base</jdbcSchema>
+  <jdbcCatalog></jdbcCatalog>
+  <includeView>false</includeView>
+  <includeSP>false</includeSP>
+</net.java.amateras.db.visual.model.RootModel>

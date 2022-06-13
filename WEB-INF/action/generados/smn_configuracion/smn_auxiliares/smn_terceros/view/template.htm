@@ -1,0 +1,34 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="4">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("ter_auxiliar_categoria","query-smnterceros.sql")'>${lbl:b_auxiliary_category}</th>
+		<th class='sortable' onclick='sortBy("ter_descripcion_corta","query-smnterceros.sql")'>${lbl:b_short_description}</th>
+		<th class='sortable' onclick='sortBy("ter_descripcion_larga","query-smnterceros.sql")'>${lbl:b_long_description}</th>
+		<th class='sortable' onclick='sortBy("ter_fecha_registro","query-smnterceros.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:ter_auxiliar_categoria}</td>
+		<td align='left'>${fld:ter_descripcion_corta}</td>
+		<td align='left'>${fld:ter_descripcion_larga}</td>
+		<td>${fld:ter_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_unidades_negocios
+(
+	smn_unidades_negocios_id,
+	smn_entidades_id,
+	uen_codigo,
+	uen_nombre,
+	uen_responsable,
+	uen_direccion,
+	uen_telefono_fijo,
+	uen_telefono_movil,
+	uen_email,
+	uen_idioma,
+	uen_usuario,
+	uen_fecha_registro,
+	uen_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_unidades_negocios},
+	${fld:smn_entidades_id},
+	${fld:uen_codigo},
+	${fld:uen_nombre},
+	${fld:uen_responsable},
+	${fld:uen_direccion},
+	${fld:uen_telefono_fijo},
+	${fld:uen_telefono_movil},
+	${fld:uen_email},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

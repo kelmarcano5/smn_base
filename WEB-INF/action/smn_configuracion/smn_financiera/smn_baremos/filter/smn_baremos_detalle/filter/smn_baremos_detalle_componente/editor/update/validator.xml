@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_baremos_detalle_id' type='integer' required='true' label='${lbl:b_baremos_detail}' maxlen='10'/>
+	<parameter id='smn_tipo_compuesto_rf' type='varchar' required='true' label='${lbl:b_type}' maxlen='2'/>
+	<parameter id='smn_componente_rf' type='integer' required='true' label='${lbl:b_components}' maxlen='10'/>
+	<parameter id='smn_almacen_rf' type='integer' required='false' label='${lbl:b_store_code}' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='false' label='${lbl:b_item}' maxlen='10'/>
+	<parameter id='smn_forma_calculo_rf' type='varchar' required='true' label='${lbl:b_calculus_form}' maxlen='1'/>
+	<parameter id='smn_porcentaje_rf' type='double' required='false' label='${lbl:b_percentage}' maxlen='10'/>
+	<parameter id='bdc_cantidad' type='integer' required='true' label='${lbl:b_quantity}' maxlen='10'/>
+	<parameter id='bdc_precio_ml' type='double' required='true' label='${lbl:b_price}' maxlen='10'/>
+	<parameter id='bdc_monto_ml' type='double' required='true' label='${lbl:b_amount}' maxlen='10'/>
+	<parameter id='smn_moneda_rf' type='integer' required='false' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='bdc_precio_ma' type='double' required='false' label='${lbl:b_coin_altern_price}' maxlen='10'/>
+	<parameter id='bdc_monto_ma' type='double' required='false' label='${lbl:b_coin_altern_amount}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_baremo_detail_component}' maxlen='10'/>
+
+
+</validator>

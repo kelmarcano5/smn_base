@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cmp_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='cmp_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cmp_area_servicio' type='integer' required='false' maxlen='10'/>
+	<parameter id='cmp_unidad_servicio' type='integer' required='false' maxlen='10'/>
+	<parameter id='cmp_vigencia_desde' type='date' required='true' maxlen='10'/>
+	<parameter id='cmp_vigencia_hasta' type='date' required='true' maxlen='10'/>
+	<parameter id='cmp_visible' type='varchar' required='true' maxlen='1'/>
+	<parameter id='cmp_req_grupo_prestador' type='varchar' required='true' maxlen='10'/>
+	<parameter id='cmp_grupo_prestador' type='integer' required='true' maxlen='10'/>
+	<parameter id='cmp_req_honorario' type='varchar' required='true' maxlen='1'/>
+	<parameter id='cmp_tiempo_estimado' type='double' required='true' maxlen='10'/>
+	<parameter id='cmp_clase_auxiliar' type='integer' required='false' maxlen='10'/>
+	<parameter id='cmp_tipo' type='varchar' required='true' maxlen='2'/>
+	<parameter id='cmp_almacen' type='integer' required='false' maxlen='10'/>
+	<parameter id='cmp_calculo' type='varchar' required='true' maxlen='2'/>
+	<parameter id='cmp_cantidad' type='double' required='true' maxlen='10'/>
+	<parameter id='cmp_precio' type='double' required='true' maxlen='10'/>
+	<parameter id='cmp_porcentaje' type='double' required='true' maxlen='10'/>
+	<parameter id='cmp_trans_general' type='integer' required='true' maxlen='10'/>
+</validator>

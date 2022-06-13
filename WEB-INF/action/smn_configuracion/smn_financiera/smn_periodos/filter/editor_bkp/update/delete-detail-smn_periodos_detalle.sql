@@ -1,0 +1,1 @@
+delete from smn_base.smn_periodos_detalle WHERE smn_periodos_id= ${fld:id}

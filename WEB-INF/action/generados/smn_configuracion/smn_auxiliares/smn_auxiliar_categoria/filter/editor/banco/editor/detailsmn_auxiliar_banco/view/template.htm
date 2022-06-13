@@ -1,0 +1,34 @@
+<!--data grid-->
+<table class="datagrid" style="width:650px;">
+
+	<col width="3%"/>
+	<col width="3%"/>
+	<col width='11%'/>
+	<col width='11%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="4" style="font-size: 10pt; font-weight: bold;">
+			Registros cargados en ${lbl:b_bank_assistant}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th colspan="2"></th>
+		<th style="text-align:center">${lbl:b_code}</th>
+		<th style="text-align:center">${lbl:b_description}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/delete.png" onclick="detailDelete(${fld:_rowIndex},'detailsmn_auxiliar_banco','2')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png" onclick="detailEdit(${fld:_rowIndex},'detailsmn_auxiliar_banco','2')" title="Editar"></td>
+		<td align="left">${fld:aab_codigo2}</td>
+		<td align="left">${fld:aab_descripcion2}</td>
+	</tr>
+	</rows>
+
+</table>

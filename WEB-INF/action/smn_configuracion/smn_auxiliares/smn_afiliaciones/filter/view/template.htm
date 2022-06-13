@@ -1,0 +1,59 @@
+
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('afc_codigo','query-smnafiliaciones.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('afc_descripcion','query-smnafiliaciones.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('ant_apellidos','query-smnafiliaciones.sql')" >${lbl:b_joined}</th>
+		<th class='sortable' onclick="sortBy('mod_nombre','query-smnafiliaciones.sql')" >${lbl:b_module}</th>
+		<th class='sortable' onclick="sortBy('afc_es_titular_combo','query-smnafiliaciones.sql')" >${lbl:b_titular}</th>
+		<th class='sortable' onclick="sortBy('ptz_descripcion','query-smnafiliaciones.sql')" >${lbl:b_relationship}</th>
+		<th class='sortable' onclick="sortBy('afc_fecha_registro','query-smnafiliaciones.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_afiliaciones_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_afiliaciones_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_afiliaciones_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:afc_codigo}</td>
+		<td align="left">${fld:afc_descripcion}</td>
+		<td align="left">${fld:ant_apellidos}</td>
+		<td align="left">${fld:mod_nombre}</td>
+		<td align="center">${fld:afc_es_titular_combo}</td>
+		<td align="left">${fld:ptz_descripcion}</td>
+		<td align="center">${fld:afc_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

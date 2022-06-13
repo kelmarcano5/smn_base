@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<!--<parameter id='role_id' type='integer' required='false' label='${lbl:b_role}' maxlen='10'/>-->
+	<!-- <parameter id='role_id' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/> -->
+	<parameter id='app_id' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='prf_tipo_acceso' type='integer' required='true' label='${lbl:b_type_access}' maxlen='1'/>
+	<parameter id='prf_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='48'/>
+	<parameter id='prf_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='prf_add' type='varchar' required='true' label='${lbl:b_add}' maxlen='1'/>
+	<parameter id='prf_del' type='varchar' required='true' label='${lbl:b_delete}' maxlen='1'/>
+	<parameter id='prf_edit' type='varchar' required='true' label='${lbl:b_modify}' maxlen='1'/>
+	<parameter id='prf_view' type='varchar' required='true' label='${lbl:b_view}' maxlen='1'/>
+	<parameter id='prf_export' type='varchar' required='true' label='${lbl:b_export}' maxlen='1'/>
+	<parameter id='prf_find' type='varchar' required='true' label='${lbl:b_find}' maxlen='1'/>
+	<parameter id='prf_import' type='varchar' required='true' label='${lbl:b_import}' maxlen='1'/>
+
+	<custom-validator 
+		classname='dinamica.validators.ArrayNotEmptyValidator' 
+		on-error-label='Seleccione al menos un ítem.' 
+		parameter-name='service_id' 
+		id='service_id'/>
+	
+	<custom-validator 
+		classname='dinamica.validators.ArrayToRecordset' 
+		paramName='service_id' 
+		recordsetId='query-smn_service.sql' 
+		colName='service_id' 
+		colType='integer'/>
+
+		<parameter id='smn_usuarios_id' type='varchar' required='false' label='Ítems'/>
+		<custom-validator 
+		classname='dinamica.validators.StringToRecordset' 
+		paramName='smn_usuarios_id' 
+		recordsetId='query-smn_usuarios_id.sql' 
+		separatorChar=';'
+		colName='smn_usuarios_id' 
+		colType='integer'/>
+
+</validator>

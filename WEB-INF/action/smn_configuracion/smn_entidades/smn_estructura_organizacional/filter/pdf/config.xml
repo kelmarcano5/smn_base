@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnestructuraorganizacional.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_organizational_position}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' align="left" />
+	<pdf-file-name>${lbl:b_organizational_position}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='filter.params' title='${lbl:b_filter_find}' noFilterMsg='-- ${lbl:b_all_message} --' width='55' spacingBefore='15'>
+			<col name='smn_configuracion_estructura_id_name' title='${lbl:b_structure_configuration}'  align='left' />
+			<col name='eor_codigo' title='${lbl:b_code}'  align='left' />
+			<col name='eor_nombre' title='${lbl:b_name}'  align='left' />
+			<col name='eor_centro_costo' title='${lbl:b_cost_lefts}'   align='left' />
+			<col name='cla_nombre' title='${lbl:b_auxiliary_class}'   align='left' />
+			<col name='smn_item' title='${lbl:b_auxiliary}'   align='left' />
+			<col name='eor_fecha_registro_ini' title='${lbl:b_store_date_grater_than}'  format='dd-MM-yyyy' align='left' />
+			<col name='eor_fecha_registro_fin' title='${lbl:b_store_date_less_than}'  format='dd-MM-yyyy' align='left' />
+
+		</record>
+		<record recordset='query-smnestructuraorganizacional.sql' width='100' spacingBefore='10'>
+			<col name='smn_configuracion_estructura_id' title='${lbl:b_structure_configuration}' width='14' align='left'  />
+			<col name='eor_codigo' title='${lbl:b_code}' width='14' align='left' />
+			<col name='eor_nombre' title='${lbl:b_name}' width='14' align='left' />
+			<col name='cco_descripcion_corta' title='${lbl:b_cost_lefts}' width='14' align='left'  />
+			<col name='cla_nombre' title='${lbl:b_auxiliary_class}' width='14' align='left'  />
+			<col name='smn_item' title='${lbl:b_auxiliary}' width='14' align='left'  />
+			<col name='eor_fecha_registro' title='${lbl:b_store_date}' width='14' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

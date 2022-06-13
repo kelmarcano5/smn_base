@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+	<col width='9%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="11">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("cnt_nombres","query-smncontactos.sql")'>${lbl:s_profile_fname}</th>
+		<th class='sortable' onclick='sortBy("cnt_apellidos","query-smncontactos.sql")'>${lbl:s_profile_lname}</th>
+		<th class='sortable' onclick='sortBy("cnt_email","query-smncontactos.sql")'>${lbl:s_profile_email}</th>
+		<th class='sortable' onclick='sortBy("smn_auxiliar_id_combo","query-smncontactos.sql")'>${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick='sortBy("smn_clase_auxiliar_rf_combo","query-smncontactos.sql")'>${lbl:b_auxiliary_classes}</th>
+		<th class='sortable' onclick='sortBy("smn_tipo_contactos_rf_combo","query-smncontactos.sql")'>${lbl:b_type_contacts}</th>
+		<th class='sortable' onclick='sortBy("cnt_descripcion","query-smncontactos.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("smn_tipo_contactos_rf1_combo","query-smncontactos.sql")'>${lbl:b_type_contacts}</th>
+		<th class='sortable' onclick='sortBy("cnt_descripcion1","query-smncontactos.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("cnt_telefono_contacto","query-smncontactos.sql")'>${lbl:b_phone}</th>
+		<th class='sortable' onclick='sortBy("cnt_fecha_registro","query-smncontactos.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:cnt_nombres}</td>
+		<td align='left'>${fld:cnt_apellidos}</td>
+		<td align='left'>${fld:cnt_email}</td>
+		<td>${fld:smn_auxiliar_id_combo}</td>
+		<td>${fld:smn_clase_auxiliar_rf_combo}</td>
+		<td>${fld:smn_tipo_contactos_rf_combo}</td>
+		<td align='left'>${fld:cnt_descripcion}</td>
+		<td>${fld:smn_tipo_contactos_rf1_combo}</td>
+		<td align='left'>${fld:cnt_descripcion1}</td>
+		<td align='left'>${fld:cnt_telefono_contacto}</td>
+		<td>${fld:cnt_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

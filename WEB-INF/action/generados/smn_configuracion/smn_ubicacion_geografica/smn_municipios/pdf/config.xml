@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnmunicipios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_municipalities}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smnmunicipios.sql' width='100' spacingBefore='40'>
+			<col name='mun_ciudades' title='${lbl:b_city}' width='20' align='left' format='######' />
+			<col name='mun_codigo' title='${lbl:b_code}' width='20' align='left' />
+			<col name='mun_nombre_corto' title='${lbl:b_short_name}' width='20' align='left' />
+			<col name='mun_nombre_largo' title='${lbl:b_long_name}' width='20' align='left' />
+			<col name='mun_fecha_registro' title='${lbl:b_store_date}' width='20' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

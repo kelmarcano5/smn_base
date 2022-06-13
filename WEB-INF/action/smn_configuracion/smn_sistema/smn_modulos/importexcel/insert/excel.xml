@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='mod_empresa_desc_ref' type='varchar' required='true' maxlen='10'/>
+	<parameter id='mod_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='mod_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='smn_app_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='mod_ruta_anexado' type='varchar' required='true' maxlen='250'/>
+
+	<parameter id='mod_empresa_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='mod_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='mod_nombre'/>
+
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: mod_empresa' 
+		parameter='mod_empresa_ref' 
+		sql='mod_empresa.sql' 
+		id='mod_empresa_ref'/>
+
+</validator>

@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='tva_codigo' type='varchar' required='true' label='${lbl:b_tva_codigo}' maxlen='16'/>
+	<parameter id='tva_descripcion' type='varchar' required='true' label='${lbl:b_tva_descripcion}' maxlen='100'/>
+	<parameter id='tva_mostrar_titulo' type='varchar' required='true' label='${lbl:b_show_title}' maxlen='2'/>
+	<parameter id='tva_limite_caracteres' type='integer' required='false' label='${lbl:b_character_limit_per_line}' maxlen='10'/>
+	<parameter id='tva_limite_lineas' type='integer' required='false' label='${lbl:b_line_limit}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_smn_tipo_variable_id}' maxlen='10'/>
+</validator>
+=======
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='tva_codigo' type='varchar' required='true' label='${lbl:b_tva_codigo}' maxlen='16'/>
+	<parameter id='tva_descripcion' type='varchar' required='true' label='${lbl:b_tva_descripcion}' maxlen='100'/>
+	<parameter id='tva_mostrar_titulo' type='varchar' required='true' label='${lbl:b_show_title}' maxlen='2'/>
+	<parameter id='tva_limite_caracteres' type='integer' required='false' label='${lbl:b_character_limit_per_line}' maxlen='10'/>
+	<parameter id='tva_limite_lineas' type='integer' required='false' label='${lbl:b_line_limit}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_smn_tipo_variable_id}' maxlen='10'/>
+</validator>
+>>>>>>> master

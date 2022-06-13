@@ -1,0 +1,30 @@
+<!--data grid-->
+<table class="datagrid rowhover oneCellRow" style="width:90%;">
+
+	<col width='20%'/>
+	<col width='80%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="2">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th onclick="sortBy('efe_codigo','query-smnentidadesfederales.sql')" class="sortable">${lbl:b_code}</th>
+		<th onclick="sortBy('efe_nombre_corto','query-smnentidadesfederales.sql')" class="sortable">${lbl:b_short_name}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr onclick="selectItem('${fld:smn_entidades_federales_id}')" >
+		<td align="left"><span id="${fld:smn_entidades_federales_id}">${fld:efe_codigo}</span></td>
+		<td align="left">${fld:efe_nombre_corto}</td>
+	</tr>
+	</rows>
+
+</table>
+

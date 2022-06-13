@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+    <parameter id="detalle_id" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id='eor_centro_costo' type='integer' required='false' label='${lbl:b_cost_centers}' maxlen='2'/>
+	<parameter id='eor_nombre' type='varchar' required='false' label='${lbl:b_name}' maxlen='64'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='eor_nombre' rule='contains' />
+	<parameter id='eor_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='24'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='eor_codigo' rule='contains' />
+	<parameter id='smn_configuracion_estructura_id' type='integer' required='false' label='${lbl:b_structure_configuration}' maxlen='10'/>
+	<parameter id='eor_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+	<parameter id='eor_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='eor_fecha_registro_ini' date2='eor_fecha_registro_fin' id='eor_fecha_registro_ini' />
+	<parameter id='eor_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='eor_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+</validator>

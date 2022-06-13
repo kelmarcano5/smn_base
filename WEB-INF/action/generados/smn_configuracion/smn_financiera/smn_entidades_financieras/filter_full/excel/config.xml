@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnentidadesfinancieras.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnentidadesfinancieras.sql' sheetname='${lbl:b_financial_entities}' filename='filter_full.xls'>
+		<col id='efi_codigo' label='${lbl:b_code}' />
+		<col id='efi_nombre' label='${lbl:b_name}' />
+		<col id='efi_direccion' label='${lbl:b_address}' />
+		<col id='efi_telefono_fijo' label='${lbl:b_fixed_phone}' />
+		<col id='efi_telefono_movil' label='${lbl:b_mobile_phone}' />
+		<col id='efi_codigo_aba' label='${lbl:b_aba_code}' />
+		<col id='efi_codigo_swift' label='${lbl:b_swift_code}' />
+		<col id='efi_req_banco_intermediario_combo' label='${lbl:b_req_intermediary_institution}' />
+		<col id='efi_banco_intermediario' label='${lbl:b_intermediary_institution}' />
+		<col id='efi_routing' label='${lbl:b_routing_code}' />
+		<col id='efi_contacto' label='${lbl:b_account_executive}' />
+		<col id='efi_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

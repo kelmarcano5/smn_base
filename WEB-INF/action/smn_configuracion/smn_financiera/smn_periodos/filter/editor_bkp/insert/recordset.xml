@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<recordset>
+	<parameter id='pdl_num_periodo2' type='varchar' required='false' label='' />
+	<parameter id='pdl_inicio_periodo2' type='varchar' required='false' label='' />
+	<parameter id='pdl_final_periodo2' type='varchar' required='false' label='' />
+</recordset>

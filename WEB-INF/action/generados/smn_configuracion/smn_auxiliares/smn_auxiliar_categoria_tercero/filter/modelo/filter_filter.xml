@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_intermediary_assistant}</summary>
+	<filter>
+		<row field='smn_auxiliar_categoria_id' id='smn_auxiliar_categoria_id' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar.aux_codigo || &apos; - &apos; || smn_base.smn_v_auxiliar.aux_descripcion as item from smn_base.smn_v_auxiliar order by smn_base.smn_v_auxiliar.aux_descripcion}' required='NO' fk='aca_tipo_persona' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_tercero' len='10'/>
+		<row field='atr_codigo' id='atr_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_tercero' len='16'/>
+		<row field='atr_descripcion' id='atr_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_tercero' len='64'/>
+		<row field='atr_auxiliar_corporacion' id='atr_auxiliar_corporacion' label='${lbl:b_outsourced_corporation}@{select smn_base.smn_auxiliar_corporaciones.smn_auxiliar_corporaciones_id as id, smn_base.smn_auxiliar_corporaciones.tcp_codigo || &apos; - &apos; || smn_base.smn_auxiliar_corporaciones.tcp_nombre as item from smn_base.smn_auxiliar_corporaciones order by smn_base.smn_auxiliar_corporaciones.tcp_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_tercero' len='10'/>
+		<row field='atr_auxiliar_unidad_negocio' id='atr_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}@{select smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id as id, smn_base.smn_auxiliar_unidades_negocios.uen_codigo || &apos; - &apos; || smn_base.smn_auxiliar_unidades_negocios.uen_nombre as item from smn_base.smn_auxiliar_unidades_negocios order by smn_base.smn_auxiliar_unidades_negocios.uen_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_tercero' len='10'/>
+		<row field='atr_razon_social' id='atr_razon_social' label='${lbl:b_business_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_tercero' len='64'/>
+		<row field='atr_fecha_registro' id='atr_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_auxiliar_tercero' len='10'/>
+		<row field='atr_fecha_registro' id='atr_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_auxiliar_tercero' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_auxiliar_categoria_id' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar.aux_codigo || &apos; - &apos; || smn_base.smn_v_auxiliar.aux_descripcion as item from smn_base.smn_v_auxiliar order by smn_base.smn_v_auxiliar.aux_descripcion}' fk='aca_tipo_persona' tableName='smn_auxiliar_tercero' len='10' type='integer' align='left'/>
+		<row field='atr_codigo' label='${lbl:b_code}' fk='' tableName='smn_auxiliar_tercero' len='16' type='varchar' align='left'/>
+		<row field='atr_descripcion' label='${lbl:b_description}' fk='' tableName='smn_auxiliar_tercero' len='64' type='varchar' align='left'/>
+		<row field='atr_comunidad' label='${lbl:b_community}@{select smn_base.smn_comunidades.smn_comunidades_id as id, smn_base.smn_comunidades.cmn_codigo || &apos; - &apos; || smn_base.smn_comunidades.cmn_nombre as item from smn_base.smn_comunidades order by smn_base.smn_comunidades.cmn_nombre}' fk='' tableName='smn_auxiliar_tercero' len='10' type='integer' align='left'/>
+		<row field='atr_auxiliar_corporacion' label='${lbl:b_outsourced_corporation}@{select smn_base.smn_auxiliar_corporaciones.smn_auxiliar_corporaciones_id as id, smn_base.smn_auxiliar_corporaciones.tcp_codigo || &apos; - &apos; || smn_base.smn_auxiliar_corporaciones.tcp_nombre as item from smn_base.smn_auxiliar_corporaciones order by smn_base.smn_auxiliar_corporaciones.tcp_nombre}' fk='' tableName='smn_auxiliar_tercero' len='10' type='integer' align='left'/>
+		<row field='atr_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}@{select smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id as id, smn_base.smn_auxiliar_unidades_negocios.uen_codigo || &apos; - &apos; || smn_base.smn_auxiliar_unidades_negocios.uen_nombre as item from smn_base.smn_auxiliar_unidades_negocios order by smn_base.smn_auxiliar_unidades_negocios.uen_nombre}' fk='' tableName='smn_auxiliar_tercero' len='10' type='integer' align='left'/>
+		<row field='atr_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_auxiliar_tercero' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

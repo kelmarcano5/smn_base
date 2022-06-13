@@ -1,0 +1,4 @@
+select 
+smn_base.smn_cuestionario.smn_cuestionario_id
+from smn_base.smn_cuestionario
+where smn_base.smn_cuestionario.smn_cuestionario_id=${fld:smn_cuestionario_id}

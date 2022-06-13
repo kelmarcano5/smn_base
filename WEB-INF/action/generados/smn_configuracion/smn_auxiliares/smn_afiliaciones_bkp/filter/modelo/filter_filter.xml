@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_affiliations}</summary>
+	<filter>
+		<row field='afc_codigo' id='afc_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_afiliaciones' len='16'/>
+		<row field='afc_descripcion' id='afc_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_afiliaciones' len='48'/>
+		<row field='acf_auxiliar_persona_natural' id='acf_auxiliar_persona_natural' label='${lbl:b_person_assistant}@{select smn_base.smn_auxiliar_persona_natural.smn_auxiliar_persona_natural_id as id, smn_base.smn_auxiliar_persona_natural.ant_codigo || &apos; - &apos; || smn_base.smn_auxiliar_persona_natural.ant_nombres || &apos; &apos; || smn_base.smn_auxiliar_persona_natural.ant_apellidos as item from smn_base.smn_auxiliar_persona_natural order by smn_base.smn_auxiliar_persona_natural.ant_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_afiliaciones' len='10'/>
+		<row field='afc_modulo' id='afc_modulo' label='${lbl:b_module}@{select smn_base.smn_modulos.smn_modulos_id as id, smn_base.smn_modulos.mod_codigo || &apos; - &apos; || smn_base.smn_modulos.mod_nombre as item from smn_base.smn_modulos order by smn_base.smn_modulos.mod_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_afiliaciones' len='10'/>
+		<row field='afc_titular' id='afc_titular' label='${lbl:b_person_assistant}@{select smn_base.smn_auxiliar_persona_natural.smn_auxiliar_persona_natural_id as id, smn_base.smn_auxiliar_persona_natural.ant_codigo || &apos; - &apos; || smn_base.smn_auxiliar_persona_natural.ant_descripcion as item from smn_base.smn_auxiliar_persona_natural order by smn_base.smn_auxiliar_persona_natural.ant_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_afiliaciones' len='10'/>
+		<row field='afc_fecha_registro' id='afc_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_afiliaciones' len='10'/>
+		<row field='afc_fecha_registro' id='afc_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_afiliaciones' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='afc_codigo' label='${lbl:b_code}' fk='' tableName='smn_afiliaciones' len='16' type='varchar' align='left'/>
+		<row field='afc_descripcion' label='${lbl:b_description}' fk='' tableName='smn_afiliaciones' len='48' type='varchar' align='left'/>
+		<row field='acf_auxiliar_persona_natural' label='${lbl:b_person_assistant}@{select smn_base.smn_auxiliar_persona_natural.smn_auxiliar_persona_natural_id as id, smn_base.smn_auxiliar_persona_natural.ant_codigo || &apos; - &apos; || smn_base.smn_auxiliar_persona_natural.ant_nombres || &apos; &apos; || smn_base.smn_auxiliar_persona_natural.ant_apellidos as item from smn_base.smn_auxiliar_persona_natural order by smn_base.smn_auxiliar_persona_natural.ant_descripcion}' fk='' tableName='smn_afiliaciones' len='10' type='integer' align='left'/>
+		<row field='afc_modulo' label='${lbl:b_module}@{select smn_base.smn_modulos.smn_modulos_id as id, smn_base.smn_modulos.mod_codigo || &apos; - &apos; || smn_base.smn_modulos.mod_nombre as item from smn_base.smn_modulos order by smn_base.smn_modulos.mod_nombre}' fk='' tableName='smn_afiliaciones' len='10' type='integer' align='left'/>
+		<row field='afc_titular' label='${lbl:b_person_assistant}@{select smn_base.smn_auxiliar_persona_natural.smn_auxiliar_persona_natural_id as id, smn_base.smn_auxiliar_persona_natural.ant_codigo || &apos; - &apos; || smn_base.smn_auxiliar_persona_natural.ant_descripcion as item from smn_base.smn_auxiliar_persona_natural order by smn_base.smn_auxiliar_persona_natural.ant_descripcion}' fk='' tableName='smn_afiliaciones' len='10' type='integer' align='left'/>
+		<row field='afc_parentezco' label='${lbl:b_relationship}@{select smn_base.smn_parentezco.smn_parentezco_id as id, smn_base.smn_parentezco.ptz_codigo || &apos; - &apos; || smn_base.smn_parentezco.ptz_descripcion as item from smn_base.smn_parentezco order by smn_base.smn_parentezco.ptz_descripcion}' fk='' tableName='smn_afiliaciones' len='10' type='integer' align='left'/>
+		<row field='afc_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_afiliaciones' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

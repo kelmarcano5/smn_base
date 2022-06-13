@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_prestadores_servicios_id_name' type='varchar' required='false' label='${lbl:b_services_providers}'/>
+	<parameter id='smn_prestadores_servicios_id' type='integer' required='false' label='${lbl:b_services_providers}' maxlen='10'/>
+	<parameter id='smn_grupos_prestadores_id_name' type='varchar' required='false' label='${lbl:b_group_of_provider}'/>
+	<parameter id='smn_grupos_prestadores_id' type='integer' required='false' label='${lbl:b_group_of_provider}' maxlen='10'/>
+		<parameter id="id2" type="integer" required="false" label="ID" maxlen="10" />
+</validator>

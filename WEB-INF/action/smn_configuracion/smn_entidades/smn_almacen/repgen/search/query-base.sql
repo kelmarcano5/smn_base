@@ -1,0 +1,21 @@
+select
+	smn_base.smn_almacen.smn_almacen_id,
+	${field}
+from
+	smn_base.smn_almacen
+	left outer join smn_base.smn_areas_servicios on smn_base.smn_areas_servicios.smn_areas_servicios_id = smn_base.smn_almacen.alm_area_servicio
+	left outer join smn_base.smn_entidades on smn_base.smn_entidades.smn_entidades_id = smn_base.smn_almacen.alm_empresa
+	left outer join smn_base.smn_sucursales on smn_base.smn_sucursales.smn_sucursales_id = smn_base.smn_almacen.alm_sucursal
+	left outer join smn_base.smn_unidades_negocios on smn_base.smn_unidades_negocios.smn_unidades_negocios_id = smn_base.smn_almacen.alm_unidad_negocio
+	left outer join smn_base.smn_unidades_servicios on smn_base.smn_unidades_servicios.smn_unidades_servicios_id = smn_base.smn_almacen.alm_unidad_servicio
+where
+	smn_base.smn_almacen.smn_almacen_id is not null
+and
+	smn_base.smn_almacen.alm_idioma = '${def:locale}'
+and
+	smn_base.smn_almacen.alm_usuario = '${def:user}'
+	${filter}
+order by
+	smn_base.smn_almacen.smn_almacen_id desc
+	
+	

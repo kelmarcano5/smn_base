@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_configuracion_estructura_id' type='integer' required='true' label='${lbl:b_configuracion_estructura}' maxlen='10'/>
+	<parameter id='nap_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='10'/>
+	<parameter id='nap_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='nap_rol' type='varchar' required='true' label='${lbl:b_role}' maxlen='2'/>
+	<parameter id='nap_secuencia_aprobacion' type='integer' required='true' label='${lbl:b_approval_sequence}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='nap_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='nap_descripcion'/>
+
+
+</validator>

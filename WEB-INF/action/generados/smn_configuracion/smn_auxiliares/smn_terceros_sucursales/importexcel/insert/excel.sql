@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_terceros_sucursales
+(
+	smn_terceros_sucursales_id,
+	smn_terceros_id,
+	trs_codigo,
+	trs_nombre,
+	trs_responsable,
+	trs_direccion,
+	trs_telefono_fijo,
+	trs_telefono_movil,
+	trs_email,
+	trs_idioma,
+	trs_usuario,
+	trs_fecha_registro,
+	trs_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_terceros_sucursales},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

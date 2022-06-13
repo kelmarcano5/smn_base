@@ -1,0 +1,40 @@
+INSERT INTO smn_base.smn_conexiones
+(
+	smn_base.smn_conexiones.smn_conexiones_bd_id,
+	smn_base.smn_conexiones.con_sistema,
+	smn_base.smn_conexiones.con_descripcion,
+	smn_base.smn_conexiones.smn_entidad_rf,
+	smn_base.smn_conexiones.smn_sucursal_rf,
+	smn_base.smn_conexiones.con_ip_servidor,
+	smn_base.smn_conexiones.con_hostname_instancia,
+	smn_base.smn_conexiones.con_nombre_bd,
+	smn_base.smn_conexiones.con_usuario_bd,
+	smn_base.smn_conexiones.con_clave_bd,
+	smn_base.smn_conexiones.con_puerto_bd,
+	smn_base.smn_conexiones.con_estatus,
+	smn_base.smn_conexiones.con_vigencia,
+	smn_base.smn_conexiones.con_idioma,
+	smn_base.smn_conexiones.con_usuario,
+	smn_base.smn_conexiones.con_fecha_registro,
+	smn_base.smn_conexiones.con_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.smn_conexiones.seq_smn_conexiones},
+	${fld:con_sistema},
+	${fld:con_descripcion},
+	${fld:smn_entidad_rf},
+	${fld:smn_sucursal_rf},
+	${fld:con_ip_servidor},
+	${fld:con_hostname_instancia},
+	${fld:con_nombre_bd},
+	${fld:con_usuario_bd},
+	${fld:con_clave_bd},
+	${fld:con_puerto_bd},
+	${fld:con_estatus},
+	${fld:con_vigencia},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='suc_empresa' type='integer' required='true' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='suc_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='suc_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='suc_unidad_negocio' type='integer' required='false' label='${lbl:b_business_unit}' maxlen='10'/>
+	<parameter id='suc_maneja_area_servicio' type='varchar' required='true' label='${lbl:b_has_service_area}' maxlen='1'/>
+	<parameter id='suc_responsable' type='varchar' required='true' label='${lbl:b_responsible}' maxlen='48'/>
+	<parameter id='suc_direccion' type='integer' required='true' label='${lbl:b_address}' maxlen='10'/>
+	<parameter id='suc_telefono_fijo' type='varchar' required='true' label='${lbl:b_fixed_phone}' maxlen='24'/>
+	<parameter id='suc_telefono_movil' type='varchar' required='true' label='${lbl:b_mobile_phone}' maxlen='24'/>
+	<parameter id='suc_email' type='varchar' required='true' label='${lbl:s_profile_email}' maxlen='96'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_subsidiary}' maxlen='10'/>
+</validator>
+

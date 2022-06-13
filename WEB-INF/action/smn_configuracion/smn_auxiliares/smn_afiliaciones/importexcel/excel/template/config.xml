@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnafiliaciones-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnauxiliarpersonanatural.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnmodulos.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnparentezco.sql' source='sql' scope='transaction' />
+		<recordset id='query-afcestitular.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_auxiliares.smn_afiliaciones.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_affiliations}.xls'    
+		header-background='true' >
+		
+	<sheet recordset="query-smnafiliaciones-template.sql" sheetname="${lbl:b_affiliations}">
+		
+		<col id='afc_codigo' label='${lbl:b_code}' />
+		<col id='afc_descripcion' label='${lbl:b_description}' />
+		<col id='afc_afiliado' label='${lbl:b_joined}' />
+		<col id='afc_modulo' label='${lbl:b_module}' />
+		<col id='afc_es_titular_combo' label='${lbl:b_titular}' />
+		<col id='afc_parentezco' label='${lbl:b_relationship}' />
+		
+		<col id='afc_afiliado_reference' label='${lbl:b_joined}' />
+		<col id='afc_modulo_reference' label='${lbl:b_module}' />
+		<col id='afc_es_titular_combo_reference' label='${lbl:b_titular}' />
+		<col id='afc_parentezco_reference' label='${lbl:b_relationship}' />
+
+	</sheet>
+	
+	<sheet recordset='query-afcestitular.sql' sheetname='${lbl:b_titular}'>
+		<col id='es_titular' label='${lbl:b_titular}' />
+	</sheet>	
+	
+	<sheet recordset='query-smnauxiliarpersonanatural.sql' sheetname='${lbl:b_joined}'>
+		<col id='afiliado' label='${lbl:b_joined}' />
+	</sheet>
+
+	<sheet recordset='query-smnmodulos.sql' sheetname='${lbl:b_module}'>
+		<col id='mod_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnparentezco.sql' sheetname='${lbl:b_relationship}'>
+		<col id='ptz_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnunidadesimpositivas-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnmonedas.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_impuestos.smn_unidades_impositivas.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_tax_units}.xls'
+		header-background='true' >
+		
+	<sheet recordset="query-smnunidadesimpositivas-template.sql" sheetname="${lbl:b_tax_units}">
+		
+		<col id='uim_codigo' label='${lbl:b_code}' />
+		<col id='uim_descripcion' label='${lbl:b_description}' />
+		<col id='uim_moneda_referencia' label='${lbl:b_referenced_coin}' />
+		
+		<col id='uim_moneda_referencia_reference' label='${lbl:b_referenced_coin}' />
+
+	</sheet>
+	
+	<sheet recordset='query-smnmonedas.sql' sheetname='${lbl:b_referenced_coin}'>
+		<col id='mon_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

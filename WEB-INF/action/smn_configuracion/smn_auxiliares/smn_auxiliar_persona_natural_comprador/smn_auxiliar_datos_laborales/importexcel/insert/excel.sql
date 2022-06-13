@@ -1,0 +1,34 @@
+INSERT INTO smn_base.smn_auxiliar_datos_laborales
+(
+	smn_auxiliar_datos_laborales_id,
+	smn_clase_auxiliar_rf,
+	smn_auxiliar_rf,
+	adl_nombre_compania,
+	adl_rif,
+	adl_departamento,
+	adl_cargo,
+	smn_paises_rf,
+	smn_entidades_federales_rf,
+	smn_ciudades_rf,
+	adl_direccion,
+	adl_telefono_oficina,
+	adl_email,
+	adl_fecha_registro
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_auxiliar_datos_laborales},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	{d '${def:date}'}
+)

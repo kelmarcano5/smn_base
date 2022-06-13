@@ -1,0 +1,14 @@
+select
+		smn_base.smn_descuentos_retenciones.dyr_codigo,
+	smn_base.smn_descuentos_retenciones.dyr_descripcion,
+	smn_base.smn_descuentos_retenciones.smn_vencimiento_cabecera_id,
+	smn_base.smn_descuentos_retenciones.dyr_apli_cant_precio,
+	smn_base.smn_descuentos_retenciones.dyr_porcentaje_base,
+	smn_base.smn_descuentos_retenciones.dyr_porcentaje_descuento,
+	smn_base.smn_descuentos_retenciones.dyr_estatus,
+	smn_base.smn_descuentos_retenciones.dyr_vigencia,
+	smn_base.smn_descuentos_retenciones.dyr_fecha_registro
+from
+	smn_base.smn_descuentos_retenciones 
+where
+	smn_base.smn_descuentos_retenciones.smn_descuentos_retenciones_id = ${fld:id}

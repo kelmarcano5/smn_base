@@ -1,0 +1,76 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+	<col width='6%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="16">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('dir_codigo','query-smndireccion.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('dir_descripcion','query-smndireccion.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('dir_pais','query-smndireccion.sql')" >${lbl:b_country}</th>
+		<th class='sortable' onclick="sortBy('dir_entidad_federal','query-smndireccion.sql')" >${lbl:b_federal_entity}</th>
+		<th class='sortable' onclick="sortBy('dir_ciudad','query-smndireccion.sql')" >${lbl:b_city}</th>
+		<th class='sortable' onclick="sortBy('dir_zona_postal','query-smndireccion.sql')" >${lbl:b_postal_zone}</th>
+		<th class='sortable' onclick="sortBy('dir_tipo_via','query-smndireccion.sql')" >${lbl:b_type_of_route}</th>
+		<th class='sortable' onclick="sortBy('dir_tipo_via_nom','query-smndireccion.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('dir_tipo_via_num','query-smndireccion.sql')" >${lbl:b_number}</th>
+		<th class='sortable' onclick="sortBy('dir_edificacion','query-smndireccion.sql')" >${lbl:b_edification}</th>
+		<th class='sortable' onclick="sortBy('dir_edificacion_nom','query-smndireccion.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('dir_edificacion_num','query-smndireccion.sql')" >${lbl:b_number}</th>
+		<th class='sortable' onclick="sortBy('dir_tipo_localidad','query-smndireccion.sql')" >${lbl:b_location_type}</th>
+		<th class='sortable' onclick="sortBy('dir_tipo_localidad_nom','query-smndireccion.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('dir_apartado_postal','query-smndireccion.sql')" >${lbl:b_postal_mail}</th>
+		<th class='sortable' onclick="sortBy('dir_fecha_registro','query-smndireccion.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:dir_codigo}</td>
+		<td align="left">${fld:dir_descripcion}</td>
+		<td align="left">${fld:dir_pais}</td>
+		<td align="left">${fld:dir_entidad_federal}</td>
+		<td align="left">${fld:dir_ciudad}</td>
+		<td align="left">${fld:dir_zona_postal}</td>
+		<td align="left">${fld:dir_tipo_via}</td>
+		<td align="left">${fld:dir_tipo_via_nom}</td>
+		<td align="left">${fld:dir_tipo_via_num}</td>
+		<td align="left">${fld:dir_edificacion}</td>
+		<td align="left">${fld:dir_edificacion_nom}</td>
+		<td align="left">${fld:dir_edificacion_num}</td>
+		<td align="left">${fld:dir_tipo_localidad}</td>
+		<td align="left">${fld:dir_tipo_localidad_nom}</td>
+		<td align="left">${fld:dir_apartado_postal}</td>
+		<td align="center">${fld:dir_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

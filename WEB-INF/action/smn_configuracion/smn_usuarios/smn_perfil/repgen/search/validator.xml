@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='role_id_name' type='varchar' required='false' label='${lbl:b_role}'/>
+	<parameter id='role_id' type='integer' required='false' label='${lbl:b_role}' maxlen='10'/>
+	<parameter id='service_id_name' type='varchar' required='false' label='${lbl:b_service}'/>
+	<parameter id='service_id' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='prf_tipo_acceso' type='integer' required='false' label='${lbl:b_type_access}' maxlen='1'/>
+	<parameter id='prf_add' type='varchar' required='false' label='${lbl:b_add}' maxlen='1'/>
+	<parameter id='prf_del' type='varchar' required='false' label='${lbl:b_delete}' maxlen='1'/>
+	<parameter id='prf_edit' type='varchar' required='false' label='${lbl:b_modify}' maxlen='1'/>
+	<parameter id='prf_view' type='varchar' required='false' label='${lbl:b_view}' maxlen='1'/>
+	<parameter id='prf_export' type='varchar' required='false' label='${lbl:b_export}' maxlen='1'/>
+	<parameter id='prf_find' type='varchar' required='false' label='${lbl:b_find}' maxlen='1'/>
+	<parameter id='prf_import' type='varchar' required='false' label='${lbl:b_import}' maxlen='1'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='role_id_name'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='service_id_name'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prf_add'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prf_del'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prf_edit'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prf_view'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prf_export'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prf_find'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prf_import'
+		rule='contains' />
+
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		<recordset id='detail-smnauxiliarbanco.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnauxiliarcontable.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnauxiliarmedico.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnauxiliarprestadorservicio.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnauxiliartercero.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnauxiliarpersonanatural.sql' source='session' scope='transaction' />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_auxiliary}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='query.sql' title='${lbl:b_auxiliary}' width='60' spacingBefore='40'>
+			<col name='aca_codigo' title='${lbl:b_code}' align='left' />
+			<col name='aca_descripcion' title='${lbl:b_description}' align='left' />
+			<col name='aca_clase_auxiliar' title='${lbl:b_auxiliary_class}' align='left' format='######' />
+			<col name='aca_tipo_persona_combo' title='${lbl:b_kind_of_person}' align='left' />
+			<col name='aca_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+		<table recordset='detail-smnauxiliarbanco.sql' width='100' spacingBefore='40'>
+			<col name='aab_codigo' title='${lbl:b_code}' width='33' align='left' />
+			<col name='aab_descripcion' title='${lbl:b_description}' width='33' align='left' />
+			<col name='aab_fecha_registro' title='${lbl:b_store_date}' width='33' align='left' format='dd-MM-yyyy' />
+		</table>
+		<table recordset='detail-smnauxiliarcontable.sql' width='100' spacingBefore='40'>
+			<col name='aac_codigo' title='${lbl:b_code}' width='20' align='left' />
+			<col name='aac_descripcion' title='${lbl:b_description}' width='20' align='left' />
+			<col name='aac_tipo_doc_oficial' title='${lbl:b_official_document_type}' width='20' align='left' format='######' />
+			<col name='aac_num_doc_oficial' title='${lbl:b_official_document_number}' width='20' align='left' />
+			<col name='aac_fecha_registro' title='${lbl:b_store_date}' width='20' align='left' format='dd-MM-yyyy' />
+		</table>
+		<table recordset='detail-smnauxiliarmedico.sql' width='100' spacingBefore='40'>
+			<col name='aam_codigo' title='${lbl:b_code}' width='3' align='left' />
+			<col name='aam_descripcion' title='${lbl:b_description}' width='3' align='left' />
+			<col name='aam_nombres' title='${lbl:s_profile_fname}' width='3' align='left' />
+			<col name='aam_apellidos' title='${lbl:s_profile_lname}' width='3' align='left' />
+			<col name='aam_nombre_corto' title='${lbl:b_short_description}' width='3' align='left' />
+			<col name='aam_tipo_doc_oficial' title='${lbl:b_official_document_type}' width='3' align='left' format='######' />
+			<col name='aam_num_doc_oficial' title='${lbl:b_official_document_number}' width='3' align='left' />
+			<col name='aam_fecha_nac' title='${lbl:b_birth_date}' width='3' align='left' format='dd-MM-yyyy' />
+			<col name='aam_lugar_nac' title='${lbl:b_birth_place}' width='3' align='left' />
+			<col name='aam_rif' title='${lbl:b_tax_id}' width='3' align='left' />
+			<col name='aam_nacionalidad' title='${lbl:b_citizenship}' width='3' align='left' format='######' />
+			<col name='aam_nacionalizado_combo' title='${lbl:b_nationalized}' width='3' align='left' />
+			<col name='aam_sexo_combo' title='${lbl:b_sex}' width='3' align='left' />
+			<col name='aam_estado_civil_combo' title='${lbl:b_civil_status}' width='3' align='left' format='######' />
+			<col name='aam_direccion' title='${lbl:b_business_address}' width='3' align='left' format='######' />
+			<col name='aam_cuenta_bancaria' title='${lbl:b_auxiliary_bank_account}' width='3' align='left' format='######' />
+			<col name='aam_contactos' title='${lbl:b_auxiliary_contact}' width='3' align='left' format='######' />
+			<col name='aam_num_gaceta' title='${lbl:b_nationalization_gazette}' width='3' align='left' format='######' />
+			<col name='aam_fecha_gaceta_nac' title='${lbl:b_date_of_naturalization}' width='3' align='left' format='dd-MM-yyyy' />
+			<col name='aam_condicion_financiera' title='${lbl:b_financial_condition}' width='3' align='left' format='######' />
+			<col name='aam_persona_contacto' title='${lbl:b_contact_person}' width='3' align='left' />
+			<col name='aam_num_minist_salud' title='${lbl:b_number_health_ministry}' width='3' align='left' />
+			<col name='aam_num_coleg_medicos' title='${lbl:b_number_medical_school}' width='3' align='left' />
+			<col name='aam_clasif_abc_combo' title='${lbl:b_abc_clasification}' width='3' align='left' />
+			<col name='aam_representante_legal' title='${lbl:b_legal_representative}' width='3' align='left' />
+			<col name='aam_benef_pago' title='${lbl:b_beneficiary_payments}' width='3' align='left' />
+			<col name='aam_cond_pago' title='${lbl:b_condition_payments}' width='3' align='left' format='######' />
+			<col name='aam_observacion' title='${lbl:b_observation}' width='3' align='left' />
+			<col name='aam_fecha_registro' title='${lbl:b_store_date}' width='3' align='left' format='dd-MM-yyyy' />
+		</table>
+		<table recordset='detail-smnauxiliarprestadorservicio.sql' width='100' spacingBefore='40'>
+			<col name='aps_codigo' title='${lbl:b_code}' width='6' align='left' />
+			<col name='aps_descripcion' title='${lbl:b_description}' width='6' align='left' />
+			<col name='aps_beneficiario' title='${lbl:b_beneficiary}' width='6' align='left' />
+			<col name='aps_tipo_doc_oficial' title='${lbl:b_official_document_type}' width='6' align='left' format='######' />
+			<col name='aps_num_doc_oficial' title='${lbl:b_official_document_number}' width='6' align='left' />
+			<col name='aps_clasif_abc_combo' title='${lbl:b_abc_clasification}' width='6' align='left' />
+			<col name='aps_rif' title='${lbl:b_tax_id}' width='6' align='left' />
+			<col name='aps_direccion' title='${lbl:b_business_address}' width='6' align='left' format='######' />
+			<col name='aps_cuenta_bancaria' title='${lbl:b_auxiliary_bank_account}' width='6' align='left' format='######' />
+			<col name='aps_contactos' title='${lbl:b_auxiliary_contact}' width='6' align='left' format='######' />
+			<col name='aps_persona_contacto' title='${lbl:b_contact_person}' width='6' align='left' />
+			<col name='aps_representante_legal' title='${lbl:b_legal_representative}' width='6' align='left' />
+			<col name='aps_benef_pago' title='${lbl:b_beneficiary_payments}' width='6' align='left' />
+			<col name='aps_cond_pago' title='${lbl:b_condition_payments}' width='6' align='left' format='######' />
+			<col name='aps_observacion' title='${lbl:b_observation}' width='6' align='left' />
+			<col name='aps_fecha_registro' title='${lbl:b_store_date}' width='6' align='left' format='dd-MM-yyyy' />
+		</table>
+		<table recordset='detail-smnauxiliartercero.sql' width='100' spacingBefore='40'>
+			<col name='atr_codigo' title='${lbl:b_code}' width='5' align='left' />
+			<col name='atr_descripcion' title='${lbl:b_description}' width='5' align='left' />
+			<col name='atr_razon_social' title='${lbl:b_business_name}' width='5' align='left' />
+			<col name='atr_denom_comercial' title='${lbl:b_designation_commercial}' width='5' align='left' />
+			<col name='atr_beneficiario' title='${lbl:b_beneficiary}' width='5' align='left' />
+			<col name='atr_tipo_doc_oficial' title='${lbl:b_official_document_type}' width='5' align='left' format='######' />
+			<col name='atr_num_doc_oficial' title='${lbl:b_official_document_number}' width='5' align='left' />
+			<col name='atr_clasif_abc_combo' title='${lbl:b_abc_clasification}' width='5' align='left' />
+			<col name='atr_rif' title='${lbl:b_tax_id}' width='5' align='left' />
+			<col name='atr_direccion' title='${lbl:b_business_address}' width='5' align='left' format='######' />
+			<col name='atr_cuenta_bancaria' title='${lbl:b_auxiliary_bank_account}' width='5' align='left' format='######' />
+			<col name='atr_contactos' title='${lbl:b_auxiliary_contact}' width='5' align='left' format='######' />
+			<col name='atr_persona_contacto' title='${lbl:b_contact_person}' width='5' align='left' />
+			<col name='atr_representante_legal' title='${lbl:b_legal_representative}' width='5' align='left' />
+			<col name='atr_benef_pago' title='${lbl:b_beneficiary_payments}' width='5' align='left' />
+			<col name='atr_cond_pago' title='${lbl:b_condition_payments}' width='5' align='left' format='######' />
+			<col name='atr_tipo_facturac_combo' title='${lbl:b_billing_type}' width='5' align='left' />
+			<col name='atr_condicion_financiera' title='${lbl:b_financial_condition}' width='5' align='left' format='######' />
+			<col name='atr_observacion' title='${lbl:b_observation}' width='5' align='left' />
+			<col name='atr_fecha_registro' title='${lbl:b_store_date}' width='5' align='left' format='dd-MM-yyyy' />
+		</table>
+		<table recordset='detail-smnauxiliarpersonanatural.sql' width='100' spacingBefore='40'>
+			<col name='ant_codigo' title='${lbl:b_code}' width='4' align='left' />
+			<col name='ant_descripcion' title='${lbl:b_description}' width='4' align='left' />
+			<col name='ant_nombres' title='${lbl:s_profile_fname}' width='4' align='left' />
+			<col name='ant_apellidos' title='${lbl:s_profile_lname}' width='4' align='left' />
+			<col name='ant_nombre_corto' title='${lbl:b_short_description}' width='4' align='left' />
+			<col name='ant_tipo_doc_oficial' title='${lbl:b_official_document_type}' width='4' align='left' format='######' />
+			<col name='ant_num_doc_oficial' title='${lbl:b_official_document_number}' width='4' align='left' />
+			<col name='ant_fecha_nac' title='${lbl:b_birth_date}' width='4' align='left' format='dd-MM-yyyy' />
+			<col name='ant_lugar_nac' title='${lbl:b_birth_place}' width='4' align='left' />
+			<col name='ant_rif' title='${lbl:b_tax_id}' width='4' align='left' />
+			<col name='ant_nacionalidad' title='${lbl:b_citizenship}' width='4' align='left' format='######' />
+			<col name='ant_nacionalizado_combo' title='${lbl:b_nationalized}' width='4' align='left' />
+			<col name='ant_sexo_combo' title='${lbl:b_sex}' width='4' align='left' />
+			<col name='ant_estado_civil_combo' title='${lbl:b_civil_status}' width='4' align='left' />
+			<col name='ant_direccion' title='${lbl:b_business_address}' width='4' align='left' format='######' />
+			<col name='ant_cuenta_bancaria' title='${lbl:b_auxiliary_bank_account}' width='4' align='left' format='######' />
+			<col name='ant_contactos' title='${lbl:b_auxiliary_contact}' width='4' align='left' format='######' />
+			<col name='ant_num_gaceta' title='${lbl:b_nationalization_gazette}' width='4' align='left' format='######' />
+			<col name='ant_fecha_gaceta_nac' title='${lbl:b_date_of_naturalization}' width='4' align='left' format='dd-MM-yyyy' />
+			<col name='ant_condicion_financiera' title='${lbl:b_financial_condition}' width='4' align='left' format='######' />
+			<col name='ant_persona_contacto' title='${lbl:b_contact_person}' width='4' align='left' />
+			<col name='ant_observacion' title='${lbl:b_observation}' width='4' align='left' />
+			<col name='ant_fecha_registro' title='${lbl:b_store_date}' width='4' align='left' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

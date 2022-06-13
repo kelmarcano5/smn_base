@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("tva_codigo_pl0","query-smnpregunta.sql")'>${lbl:b_smn_tipo_variable_id}</th>
+		<th class='sortable' onclick='sortBy("prg_codigo","query-smnpregunta.sql")'>${lbl:b_prg_codigo}</th>
+		<th class='sortable' onclick='sortBy("prg_descripcion","query-smnpregunta.sql")'>${lbl:b_prg_descripcion}</th>
+		<th class='sortable' onclick='sortBy("prg_tipo_respuesta_combo","query-smnpregunta.sql")'>${lbl:b_prg_tipo_respuesta}</th>
+		<th class='sortable' onclick='sortBy("sec_estatus_combo","query-smnpregunta.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("cue_fecha_registro","query-smnpregunta.sql")'>${lbl:s_loginhist_col2}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_pregunta_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_pregunta_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_pregunta_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:tva_codigo_pl0}</td>
+		<td align='left'>${fld:prg_codigo}</td>
+		<td align='left'>${fld:prg_descripcion}</td>
+		<td align='left'>${fld:prg_tipo_respuesta_combo}</td>
+		<td align='left'>${fld:sec_estatus_combo}</td>
+		<td>${fld:cue_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

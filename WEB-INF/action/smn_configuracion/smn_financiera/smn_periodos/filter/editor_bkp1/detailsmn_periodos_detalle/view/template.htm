@@ -1,0 +1,39 @@
+<!--data grid-->
+<table class="datagrid" style="width:850px;">
+
+	<col width="3%"/>
+	<col width="3%"/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+
+
+	<!--toolbar detail-->
+	<tr>
+		<th colspan="5" style="font-size: 10pt; font-weight: bold;">
+${lbl:b_detail_period}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th colspan="2"></th>
+		<th style="text-align:center">${lbl:b_number_period}</th>
+		<th style="text-align:center">${lbl:b_start_period}</th>
+		<th style="text-align:center">${lbl:b_end_period}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/delete.png"  onclick="detailDelete(${fld:_rowIndex},'detailsmn_periodos_detalle','2')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"   onclick="detailEdit(${fld:_rowIndex},'detailsmn_periodos_detalle','2')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:pdl_num_periodo2}</td>
+		<td align="left">${fld:pdl_inicio_periodo2}</td>
+		<td align="left">${fld:pdl_final_periodo2}</td>
+
+	</tr>
+	</rows>
+
+</table>

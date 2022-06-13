@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='tco_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='tco_descripcion_corta' type='varchar' required='true' label='${lbl:b_short_description}' maxlen='32'/>
+	<parameter id='tco_descripcion_larga' type='varchar' required='true' label='${lbl:b_long_description}' maxlen='48'/>
+	<parameter id='tco_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='tco_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='tco_responsable' type='varchar' required='true' label='${lbl:b_responsible}' maxlen='48'/>
+	<parameter id='tco_tipo_cco' type='varchar' required='true' label='${lbl:b_type}' maxlen='2'/>
+	<parameter id='tco_nivel' type='integer' required='true' label='${lbl:b_level}' maxlen='2'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_cost_centers}' maxlen='10'/>
+</validator>
+

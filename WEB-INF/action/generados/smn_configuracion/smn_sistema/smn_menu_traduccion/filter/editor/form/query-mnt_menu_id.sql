@@ -1,0 +1,1 @@
+select smn_seguridad.s_menu.menu_id as id, smn_seguridad.s_menu.title as item from smn_seguridad.s_menu order by 2

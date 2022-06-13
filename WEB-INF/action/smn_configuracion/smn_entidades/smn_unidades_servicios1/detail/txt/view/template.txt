@@ -1,0 +1,3 @@
+<rows>
+uns_fecha_registro="${fld:uns_fecha_registro}"    uns_descripcion="${fld:uns_descripcion}"    uns_codigo="${fld:uns_codigo}"    smn_areas_servicios_id="${fld:smn_areas_servicios_id}"    
+</rows>

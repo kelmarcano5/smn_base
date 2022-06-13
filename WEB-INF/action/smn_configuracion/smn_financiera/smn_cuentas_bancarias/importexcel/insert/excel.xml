@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cba_entidades_financieras_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cba_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='cba_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cba_nro_cuenta' type='varchar' required='true' maxlen='24'/>
+	<parameter id='cba_tipo_cta_banco_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cba_moneda_desc' type='varchar' required='true' maxlen='48'/>
+
+	<parameter id='cba_entidades_financieras_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='cba_tipo_cta_banco_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='cba_moneda_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cba_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='cba_nombre'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cba_entidades_financieras' 
+		parameter='cba_entidades_financieras_ref' 
+		sql='cba_entidades_financieras.sql' 
+		id='cba_entidades_financieras_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cba_tipo_cta_banco' 
+		parameter='cba_tipo_cta_banco_ref' 
+		sql='cba_tipo_cta_banco.sql' 
+		id='cba_tipo_cta_banco_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cba_moneda' 
+		parameter='cba_moneda_ref' 
+		sql='cba_moneda.sql' 
+		id='cba_moneda_ref'/>
+
+</validator>

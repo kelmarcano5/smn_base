@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='pai_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='pai_nombre_corto' type='varchar' required='true' maxlen='24'/>
+	<parameter id='pai_nombre_largo' type='varchar' required='true' maxlen='48'/>
+	<parameter id='pai_gentilicio' type='varchar' required='true' maxlen='24'/>
+	<parameter id='pai_codigo_ddi' type='varchar' required='true' maxlen='8'/>
+	<parameter id='pai_idioma_oficial' type='integer' required='true' maxlen='10'/>
+	<parameter id='pai_moneda_oficial' type='integer' required='true' maxlen='10'/>
+</validator>

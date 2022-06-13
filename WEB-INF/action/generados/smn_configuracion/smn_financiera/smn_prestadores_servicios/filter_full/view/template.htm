@@ -1,0 +1,67 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="13">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('prs_codigo','query-smnprestadoresservicios.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('prs_nombres','query-smnprestadoresservicios.sql')" >${lbl:s_profile_fname}</th>
+		<th class='sortable' onclick="sortBy('prs_apellidos','query-smnprestadoresservicios.sql')" >${lbl:s_profile_lname}</th>
+		<th class='sortable' onclick="sortBy('prs_area_servicio','query-smnprestadoresservicios.sql')" >${lbl:b_service_area}</th>
+		<th class='sortable' onclick="sortBy('prs_unidad_servicio','query-smnprestadoresservicios.sql')" >${lbl:b_service_unit}</th>
+		<th class='sortable' onclick="sortBy('prs_clase_auxiliar','query-smnprestadoresservicios.sql')" >${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick="sortBy('prs_auxiliar','query-smnprestadoresservicios.sql')" >${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick="sortBy('smn_grupos_prestadores','query-smnprestadoresservicios.sql')" >${lbl:b_group_of_provider}</th>
+		<th class='sortable' onclick="sortBy('prs_direccion','query-smnprestadoresservicios.sql')" >${lbl:b_address}</th>
+		<th class='sortable' onclick="sortBy('prs_telefono_fijo','query-smnprestadoresservicios.sql')" >${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick="sortBy('prs_telefono_movil','query-smnprestadoresservicios.sql')" >${lbl:b_mobile_phone}</th>
+		<th class='sortable' onclick="sortBy('prs_frecuencia','query-smnprestadoresservicios.sql')" >${lbl:b_frecuency}</th>
+		<th class='sortable' onclick="sortBy('prs_fecha_registro','query-smnprestadoresservicios.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:prs_codigo}</td>
+		<td align="left">${fld:prs_nombres}</td>
+		<td align="left">${fld:prs_apellidos}</td>
+		<td align="left">${fld:prs_area_servicio}</td>
+		<td align="left">${fld:prs_unidad_servicio}</td>
+		<td align="left">${fld:prs_clase_auxiliar}</td>
+		<td align="left">${fld:prs_auxiliar}</td>
+		<td align="left">${fld:smn_grupos_prestadores}</td>
+		<td align="left">${fld:prs_direccion}</td>
+		<td align="left">${fld:prs_telefono_fijo}</td>
+		<td align="left">${fld:prs_telefono_movil}</td>
+		<td align="left">${fld:prs_frecuencia@#,###,##0.00}</td>
+		<td align="left">${fld:prs_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

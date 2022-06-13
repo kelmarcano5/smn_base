@@ -1,0 +1,69 @@
+INSERT INTO smn_base.smn_auxiliar
+(
+	smn_auxiliar_id,
+	smn_naturaleza_auxiliar_rf,
+	smn_clase_auxiliar_rf,
+	aux_tipo_persona,
+	aux_codigo,
+	aux_descripcion,
+	aux_representante_legal,
+	aux_tipo_doc_oficial_rf,
+	aux_num_doc_oficial,
+	aux_rif,
+	aux_direccion_rf,
+	aux_benef_pago,
+	aux_beneficiario,
+	aux_cond_pago_rf,
+	aux_cuenta_bancaria_rf,
+	aux_persona_contacto,
+	aux_observacion,
+	aux_idioma,
+	aux_usuario,
+	aux_fecha_registro,
+	aux_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_auxiliar},
+	'5',
+	${fld:smn_clase_auxiliar_rf},
+	${fld:aux_tipo_persona},
+	${fld:aux_codigo},
+	${fld:aux_descripcion},
+	${fld:aux_representante_legal},
+	${fld:aux_tipo_doc_oficial_rf},
+	${fld:aux_num_doc_oficial},
+	${fld:aux_rif},
+	${fld:aux_direccion_rf},
+	${fld:aux_benef_pago},
+	${fld:aux_beneficiario},
+	${fld:aux_cond_pago_rf},
+	${fld:aux_cuenta_bancaria_rf},
+	${fld:aux_persona_contacto},
+	${fld:aux_observacion},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+);
+
+INSERT INTO smn_base.smn_auxiliar_clase
+(
+	smn_auxiliar_clase_id,
+	smn_auxiliar_id,
+	smn_clase_auxiliar_id,
+	acl_idioma,
+	acl_usuario,
+	acl_fecha_registro,
+	acl_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_auxiliar_clase},
+	(select last_value from smn_base.seq_smn_auxiliar),
+	${fld:smn_clase_auxiliar_rf},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+);

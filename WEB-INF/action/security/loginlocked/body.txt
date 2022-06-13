@@ -1,0 +1,25 @@
+${lbl:b_admin_message_part1}:
+
+${lbl:b_admin_blocked_part1} 
+${lbl:b_admin_blocked_part2}. 
+
+${lbl:b_admin_blocked_part3}:
+
+* ${lbl:s_loginhist_col1}: ${def:date}
+* ${lbl:s_loginhist_col2}: ${def:time}
+* ${lbl:s_loginhist_col6}: ${def:context}
+* ${lbl:s_profile_login}: ${req:userlogin}
+* ${lbl:s_loginhist_col3}: ${def:remoteaddr}
+* ${lbl:s_loginhist_col5}: ${def:host}
+
+${lbl:b_admin_blocked_part4}:
+
+http://whois.arin.net
+
+${lbl:b_admin_blocked_part5}:
+
+http://www.iptools.com/dnstools.php?tool=ipwhois&user_data=${def:remoteaddr}
+
+${lbl:b_admin_blocked_part6}:
+${lbl:b_security_system}
+

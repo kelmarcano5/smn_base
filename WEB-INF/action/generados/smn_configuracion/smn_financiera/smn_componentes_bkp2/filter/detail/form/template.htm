@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_components}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_group_of_provider}</td>
+			<td style="background-color: white">${fld:smn_grupos_prestadores_id}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service}</td>
+			<td style="background-color: white">${fld:smn_servicios_id}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:cmp_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:cmp_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service_area}</td>
+			<td style="background-color: white">${fld:cmp_area_servicio}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service_unit}</td>
+			<td style="background-color: white">${fld:cmp_unidad_servicio}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_validation_date_from}</td>
+			<td style="background-color: white">${fld:cmp_vigencia_desde@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_validation_date_to}</td>
+			<td style="background-color: white">${fld:cmp_vigencia_hasta@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">Visible</td>
+			<td style="background-color: white">${fld:cmp_visible_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">Requiere Honorario</td>
+			<td style="background-color: white">${fld:cmp_req_honorario_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_estimated_time}</td>
+			<td style="background-color: white">${fld:cmp_tiempo_estimado@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_auxiliary_class}</td>
+			<td style="background-color: white">${fld:cmp_clase_auxiliar}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_type}</td>
+			<td style="background-color: white">${fld:cmp_tipo_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store}</td>
+			<td style="background-color: white">${fld:cmp_almacen}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_calculus}</td>
+			<td style="background-color: white">${fld:cmp_calculo_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_amount}</td>
+			<td style="background-color: white">${fld:cmp_cantidad@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_price}</td>
+			<td style="background-color: white">${fld:cmp_precio@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_percentage}</td>
+			<td style="background-color: white">${fld:cmp_porcentaje@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_general_transaction}</td>
+			<td style="background-color: white">${fld:cmp_trans_general}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:cmp_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+
+
+</body>
+
+</html>

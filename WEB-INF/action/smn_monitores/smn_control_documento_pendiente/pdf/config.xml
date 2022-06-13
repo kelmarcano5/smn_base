@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncontroldocumento.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_control_documento_pendiente}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='smn_modulos_id' title='${lbl:b_modulos}'  format='######' align='center' />
+			<col name='cdc_fecha_registro' title='${lbl:b_fecha_inicial}'  format='dd-MM-yyyy' align='center' />
+			<col name='cdc_fecha_registro2' title='${lbl:b_fecha_final}'  format='dd-MM-yyyy' align='center' />
+		</record>
+		<table recordset='query-smncontroldocumento.sql' width='100' spacingBefore='10'>
+			<col name='smn_modulos_id_combo' title='${lbl:b_modulos}' width='10' align='center' format='######' />
+			<col name='smn_transaccion_general_rf_combo' title='${lbl:b_transaccion_general}' width='10' align='center' format='######' />
+			<col name='smn_documentos_generales_rf_combo' title='${lbl:b_documentos_generales}' width='10' align='center' format='######' />
+			<col name='cdc_documento_id_combo' title='${lbl:b_documento}' width='10' align='center' format='######' />
+			<col name='smn_paso_id_combo' title='${lbl:b_paso}' width='10' align='center' format='######' />
+			<col name='smn_nivel_aprobacion_id_combo' title='${lbl:b_nivel_aprobacion}' width='10' align='center' format='######' />
+			<col name='smn_rol_id_combo' title='${lbl:b_rol}' width='10' align='center' format='######' />
+			<col name='cdc_status_doc _combo' title='${lbl:b_status}' width='10' align='left' />
+			<col name='cdc_fecha_registro' title='${lbl:b_store_date}' width='10' align='center' format='dd-MM-yyyy' />
+			<col name='cdc_hora' title='${lbl:s_loginhist_col2}' width='10' align='left' />
+		</table>
+
+	</pdf-report>
+</config>

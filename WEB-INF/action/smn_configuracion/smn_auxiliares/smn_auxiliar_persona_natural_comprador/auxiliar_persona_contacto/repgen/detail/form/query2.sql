@@ -1,0 +1,13 @@
+select
+		smn_base.smn_auxiliar_persona_contacto.smn_clase_auxiliar_rf,
+	smn_base.smn_auxiliar_persona_contacto.smn_auxiliar_rf,
+	smn_base.smn_auxiliar_persona_contacto.apc_apellidos,
+	smn_base.smn_auxiliar_persona_contacto.apc_nombres,
+	smn_base.smn_auxiliar_persona_contacto.apc_telefono_contacto,
+	smn_base.smn_auxiliar_persona_contacto.apc_email,
+	smn_base.smn_auxiliar_persona_contacto.apc_direccion,
+	smn_base.smn_auxiliar_persona_contacto.apc_fecha_registro
+from
+	smn_base.smn_auxiliar_persona_contacto 
+where
+	smn_base.smn_auxiliar_persona_contacto.smn_auxiliar_persona_contacto_id = ${fld:id}

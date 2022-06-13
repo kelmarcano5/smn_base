@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnalmacen.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnalmacen.sql' sheetname='${lbl:b_stores}' filename='smn_almacen.xls'>
+		<col id='alm_codigo' label='${lbl:b_code}' />
+		<col id='alm_nombre' label='${lbl:b_name}' />
+		<col id='alm_empresa' label='${lbl:b_entity}' />
+		<col id='alm_unidad_negocio' label='${lbl:b_business_unit}' />
+		<col id='alm_sucursal' label='${lbl:b_subsidiary}' />
+		<col id='alm_area_servicio' label='${lbl:b_service_area}' />
+		<col id='alm_unidad_servicio' label='${lbl:b_service_unit}' />
+		<col id='alm_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

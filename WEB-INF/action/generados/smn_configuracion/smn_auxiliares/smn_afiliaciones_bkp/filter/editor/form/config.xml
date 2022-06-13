@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_affiliations}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-acf_auxiliar_persona_natural.sql' source='sql' scope='transaction'/><recordset id='query-afc_modulo.sql' source='sql' scope='transaction'/><recordset id='query-afc_titular.sql' source='sql' scope='transaction'/><recordset id='query-afc_parentezco.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-acf_auxiliar_persona_natural.sql' tag='acf_auxiliar_persona_natural_rows'/><print mode='table' recordset='query-afc_modulo.sql' tag='afc_modulo_rows'/><print mode='table' recordset='query-afc_titular.sql' tag='afc_titular_rows'/><print mode='table' recordset='query-afc_parentezco.sql' tag='afc_parentezco_rows'/>
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

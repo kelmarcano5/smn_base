@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='fop_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='fop_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='fop_medio_pago' type='integer' required='true' label='${lbl:b_medio_pago}' maxlen='10'/>
+	<parameter id='fop_requiere_banco' type='varchar' required='true' label='${lbl:b_bank}' maxlen='1'/>
+	<parameter id='fop_franquicia' type='integer' required='false' label='${lbl:b_franquicias}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_way_to_pay}' maxlen='10'/>
+</validator>
+

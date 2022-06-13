@@ -1,0 +1,1 @@
+select smn_base.smn_tipos_areas.smn_tipos_areas_id as id, smn_base.smn_tipos_areas.tar_codigo || ' - ' || smn_base.smn_tipos_areas.tar_descripcion as item from smn_base.smn_tipos_areas

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_unidades_servicios>
+	<detail>
+		<rows>		
+		<record uns_fecha_registro="${fld:uns_fecha_registro}"    uns_descripcion="${fld:uns_descripcion}"    uns_codigo="${fld:uns_codigo}"    smn_areas_servicios_id="${fld:smn_areas_servicios_id}"    />
+		</rows>
+	</detail>
+</smn_unidades_servicios>

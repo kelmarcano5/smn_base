@@ -1,0 +1,1 @@
+select smn_base.smn_auxiliar_cuenta_bancaria.smn_auxiliar_cuenta_bancaria_id as id, smn_base.smn_auxiliar_cuenta_bancaria.acb_num_cuenta || ' - ' || smn_base.smn_auxiliar_cuenta_bancaria.acb_banco_pertenece as item from smn_base.smn_auxiliar_cuenta_bancaria order by smn_base.smn_auxiliar_cuenta_bancaria.acb_banco_pertenece

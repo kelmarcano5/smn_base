@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_services}</summary>
+	<filter>
+		<row field='svc_descripcion' id='svc_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_servicios' len='56'/>
+		<row field='svc_clase_auxiliar' id='svc_clase_auxiliar' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo|| &apos; - &apos; || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_servicios' len='10'/>
+		<row field='svc_tipo_servicio' id='svc_tipo_servicio' label='${lbl:b_service_type}@{select smn_base.smn_tipos_servicios.smn_tipos_servicios_id as id, smn_base.smn_tipos_servicios.tsr_codigo || &apos; - &apos; || smn_base.smn_tipos_servicios.tsr_descripcion as item from smn_base.smn_tipos_servicios order by 2}
+' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_servicios' len='10'/>
+		<row field='svc_area_servicio' id='svc_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_servicios' len='10'/>
+		<row field='svc_unidad_servicio' id='svc_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by 2}
+' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_servicios' len='10'/>
+		<row field='svc_inactivo' id='svc_inactivo' label='${lbl:b_inactive}@{S=${lbl:b_yes}|N=${lbl:b_not}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_servicios' len='1'/>
+		<row field='svc_fecha_registro' id='svc_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_servicios' len='10'/>
+		<row field='svc_fecha_registro' id='svc_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_servicios' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='svc_descripcion' label='${lbl:b_description}' fk='' tableName='smn_servicios' len='56' type='varchar' align='left'/>
+		<row field='svc_clase_auxiliar' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo|| &apos; - &apos; || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' fk='' tableName='smn_servicios' len='10' type='integer' align='left'/>
+		<row field='svc_tipo_servicio' label='${lbl:b_service_type}@{select smn_base.smn_tipos_servicios.smn_tipos_servicios_id as id, smn_base.smn_tipos_servicios.tsr_codigo || &apos; - &apos; || smn_base.smn_tipos_servicios.tsr_descripcion as item from smn_base.smn_tipos_servicios order by 2}
+' fk='' tableName='smn_servicios' len='10' type='integer' align='left'/>
+		<row field='svc_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' fk='' tableName='smn_servicios' len='10' type='integer' align='left'/>
+		<row field='svc_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by 2}
+' fk='' tableName='smn_servicios' len='10' type='integer' align='left'/>
+		<row field='svc_inactivo' label='${lbl:b_inactive}@{S=${lbl:b_yes}|N=${lbl:b_not}}' fk='' tableName='smn_servicios' len='1' type='varchar' align='left'/>
+		<row field='svc_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_servicios' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

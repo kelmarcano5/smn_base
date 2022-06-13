@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='prs_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='50'/>
+	<parameter id='prs_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='prs_area_servicio' type='integer' required='false' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='prs_unidad_servicio' type='integer' required='false' label='${lbl:b_service_unit}' maxlen='10'/>
+	<parameter id='prs_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='prs_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='prs_orden_atencion' type='varchar' required='true' label='${lbl:b_in_order_of_attention}' maxlen='2'/>
+	<parameter id='prs_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='prs_fecha_inicio_estatus' type='date' required='true' label='${lbl:b_date_init}' maxlen='10'/>
+	<parameter id='prs_fecha_final_estatus' type='date' required='false' label='${lbl:b_date_end}' maxlen='10'/>
+	<parameter id='prs_frecuencia' type='double' required='true' label='${lbl:b_frecuency}' maxlen='10'/>
+
+	<parameter id='id' type='integer' required='true' label='${lbl:b_service_provider}' maxlen='10'/>
+
+	<parameter id='smn_grupos_prestadores_id' type='varchar' required='false' label='Ítems'/>
+	<custom-validator classname='dinamica.validators.StringToRecordset' paramName='smn_grupos_prestadores_id' recordsetId='query-smn_grupos_prestadores.sql' separatorChar=';' colName='smn_grupos_prestadores_id' colType='integer'/>
+
+	<parameter id='smn_especialidad_id' type='varchar' required='true' label='Ítems'/>
+	<custom-validator classname='dinamica.validators.StringToRecordset' paramName='smn_especialidad_id' recordsetId='query-smn_especialidad.sql' separatorChar=';' colName='smn_especialidad_id' colType='integer'/>
+	
+	<parameter id='smn_agenda_id' type='varchar' required='true' label='Ítems'/>
+	<custom-validator classname='dinamica.validators.StringToRecordset' paramName='smn_agenda_id' recordsetId='query-smn_agenda.sql' separatorChar=';' colName='smn_agenda_id' colType='integer'/>
+
+	<parameter id='smn_componentes_id' type='varchar' required='true' label='Ítems'/>
+	<custom-validator classname='dinamica.validators.StringToRecordset' paramName='smn_componentes_id' recordsetId='query-smn_componentes.sql' separatorChar=';' colName='smn_componentes_id' colType='integer'/>
+
+	<parameter id='smn_tipo_prestadores_servicios_rf' type='integer' required='false' label='${lbl:b_type_services_providers}' maxlen='10'/>
+
+	<parameter id='prs_nivel_seguridad' type='integer' required='false' label='${lbl:b_security_level}' maxlen='10'/>
+	
+</validator>

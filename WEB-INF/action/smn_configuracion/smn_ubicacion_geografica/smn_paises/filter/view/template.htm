@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='8%'/>
+	<col width='12%'/>
+	<col width='13%'/>
+	<col width='10%'/>
+	<col width='18%'/>
+	<col width='20%'/>
+	<col width='10%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('pai_codigo','query-smnpaises.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('pai_nombre_largo','query-smnpaises.sql')" >${lbl:b_long_name}</th>
+		<th class='sortable' onclick="sortBy('pai_gentilicio','query-smnpaises.sql')" >${lbl:b_citizenship}</th>
+		<th class='sortable' onclick="sortBy('pai_codigo_ddi','query-smnpaises.sql')" >${lbl:b_international_dailing_code}</th>
+		<th class='sortable' onclick="sortBy('idi_descripcion','query-smnpaises.sql')" >${lbl:b_official_lenguage}</th>
+		<th class='sortable' onclick="sortBy('mon_nombre','query-smnpaises.sql')" >${lbl:b_official_coin}</th>
+		<th class='sortable' onclick="sortBy('pai_fecha_registro','query-smnpaises.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_paises_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_paises_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_paises_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:pai_codigo}</td>
+		<td align="left">${fld:pai_nombre_largo}</td>
+		<td align="left">${fld:pai_gentilicio}</td>
+		<td align="left">${fld:pai_codigo_ddi}</td>
+		<td align="left">${fld:idi_descripcion}</td>
+		<td align="left">${fld:mon_nombre}</td>
+		<td align="center">${fld:pai_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

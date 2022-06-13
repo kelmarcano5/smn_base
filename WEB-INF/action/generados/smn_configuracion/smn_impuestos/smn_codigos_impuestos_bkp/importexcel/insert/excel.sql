@@ -1,0 +1,48 @@
+INSERT INTO smn_base.smn_codigos_impuestos
+(
+	smn_codigos_impuestos_id,
+	imp_codigo,
+	imp_descripcion,
+	imp_tipo_codigo,
+	imp_modalidad_registro,
+	imp_porcentaje_base,
+	imp_porcentaje_calculo,
+	imp_tipo_libro,
+	imp_tipo_persona,
+	imp_tipo_contribuyente,
+	imp_unidad_impositiva,
+	imp_ui_minima,
+	imp_ui_maxima,
+	imp_ui_sustraendo,
+	imp_monto_minimo,
+	imp_monto_maximo,
+	imp_monto_sustraendo,
+	imp_idioma,
+	imp_usuario,
+	imp_fecha_registro,
+	imp_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_codigos_impuestos},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

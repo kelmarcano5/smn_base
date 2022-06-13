@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_exchange_rates}</summary>
+	<filter>
+		<row field='smn_monedas_id' id='smn_monedas_id' label='${lbl:b_coin}@{select smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || ' - ' || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by 2}' required='NO' fk='mon_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_tasas_de_cambio' len='10'/>
+		<row field='tca_moneda_referencia' id='tca_moneda_referencia' label='${lbl:b_referenced_coin}@{select smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || ' - ' || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_tasas_de_cambio' len='10'/>
+		<row field='tca_fecha_vigencia' id='tca_fecha_vigencia_ini' label='${lbl:b_validation_date_from}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_tasas_de_cambio' len='10'/>
+		<row field='tca_fecha_vigencia' id='tca_fecha_vigencia_fin' label='${lbl:b_validation_date_until}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_tasas_de_cambio' len='10'/>
+		<row field='tca_fecha_registro' id='tca_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_tasas_de_cambio' len='10'/>
+		<row field='tca_fecha_registro' id='tca_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_tasas_de_cambio' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_monedas_id' label='${lbl:b_coin}@{select smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || ' - ' || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by 2}' fk='mon_codigo' tableName='smn_tasas_de_cambio' len='10' type='integer' align='left'/>
+		<row field='tca_moneda_referencia' label='${lbl:b_referenced_coin}@{select smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || ' - ' || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by 2}' fk='' tableName='smn_tasas_de_cambio' len='10' type='integer' align='center'/>
+		<row field='tca_fecha_vigencia' label='${lbl:b_validation_date}' fk='' tableName='smn_tasas_de_cambio' len='10' type='date' align='center'/>
+		<row field='tca_tasa_cambio' label='${lbl:b_rate}' fk='' tableName='smn_tasas_de_cambio' len='10' type='double' align='right'/>
+		<row field='tca_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_tasas_de_cambio' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

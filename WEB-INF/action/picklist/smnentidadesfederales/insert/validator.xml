@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/ajax">
+
+
+	<parameter id='smn_paises_id2_name' type='varchar' required='true' label='${lbl:b_country}'/>
+	<parameter id='smn_paises_id2' type='integer' required='false' label='${lbl:b_country}' maxlen='10'/>
+	<parameter id='efe_codigo2' type='varchar' required='true' label='${lbl:b_code}' maxlen='3'/>
+	<parameter id='efe_nombre_corto2' type='varchar' required='true' label='${lbl:b_short_name}' maxlen='32'/>
+	<parameter id='efe_nombre_largo2' type='varchar' required='true' label='${lbl:b_long_name}' maxlen='56'/>
+
+
+
+</validator>
+
+

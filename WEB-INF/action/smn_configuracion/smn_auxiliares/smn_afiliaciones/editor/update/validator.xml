@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='afc_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='afc_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='afc_afiliado' type='integer' required='true' label='${lbl:b_joined}' maxlen='10'/>
+	<parameter id='afc_modulo' type='integer' required='true' label='${lbl:b_module}' maxlen='10'/>
+	<parameter id='afc_es_titular' type='varchar' required='true' label='${lbl:b_titular}' maxlen='1'/>
+	<parameter id='afc_parentezco' type='integer' required='false' label='${lbl:b_relationship}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_affiliation}' maxlen='10'/>
+
+
+</validator>

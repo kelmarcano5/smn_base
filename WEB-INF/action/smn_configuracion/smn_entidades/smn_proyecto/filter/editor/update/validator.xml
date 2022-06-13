@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='pry_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='pry_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='256'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='true' label='${lbl:b_class_auxiliary}' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='true' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='pry_fecha_inicio' type='date' required='true' label='${lbl:b_date_start}' maxlen='10'/>
+	<parameter id='pry_fecha_fin_estimada' type='date' required='true' label='${lbl:b_date_end_estimated}' maxlen='10'/>
+	<parameter id='pry_fecha_cierre' type='date' required='true' label='${lbl:b_date_closing}' maxlen='10'/>
+	<parameter id='pry_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_project}' maxlen='10'/>
+
+
+</validator>

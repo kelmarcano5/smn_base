@@ -1,0 +1,58 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="11" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("cue_codigo_pl0","query-smnrespuesta.sql")'>${lbl:b_smn_cuestionario_id}</th>
+		<th class='sortable' onclick='sortBy("sec_codigo_pl1","query-smnrespuesta.sql")'>${lbl:b_smn_seccion_id}</th>
+		<th class='sortable' onclick='sortBy("prg_codigo_pl2","query-smnrespuesta.sql")'>${lbl:b_smn_pregunta_id}</th>
+		<th class='sortable' onclick='sortBy("tva_codigo_pl3","query-smnrespuesta.sql")'>${lbl:b_smn_tipo_variable_id}</th>
+		<th class='sortable' onclick='sortBy("smn_tipo_respuesta_id_combo","query-smnrespuesta.sql")'>${lbl:b_smn_tipo_respuesta_id}</th>
+		<th class='sortable' onclick='sortBy("smn_variable_id","query-smnrespuesta.sql")'>${lbl:b_smn_variable}</th>
+		<th class='sortable' onclick='sortBy("res_texto_respuesta","query-smnrespuesta.sql")'>${lbl:b_res_texto_respuesta}</th>
+		<th class='sortable' onclick='sortBy("cue_fecha_registro","query-smnrespuesta.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_respuesta_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_respuesta_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_respuesta_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:cue_codigo_pl0}</td>
+		<td>${fld:sec_codigo_pl1}</td>
+		<td>${fld:prg_codigo_pl2}</td>
+		<td>${fld:tva_codigo_pl3}</td>
+		<td>${fld:smn_tipo_respuesta_id_combo}</td>
+		<td>${fld:smn_variable_id}</td>
+		<td align='left'>${fld:res_texto_respuesta}</td>
+		<td>${fld:res_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

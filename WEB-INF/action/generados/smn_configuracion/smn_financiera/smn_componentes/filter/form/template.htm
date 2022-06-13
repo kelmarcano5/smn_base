@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+
+<!--biblioteca generica JS/Dinamica-->
+<script type="text/javascript" src="${def:context}/action/script">
+</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="banner">
+	${lbl:b_components}
+	${req:progress}
+</div>
+
+<!--formulario de filtro-->
+<form name="form1" onsubmit="return search()" style="width:530px;">
+
+	<!--titulo-->
+	<h1>Filtro de búsqueda</h1>
+	
+	<table>
+	
+	<!--ancho de la columna de etiquetas-->
+	<col style="width:40%">
+
+	<!--campos-->
+		<tr>
+		<td>${lbl:b_code}</td>
+		<td>
+			<input id="cmp_codigo" name="cmp_codigo" type="text" maxlength="16" >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_description}</td>
+		<td>
+			<input id="cmp_descripcion" name="cmp_descripcion" type="text" maxlength="48" >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_service_area}</td>
+		<td>
+			<select name="cmp_area_servicio" id="cmp_area_servicio" onchange="chgCombo(cmp_area_servicio.options[cmp_area_servicio.selectedIndex].text,'cmp_area_servicio_name');">
+				<option value="">[Cualquiera]</option>
+				<cmp_area_servicio_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cmp_area_servicio_rows>
+			</select> 
+			<input id="cmp_area_servicio_name" name="cmp_area_servicio_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_service_unit}</td>
+		<td>
+			<select name="cmp_unidad_servicio" id="cmp_unidad_servicio" onchange="chgCombo(cmp_unidad_servicio.options[cmp_unidad_servicio.selectedIndex].text,'cmp_unidad_servicio_name');">
+				<option value="">[Cualquiera]</option>
+				<cmp_unidad_servicio_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cmp_unidad_servicio_rows>
+			</select> 
+			<input id="cmp_unidad_servicio_name" name="cmp_unidad_servicio_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_type}</td>
+		<td>
+			<select name="cmp_tipo" id="cmp_tipo">
+				<option value="">[Cualquiera]</option>
+				<option value="SE">${lbl:b_services}</option>
+				<option value="IN">${lbl:b_inventory}</option>
+				<option value="PR">${lbl:b_providers}</option>
+
+			</select> 
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_general_transaction}</td>
+		<td>
+			<select name="cmp_trans_general" id="cmp_trans_general" onchange="chgCombo(cmp_trans_general.options[cmp_trans_general.selectedIndex].text,'cmp_trans_general_name');">
+				<option value="">[Cualquiera]</option>
+				<cmp_trans_general_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cmp_trans_general_rows>
+			</select> 
+			<input id="cmp_trans_general_name" name="cmp_trans_general_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_validation_date_from}</td>
+		<td>
+			<input id="cmp_vigencia_desde" name="cmp_vigencia_desde" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cmp_vigencia_desde')">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_validation_date_to}</td>
+		<td>
+			<input id="cmp_vigencia_hasta" name="cmp_vigencia_hasta" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cmp_vigencia_hasta')">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_store_date_grater_than}</td>
+		<td>
+			<input id="cmp_fecha_registro_ini" name="cmp_fecha_registro_ini" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cmp_fecha_registro_ini')">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_store_date_less_than}</td>
+		<td>
+			<input id="cmp_fecha_registro_fin" name="cmp_fecha_registro_fin" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cmp_fecha_registro_fin')">
+		</td>
+	</tr>
+
+	
+	</table>
+	
+	<!--botones-->
+	<input type="submit" value="Buscar" class="button">
+	<input type="button" value="Limpiar" class="button" onclick="clearForm('form1')">
+	<input type="button" value="Añadir" class="button" onclick="showEditor()">
+	
+</form>
+
+<!--panel de respuesta AJAX #1-->
+<div id="response" style="display:none; width:100%; margin-top:10px;"></div>
+	
+</body>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	//inicializacion de la pagina cuando carga
+	onload = function()
+	{ 
+		showFilter();
+		document.form1.cmp_vigencia_desde.onkeypress = keypressDate;
+		document.form1.cmp_vigencia_hasta.onkeypress = keypressDate;
+		document.form1.cmp_fecha_registro_ini.onkeypress = keypressDate;
+		document.form1.cmp_fecha_registro_fin.onkeypress = keypressDate;
+
+	} 
+	
+
+
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//mostrar filtro de busqueda
+	function showFilter()
+	{
+		document.getElementById("response").style.display='none';
+		setFocusOnForm("form1");
+	}
+	
+	//ejecutar consulta
+	function search()
+	{
+
+		var url = "${def:actionroot}/search";
+		
+		//determina si refresca y se para en la pagina actual o en la pagina 1
+		if (currentPage > 0)
+			url = "${def:actionroot}/search?currentpage=" + currentPage;
+
+		//definir funcion goBack()
+		_goBackFn = showFilter;
+		
+		clearErrorMessages();
+
+		//llamada Ajax...
+		return ajaxCall(	httpMethod="POST", 
+							uri=url, 
+							divResponse="response", 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=showFilter);
+
+	}
+
+	//mostrar una pagina del grid
+	function viewPage()
+	{
+		var url = "${def:actionroot}/view";
+		//llama a la funcion para ir a la pagina indicada 
+		gotoPage(url);
+	}		
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//invoca la generacion de un PDF en un popup
+	function openPDF()
+	{
+		var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+		var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+		var w = window.open(url, null, features);
+	}
+
+	//invoca la generacion de un Excel en un popup
+	function openExcel()
+	{
+		var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+		var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+		var w = window.open(url, null, features);
+	}
+	
+	//mostrar el detalle de un registro
+	function getDetail(id)
+	{
+		alert('Colocar su código aquí.')
+		/*
+		var uri = "${def:context}${def:actionroot}/detail/form?id=" + id;
+		openDialog("dialog", uri, 750, 450);
+		*/
+	}
+	
+	//muestra un DIV+IFRAME con el formulario de CRUD
+	function showEditor(id)
+	{
+		alert('Colocar su código aquí.')
+		/*
+		var uri = "";
+		if (id==null)
+		 	uri = "${def:context}${def:actionroot}/editor/form";
+		else
+			uri = "${def:context}${def:actionroot}/editor/form?id=" + id;
+			
+		openDialog("editor", uri, 580, 450);
+		*/
+	}
+	
+	function deleteRecord(id) {
+		alert('Colocar su código aquí.')
+		/*
+		alertBox("¿Desea borrar este registro de la base de datos?", "Eliminar", "Cancelar", "deleteRecordOK(" + id + ")")
+		*/		
+	}
+	
+	//eliminar un registro
+	function deleteRecordOK(id) {
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/delete?id=" + id,
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+
+			
+</script>
+
+</html>

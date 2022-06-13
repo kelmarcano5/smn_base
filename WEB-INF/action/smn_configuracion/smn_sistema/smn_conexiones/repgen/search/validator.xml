@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='con_sistema' type='varchar' required='false' label='${lbl:b_system}' maxlen='64'/>
+	<parameter id='con_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='smn_entidad_rf' type='integer' required='false' label='${lbl:b_company}' maxlen='10'/>
+	<parameter id='smn_sucursal_rf' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+	<parameter id='con_ip_servidor' type='varchar' required='false' label='${lbl:b_ip_server}' maxlen='64'/>
+	<parameter id='con_hostname_instancia' type='varchar' required='false' label='${lbl:b_server_name}' maxlen='64'/>
+	<parameter id='con_nombre_bd' type='varchar' required='false' label='${lbl:b_database_name}' maxlen='64'/>
+	<parameter id='con_usuario_bd' type='varchar' required='false' label='${lbl:b_database_user}' maxlen='64'/>
+	<parameter id='con_clave_bd' type='varchar' required='false' label='${lbl:b_database_password}' maxlen='64'/>
+	<parameter id='con_puerto_bd' type='varchar' required='false' label='${lbl:b_database_port}' maxlen='64'/>
+	<parameter id='con_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='con_vigencia' type='date' required='false' label='${lbl:b_effectivity_date}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='con_sistema'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+parameter='con_descripcion'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='con_ip_servidor'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='con_hostname_instancia'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='con_nombre_bd'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='con_usuario_bd'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='con_clave_bd'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='con_puerto_bd'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='con_estatus'
+		rule='contains' />
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='con_descripcion'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='con_nombre_bd'/>
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_grupos_prestadores_id' type='integer' required='false' label='${lbl:b_groups_of_providers}' maxlen='10'/>
+	<parameter id='smn_prestadores_servicios_id' type='integer' required='false' label='${lbl:b_service_provider}' maxlen='10'/>
+	<parameter id='smn_servicios_id' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='gps_frecuencia' type='double' required='true' label='${lbl:b_frecuency}' maxlen='10'/>
+
+
+</validator>

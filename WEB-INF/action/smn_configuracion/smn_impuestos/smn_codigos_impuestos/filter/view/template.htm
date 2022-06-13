@@ -1,0 +1,65 @@
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="13" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('imp_codigo','query-smncodigosimpuestos.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('imp_descripcion','query-smncodigosimpuestos.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('imp_tipo_codigo_combo','query-smncodigosimpuestos.sql')" >${lbl:b_code_type}</th>
+		<th class='sortable' onclick="sortBy('imp_tipo_persona_combo','query-smncodigosimpuestos.sql')" >${lbl:b_kind_of_person}</th>
+		<th class='sortable' onclick="sortBy('imp_tipo_contribuyente_combo','query-smncodigosimpuestos.sql')" >${lbl:b_type_of_taxpayer}</th>
+		<th class='sortable' onclick="sortBy('uim_descripcion','query-smncodigosimpuestos.sql')" >${lbl:b_tax_unit}</th>
+		<th class='sortable' onclick="sortBy('imp_fecha_registro','query-smncodigosimpuestos.sql')" >${lbl:b_store_date}</th>
+		<th>R/I</th>
+		<th>R/S</th>
+		<th>R/A</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_codigos_impuestos_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_codigos_impuestos_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_codigos_impuestos_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:imp_codigo}</td>
+		<td align="left">${fld:imp_descripcion}</td>
+		<td align="left">${fld:imp_tipo_codigo_combo}</td>
+		<td align="left">${fld:imp_tipo_persona_combo}</td>
+		<td align="left">${fld:imp_tipo_contribuyente_combo}</td>
+		<td align="left">${fld:uim_descripcion}</td>
+		<td align="center">${fld:imp_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="relitem('${fld:smn_codigos_impuestos_id}','${fld:imp_codigo}','${fld:imp_descripcion}')" title="${lbl:b_relacion_item_codigos_impuestos}"></td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="relser('${fld:smn_codigos_impuestos_id}','${fld:imp_codigo}','${fld:imp_descripcion}')" title="${lbl:b_relacion_servicio_codigos_impuestos}"></td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="relact('${fld:smn_codigos_impuestos_id}','${fld:imp_codigo}','${fld:imp_descripcion}')" title="${lbl:b_relacion_af_codigos_impuestos}"></td>
+
+	</tr>
+	</rows>
+
+</table>

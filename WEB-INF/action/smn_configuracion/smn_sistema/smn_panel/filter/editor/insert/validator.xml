@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='pan_service_description' type='varchar' required='true' label='${lbl:b_service_description}' maxlen='350'/>
+	<parameter id='pan_service_path' type='varchar' required='true' label='${lbl:b_service_path}' maxlen='150'/>
+	<parameter id='pan_icon_path' type='varchar' required='true' label='${lbl:b_icon_path}' maxlen='200'/>
+	<parameter id='pan_app_id' type='integer' required='true' label='${lbl:b_application}' maxlen='10'/>
+	<parameter id='pan_role_id' type='integer' required='true' label='${lbl:b_role}' maxlen='10'/>
+	<parameter id='pan_orden' type='integer' required='true' label='${lbl:b_order}' maxlen='10'/>
+
+
+</validator>

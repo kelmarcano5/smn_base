@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarcentrocosto-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnvauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnclaseauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-tipocco.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_auxiliares.smn_auxiliar_centro_costo.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_outsourced_cost_center}.xls'      
+		header-background='true' >
+		
+	<sheet recordset="query-smnauxiliarcentrocosto-template.sql" sheetname="${lbl:b_outsourced_cost_center}">
+		
+		<col id='tco_codigo' label='${lbl:b_code}' />
+		<col id='tco_descripcion_corta' label='${lbl:b_short_description}' />
+		<col id='tco_descripcion_larga' label='${lbl:b_long_description}' />
+		<col id='tco_clase_auxiliar' label='${lbl:b_auxiliary_class}' />
+		<col id='tco_auxiliar' label='${lbl:b_auxiliary}' />
+		<col id='tco_responsable' label='${lbl:b_responsible}' />
+		<col id='tco_tipo_cco_combo' label='${lbl:b_type}' />
+		<col id='tco_nivel' label='${lbl:b_level}' />
+		
+		<col id='tco_clase_auxiliar_reference' label='${lbl:b_auxiliary_class}' />
+		<col id='tco_auxiliar_reference' label='${lbl:b_auxiliary}' />
+		<col id='tco_tipo_cco_combo_reference' label='${lbl:b_type}' />
+
+	</sheet>
+	
+	<sheet recordset='query-smnvauxiliar.sql' sheetname='${lbl:b_auxiliary}'>
+		<col id='smn_item' label='${lbl:b_auxiliary}' />
+	</sheet>
+
+	<sheet recordset='query-smnclaseauxiliar.sql' sheetname='${lbl:b_auxiliary_class}'>
+		<col id='cla_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-tipocco.sql' sheetname='${lbl:b_type}'>
+		<col id='tipo_centro_costo' label='${lbl:b_type}' />
+	</sheet>
+
+	</excel>
+
+</config>

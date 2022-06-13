@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnestructuracodigo.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="5" cellStep="0" name="${lbl:b_estructura_codigo}"/>
+	
+	<excel 
+		recordset='query-smnestructuracodigo.sql' 
+		sheetname='${lbl:b_estructura_codigo}' 
+		filename='${lbl:b_estructura_codigo}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='smn_modulos_id_combo' label='${lbl:b_module}' />
+		<col id='eco_codigo' label='${lbl:b_code}' />
+		<col id='eco_nombre' label='${lbl:b_name}' />
+		<col id='eco_niveles' label='${lbl:b_levels}' />
+		<col id='eco_mascara' label='${lbl:b_mask}' />
+		<col id='eco_separador' label='${lbl:b_separator}' />
+		<col id='eco_idioma' label='${lbl:s_profile_lang}' />
+		<col id='eco_usuario' label='${lbl:b_users}' />
+		<col id='eco_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='eco_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_auxiliar_categoria_id_name' type='varchar' required='false' label='${lbl:b_auxiliary}'/>
+	<parameter id='smn_auxiliar_categoria_id' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='atr_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='atr_codigo' rule='contains' />
+	<parameter id='atr_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='64'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='atr_descripcion' rule='contains' />
+	<parameter id='atr_auxiliar_corporacion' type='integer' required='false' label='${lbl:b_outsourced_corporation}' maxlen='10'/>
+	<parameter id='atr_auxiliar_unidad_negocio' type='integer' required='false' label='${lbl:b_outsourced_unit_business}' maxlen='10'/>
+	<parameter id='atr_razon_social' type='varchar' required='false' label='${lbl:b_business_name}' maxlen='64'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='atr_razon_social' rule='contains' />
+	<parameter id='atr_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='atr_fecha_registro_ini' date2='atr_fecha_registro_fin' id='atr_fecha_registro_ini' />
+	<parameter id='atr_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

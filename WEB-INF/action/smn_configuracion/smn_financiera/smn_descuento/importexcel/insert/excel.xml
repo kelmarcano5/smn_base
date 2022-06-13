@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='dct_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='dct_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dct_porcentaje' type='double' required='true' maxlen='10'/>
+	<parameter id='dct_aplica' type='varchar' required='true' maxlen='1'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='dct_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='dct_nombre'/>
+
+
+</validator>

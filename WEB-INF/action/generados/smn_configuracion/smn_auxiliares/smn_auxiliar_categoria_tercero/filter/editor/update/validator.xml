@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_auxiliar_categoria_id_name' type='varchar' required='true' label='${lbl:b_auxiliary}'/>
+	<parameter id='smn_auxiliar_categoria_id' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='atr_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='atr_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='atr_comunidad' type='integer' required='false' label='${lbl:b_community}' maxlen='10'/>
+	<parameter id='atr_auxiliar_corporacion' type='integer' required='false' label='${lbl:b_outsourced_corporation}' maxlen='10'/>
+	<parameter id='atr_auxiliar_unidad_negocio' type='integer' required='false' label='${lbl:b_outsourced_unit_business}' maxlen='10'/>
+	<parameter id='atr_maneja_sucursal' type='varchar' required='true' label='${lbl:b_has_subsidiary}' maxlen='1'/>
+	<parameter id='atr_razon_social' type='varchar' required='false' label='${lbl:b_business_name}' maxlen='64'/>
+	<parameter id='atr_denom_comercial' type='varchar' required='false' label='${lbl:b_designation_commercial}' maxlen='64'/>
+	<parameter id='atr_beneficiario' type='varchar' required='false' label='${lbl:b_beneficiary}' maxlen='96'/>
+	<parameter id='atr_tipo_doc_oficial' type='integer' required='false' label='${lbl:b_official_document_type}' maxlen='10'/>
+	<parameter id='atr_num_doc_oficial' type='varchar' required='false' label='${lbl:b_official_document_number}' maxlen='12'/>
+	<parameter id='atr_clasif_abc' type='varchar' required='false' label='${lbl:b_abc_clasification}' maxlen='1'/>
+	<parameter id='atr_rif' type='varchar' required='false' label='${lbl:b_tax_id}' maxlen='16'/>
+	<parameter id='atr_direccion' type='integer' required='false' label='${lbl:b_business_address}' maxlen='10'/>
+	<parameter id='atr_cuenta_bancaria' type='integer' required='false' label='${lbl:b_auxiliary_bank_account}' maxlen='10'/>
+	<parameter id='atr_contactos' type='integer' required='false' label='${lbl:b_auxiliary_contact}' maxlen='10'/>
+	<parameter id='atr_persona_contacto' type='varchar' required='false' label='${lbl:b_contact_person}' maxlen='48'/>
+	<parameter id='atr_representante_legal' type='varchar' required='false' label='${lbl:b_legal_representative}' maxlen='64'/>
+	<parameter id='atr_benef_pago' type='varchar' required='false' label='${lbl:b_beneficiary_payments}' maxlen='112'/>
+	<parameter id='atr_cond_pago' type='integer' required='false' label='${lbl:b_condition_payments}' maxlen='2'/>
+	<parameter id='atr_tipo_facturac' type='varchar' required='false' label='${lbl:b_billing_type}' maxlen='2'/>
+	<parameter id='atr_condicion_financiera' type='integer' required='false' label='${lbl:b_financial_condition}' maxlen='10'/>
+	<parameter id='atr_observacion' type='varchar' required='false' label='${lbl:b_observation}' maxlen='96'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_intermediary_assistant}' maxlen='10'/>
+</validator>
+

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_direccion>
+	<detail>
+		<rows>		
+		<record dir_fecha_registro="${fld:dir_fecha_registro}"    dir_mapa_latitud="${fld:dir_mapa_latitud}"    dir_mapa_longitud="${fld:dir_mapa_longitud}"    dir_categoria="${fld:dir_categoria}"    dir_apartado_postal="${fld:dir_apartado_postal}"    til_descripcion_nom="${fld:til_descripcion_nom}"    til_descripcion="${fld:til_descripcion}"    edf_descripcion_num="${fld:edf_descripcion_num}"    edf_descripcion_nom="${fld:edf_descripcion_nom}"    edf_descripcion="${fld:edf_descripcion}"    tiv_descripcion_num="${fld:tiv_descripcion_num}"    tiv_descripcion_nom="${fld:tiv_descripcion_nom}"    tiv_descripcion="${fld:tiv_descripcion}"    zpo_codigo="${fld:zpo_codigo}"    prr_nombre_corto="${fld:prr_nombre_corto}"    mun_nombre_corto="${fld:mun_nombre_corto}"    ciu_nombre_corto="${fld:ciu_nombre_corto}"    efe_nombre_corto="${fld:efe_nombre_corto}"    pai_nombre_corto="${fld:pai_nombre_corto}"    dir_descripcion="${fld:dir_descripcion}"    dir_codigo="${fld:dir_codigo}"    />
+		</rows>
+	</detail>
+</smn_direccion>

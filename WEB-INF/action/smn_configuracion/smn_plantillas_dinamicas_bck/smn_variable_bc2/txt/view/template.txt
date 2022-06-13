@@ -1,0 +1,3 @@
+<rows>
+var_fecha_registro="${fld:var_fecha_registro}"    var_estatus="${fld:var_estatus}"    var_descripción="${fld:var_descripción}"    var_codigo="${fld:var_codigo}"    smn_tipo_variable_id="${fld:smn_tipo_variable_id}"    var_fecha_registro="${fld:var_fecha_registro}"    var_estatus="${fld:var_estatus}"    var_descripción="${fld:var_descripción}"    var_codigo="${fld:var_codigo}"    smn_tipo_variable_id="${fld:smn_tipo_variable_id}"    
+</rows>

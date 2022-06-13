@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('cfi_codigo','query-smncondicionfinanciera.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('cfi_description','query-smncondicionfinanciera.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('cfi_cant_dias','query-smncondicionfinanciera.sql')" >${lbl:b_quantity_days}</th>
+		<th class='sortable' onclick="sortBy('cfi_limite_credito','query-smncondicionfinanciera.sql')" >${lbl:b_credit_limit}</th>
+		<th class='sortable' onclick="sortBy('cfi_estatus_combo','query-smncondicionfinanciera.sql')" >${lbl:b_estatus}</th>
+		<th class='sortable' onclick="sortBy('cfi_vigencia','query-smncondicionfinanciera.sql')" >${lbl:b_vigency}</th>
+		<th class='sortable' onclick="sortBy('cfi_fecha_registro','query-smncondicionfinanciera.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_condicion_financiera_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_condicion_financiera_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_condicion_financiera_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:cfi_codigo}</td>
+		<td align="left">${fld:cfi_description}</td>
+		<td align="center">${fld:cfi_cant_dias}</td>
+		<td align="right">${fld:cfi_limite_credito@#,###,##0.00}</td>
+		<td align="left">${fld:cfi_estatus_combo}</td>
+		<td align="center">${fld:cfi_vigencia@dd-MM-yyyy}</td>
+		<td align="center">${fld:cfi_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

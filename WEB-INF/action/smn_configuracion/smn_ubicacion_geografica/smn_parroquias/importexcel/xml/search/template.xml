@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_parroquias>
+	<detail>
+		<rows>		
+		<record prr_fecha_registro="${fld:prr_fecha_registro}"    prr_nombre_largo="${fld:prr_nombre_largo}"    prr_nombre_corto="${fld:prr_nombre_corto}"    prr_codigo="${fld:prr_codigo}"    prr_municipios="${fld:prr_municipios}"    />
+		</rows>
+	</detail>
+</smn_parroquias>

@@ -1,0 +1,23 @@
+select
+	smn_base.smn_v_auxiliar.smn_item,
+	smn_base.smn_auxiliar_sucursales.trs_nombre,
+	smn_base.smn_auxiliar_unidades_negocios.tun_nombre,
+	smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_areas_servicios_id,
+	smn_base.smn_auxiliar_tipos_servicios.tts_codigo as tts_codigo_pl0,
+	smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_tipos_servicios_id,
+	smn_base.smn_auxiliar_areas_servicios.tse_codigo,
+	smn_base.smn_auxiliar_areas_servicios.tse_descripcion,
+	smn_base.smn_auxiliar_areas_servicios.tse_auxiliar,
+	smn_base.smn_auxiliar_areas_servicios.tse_auxiliar_sucursal,
+	smn_base.smn_auxiliar_areas_servicios.tse_auxiliar_unidad_negocio,
+	smn_base.smn_auxiliar_areas_servicios.tse_fecha_registro
+from
+	smn_base.smn_auxiliar_areas_servicios
+	inner join smn_base.smn_v_auxiliar on smn_base.smn_v_auxiliar.smn_v_auxiliar_id = smn_base.smn_auxiliar_areas_servicios.tse_auxiliar
+	left outer join smn_base.smn_auxiliar_sucursales on smn_base.smn_auxiliar_sucursales.smn_auxiliar_sucursales_id = smn_base.smn_auxiliar_areas_servicios.tse_auxiliar_sucursal
+	left outer join smn_base.smn_auxiliar_unidades_negocios on smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id = smn_base.smn_auxiliar_areas_servicios.tse_auxiliar_unidad_negocio
+	inner join smn_base.smn_auxiliar_tipos_servicios on smn_base.smn_auxiliar_tipos_servicios.smn_auxiliar_tipos_servicios_id=smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_tipos_servicios_id
+where
+	smn_base.smn_auxiliar_areas_servicios.tse_idioma = '${def:locale}'
+order by
+	smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_areas_servicios_id desc

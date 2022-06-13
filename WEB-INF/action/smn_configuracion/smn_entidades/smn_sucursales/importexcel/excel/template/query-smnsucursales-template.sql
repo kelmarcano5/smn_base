@@ -1,0 +1,15 @@
+select
+	'' as suc_empresa,
+	'' as suc_codigo,
+	'' as suc_nombre,
+	'' as suc_unidad_negocio,
+	'' as suc_maneja_area_servicio,
+	'' as suc_responsable,
+	'' as suc_direccion,
+	'' as suc_telefono_fijo,
+	'' as suc_telefono_movil,
+	'' as suc_email,
+	'' as suc_maneja_area_servicio_reference,
+	'' as suc_empresa_reference,
+	'' as suc_unidad_negocio_reference,
+	'' as suc_direccion_reference

@@ -1,0 +1,34 @@
+INSERT INTO smn_base.smn_variable
+(
+	smn_variable_id,
+	smn_tipo_variable_id,
+	var_codigo,
+	var_descripcion,
+	var_tipo_valor,
+	var_color_letra,
+	var_tipo_letra,
+	var_tamano_letra,
+	var_color_sombreado,
+	var_estatus,
+	var_idioma,
+	var_usuario,
+	var_fecha_registro,
+	var_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_variable},
+	${fld:smn_tipo_variable_id},
+	${fld:var_codigo},
+	${fld:var_descripcion},
+	${fld:var_tipo_valor},
+	${fld:var_color_letra},
+	${fld:var_tipo_letra},
+	${fld:var_tamano_letra},
+	${fld:var_color_sombreado},
+	'AC',
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

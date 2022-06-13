@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncontratobase.sql" source="session" scope="transaction" />
+		<recordset id='query-smnareasservicios.sql' source='sql' scope='transaction' />
+	<recordset id='query-smncentrocosto.sql' source='sql' scope='transaction' />
+	<recordset id='query-smncorporaciones.sql' source='sql' scope='transaction' />
+	<recordset id='query-smnentidades.sql' source='sql' scope='transaction' />
+	<recordset id='query-smnmonedas.sql' source='sql' scope='transaction' />
+	<recordset id='query-smnsucursales.sql' source='sql' scope='transaction' />
+	<recordset id='query-smntransacciongeneral.sql' source='sql' scope='transaction' />
+	<recordset id='query-smnunidadesservicios.sql' source='sql' scope='transaction' />
+	
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_base_contract}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_base_contract}">
+				<col id='ctr_codigo' label='${lbl:b_code}' />
+		<col id='ctr_nombre' label='${lbl:b_name}' />
+		<col id='ctr_transaccion_rf' label='${lbl:b_transaction}' />
+		<col id='ctr_tipo' label='${lbl:b_type}' />
+		<col id='ctr_fecha_vencimiento' label='${lbl:b_date_expired}' />
+		<col id='ctr_corporacion_rf' label='${lbl:b_corporation}' />
+		<col id='ctr_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+		<sheet recordset='query-smnareasservicios.sql' sheetname=''>
+		<col id='ase_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smncentrocosto.sql' sheetname=''>
+		<col id='cco_descripcion_corta' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smncorporaciones.sql' sheetname=''>
+		<col id='crp_direccion' label='${lbl:}' />
+	</sheet>
+
+	<sheet recordset='query-smnentidades.sql' sheetname=''>
+		<col id='ent_descripcion_corta' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnmonedas.sql' sheetname=''>
+		<col id='mon_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnsucursales.sql' sheetname=''>
+		<col id='suc_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smntransacciongeneral.sql' sheetname=''>
+		<col id='trg_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnunidadesservicios.sql' sheetname=''>
+		<col id='uns_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnpregunta.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="4" cellStep="0" name="${lbl:b_smn_pregunta}"/>
+	
+	<excel 
+		recordset='query-smnpregunta.sql' 
+		sheetname='${lbl:b_smn_pregunta}' 
+		filename='${lbl:b_smn_pregunta}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='tva_codigo_pl0' label='${lbl:b_smn_tipo_variable_id}' />
+		<col id='prg_codigo' label='${lbl:b_prg_codigo}' />
+		<col id='prg_descripcion' label='${lbl:b_prg_descripcion}' />
+		<col id='prg_tipo_respuesta_combo' label='${lbl:b_prg_tipo_respuesta}' />
+		<col id='sec_estatus_combo' label='${lbl:b_status}' />
+		<col id='cue_idioma' label='${lbl:s_profile_lang}' />
+		<col id='cue_usuario' label='${lbl:b_users}' />
+		<col id='cue_fecha_registro' label='${lbl:s_loginhist_col2}' />
+		<col id='cue_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('ter_descripcion_corta_pl0','query-smnterceroscentrocosto.sql')" >${lbl:b_outsourced_company}</th>
+		<th class='sortable' onclick="sortBy('trc_codigo','query-smnterceroscentrocosto.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('trc_descripcion_larga','query-smnterceroscentrocosto.sql')" >${lbl:b_long_description}</th>
+		<th class='sortable' onclick="sortBy('trc_responsable','query-smnterceroscentrocosto.sql')" >${lbl:b_responsible}</th>
+		<th class='sortable' onclick="sortBy('trc_clase_auxiliar','query-smnterceroscentrocosto.sql')" >${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick="sortBy('trc_auxiliar','query-smnterceroscentrocosto.sql')" >${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick="sortBy('trc_fecha_registro','query-smnterceroscentrocosto.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_terceros_centro_costo_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_terceros_centro_costo_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_terceros_centro_costo_id}')" title="Editar"></td>
+		<td align="left">${fld:ter_descripcion_corta_pl0}</td>
+		<td align="left">${fld:trc_codigo}</td>
+		<td align="left">${fld:trc_descripcion_larga}</td>
+		<td align="left">${fld:trc_responsable}</td>
+		<td align="left">${fld:trc_clase_auxiliar}</td>
+		<td align="left">${fld:trc_auxiliar}</td>
+		<td align="center">${fld:trc_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

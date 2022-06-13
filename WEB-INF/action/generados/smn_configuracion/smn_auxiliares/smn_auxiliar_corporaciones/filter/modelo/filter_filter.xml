@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_corporations}</summary>
+	<filter>
+		<row field='tcp_codigo' id='tcp_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_corporaciones' len='16'/>
+		<row field='tcp_nombre' id='tcp_nombre' label='${lbl:b_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_corporaciones' len='48'/>
+		<row field='tcp_auxiliar_unidad_negocio' id='tcp_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}@{select smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id as id, smn_base.smn_auxiliar_unidades_negocios.tun_codigo || &apos; - &apos; || smn_base.smn_auxiliar_unidades_negocios.tun_nombre as item from smn_base.smn_auxiliar_unidades_negocios order by smn_base.smn_auxiliar_unidades_negocios.tun_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_corporaciones' len='10'/>
+		<row field='tcp_moneda' id='tcp_moneda' label='${lbl:b_coin}@{select smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || &apos; - &apos; || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by smn_base.smn_monedas.mon_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_corporaciones' len='10'/>
+		<row field='tcp_fecha_registro' id='tcp_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_auxiliar_corporaciones' len='10'/>
+		<row field='tcp_fecha_registro' id='tcp_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_auxiliar_corporaciones' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='tcp_codigo' label='${lbl:b_code}' fk='' tableName='smn_auxiliar_corporaciones' len='16' type='varchar' align='left'/>
+		<row field='tcp_nombre' label='${lbl:b_name}' fk='' tableName='smn_auxiliar_corporaciones' len='48' type='varchar' align='left'/>
+		<row field='tcp_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}@{select smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id as id, smn_base.smn_auxiliar_unidades_negocios.tun_codigo || &apos; - &apos; || smn_base.smn_auxiliar_unidades_negocios.tun_nombre as item from smn_base.smn_auxiliar_unidades_negocios order by smn_base.smn_auxiliar_unidades_negocios.tun_nombre}' fk='' tableName='smn_auxiliar_corporaciones' len='10' type='integer' align='left'/>
+		<row field='tcp_moneda' label='${lbl:b_coin}@{select smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || &apos; - &apos; || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by smn_base.smn_monedas.mon_nombre}' fk='' tableName='smn_auxiliar_corporaciones' len='10' type='integer' align='left'/>
+		<row field='tcp_direccion' label='${lbl:b_address}@{select smn_base.smn_direccion.smn_direccion_id as id, smn_base.smn_direccion.dir_codigo || &apos; - &apos; || smn_base.smn_direccion.dir_descripcion as item from smn_base.smn_direccion order by smn_base.smn_direccion.dir_descripcion}' fk='' tableName='smn_auxiliar_corporaciones' len='10' type='integer' align='left'/>
+		<row field='tcp_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_auxiliar_corporaciones' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

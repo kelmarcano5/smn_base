@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cmn_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='cmn_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cmn_unidad_negocio_desc' type='varchar' required='false' maxlen='48'/>
+
+	<parameter id='cmn_unidad_negocio_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_code_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cmn_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_name_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='cmn_nombre'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cmn_unidad_negocio' 
+		parameter='cmn_unidad_negocio_ref' 
+		sql='cmn_unidad_negocio.sql' 
+		id='cmn_unidad_negocio_ref'/>
+
+</validator>

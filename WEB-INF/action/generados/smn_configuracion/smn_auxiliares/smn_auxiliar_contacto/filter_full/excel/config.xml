@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarcontacto.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnauxiliarcontacto.sql' sheetname='${lbl:b_auxiliary_contact}' filename='filter_full.xls'>
+		<col id='acn_telefono_fijo' label='${lbl:b_fixed_phone}' />
+		<col id='acn_telefono_movil' label='${lbl:b_mobile_phone}' />
+		<col id='acn_email' label='${lbl:s_profile_email}' />
+		<col id='acn_facebook' label='${lbl:b_facebook}' />
+		<col id='acn_linkedin' label='${lbl:b_linkedin}' />
+		<col id='acn_twitter' label='${lbl:b_twitter}' />
+		<col id='acn_swift' label='${lbl:b_swift_code}' />
+		<col id='acn_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

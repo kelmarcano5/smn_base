@@ -1,0 +1,1 @@
+select smn_base.smn_seccion.smn_seccion_id as id, smn_base.smn_seccion.sec_codigo|| ' - ' || smn_base.smn_seccion.sec_descripcion as item from smn_base.smn_seccion

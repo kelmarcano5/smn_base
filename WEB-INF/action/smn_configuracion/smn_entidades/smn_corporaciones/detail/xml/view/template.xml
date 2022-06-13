@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_corporaciones>
+	<detail>
+		<rows>		
+		<record crp_fecha_registro="${fld:crp_fecha_registro}"    dir_descripcion="${fld:dir_descripcion}"    mon_nombre="${fld:mon_nombre}"    crp_nombre="${fld:crp_nombre}"    crp_codigo="${fld:crp_codigo}"    />
+		</rows>
+	</detail>
+</smn_corporaciones>

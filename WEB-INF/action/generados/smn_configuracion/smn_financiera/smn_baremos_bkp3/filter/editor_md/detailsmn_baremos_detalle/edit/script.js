@@ -1,0 +1,22 @@
+setComboValue('bad_tipo2','${fld:bad_tipo2}','form2');
+document.form2.bad_tipo2_name.value='${fld:bad_tipo2_name@js}';
+document.form2.bad_servicio2_name.value='${fld:bad_servicio2_name@js}';
+setComboValue('bad_servicio2','${fld:bad_servicio2}','form2');
+document.form2.bad_auxiliar2_name.value='${fld:bad_auxiliar2_name@js}';
+setComboValue('bad_auxiliar2','${fld:bad_auxiliar2}','form2');
+setComboValue('bad_tipo_compuesto2','${fld:bad_tipo_compuesto2}','form2');
+document.form2.bad_tipo_compuesto2_name.value='${fld:bad_tipo_compuesto2_name@js}';
+document.form2.bad_codigo_articulo2.value='${fld:bad_codigo_articulo2@js}';
+document.form2.bad_almacen2_name.value='${fld:bad_almacen2_name@js}';
+setComboValue('bad_almacen2','${fld:bad_almacen2}','form2');
+setComboValue('bad_calculo2','${fld:bad_calculo2}','form2');
+document.form2.bad_calculo2_name.value='${fld:bad_calculo2_name@js}';
+document.form2.bad_cantidad2.value='${fld:bad_cantidad2@#,###,##0.00}';
+document.form2.bad_precio2.value='${fld:bad_precio2@#,###,##0.00}';
+document.form2.bad_porcentaje2.value='${fld:bad_porcentaje2@#,###,##0.00}';
+setComboValue('bad_inactivo2','${fld:bad_inactivo2}','form2');
+document.form2.bad_inactivo2_name.value='${fld:bad_inactivo2_name@js}';
+
+document.form2.rowindex.value = "${fld:id}";
+document.getElementById("saveDetail2").value = "Modificar";
+setFocusOnForm("form2");

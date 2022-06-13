@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnprestadoresservicios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="6" cellStep="0" name="${lbl:b_services_providers}"/>
+	
+	<excel 
+		recordset='query-smnprestadoresservicios.sql' 
+		sheetname='${lbl:b_services_providers}' 
+		filename='${lbl:b_services_providers}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='prs_codigo' label='${lbl:b_code}' />
+		<col id='prs_descripcion' label='${lbl:b_description}' />
+		<col id='ase_descripcion' label='${lbl:b_service_area}' />
+		<col id='uns_descripcion' label='${lbl:b_service_unit}' />
+		<col id='smn_clase_auxiliar_rf' label='${lbl:b_auxiliary_class}' />
+		<col id='smn_item' label='${lbl:b_auxiliary}' />
+		<col id='prs_orden_atencion' label='${lbl:b_orden_atention}' />
+		<col id='prs_estatus' label='${lbl:b_status}' />
+		<col id='prs_fecha_inicio_estatus' label='${lbl:b_date_init}' />
+		<col id='prs_fecha_inicio_estatus' label='${lbl:b_date_end}' />
+		<col id='prs_frecuencia' label='${lbl:b_frecuency}' />
+		<col id='prs_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

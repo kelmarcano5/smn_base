@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_periods}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:prd_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:prd_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:prd_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+<!--data grid-->
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="4" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_detail_period}
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th width="25%">${lbl:b_number_period}</th>
+		<th width="25%">${lbl:b_start_period}</th>
+		<th width="25%">${lbl:b_end_period}</th>
+		<th width="25%">${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnperiodosdetalle>
+	<tr>
+		<td align="left">${fld:pdl_num_periodo}</td>
+		<td align="left">${fld:pdl_inicio_periodo}</td>
+		<td align="left">${fld:pdl_final_periodo}</td>
+		<td align="left">${fld:pdl_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnperiodosdetalle>
+
+</table>
+
+
+
+
+</body>
+
+</html>

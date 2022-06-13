@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/crud'>
+	<parameter id='mct_archivo' type='varchar' required='false' label='${lbl:b_file}' maxlen='400'/>
+	<parameter id='mct_contenido' type='varchar' required='false' label='${lbl:b_content}' maxlen='150'/>
+	<parameter id='mct_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='500'/>
+	<parameter id='mct_tamano' type='integer' required='false' label='${lbl:b_size}' maxlen='10'/>
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="mct_archivo" rule="like" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="mct_contenido" rule="like" />
+	<custom-validator classname="dinamica.validators.SQLPatternTransformer" parameter="mct_descripcion" rule="like" />
+</validator>

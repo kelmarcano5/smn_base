@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnregistrosusuarios.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_register_users}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='rgu_tipo_doc_oficial' title='${lbl:b_official_document_type}'  format='######' align='center' />
+			<col name='rgu_num_doc_oficial' title='${lbl:b_official_document_number}'  align='center' />
+			<col name='rgu_nro_id_fiscal' title='${lbl:b_tax_identification_number}'  align='center' />
+			<col name='rgu_nombres' title='${lbl:s_profile_fname}'  align='center' />
+			<col name='rgu_apellidos' title='${lbl:s_profile_lname}'  align='center' />
+			<col name='rgu_tipo_registro' title='${lbl:b_register_type}'  format='######' align='center' />
+			<col name='rgu_fecha_registro_ini' title='${lbl:b_store_date_grater_than}'  format='dd-MM-yyyy' align='center' />
+			<col name='rgu_fecha_registro_fin' title='${lbl:b_store_date_less_than}'  format='dd-MM-yyyy' align='center' />
+		</record>
+		<table recordset='query-smnregistrosusuarios.sql' width='100' spacingBefore='10'>
+			<col name='rgu_tipo_doc_oficial' title='${lbl:b_official_document_type}' width='12' align='left' format='######' />
+			<col name='rgu_num_doc_oficial' title='${lbl:b_official_document_number}' width='12' align='left' />
+			<col name='rgu_nro_id_fiscal' title='${lbl:b_tax_identification_number}' width='12' align='left' />
+			<col name='rgu_nombres' title='${lbl:s_profile_fname}' width='12' align='left' />
+			<col name='rgu_apellidos' title='${lbl:s_profile_lname}' width='12' align='left' />
+			<col name='rgu_tipo_registro' title='${lbl:b_register_type}' width='12' align='left' format='######' />
+			<col name='rgu_email' title='${lbl:s_profile_email}' width='12' align='left' />
+			<col name='rgu_fecha_registro' title='${lbl:b_store_date}' width='12' align='left' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

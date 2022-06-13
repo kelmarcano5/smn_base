@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/ajax">
+	<parameter id="id" type="varchar" required="true" label="ID ${lbl:b_components}"/>
+		<parameter id="cant" type="integer" required="false" label="ID ${lbl:b_components}"/>
+		<parameter id="mont_local" type="double" required="false" label="ID ${lbl:b_components}"/>
+		<parameter id="porc" type="integer" required="false" label="ID ${lbl:b_components}"/>
+		<parameter id="prec2" type="double" required="false" label="ID ${lbl:b_components}"/>
+		<parameter id="prec_local_comp" type="double" required="false" label="ID ${lbl:b_components}"/>
+		<parameter id="mont_local_comp" type="double" required="false" label="ID ${lbl:b_components}"/>
+		<parameter id="id_detalle" type="integer" required="false" label="ID ${lbl:b_components}"/>
+</validator>

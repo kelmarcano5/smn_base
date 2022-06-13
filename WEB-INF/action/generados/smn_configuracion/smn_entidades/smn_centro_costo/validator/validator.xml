@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator>
+	<parameter id='smn_centro_costo_id' type='integer' required='true' label='${lbl:b_cost_center}' maxlen='10'/>
+	<parameter id='cco_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='cco_descripcion_corta' type='varchar' required='true' label='${lbl:b_short_description}' maxlen='24'/>
+	<parameter id='cco_descripcion_larga' type='varchar' required='true' label='${lbl:b_long_description}' maxlen='48'/>
+	<parameter id='cco_empresa' type='integer' required='true' label='${lbl:b_entity}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || " - " || smn_base.smn_entidades.ent_descripcion_corta as item from smn_base.smn_entidades order by smn_base.smn_entidades.ent_descripcion_corta}' maxlen='10'/>
+	<parameter id='cco_sucursal' type='integer' required='false' label='${lbl:b_subsidiary}@{select smn_base.smn_sucursales.smn_sucursales_id as id, smn_base.smn_sucursales.suc_codigo || " - " || smn_base.smn_sucursales.suc_nombre as item from smn_base.smn_sucursales order by smn_base.smn_sucursales.suc_nombre}' maxlen='10'/>
+	<parameter id='cco_area_servicio' type='integer' required='false' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || " - " || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' maxlen='10'/>
+	<parameter id='cco_unidad_servicio' type='integer' required='false' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || " - " || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by smn_base.smn_unidades_servicios.uns_descripcion}' maxlen='10'/>
+	<parameter id='cco_almacen' type='integer' required='false' label='${lbl:b_store}@{select smn_base.smn_almacen.smn_almacen_id as id, smn_base.smn_almacen.alm_codigo || " - " || smn_base.smn_almacen.alm_nombre as item from smn_base.smn_almacen order by smn_base.smn_almacen.alm_nombre}' maxlen='10'/>
+	<parameter id='cco_nivel' type='varchar' required='true' label='${lbl:b_level}@{TI=${lbl:b_account_title}|DE=${lbl:b_account_detail}}' maxlen='2'/>
+	<parameter id='cco_idioma' type='varchar' required='true' label='${lbl:s_profile_lang}@{${def:locale}}' maxlen='2'/>
+	<parameter id='cco_usuario' type='varchar' required='true' label='${lbl:b_users}@{${def:user}}' maxlen='10'/>
+	<parameter id='cco_fecha_registro' type='date' required='true' label='${lbl:b_store_date}@{${def:date}}' maxlen='10'/>
+	<parameter id='cco_hora' type='varchar' required='true' label='${lbl:s_loginhist_col2}@{${def:time}}' maxlen='8'/>
+</validator>

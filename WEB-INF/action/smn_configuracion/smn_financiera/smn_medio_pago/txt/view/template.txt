@@ -1,0 +1,3 @@
+<rows>
+mpa_fecha_registro="${fld:mpa_fecha_registro}"    mpa_efectivo="${fld:mpa_efectivo}"    mpa_descripcion="${fld:mpa_descripcion}"    mpa_codigo="${fld:mpa_codigo}"    mpa_fecha_registro="${fld:mpa_fecha_registro}"    mpa_vigencia="${fld:mpa_vigencia}"    mpa_estatus="${fld:mpa_estatus}"    mpa_tipo_medio_pago="${fld:mpa_tipo_medio_pago}"    mpa_descripcion="${fld:mpa_descripcion}"    mpa_codigo="${fld:mpa_codigo}"    mpa_fecha_registro="${fld:mpa_fecha_registro}"    mpa_efectivo="${fld:mpa_efectivo}"    mpa_descripcion="${fld:mpa_descripcion}"    mpa_codigo="${fld:mpa_codigo}"    
+</rows>

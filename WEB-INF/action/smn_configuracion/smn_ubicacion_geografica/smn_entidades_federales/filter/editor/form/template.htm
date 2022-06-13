@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog">
+	${lbl:b_federal_entities}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+			<tr>
+		<td>${lbl:b_country}*</td>
+		<td>
+			<select name="efe_paises" id="efe_paises" onchange="chgCombo(efe_paises.options[efe_paises.selectedIndex].text,'efe_paises_name');">
+				
+				<option value="">[${lbl:b_choose}]</option>
+				
+				<efe_paises_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</efe_paises_rows>
+			</select> 
+			<input id="efe_paises_name" name="efe_paises_name" type="hidden">
+		</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="pais()" title="${lbl:b_country}" >
+			</td>
+			<td>&nbsp;&nbsp;</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="efe_codigo" name="efe_codigo" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_short_name}*</td>
+			<td>
+				<input id="efe_nombre_corto" name="efe_nombre_corto" type="text" maxlength="24" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_long_name}*</td>
+			<td>
+				<input id="efe_nombre_largo" name="efe_nombre_largo" type="text" maxlength="48" >
+			</td>
+		</tr>
+
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+		
+		if ('${fld:reference}' == 'true')
+		{
+			var combo = document.getElementById('efe_paises');
+			
+			var n = combo.options.length - 1;
+			
+			combo.selectedIndex = n;
+			
+			var lastText  = combo.options[n].text;
+			var lastValue = combo.options[n].value;
+			
+			//get hidden field in order to set any value
+			var comboDisplay = document.getElementById('efe_paises_name');
+			
+			//comboDisplay.text  = lastText;
+			//comboDisplay.value = lastValue;
+			
+			setSelectedIndex(lastValue, comboDisplay, lastText);
+			
+			document.form1.efe_paises.disabled = true;
+		}
+		
+		if (id!="")
+			edit(id);
+	} 
+	
+	//Author     : SIMONE
+	//Description: Set first element as selected value
+	//Return     : None
+	function setElementFirstIndex(id)
+	{
+		var combo = document.getElementById(id);
+		combo.selectedIndex = 0;
+	}
+
+	//Author     : SIMONE
+	//Description: Insert new value into combo box
+	//Return     : None
+	function insertComboBox(code, combo, description) {
+		var valueText = code;
+		if (description != null)
+		{
+			valueText = valueText + ' - ' + description;
+		}
+        //combo.options[combo.options.length] = new Option(valueText);
+		var option = document.createElement("option");
+		option.text = valueText; 
+		option.value = bdID;
+		document.form1.efe_paises.add(option, combo.options.length);
+	}
+	
+	//Author     : SIMONE
+	//Description: Add new value to combo box
+	//Return     : None
+	function addValueToCombo(code, description, field) 
+	{
+	    var combo = document.getElementById(field);	    
+	    insertComboBox(code, combo, description);
+	}
+	
+	//Author     : SIMONE
+	//Description: Set selected index into combo box
+	//Return     : None
+	function setSelectedIndex(code, combo, description) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+			var valueText = code;
+			if (description != null)
+			{
+				valueText = valueText + ' - ' + description;
+			}
+	        if (combo.options[i].text == valueText) 
+	        {
+	        	combo.options[i].selected = true;
+	            return;
+	        }
+	    }
+	}
+		
+	//Author     : SIMONE
+	//Description: Get text valueof selected index
+	//Return     : Text associated to index
+	function getSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].text;
+	        }
+	    }
+	}
+	function getIDSelectedIndex(combo) 
+	{
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+	        if (combo.options[i].selected == true) 
+	        {
+	            return combo.options[i].value;
+	        }
+	    }
+	}
+	
+	var bdID;
+	function setID(id)
+	{
+		bdID = id;
+	}
+
+	//Author     : SIMONE
+	//Description: Set value to combo box
+	//Parameters : code - it is code associated into each database table 
+	//             descripcion - it is description associated into each database table 
+	//             field - name combo field
+	//             id - identifier retrieved after transaction
+	//             linked - flag indicates 'true' when combos are linked and 'false' otherwise
+	//Return     : None
+	function setValueComboBox(code, description, field, linked)
+	{
+		//add valur text to combo
+		addValueToCombo(code,description,field);
+
+		//get select object 
+		var combo = document.getElementById(field);
+		
+		//set element selected to field referenced
+		setSelectedIndex(code,combo, description);
+		
+		//set text value to combo field
+		var valueText = getSelectedIndex(combo);		
+		
+		//get hidden field in order to set any value
+		//var combo = document.getElementById(field+'_name');
+
+		//combo.text=valueText;
+		//combo.value=bdID;
+		
+		setSelectedIndex(bdID, combo, valueText); 
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			alert('Text: ' + document.form1.efe_paises_name.text + ' Value: ' + document.form1.efe_paises_name.value)
+			
+			//llamada Ajax...
+			//Se incorpora variable de sesion para verificar si la llamada es una referencia de otra pantalla
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert?reference=${fld:reference}", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		var result;
+		if (document.form1.id.value=="")
+			result = insert();
+		else
+			result = update();
+					
+		if ('${fld:reference}' == 'true')
+		{
+			alert('${fld:reference} - ${fld:source}')			
+			//alert(codObj + ' - ' + nomObj)
+			
+			var cod = document.form1.efe_codigo.value;	
+			var nom = document.form1.efe_nombre_corto.value;	
+			
+			//alert(cod + ' - ' + nom)
+			if ('${fld:source}' == 'address')
+			{
+				//alert('llama desde direccion')
+				parent.setValueComboBox(cod,
+										nom,
+										'dir_entidad_federal',
+										true);
+			}
+			else if ('${fld:source}' == 'city')
+			{
+				//alert('llama desde ciudad')
+				parent.setValueComboBox(cod,
+										nom,
+										'ciu_entidades_federales',
+										true);
+			}
+		}
+				
+		return result;
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//muestra un DIV+IFRAME con el formulario de CRUD para los combos
+	function pais()
+	{
+		//alert('Colocar su código aquí.')
+		
+		var uri = "${def:context}/action/smn_configuracion/smn_ubicacion_geografica/smn_paises/editor/form?reference=true&source=federal_entity";				
+		openDialog("editor10", uri, 580, 420);
+	}
+
+	
+</script>	
+</body>
+</html>

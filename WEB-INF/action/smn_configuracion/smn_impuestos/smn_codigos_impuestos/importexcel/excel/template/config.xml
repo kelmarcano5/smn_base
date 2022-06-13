@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncodigosimpuestos-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-tipocodigo.sql' source='sql' scope='transaction' />
+		<recordset id='query-modalidadregistro.sql' source='sql' scope='transaction' />
+		<recordset id='query-tipolibro.sql' source='sql' scope='transaction' />
+		<recordset id='query-tipopersona.sql' source='sql' scope='transaction' />
+		<recordset id='query-tipocontribuyente.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnunidadesimpositivas.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_impuestos.smn_codigos_impuestos.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_taxes}.xls' 
+		header-background='true' >
+		
+	<sheet recordset="query-smncodigosimpuestos-template.sql" sheetname="${lbl:b_taxes}">
+	
+		<col id='imp_codigo' label='${lbl:b_code}' />
+		<col id='imp_descripcion' label='${lbl:b_description}' />
+		<col id='imp_tipo_codigo' label='${lbl:b_code_type}' />
+		<col id='imp_modalidad_registro' label='${lbl:b_where_is_registered}' />
+		<col id='imp_porcentaje_base' label='${lbl:b_base_percentage}' />
+		<col id='imp_porcentaje_calculo' label='${lbl:b_calculation_percentage}' />
+		<col id='imp_tipo_libro' label='${lbl:b_book_type}' />
+		<col id='imp_tipo_persona' label='${lbl:b_kind_of_person}' />
+		<col id='imp_tipo_contribuyente' label='${lbl:b_type_of_taxpayer}' />
+		<col id='imp_unidad_impositiva' label='${lbl:b_tax_unit}' />
+		<col id='imp_ui_minima' label='${lbl:b_minimum}' />
+		<col id='imp_ui_maxima' label='${lbl:b_maximum}' />
+		<col id='imp_ui_sustraendo' label='${lbl:b_subtrahend}' />
+		<col id='imp_monto_minimo' label='${lbl:b_minimum}' />
+		<col id='imp_monto_maximo' label='${lbl:b_maximum}' />
+		<col id='imp_monto_sustraendo' label='${lbl:b_subtrahend}' />
+		
+		<col id='imp_tipo_codigo_reference' label='${lbl:b_code_type}' />
+		<col id='imp_modalidad_registro_reference' label='${lbl:b_where_is_registered}' />
+		<col id='imp_tipo_libro_reference' label='${lbl:b_book_type}' />
+		<col id='imp_tipo_persona_reference' label='${lbl:b_kind_of_person}' />
+		<col id='imp_tipo_contribuyente_reference' label='${lbl:b_type_of_taxpayer}' />
+		<col id='imp_unidad_impositiva_reference' label='${lbl:b_tax_unit}' />
+
+	</sheet>
+	
+	<sheet recordset='query-tipocodigo.sql' sheetname='${lbl:b_code_type}'>
+		<col id='tipo_codigo' label='${lbl:b_description}' />
+	</sheet>
+	
+	<sheet recordset='query-modalidadregistro.sql' sheetname='${lbl:b_where_is_registered}'>
+		<col id='modalidad_registro' label='${lbl:b_description}' />
+	</sheet>
+	
+	<sheet recordset='query-tipolibro.sql' sheetname='${lbl:b_book_type}'>
+		<col id='tipo_libro' label='${lbl:b_description}' />
+	</sheet>
+	
+	<sheet recordset='query-tipopersona.sql' sheetname='${lbl:b_kind_of_person}'>
+		<col id='tipo_persona' label='${lbl:b_description}' />
+	</sheet>
+	
+	<sheet recordset='query-tipocontribuyente.sql' sheetname='${lbl:b_type_of_taxpayer}'>
+		<col id='tipo_contribuyente' label='${lbl:b_description}' />
+	</sheet>
+	
+	<sheet recordset='query-smnunidadesimpositivas.sql' sheetname='${lbl:b_tax_unit}'>
+		<col id='uim_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+	</excel>
+
+</config>

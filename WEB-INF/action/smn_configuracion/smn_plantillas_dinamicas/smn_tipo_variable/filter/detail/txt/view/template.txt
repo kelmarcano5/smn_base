@@ -1,0 +1,3 @@
+<rows>
+tva_fecha_registro="${fld:tva_fecha_registro}"    tva_estatus="${fld:tva_estatus}"    tva_descripcion="${fld:tva_descripcion}"    tva_codigo="${fld:tva_codigo}"    tva_fecha_registro="${fld:tva_fecha_registro}"    tva_estatus="${fld:tva_estatus}"    tva_descripcion="${fld:tva_descripcion}"    tva_codigo="${fld:tva_codigo}"    
+</rows>

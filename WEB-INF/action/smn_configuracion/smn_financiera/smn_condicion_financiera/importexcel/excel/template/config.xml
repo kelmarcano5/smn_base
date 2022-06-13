@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncondicionfinanciera.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_financiery_conditions}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_financiery_conditions}">
+				<col id='cfi_codigo' label='${lbl:b_code}' />
+		<col id='cfi_description' label='${lbl:b_description}' />
+		<col id='cfi_cant_dias' label='${lbl:b_quantity_days}' />
+		<col id='cfi_limite_credito' label='${lbl:b_credit_limit}' />
+		<col id='cfi_porc_exceso_limite' label='${lbl:b_porcentage_excess_limit}' />
+		<col id='cfi_valida_saldos_vec_combo' label='${lbl:b_validate_balance}' />
+		<col id='cfi_dias_adic_saldos_venc' label='${lbl:b_days_adic_balance_expire}' />
+		<col id='cfi_num_cheques_devuel' label='${lbl:b_refused_cheq_number}' />
+		<col id='cfi_estatus_combo' label='${lbl:b_estatus}' />
+		<col id='cfi_vigencia' label='${lbl:b_vigency}' />
+		<col id='cfi_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_modulos_id' type='integer' required='false' label='${lbl:b_module}' maxlen='10'/>
+	<parameter id='eco_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='eco_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='eco_niveles' type='integer' required='true' label='${lbl:b_levels}' maxlen='10'/>
+	<parameter id='eco_mascara' type='varchar' required='true' label='${lbl:b_mask}' maxlen='48'/>
+	<parameter id='eco_separador' type='varchar' required='true' label='${lbl:b_separator}' maxlen='1'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_estructura_codigo}' maxlen='10'/>
+	<parameter id='smn_entidad_rf' type='integer' required='false' label='${lbl:b_entities}' maxlen='10'/>
+
+</validator>

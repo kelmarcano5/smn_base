@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_sub_tipo_gasto>
+	<detail>
+		<rows>		
+		<record stg_fecha_registro="${fld:stg_fecha_registro}"    smn_tipo_gasto_id="${fld:smn_tipo_gasto_id}"    stg_descripcion="${fld:stg_descripcion}"    stg_codigo="${fld:stg_codigo}"    />
+		</rows>
+	</detail>
+</smn_sub_tipo_gasto>

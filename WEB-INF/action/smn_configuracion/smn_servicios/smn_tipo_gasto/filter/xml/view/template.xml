@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_tipo_gasto>
+	<detail>
+		<rows>		
+		<record tig_fecha_registro="${fld:tig_fecha_registro}"    tig_descripcion="${fld:tig_descripcion}"    tig_codigo="${fld:tig_codigo}"    />
+		</rows>
+	</detail>
+</smn_tipo_gasto>

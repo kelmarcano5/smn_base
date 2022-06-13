@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Filtro de búsqueda para la generación de reportes
+	</summary>
+	
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-tco_clase_auxiliar.sql' source='sql' scope='transaction'/>
+		<recordset id='query-tco_auxiliar.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-tco_clase_auxiliar.sql' tag='tco_clase_auxiliar_rows'/>
+		<print mode='table' recordset='query-tco_auxiliar.sql' tag='tco_auxiliar_rows'/>
+	</output>
+
+</config>

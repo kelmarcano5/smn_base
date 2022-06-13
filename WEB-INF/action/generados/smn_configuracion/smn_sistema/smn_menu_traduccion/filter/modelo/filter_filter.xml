@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_menu_translation}</summary>
+	<filter>
+		<row field='mnt_app_id' id='mnt_app_id' label='${lbl:b_application}@{select smn_seguridad.s_application.app_id as id, smn_seguridad.s_application.app_alias as item from smn_seguridad.s_application order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_menu_traduccion' len='10'/>
+		<row field='mnt_menu_id' id='mnt_menu_id' label='${lbl:b_menu}@{select smn_seguridad.s_menu.menu_id as id, smn_seguridad.s_menu.title as item from smn_seguridad.s_menu order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_menu_traduccion' len='10'/>
+		<row field='mnt_title' id='mnt_title' label='${lbl:b_menu_title}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_menu_traduccion' len='100'/>
+		<row field='mnt_idioma' id='mnt_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_menu_traduccion' len='2'/>
+		<row field='mnt_fecha_registro' id='mnt_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_menu_traduccion' len='10'/>
+		<row field='mnt_fecha_registro' id='mnt_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_menu_traduccion' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='mnt_app_id' label='${lbl:b_application}@{select smn_seguridad.s_application.app_id as id, smn_seguridad.s_application.app_alias as item from smn_seguridad.s_application order by 2}' fk='' tableName='smn_menu_traduccion' len='10' type='integer' align='left'/>
+		<row field='mnt_menu_id' label='${lbl:b_menu}@{select smn_seguridad.s_menu.menu_id as id, smn_seguridad.s_menu.title as item from smn_seguridad.s_menu order by 2}' fk='' tableName='smn_menu_traduccion' len='10' type='integer' align='left'/>
+		<row field='mnt_title' label='${lbl:b_menu_title}' fk='' tableName='smn_menu_traduccion' len='100' type='varchar' align='left'/>
+		<row field='mnt_locale' label='${lbl:b_idiom}@{es=${lbl:b_spanish}|en=${lbl:b_english}|fr=${lbl:b_french}|de=${lbl:b_germany}|pt=${lbl:b_portuguese}|it=${lbl:b_italian}}' fk='' tableName='smn_menu_traduccion' len='2' type='varchar' align='left'/>
+		<row field='mnt_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_menu_traduccion' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

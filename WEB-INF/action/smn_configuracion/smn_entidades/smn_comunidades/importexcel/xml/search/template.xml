@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_comunidades>
+	<detail>
+		<rows>		
+		<record cmn_fecha_registro="${fld:cmn_fecha_registro}"    cmn_unidad_negocio="${fld:cmn_unidad_negocio}"    cmn_nombre="${fld:cmn_nombre}"    cmn_codigo="${fld:cmn_codigo}"    />
+		</rows>
+	</detail>
+</smn_comunidades>

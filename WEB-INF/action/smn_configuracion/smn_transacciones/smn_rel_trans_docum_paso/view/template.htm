@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_transaccion_general_rf_combo","query-smnreltransdocumpaso.sql")'>${lbl:b_transaccion_general}</th>
+		<th class='sortable' onclick='sortBy("smn_documentos_generales_rf_combo","query-smnreltransdocumpaso.sql")'>${lbl:b_documentos_generales}</th>
+		<th class='sortable' onclick='sortBy("smn_paso_id_combo","query-smnreltransdocumpaso.sql")'>${lbl:b_paso}</th>
+		<th class='sortable' onclick='sortBy("tpa_tiempo_paso","query-smnreltransdocumpaso.sql")'>${lbl:b_time_step}</th>
+		<th class='sortable' onclick='sortBy("smn_nivel_aprobacion_inicial_rf_combo","query-smnreltransdocumpaso.sql")'>${lbl:b_nivel_aprobacion_inicial}</th>
+		<th class='sortable' onclick='sortBy("smn_nivel_aprobacion_final_rf_combo","query-smnreltransdocumpaso.sql")'>${lbl:b_nivel_aprobacion_final}</th>
+		<th class='sortable' onclick='sortBy("tpa_fecha_registro","query-smnreltransdocumpaso.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_rel_trans_docum_paso_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_rel_trans_docum_paso_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_rel_trans_docum_paso_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_transaccion_general_rf_combo}</td>
+		<td>${fld:smn_documentos_generales_rf_combo}</td>
+		<td>${fld:smn_paso_id_combo}</td>
+		<td>${fld:tpa_tiempo_paso}</td>
+		<td>${fld:smn_nivel_aprobacion_inicial_rf_combo}</td>
+		<td>${fld:smn_nivel_aprobacion_final_rf_combo}</td>
+		<td>${fld:tpa_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

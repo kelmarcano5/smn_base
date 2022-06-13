@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_configuracion_estructura_id_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='eor_codigo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='eor_nombre' type='varchar' required='true' maxlen='64'/>
+	<parameter id='eor_auxiliar_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='eor_clase_auxiliar_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='eor_centro_costo_desc' type='varchar' required='true' maxlen='48'/>	
+
+	<parameter id='smn_configuracion_estructura_id_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='eor_auxiliar_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='eor_clase_auxiliar_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='eor_centro_costo_ref' type='integer' required='false' maxlen='2'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='eor_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='eor_nombre'/>
+
+	<custom-validator 
+		classname='domain.dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: smn_configuracion_estructura' 
+		parameter='smn_configuracion_estructura_id_ref' 
+		sql='smn_configuracion_estructura.sql' 
+		id='smn_configuracion_estructura_id_ref'/>
+
+	<custom-validator 
+		classname='domain.dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: eor_centro_costo' 
+		parameter='eor_centro_costo_ref' 
+		sql='eor_centro_costo.sql' 
+		id='eor_centro_costo_ref'/>
+
+	<custom-validator 
+		classname='domain.dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: eor_clase_auxiliar' 
+		parameter='eor_clase_auxiliar_ref' 
+		sql='eor_clase_auxiliar.sql' 
+		id='eor_clase_auxiliar_ref'/>
+
+	<custom-validator 
+		classname='domain.dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: eor_auxiliar' 
+		parameter='eor_auxiliar_ref' 
+		sql='eor_auxiliar.sql' 
+		id='eor_auxiliar_ref'/>
+
+</validator>

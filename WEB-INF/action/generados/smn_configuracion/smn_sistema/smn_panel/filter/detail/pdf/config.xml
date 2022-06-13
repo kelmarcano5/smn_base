@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_panel}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='query.sql' title='${lbl:b_panel}' width='60' spacingBefore='40'>
+			<col name='pan_service_description' title='${lbl:b_service_description}' align='left' />
+			<col name='pan_service_path' title='${lbl:b_service_path}' align='left' />
+			<col name='pan_icon_path' title='${lbl:b_icon_path}' align='left' />
+			<col name='pan_app_id' title='${lbl:b_application}' align='left' format='######' />
+			<col name='pan_role_id' title='${lbl:b_role}' align='left' format='######' />
+			<col name='pan_orden' title='${lbl:b_order}' align='left' format='######' />
+			<col name='pan_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+
+	</pdf-report>
+</config>

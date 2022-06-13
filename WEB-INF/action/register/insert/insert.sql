@@ -1,0 +1,66 @@
+INSERT INTO smn_base.smn_registros_usuarios
+(
+	smn_registros_usuarios_id,
+	rgu_tipo_doc_oficial,
+	rgu_num_doc_oficial,
+	rgu_nro_id_fiscal,
+	rgu_nombres,
+	rgu_apellidos,
+	rgu_tipo_registro,
+	rgu_razon_social,
+	rgu_responsable,
+	rgu_cargo,
+	rgu_num_minist_salud,
+	rgu_num_coleg_medicos,
+	rgu_email,
+	rgu_idioma,
+	rgu_usuario,
+	rgu_fecha_registro,
+	rgu_hora
+)
+VALUES
+(
+	${seq:currval@${schema}seq_user},
+	${fld:rgu_tipo_doc_oficial},
+	${fld:rgu_num_doc_oficial},
+	${fld:rgu_nro_id_fiscal},
+	${fld:rgu_nombres},
+	${fld:rgu_apellidos},
+	${fld:rgu_tipo_registro},
+	${fld:rgu_razon_social},
+	${fld:rgu_responsable},
+	${fld:rgu_cargo},
+	${fld:rgu_num_minist_salud},
+	${fld:rgu_num_coleg_medicos},
+	${fld:rgu_email},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+);
+insert into ${schema}s_user 
+(
+	user_id,
+	userlogin,
+	passwd,
+	lname,
+	fname,
+	email,
+	enabled,
+	pwd_policy,
+	force_newpass,
+	locale
+) 
+values 
+(
+	${seq:currval@${schema}seq_user},
+	${fld:rgu_num_doc_oficial},
+	${fld:passwd},
+	${fld:rgu_apellidos},
+	${fld:rgu_nombres},
+	${fld:rgu_email},
+	0,
+	-2,
+	null,
+	'es'
+)

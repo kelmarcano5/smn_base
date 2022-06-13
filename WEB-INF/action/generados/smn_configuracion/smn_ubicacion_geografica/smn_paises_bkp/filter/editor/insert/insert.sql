@@ -1,0 +1,30 @@
+INSERT INTO smn_base.smn_paises
+(
+	smn_paises_id,
+	pai_codigo,
+	pai_nombre_corto,
+	pai_nombre_largo,
+	pai_gentilicio,
+	pai_codigo_ddi,
+	pai_idioma_oficial,
+	pai_moneda_oficial,
+	pai_idioma,
+	pai_usuario,
+	pai_fecha_registro,
+	pai_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_paises},
+	${fld:pai_codigo},
+	${fld:pai_nombre_corto},
+	${fld:pai_nombre_largo},
+	${fld:pai_gentilicio},
+	${fld:pai_codigo_ddi},
+	${fld:pai_idioma_oficial},
+	${fld:pai_moneda_oficial},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

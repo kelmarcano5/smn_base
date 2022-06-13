@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_auxiliar_tipos_servicios_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='tse_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='tse_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='tse_auxiliar_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='tse_auxiliar_sucursal_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='tse_auxiliar_unidad_negocio_desc' type='varchar' required='false' maxlen='48'/>
+
+	<parameter id='smn_auxiliar_tipos_servicios_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='tse_auxiliar_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='tse_auxiliar_sucursal_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='tse_auxiliar_unidad_negocio_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='tse_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='tse_descripcion'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: auxiliar_tipos_servicios' 
+		parameter='smn_auxiliar_tipos_servicios_ref' 
+		sql='smn_auxiliar_tipos_servicios.sql' 
+		id='smn_auxiliar_tipos_servicios_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: tse_auxiliar' 
+		parameter='tse_auxiliar_ref' 
+		sql='tse_auxiliar.sql' 
+		id='tse_auxiliar_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: tse_auxiliar_sucursal' 
+		parameter='tse_auxiliar_sucursal_ref' 
+		sql='tse_auxiliar_sucursal.sql' 
+		id='tse_auxiliar_sucursal_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: tse_auxiliar_unidad_negocio' 
+		parameter='tse_auxiliar_unidad_negocio_ref' 
+		sql='tse_auxiliar_unidad_negocio.sql' 
+		id='tse_auxiliar_unidad_negocio_ref'/>
+
+</validator>

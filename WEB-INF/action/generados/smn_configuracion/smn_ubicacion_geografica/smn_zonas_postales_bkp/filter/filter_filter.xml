@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_postal_zones}</summary>
+	<filter>
+		<row field='zpo_ciudades' id='zpo_ciudades' label='${lbl:b_city}@{select smn_base.smn_ciudades.smn_ciudades_id as id, smn_base.smn_ciudades.ciu_entidades_federales || ' - ' ||  smn_base.smn_ciudades.ciu_codigo || ' - ' || smn_base.smn_ciudades.ciu_nombre_largo as item from smn_base.smn_ciudades order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_zonas_postales' len='10'/>
+		<row field='zpo_codigo' id='zpo_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_zonas_postales' len='16'/>
+		<row field='zpo_fecha_registro' id='zpo_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_zonas_postales' len='10'/>
+		<row field='zpo_fecha_registro' id='zpo_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_zonas_postales' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='zpo_ciudades' label='${lbl:b_city}@{select smn_base.smn_ciudades.smn_ciudades_id as id, smn_base.smn_ciudades.ciu_entidades_federales || ' - ' ||  smn_base.smn_ciudades.ciu_codigo || ' - ' || smn_base.smn_ciudades.ciu_nombre_largo as item from smn_base.smn_ciudades order by 2}' fk='' tableName='smn_zonas_postales' len='10' type='integer' align='left'/>
+		<row field='zpo_codigo' label='${lbl:b_code}' fk='' tableName='smn_zonas_postales' len='16' type='varchar' align='left'/>
+		<row field='zpo_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_zonas_postales' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='mpa_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='mpa_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='mpa_tipo_medio_pago' type='varchar' required='true' label='${lbl:b_type_half_payment}' maxlen='2'/>
+	<parameter id='mpa_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='mpa_vigencia' type='date' required='false' label='${lbl:b_date_vig}' maxlen='10'/>
+	<parameter id='mpa_moneda_alterna' type='varchar' required='true' label='Moneda Alterna' maxlen='2'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='mpa_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='mpa_descripcion'/>
+
+
+</validator>

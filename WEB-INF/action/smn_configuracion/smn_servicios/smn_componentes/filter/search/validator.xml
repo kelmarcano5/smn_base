@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='cmp_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cmp_codigo' rule='like' />
+	<parameter id='cmp_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cmp_descripcion' rule='like' />
+	<parameter id='cmp_tipo_componente' type='varchar' required='false' label='${lbl:b_type_component}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cmp_tipo_componente' rule='like' />
+	<parameter id='smn_grupo_componente_rf_name' type='varchar' required='false' label='${lbl:b_group_component}'/>
+	<parameter id='smn_grupo_componente_rf' type='integer' required='false' label='${lbl:b_group_component}' maxlen='10'/>
+	<parameter id='cmp_forma_calculo' type='varchar' required='false' label='${lbl:b_calculus_form}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cmp_forma_calculo' rule='like' />
+	<parameter id='cmp_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='cmp_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' date1='cmp_fecha_registro_ini' date2='cmp_fecha_registro_fin' id='cmp_fecha_registro_ini' />
+	<parameter id='cmp_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

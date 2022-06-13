@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='aca_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='aca_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='aca_clase_auxiliar' type='integer' required='true' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='aca_tipo_persona' type='varchar' required='true' label='${lbl:b_kind_of_person}' maxlen='2'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.RecordsetNotEmpty' on-error-label='Por favor ingrese al menos un registro para el detalle ${lbl:b_bank_assistant}.' recordsetId='detail-smn_auxiliar_banco.sql' id='form2'/>
+</validator>
+

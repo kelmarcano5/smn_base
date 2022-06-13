@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_grupo_componente>
+	<detail>
+		<rows>		
+		<record gco_fecha_registro="${fld:gco_fecha_registro}"    gco_descripcion="${fld:gco_descripcion}"    gco_codigo="${fld:gco_codigo}"    />
+		</rows>
+	</detail>
+</smn_grupo_componente>

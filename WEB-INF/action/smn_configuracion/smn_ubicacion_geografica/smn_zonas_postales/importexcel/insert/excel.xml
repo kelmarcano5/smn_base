@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='zpo_parroquias_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='zpo_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='zpo_sector' type='varchar' required='true' maxlen='64'/>
+
+	<parameter id='zpo_parroquias_ref' type='integer' required='false' maxlen='10'/>
+	
+	<custom-validator
+			classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_code_not_duplicated}.'
+			sql='buscarSectores.sql'
+			id='zpo_sector'/>
+
+	<custom-validator 
+			classname='dinamica.validators.GetColValueValidator' 
+			on-error-label='${lbl:b_field_does_not_registered}: zpo_parroquias' 
+			parameter='zpo_parroquias_ref' 
+			sql='zpo_parroquias.sql' 
+			id='zpo_parroquias_ref'/>
+
+</validator>

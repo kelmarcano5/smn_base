@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnactivofijo.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_fixed_assets}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_fixed_assets}">
+				<col id='acf_codigo' label='${lbl:b_code}' />
+		<col id='acf_nombre' label='${lbl:b_name}' />
+		<col id='acf_proveedor_exclusivo_combo' label='${lbl:b_provider_exclusive}' />
+		<col id='acf_codigo' label='${lbl:b_code}' />
+		<col id='acf_nombre' label='${lbl:b_name}' />
+		<col id='acf_proveedor_exclusivo_combo' label='${lbl:b_provider_exclusive}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

@@ -1,0 +1,3 @@
+<rows>
+esp_fecha_registro="${fld:esp_fecha_registro}"    esp_descripcion="${fld:esp_descripcion}"    esp_codigo="${fld:esp_codigo}"    smn_prestadores_servicios_id="${fld:smn_prestadores_servicios_id}"    
+</rows>

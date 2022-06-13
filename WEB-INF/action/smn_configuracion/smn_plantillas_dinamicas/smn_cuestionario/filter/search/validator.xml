@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='cue_codigo' type='varchar' required='false' label='${lbl:b_cue_codigo}' maxlen='48'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cue_codigo' rule='like' />
+	<parameter id='cue_descripcion' type='varchar' required='false' label='${lbl:b_cue_descripcion}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cue_descripcion' rule='like' />
+	<parameter id='smn_modulo_rf' type='integer' required='false' label='${lbl:b_smn_modulo_rf}' maxlen='10'/>
+
+	<parameter id='cue_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cue_estatus' rule='like' />
+	<parameter id='cue_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date}@{${def:date}} mayor o igual que] no puede ser mayor que [${lbl:b_store_date}@{${def:date}} menor o igual que].' date1='cue_fecha_registro_ini' date2='cue_fecha_registro_fin' id='cue_fecha_registro_ini' />
+	<parameter id='cue_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

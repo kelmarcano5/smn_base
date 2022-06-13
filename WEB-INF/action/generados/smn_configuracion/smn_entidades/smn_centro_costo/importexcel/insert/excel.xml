@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cco_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='cco_descripcion_corta' type='varchar' required='true' maxlen='24'/>
+	<parameter id='cco_descripcion_larga' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cco_empresa' type='integer' required='true' maxlen='10'/>
+	<parameter id='cco_sucursal' type='integer' required='false' maxlen='10'/>
+	<parameter id='cco_area_servicio' type='integer' required='false' maxlen='10'/>
+	<parameter id='cco_unidad_servicio' type='integer' required='false' maxlen='10'/>
+	<parameter id='cco_almacen' type='integer' required='false' maxlen='10'/>
+	<parameter id='cco_nivel' type='varchar' required='true' maxlen='2'/>
+</validator>

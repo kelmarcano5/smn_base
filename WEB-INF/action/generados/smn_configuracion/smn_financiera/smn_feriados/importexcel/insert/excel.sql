@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_feriados
+(
+	smn_feriados_id,
+	fer_codigo,
+	fer_descripcion,
+	fer_pais,
+	fer_entidad_federal,
+	fer_ciudad,
+	fer_municipio,
+	fer_feriado,
+	fer_laborable,
+	fer_idioma,
+	fer_usuario,
+	fer_fecha_registro,
+	fer_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_feriados},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

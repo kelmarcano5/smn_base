@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='aca_naturaleza_auxiliar' type='integer' required='false' label='${lbl:b_nature_auxiliary}' maxlen='10'/>
+	<parameter id='aca_tipo_persona' type='varchar' required='false' label='${lbl:b_kind_of_person}' maxlen='2'/>
+	<parameter id='aca_empresa' type='integer' required='false' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='aca_sucursal' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+	<parameter id='aca_unidad_negocio' type='integer' required='false' label='${lbl:b_business_unit}' maxlen='10'/>
+	<parameter id='aca_area_servicio' type='integer' required='false' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='aca_unidad_servicio' type='integer' required='false' label='${lbl:b_service_unit}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='aca_tipo_persona'
+		rule='contains' />
+
+
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

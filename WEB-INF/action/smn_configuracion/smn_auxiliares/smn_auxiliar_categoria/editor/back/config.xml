@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Insertar registro 
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='auxiliar' source='session' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript</content-type>
+		<expiration>0</expiration>
+		<print mode="form" recordset="auxiliar" /> 
+	</output>
+
+
+</config>

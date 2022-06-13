@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("afc_codigo","query-smnafiliaciones.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("afc_descripcion","query-smnafiliaciones.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("afc_afiliado","query-smnafiliaciones.sql")'>${lbl:b_joined}</th>
+		<th class='sortable' onclick='sortBy("afc_modulo","query-smnafiliaciones.sql")'>${lbl:b_module}</th>
+		<th class='sortable' onclick='sortBy("afc_es_titular_combo","query-smnafiliaciones.sql")'>${lbl:b_titular}</th>
+		<th class='sortable' onclick='sortBy("afc_parentezco","query-smnafiliaciones.sql")'>${lbl:b_relationship}</th>
+		<th class='sortable' onclick='sortBy("afc_fecha_registro","query-smnafiliaciones.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:afc_codigo}</td>
+		<td align='left'>${fld:afc_descripcion}</td>
+		<td align='left'>${fld:afc_afiliado}</td>
+		<td align='left'>${fld:afc_modulo}</td>
+		<td>${fld:afc_es_titular_combo}</td>
+		<td align='left'>${fld:afc_parentezco}</td>
+		<td>${fld:afc_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

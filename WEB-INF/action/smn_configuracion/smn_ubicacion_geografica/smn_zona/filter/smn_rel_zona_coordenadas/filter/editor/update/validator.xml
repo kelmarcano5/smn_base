@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_zona_id_name' type='varchar' required='false' label='${lbl:b_zone}'/>
+	<parameter id='smn_zona_id' type='integer' required='false' label='${lbl:b_zone}' maxlen='10'/>
+	<parameter id='smn_pais_rf' type='integer' required='false' label='${lbl:b_country}' maxlen='10'/>
+	<parameter id='smn_entidad_federal_rf' type='integer' required='false' label='${lbl:b_federal_entity}' maxlen='10'/>
+	<parameter id='smn_ciudad_rf' type='integer' required='false' label='${lbl:b_city}' maxlen='10'/>
+	<parameter id='smn_municipio_rf' type='integer' required='false' label='${lbl:b_municipality}' maxlen='10'/>
+	<parameter id='smn_parroquia_rf' type='integer' required='false' label='${lbl:b_parish}' maxlen='10'/>
+	<parameter id='rzc_latitud' type='double' required='false' label='${lbl:b_longitude}' maxlen='20'/>
+	<parameter id='rzc_longitud' type='double' required='false' label='${lbl:b_latitude}' maxlen='20'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_relationship_zone_coordenate}' maxlen='10'/>
+	<parameter id='rzc_coordenadas' type='varchar' required='false' label='${lbl:b_coordinates}' maxlen='500'/>
+
+</validator>

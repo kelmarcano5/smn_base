@@ -1,0 +1,3 @@
+<rows>
+	smn_centro_costo_id="${fld:smn_centro_costo_id}"	cco_fecha_registro="${fld:cco_fecha_registro}"	cco_almacen="${fld:cco_almacen}"	cco_descripcion_corta="${fld:cco_descripcion_corta}"	cco_sucursal="${fld:cco_sucursal}"	cco_area_servicio="${fld:cco_area_servicio}"	cco_idioma="${fld:cco_idioma}"	cco_unidad_servicio="${fld:cco_unidad_servicio}"	cco_empresa="${fld:cco_empresa}"	cco_codigo="${fld:cco_codigo}"	cco_descripcion_larga="${fld:cco_descripcion_larga}"	cco_nivel="${fld:cco_nivel}"	cco_usuario="${fld:cco_usuario}"	cco_hora="${fld:cco_hora}"	
+</rows>

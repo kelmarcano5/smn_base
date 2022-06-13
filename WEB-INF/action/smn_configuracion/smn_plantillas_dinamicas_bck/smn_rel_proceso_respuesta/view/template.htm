@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("cue_codigo_pl0","query-smnrelprocesorespuesta.sql")'>${lbl:b_smn_cuestionario_id}</th>
+		<th class='sortable' onclick='sortBy("smn_modulo_rf_combo","query-smnrelprocesorespuesta.sql")'>${lbl:b_smn_modulo_rf}</th>
+		<th class='sortable' onclick='sortBy("smn_esquema_rf_combo","query-smnrelprocesorespuesta.sql")'>${lbl:b_smn_esquema_rf}</th>
+		<th class='sortable' onclick='sortBy("smn_campo_rf_combo","query-smnrelprocesorespuesta.sql")'>${lbl:b_smn_campo_rf}</th>
+		<th class='sortable' onclick='sortBy("smn_respuesta_id","query-smnrelprocesorespuesta.sql")'>${lbl:b_smn_respuesta_id}</th>
+		<th class='sortable' onclick='sortBy("cue_fecha_registro","query-smnrelprocesorespuesta.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_rel_proceso_respuesta_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_rel_proceso_respuesta_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_rel_proceso_respuesta_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:cue_codigo_pl0}</td>
+		<td>${fld:smn_modulo_rf_combo}</td>
+		<td>${fld:smn_esquema_rf_combo}</td>
+		<td>${fld:smn_campo_rf_combo}</td>
+		<td>${fld:smn_respuesta_id}</td>
+		<td>${fld:cue_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

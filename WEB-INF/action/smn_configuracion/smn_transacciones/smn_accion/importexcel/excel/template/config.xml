@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnaccion.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_accion}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_accion}">
+				<col id='acc_codigo' label='${lbl:b_code}' />
+		<col id='acc_descripcion' label='${lbl:b_description}' />
+		<col id='acc_tipo_combo' label='${lbl:b_kind}' />
+		<col id='smn_mensajes_rf_combo' label='${lbl:b_message}' />
+		<col id='acc_metodo' label='${lbl:b_method}' />
+		<col id='acc_tipo_acto_rol_combo' label='${lbl:b_kind_act_role}' />
+		<col id='acc_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

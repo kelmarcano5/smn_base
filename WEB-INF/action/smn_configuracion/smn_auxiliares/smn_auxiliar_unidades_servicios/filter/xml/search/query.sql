@@ -1,0 +1,14 @@
+select
+		smn_base.smn_auxiliar_unidades_servicios.smn_auxiliar_unidades_servicios_id,
+	smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_areas_servicios_id,
+	smn_base.smn_auxiliar_areas_servicios.tse_codigo as tse_codigo_pl0,
+	smn_base.smn_auxiliar_unidades_servicios.smn_auxiliar_areas_servicios_id,
+	smn_base.smn_auxiliar_unidades_servicios.tns_codigo,
+	smn_base.smn_auxiliar_unidades_servicios.tns_descripcion,
+	smn_base.smn_auxiliar_unidades_servicios.tns_fecha_registro
+	
+from
+	smn_base.smn_auxiliar_areas_servicios,
+	smn_base.smn_auxiliar_unidades_servicios
+where
+	smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_areas_servicios_id=smn_base.smn_auxiliar_unidades_servicios.smn_auxiliar_areas_servicios_id

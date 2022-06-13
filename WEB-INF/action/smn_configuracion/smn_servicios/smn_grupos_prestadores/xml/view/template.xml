@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_grupos_prestadores>
+	<detail>
+		<rows>		
+		<record gpp_fecha_registro="${fld:gpp_fecha_registro}"    gpp_orden_atencion="${fld:gpp_orden_atencion}"    uns_descripcion="${fld:uns_descripcion}"    ase_descripcion="${fld:ase_descripcion}"    gpp_descripcion="${fld:gpp_descripcion}"    gpp_codigo="${fld:gpp_codigo}"    />
+		</rows>
+	</detail>
+</smn_grupos_prestadores>

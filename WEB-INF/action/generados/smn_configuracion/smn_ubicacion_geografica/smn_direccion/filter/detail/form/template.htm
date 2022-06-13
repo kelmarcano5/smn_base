@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_addresses}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:dir_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:dir_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_country}</td>
+			<td style="background-color: white">${fld:dir_pais}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_federal_entity}</td>
+			<td style="background-color: white">${fld:dir_entidad_federal}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_city}</td>
+			<td style="background-color: white">${fld:dir_ciudad}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_municipality}</td>
+			<td style="background-color: white">${fld:dir_municipio}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_parish}</td>
+			<td style="background-color: white">${fld:dir_parroquia}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_postal_zone}</td>
+			<td style="background-color: white">${fld:dir_zona_postal}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_type_of_route}</td>
+			<td style="background-color: white">${fld:dir_tipo_via}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_name}</td>
+			<td style="background-color: white">${fld:dir_tipo_via_nom}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_number}</td>
+			<td style="background-color: white">${fld:dir_tipo_via_num}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_edification}</td>
+			<td style="background-color: white">${fld:dir_edificacion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_name}</td>
+			<td style="background-color: white">${fld:dir_edificacion_nom}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_number}</td>
+			<td style="background-color: white">${fld:dir_edificacion_num}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_location_type}</td>
+			<td style="background-color: white">${fld:dir_tipo_localidad}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_name}</td>
+			<td style="background-color: white">${fld:dir_tipo_localidad_nom}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_postal_mail}</td>
+			<td style="background-color: white">${fld:dir_apartado_postal}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_category}</td>
+			<td style="background-color: white">${fld:dir_categoria}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_longitude}</td>
+			<td style="background-color: white">${fld:dir_mapa_longitud@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_latitude}</td>
+			<td style="background-color: white">${fld:dir_mapa_latitud@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:dir_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+
+
+</body>
+
+</html>

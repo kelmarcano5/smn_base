@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnregistrosusuarios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnregistrosusuarios.sql' sheetname='${lbl:b_register_users}' filename='filter.xls'>
+		<col id='rgu_tipo_doc_oficial' label='${lbl:b_official_document_type}' />
+		<col id='rgu_num_doc_oficial' label='${lbl:b_official_document_number}' />
+		<col id='rgu_nro_id_fiscal' label='${lbl:b_tax_identification_number}' />
+		<col id='rgu_nombres' label='${lbl:s_profile_fname}' />
+		<col id='rgu_apellidos' label='${lbl:s_profile_lname}' />
+		<col id='rgu_tipo_registro' label='${lbl:b_register_type}' />
+		<col id='rgu_email' label='${lbl:s_profile_email}' />
+		<col id='rgu_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

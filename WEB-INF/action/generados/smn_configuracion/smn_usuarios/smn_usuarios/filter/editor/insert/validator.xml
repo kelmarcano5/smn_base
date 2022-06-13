@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_entidades_id_name' type='varchar' required='true' label='${lbl:b_entity}'/>
+	<parameter id='smn_entidades_id' type='integer' required='false' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='usr_usuario_id' type='integer' required='true' label='${lbl:b_user}' maxlen='10'/>
+	<parameter id='usr_comunidad' type='integer' required='false' label='${lbl:b_community}' maxlen='10'/>
+	<parameter id='usr_nombres' type='varchar' required='true' label='${lbl:s_profile_fname}' maxlen='32'/>
+	<parameter id='usr_apellidos' type='varchar' required='true' label='${lbl:s_profile_lname}' maxlen='32'/>
+	<parameter id='usr_nacionalidad' type='integer' required='true' label='${lbl:b_citizenship}' maxlen='10'/>
+	<parameter id='usr_nro_doc_identidad' type='varchar' required='true' label='${lbl:b_identification_doc_number}' maxlen='16'/>
+	<parameter id='usr_nro_id_fiscal' type='varchar' required='false' label='${lbl:b_tax_identification_number}' maxlen='16'/>
+	<parameter id='usr_direccion' type='integer' required='true' label='${lbl:b_address}' maxlen='10'/>
+	<parameter id='usr_email' type='varchar' required='true' label='${lbl:s_profile_email}' maxlen='96'/>
+	<parameter id='usr_telefono_fijo' type='varchar' required='true' label='${lbl:b_fixed_phone}' maxlen='24'/>
+	<parameter id='usr_telefono_movil' type='varchar' required='true' label='${lbl:b_mobile_phone}' maxlen='24'/>
+</validator>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnrelservicioareaunidad.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_rel_services_area_unit}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_rel_services_area_unit}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnrelservicioareaunidad.sql' width='100' spacingBefore='40'>
+			<col name='svc_codigo_pl0' title='${lbl:b_service}' width='12' align='left' />
+			<col name='smn_areas_servicios_rf' title='${lbl:b_service_area}' width='12' align='left' format='######' />
+			<col name='smn_unidades_servicios_rf' title='${lbl:b_service_unit}' width='12' align='left' format='######' />
+			<col name='smn_centro_costo_rf' title='${lbl:b_cost_lefts}' width='12' align='left' format='######' />
+			<col name='rsa_idioma' title='${lbl:s_profile_lang}' width='12' align='left' />
+			<col name='rsa_usuario' title='${lbl:b_users}' width='12' align='left' />
+			<col name='rsa_fecha_registro' title='${lbl:b_store_date}' width='12' align='left' format='dd-MM-yyyy' />
+			<col name='rsa_hora' title='${lbl:s_loginhist_col2}' width='12' align='left' />
+
+		</record>
+
+	</pdf-report>
+</config>

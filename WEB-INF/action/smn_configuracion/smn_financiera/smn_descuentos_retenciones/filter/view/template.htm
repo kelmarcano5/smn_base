@@ -1,0 +1,71 @@
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='11%'/>
+	<col width='11%'/>
+	<col width='11%'/>
+	<col width='11%'/>
+	<col width='11%'/>
+	<col width='11%'/>
+	<col width='11%'/>
+	<col width='11%'/>
+	<col width='11%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="15" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('dyr_codigo','query-smndescuentosretenciones.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('dyr_descripcion','query-smndescuentosretenciones.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('smn_vencimiento_cabecera_id','query-smndescuentosretenciones.sql')" >${lbl:b_expiration_header}</th>
+		<th class='sortable' onclick="sortBy('dyr_apli_cant_precio_combo','query-smndescuentosretenciones.sql')" >${lbl:b_apply_quantity_price}</th>
+		<th class='sortable' onclick="sortBy('dyr_porcentaje_base','query-smndescuentosretenciones.sql')" >${lbl:b_percentage_base}</th>
+		<th class='sortable' onclick="sortBy('dyr_porcentaje_descuento','query-smndescuentosretenciones.sql')" >${lbl:b_percentage_discount}</th>
+		<th class='sortable' onclick="sortBy('dyr_estatus_combo','query-smndescuentosretenciones.sql')" >${lbl:b_status}</th>
+		<th class='sortable' onclick="sortBy('dyr_vigencia','query-smndescuentosretenciones.sql')" >${lbl:b_validity}</th>
+		<th class='sortable' onclick="sortBy('dyr_fecha_registro','query-smndescuentosretenciones.sql')" >${lbl:b_store_date}</th>
+		<th>R/I</th>
+		<th>R/S</th>
+		<th>R/A</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_descuentos_retenciones_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_descuentos_retenciones_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_descuentos_retenciones_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:dyr_codigo}</td>
+		<td align="left">${fld:dyr_descripcion}</td>
+		<td align="center">${fld:smn_vencimiento_cabecera_id}</td>
+		<td align="left">${fld:dyr_apli_cant_precio_combo}</td>
+		<td align="right">${fld:dyr_porcentaje_base@#,###,##0.00}</td>
+		<td align="right">${fld:dyr_porcentaje_descuento@#,###,##0.00}</td>
+		<td align="left">${fld:dyr_estatus_combo}</td>
+		<td align="center">${fld:dyr_vigencia@dd-MM-yyyy}</td>
+		<td align="center">${fld:dyr_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="relitem('${fld:smn_descuentos_retenciones_id}','${fld:dyr_codigo}','${fld:dyr_descripcion}')" title="${lbl:b_relacion_item_descuentos_retenciones}"></td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="relser('${fld:smn_descuentos_retenciones_id}','${fld:dyr_codigo}','${fld:dyr_descripcion}')" title="${lbl:b_relacion_servicio_descuentos_retenciones}"></td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="relact('${fld:smn_descuentos_retenciones_id}','${fld:dyr_codigo}','${fld:dyr_descripcion}')" title="${lbl:b_relacion_af_descuentos_retenciones}"></td>
+	</tr>
+	</rows>
+
+</table>

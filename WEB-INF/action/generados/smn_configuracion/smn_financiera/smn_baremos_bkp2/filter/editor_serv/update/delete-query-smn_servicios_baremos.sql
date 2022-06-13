@@ -1,0 +1,1 @@
+delete from smn_base.smn_servicios_baremos WHERE smn_baremos_id= ${fld:id}

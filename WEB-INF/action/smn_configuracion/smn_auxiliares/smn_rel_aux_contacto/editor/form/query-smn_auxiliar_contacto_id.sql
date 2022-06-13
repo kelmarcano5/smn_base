@@ -1,0 +1,1 @@
+select smn_base.smn_auxiliar_contacto.smn_auxiliar_contacto_id as id, smn_base.smn_auxiliar_contacto.acn_usuario|| ' - ' ||smn_base.smn_auxiliar_contacto.acn_email as item from smn_base.smn_auxiliar_contacto

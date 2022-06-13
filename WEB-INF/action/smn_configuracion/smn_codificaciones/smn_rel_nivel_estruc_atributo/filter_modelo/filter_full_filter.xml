@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_relacion_nivel_estructura_atributo_item}</summary>
+	<filter>
+		<row field='smn_nivel_estructura_id' id='smn_nivel_estructura_id' label='${lbl:b_nivel_estructura}@{select smn_base.smn_nivel_estructura.smn_nivel_estructura_id as id, smn_base.smn_nivel_estructura.nes_codigo|| &apos; - &apos; || smn_base.smn_nivel_estructura.nes_nombre as item from smn_base.smn_nivel_estructura order by nes_nombre}' required='NO' fk='nes_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_rel_nivel_estruc_atributo' len='10'/>
+		<row field='smn_atributo_item_id' id='smn_atributo_item_id' label='${lbl:b_atributos_item}@{select smn_base.smn_atributo_item.smn_atributo_item_id as id, smn_base.smn_atributo_item.ati_codigo|| &apos; - &apos; || smn_base.smn_atributo_item.ati_nombre as item from smn_base.smn_atributo_item order by ati_nombre}' required='NO' fk='ati_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_rel_nivel_estruc_atributo' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_nivel_estructura_id' label='${lbl:b_nivel_estructura}@{select smn_base.smn_nivel_estructura.smn_nivel_estructura_id as id, smn_base.smn_nivel_estructura.nes_codigo|| &apos; - &apos; || smn_base.smn_nivel_estructura.nes_nombre as item from smn_base.smn_nivel_estructura order by nes_nombre}' fk='nes_codigo' tableName='smn_rel_nivel_estruc_atributo' len='10' type='integer' align='center'/>
+		<row field='smn_atributo_item_id' label='${lbl:b_atributos_item}@{select smn_base.smn_atributo_item.smn_atributo_item_id as id, smn_base.smn_atributo_item.ati_codigo|| &apos; - &apos; || smn_base.smn_atributo_item.ati_nombre as item from smn_base.smn_atributo_item order by ati_nombre}' fk='ati_codigo' tableName='smn_rel_nivel_estruc_atributo' len='10' type='integer' align='center'/>
+		<row field='rna_secuencia' label='${lbl:b_sequence}' fk='' tableName='smn_rel_nivel_estruc_atributo' len='10' type='integer' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

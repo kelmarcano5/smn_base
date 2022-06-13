@@ -1,0 +1,3 @@
+<rows>
+dyr_fecha_registro="${fld:dyr_fecha_registro}"    dyr_vigencia="${fld:dyr_vigencia}"    dyr_estatus="${fld:dyr_estatus}"    dyr_porcentaje_descuento="${fld:dyr_porcentaje_descuento}"    dyr_porcentaje_base="${fld:dyr_porcentaje_base}"    dyr_apli_cant_precio="${fld:dyr_apli_cant_precio}"    smn_vencimiento_cabecera_id="${fld:smn_vencimiento_cabecera_id}"    dyr_descripcion="${fld:dyr_descripcion}"    dyr_codigo="${fld:dyr_codigo}"    
+</rows>

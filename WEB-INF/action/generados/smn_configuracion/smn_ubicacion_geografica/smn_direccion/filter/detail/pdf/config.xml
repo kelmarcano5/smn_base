@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_addresses}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='query.sql' title='${lbl:b_addresses}' width='60' spacingBefore='40'>
+			<col name='dir_codigo' title='${lbl:b_code}' align='left' />
+			<col name='dir_descripcion' title='${lbl:b_description}' align='left' />
+			<col name='dir_pais' title='${lbl:b_country}' align='left' format='######' />
+			<col name='dir_entidad_federal' title='${lbl:b_federal_entity}' align='left' format='######' />
+			<col name='dir_ciudad' title='${lbl:b_city}' align='left' format='######' />
+			<col name='dir_municipio' title='${lbl:b_municipality}' align='left' format='######' />
+			<col name='dir_parroquia' title='${lbl:b_parish}' align='left' format='######' />
+			<col name='dir_zona_postal' title='${lbl:b_postal_zone}' align='left' format='######' />
+			<col name='dir_tipo_via' title='${lbl:b_type_of_route}' align='left' format='######' />
+			<col name='dir_tipo_via_nom' title='${lbl:b_name}' align='left' />
+			<col name='dir_tipo_via_num' title='${lbl:b_number}' align='left' />
+			<col name='dir_edificacion' title='${lbl:b_edification}' align='left' format='######' />
+			<col name='dir_edificacion_nom' title='${lbl:b_name}' align='left' />
+			<col name='dir_edificacion_num' title='${lbl:b_number}' align='left' />
+			<col name='dir_tipo_localidad' title='${lbl:b_location_type}' align='left' format='######' />
+			<col name='dir_tipo_localidad_nom' title='${lbl:b_name}' align='left' />
+			<col name='dir_apartado_postal' title='${lbl:b_postal_mail}' align='left' />
+			<col name='dir_mapa_longitud' title='${lbl:b_longitude}' align='left' format='#,###,##0.00' />
+			<col name='dir_mapa_latitud' title='${lbl:b_latitude}' align='left' format='#,###,##0.00' />
+			<col name='dir_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+
+	</pdf-report>
+</config>

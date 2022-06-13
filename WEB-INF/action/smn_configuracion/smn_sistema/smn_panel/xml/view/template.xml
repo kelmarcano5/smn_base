@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_panel>
+	<detail>
+		<rows>		
+		<record pan_fecha_registro="${fld:pan_fecha_registro}"    pan_orden="${fld:pan_orden}"    rolename="${fld:rolename}"    app_alias="${fld:app_alias}"    pan_icon_path="${fld:pan_icon_path}"    pan_service_path="${fld:pan_service_path}"    pan_service_description="${fld:pan_service_description}"    
+/>
+		</rows>
+	</detail>
+</smn_panel>

@@ -1,0 +1,49 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("tva_codigo_pl0","query-smnvariable.sql")'>${lbl:b_smn_tipo_variable_id}</th>
+		<th class='sortable' onclick='sortBy("var_codigo","query-smnvariable.sql")'>${lbl:b_var_codigo}</th>
+		<th class='sortable' onclick='sortBy("var_descripción","query-smnvariable.sql")'>${lbl:b_var_descripcion}</th>
+		<th class='sortable' onclick='sortBy("var_estatus_combo","query-smnvariable.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("var_fecha_registro","query-smnvariable.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_variable_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_variable_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_variable_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:tva_codigo_pl0}</td>
+		<td align='left'>${fld:var_codigo}</td>
+		<td align='left'>${fld:var_descripcion}</td>
+		<td align='left'>${fld:var_estatus_combo}</td>
+		<td>${fld:var_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

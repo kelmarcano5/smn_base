@@ -1,0 +1,128 @@
+
+
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_dia_semana,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	nextval('smn_base.seq_smn_agenda'),
+	'LU',
+	'es',
+	'admin',
+	'2016-03-02',
+	'19:35:48'
+);
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_dia_semana,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	nextval('smn_base.seq_smn_agenda'),
+	'MA',
+	'es',
+	'admin',
+	'2016-03-02',
+	'19:35:48'
+);
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_dia_semana,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	nextval('smn_base.seq_smn_agenda'),
+	'MI',
+	'es',
+	'admin',
+	'2016-03-02',
+	'19:35:48'
+);
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_dia_semana,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	nextval('smn_base.seq_smn_agenda'),
+	'JU',
+	'es',
+	'admin',
+	'2016-03-02',
+	'19:35:48'
+);
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_dia_semana,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	nextval('smn_base.seq_smn_agenda'),
+	'VI',
+	'es',
+	'admin',
+	'2016-03-02',
+	'19:35:48'
+);
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_dia_semana,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	nextval('smn_base.seq_smn_agenda'),
+	'SA',
+	'es',
+	'admin',
+	'2016-03-02',
+	'19:35:48'
+);
+INSERT INTO smn_base.smn_agenda
+(
+	smn_agenda_id,
+	age_dia_semana,
+	age_idioma,
+	age_usuario,
+	age_fecha_registro,
+	age_hora
+)
+VALUES
+(
+	nextval('smn_base.seq_smn_agenda'),
+	'DO',
+	'es',
+	'admin',
+	'2016-03-02',
+	'19:35:48'
+);

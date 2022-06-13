@@ -1,0 +1,59 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="12" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("svc_codigo","query-smnservicios.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("svc_descripcion","query-smnservicios.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("smn_tipo_servicio_rf","query-smnservicios.sql")'>${lbl:b_service_type}</th>
+		<th class='sortable' onclick='sortBy("svc_frecuencia","query-smnservicios.sql")'>${lbl:b_frecuency}</th>
+		<th class='sortable' onclick='sortBy("smn_baremos_id_txt","query-smnservicios.sql")'>${lbl:b_baremos}</th>
+		<th class='sortable' onclick='sortBy("svc_inactivo","query-smnservicios.sql")'>${lbl:b_inactive}</th>
+		<th class='sortable' onclick='sortBy("svc_fecha_registro","query-smnservicios.sql")'>${lbl:b_store_date}</th>
+		<th>SC</th>
+		<th>RAUC</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_servicios_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_servicios_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_servicios_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:svc_codigo}</td>
+		<td align='left'>${fld:svc_descripcion}</td>
+		<td>${fld:smn_tipo_servicio_rf}</td>
+		<td>${fld:svc_frecuencia}</td>
+		<td>${fld:smn_baremos_id_txt}</td>
+		<td align='center'>${fld:svc_inactivo}</td>
+		<td>${fld:svc_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/icongrid/Detalle-impuesto.png" onclick="componente('${fld:smn_servicios_id}','${fld:svc_codigo}','${fld:svc_descripcion}')" title="${lbl:b_services_components}"></td>
+		<td><img src="${def:context}/images/icongrid/Detalle-impuesto.png" onclick="relacion('${fld:smn_servicios_id}','${fld:svc_codigo}','${fld:svc_descripcion}')" title="${lbl:b_rel_services_area_unit}"></td>
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Sort a recordset (in Ajax paged grids) by column received in the
+		colname parameter, the recordset will come indicated with rs parameter
+		and must exists as session attribute. Returns a javascript block
+		that send to reaload current page's grid showing new sorting
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.SortRS</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript; charset=iso-8859-1</content-type>
+		<expiration>0</expiration>
+	</output>
+
+</config>

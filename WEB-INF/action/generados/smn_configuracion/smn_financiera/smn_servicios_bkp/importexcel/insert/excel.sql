@@ -1,0 +1,46 @@
+INSERT INTO smn_base.smn_servicios
+(
+	smn_servicios_id,
+	svc_codigo,
+	svc_descripcion,
+	svc_clase_auxiliar,
+	svc_tipo_servicio,
+	svc_area_servicio,
+	svc_unidad_servicio,
+	svc_centro_costo,
+	svc_precio_general,
+	svc_inactivo,
+	svc_req_honorario,
+	svc_vigencia_desde,
+	svc_vigencia_hasta,
+	svc_requisitos,
+	svc_trans_general,
+	svc_compuesto,
+	svc_idioma,
+	svc_usuario,
+	svc_fecha_registro,
+	svc_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_servicios},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

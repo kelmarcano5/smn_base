@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='prr_municipios' type='integer' required='true' maxlen='10'/>
+	<parameter id='prr_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='prr_nombre_corto' type='varchar' required='true' maxlen='24'/>
+	<parameter id='prr_nombre_largo' type='varchar' required='true' maxlen='48'/>
+</validator>

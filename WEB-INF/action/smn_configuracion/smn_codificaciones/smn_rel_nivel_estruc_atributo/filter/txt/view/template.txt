@@ -1,0 +1,3 @@
+<rows>
+rna_secuencia="${fld:rna_secuencia}"    smn_atributo_item_id="${fld:smn_atributo_item_id}"    smn_nivel_estructura_id="${fld:smn_nivel_estructura_id}"    
+</rows>

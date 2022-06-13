@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("efi_codigo","query-smnentidadesfinancieras.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("efi_nombre","query-smnentidadesfinancieras.sql")'>${lbl:b_name}</th>
+		<th class='sortable' onclick='sortBy("efi_telefono_fijo","query-smnentidadesfinancieras.sql")'>${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick='sortBy("efi_banco_intermediario","query-smnentidadesfinancieras.sql")'>${lbl:b_intermediary_institution}</th>
+		<th class='sortable' onclick='sortBy("efi_routing","query-smnentidadesfinancieras.sql")'>${lbl:b_routing_code}</th>
+		<th class='sortable' onclick='sortBy("efi_contacto","query-smnentidadesfinancieras.sql")'>${lbl:b_account_executive}</th>
+		<th class='sortable' onclick='sortBy("efi_fecha_registro","query-smnentidadesfinancieras.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:efi_codigo}</td>
+		<td align='left'>${fld:efi_nombre}</td>
+		<td align='left'>${fld:efi_telefono_fijo}</td>
+		<td align='left'>${fld:efi_banco_intermediario}</td>
+		<td align='left'>${fld:efi_routing}</td>
+		<td align='left'>${fld:efi_contacto}</td>
+		<td>${fld:efi_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

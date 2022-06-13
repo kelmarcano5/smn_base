@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('ter_descripcion_corta_pl0','query-smntercerosunidadesnegocios.sql')" >${lbl:b_outsourced_company}</th>
+		<th class='sortable' onclick="sortBy('tun_codigo','query-smntercerosunidadesnegocios.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('tun_nombre','query-smntercerosunidadesnegocios.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('tun_responsable','query-smntercerosunidadesnegocios.sql')" >${lbl:b_responsible}</th>
+		<th class='sortable' onclick="sortBy('tun_telefono_fijo','query-smntercerosunidadesnegocios.sql')" >${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick="sortBy('tun_email','query-smntercerosunidadesnegocios.sql')" >${lbl:s_profile_email}</th>
+		<th class='sortable' onclick="sortBy('tun_fecha_registro','query-smntercerosunidadesnegocios.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_terceros_unidades_negocios_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_terceros_unidades_negocios_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_terceros_unidades_negocios_id}')" title="Editar"></td>
+		<td align="left">${fld:ter_descripcion_corta_pl0}</td>
+		<td align="left">${fld:tun_codigo}</td>
+		<td align="left">${fld:tun_nombre}</td>
+		<td align="left">${fld:tun_responsable}</td>
+		<td align="left">${fld:tun_telefono_fijo}</td>
+		<td align="left">${fld:tun_email}</td>
+		<td align="center">${fld:tun_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

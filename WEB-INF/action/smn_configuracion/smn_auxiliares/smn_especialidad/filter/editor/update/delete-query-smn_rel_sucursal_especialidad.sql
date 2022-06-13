@@ -1,0 +1,1 @@
+delete from smn_base.smn_rel_sucursal_especialidad WHERE smn_especialidad_id= ${fld:id}

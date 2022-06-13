@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncuentasbancarias.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="3" cellStep="0" name="${lbl:b_bank_accounts}"/>
+	
+	<excel 
+		recordset='query-smncuentasbancarias.sql' 
+		sheetname='${lbl:b_bank_accounts}' 
+		filename='${lbl:b_bank_accounts}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='efi_nombre' label='${lbl:b_financial_entity}' />
+		<col id='cba_codigo' label='${lbl:b_code}' />
+		<col id='cba_nombre' label='${lbl:b_name}' />
+		<col id='cba_nro_cuenta' label='${lbl:b_bank_account_number}' />
+		<col id='tcb_descripcion' label='${lbl:b_account_bank_type}' />
+		<col id='mon_nombre' label='${lbl:b_coin}' />
+		<col id='cba_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

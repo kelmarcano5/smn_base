@@ -1,0 +1,3 @@
+<rows>
+mon_fecha_registro="${fld:mon_fecha_registro}"    mon_nombre="${fld:mon_nombre}"    mon_codigo="${fld:mon_codigo}"    
+</rows>

@@ -1,0 +1,1 @@
+select smn_base.smn_unidades_negocios.smn_unidades_negocios_id as id, smn_base.smn_unidades_negocios.uen_codigo || ' - ' || smn_base.smn_unidades_negocios.uen_nombre as item from smn_base.smn_unidades_negocios order by smn_base.smn_unidades_negocios.uen_nombre

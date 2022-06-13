@@ -1,0 +1,3 @@
+<rows>
+stg_fecha_registro="${fld:stg_fecha_registro}"    smn_tipo_gasto_id="${fld:smn_tipo_gasto_id}"    stg_descripcion="${fld:stg_descripcion}"    stg_codigo="${fld:stg_codigo}"    
+</rows>

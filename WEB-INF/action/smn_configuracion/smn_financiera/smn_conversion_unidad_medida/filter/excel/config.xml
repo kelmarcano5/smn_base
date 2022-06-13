@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnconversionunidadmedida.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="3" cellStep="0" name="${lbl:b_conversion_unidad_medida}"/>
+	
+	<excel 
+		recordset='query-smnconversionunidadmedida.sql' 
+		sheetname='${lbl:b_conversion_unidad_medida}' 
+		filename='${lbl:b_conversion_unidad_medida}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='smn_unidad_medida_origen_rf_combo' label='${lbl:b_unidad_medida_origen}' />
+		<col id='smn_unidad_medida_destino_rf_combo' label='${lbl:b_unidad_medida_destino}' />
+		<col id='cou_factor_conversion' label='${lbl:b_factor_conversion}' />
+		<col id='cou_idioma' label='${lbl:s_profile_lang}' />
+		<col id='cou_usuario' label='${lbl:b_users}' />
+		<col id='cou_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='cou_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

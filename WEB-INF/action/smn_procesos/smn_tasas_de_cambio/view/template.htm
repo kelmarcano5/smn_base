@@ -1,0 +1,57 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="11" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('mon_codigo_pl0','query-smntasasdecambio.sql')" >${lbl:b_coin}</th>
+		<th class='sortable' onclick="sortBy('mon_nombre','query-smntasasdecambio.sql')" >${lbl:b_referenced_coin}</th>
+		<th class='sortable' onclick='sortBy("tca_descripcion","query-smntasasdecambio.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('tca_fecha_vigencia','query-smntasasdecambio.sql')" >${lbl:b_validation_date}</th>
+		<th class='sortable' onclick="sortBy('tca_tasa_cambio','query-smntasasdecambio.sql')" >${lbl:b_rate}</th>
+		<th class='sortable' onclick="sortBy('tca_tipo_tasa','query-smntasasdecambio.sql')" >${lbl:b_type}</th>
+		<th class='sortable' onclick="sortBy('tca_estatus','query-smntasasdecambio.sql')" >${lbl:b_status}</th>
+		<th class='sortable' onclick="sortBy('tca_fecha_registro','query-smntasasdecambio.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_tasas_de_cambio_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_tasas_de_cambio_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_tasas_de_cambio_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="center">${fld:mon_codigo_pl0}</td>
+		<td align="center">${fld:mon_nombre}</td>
+		<td>${fld:tca_descripcion}</td>
+		<td align="center">${fld:tca_fecha_vigencia@dd-MM-yyyy}</td>
+		<td align="right">${fld:tca_tasa_cambio@#,###,##0.00}</td>
+		<td align="center">${fld:tca_tipo_tasa}</td>
+		<td align="center">${fld:tca_estatus_combo}</td>
+		<td align="center">${fld:tca_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

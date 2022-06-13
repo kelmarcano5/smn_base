@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_tipo_variable_id_name' type='varchar' required='true' label='${lbl:b_smn_tipo_variable_id}'/>
+	<parameter id='smn_tipo_variable_id' type='integer' required='false' label='${lbl:b_smn_tipo_variable_id}' maxlen='10'/>
+	<parameter id='var_codigo' type='varchar' required='true' label='${lbl:b_var_codigo}' maxlen='16'/>
+	<parameter id='var_descripcion' type='varchar' required='true' label='${lbl:b_var_descripcion}' maxlen='100'/>
+	<parameter id='var_tipo_letra' type='varchar' required='true' label='${lbl:b_var_tipo_letra}' maxlen='100'/>
+	<parameter id='var_color_letra' type='varchar' required='true' label='${lbl:b_var_color_letra}' maxlen='100'/>
+	<parameter id='var_tipo_letra' type='varchar' required='true' label='${lbl:b_var_tipo_letra}' maxlen='100'/>
+	<parameter id='var_tamano_letra' type='integer' required='true' label='${lbl:b_var_tamano_letra}' maxlen='100'/>
+	<parameter id='var_color_sombreado' type='varchar' required='true' label='${lbl:b_var_color_sombreado}' maxlen='100'/>
+	<parameter id='var_tipo_valor' type='varchar' required='true' label='${lbl:b_var_tipo_valor}' maxlen='2'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_smn_variable}' maxlen='10'/>
+
+
+</validator>

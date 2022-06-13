@@ -1,0 +1,455 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+	
+</head>
+
+<body>
+
+<!--banner-->
+<div class="banner">
+	${lbl:b_baremos}
+	<!-- <img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"> -->
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return false;" style="width:650px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">Añadir registro</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+				<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="bar_codigo" name="bar_codigo" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_description}*</td>
+			<td>
+				<input id="bar_descripcion" name="bar_descripcion" type="text" maxlength="48" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_entity}*</td>
+		<td>
+			<select name="bar_entidad" id="bar_entidad" onchange="chgCombo(bar_entidad.options[bar_entidad.selectedIndex].text,'bar_entidad_name');">
+				<option value="">[Seleccione]</option>
+				<bar_entidad_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</bar_entidad_rows>
+			</select> 
+			<input id="bar_entidad_name" name="bar_entidad_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_validation_date_from}*</td>
+			<td>
+				<input id="bar_vigencia_desde" name="bar_vigencia_desde" type="text" class="date" maxlength="10">
+				<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('bar_vigencia_desde')">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_validation_date_to}*</td>
+			<td>
+				<input id="bar_vigencia_hasta" name="bar_vigencia_hasta" type="text" class="date" maxlength="10">
+				<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('bar_vigencia_hasta')">
+			</td>
+		</tr>
+
+
+	</table>
+
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+	<!--formulario addnew/edit-->
+	<form name="form2" onsubmit="return false;" style="width:650px;">
+	
+		<!-- titulo -->
+		<h1>Detalle ${lbl:b_baremos_detail}</h1>
+	
+		<table>
+	
+			<!--ancho de la columna de etiquetas-->
+			<col width="30%">
+	
+			<!--campos-->
+					<tr>
+			<td>${lbl:b_type}*</td>
+			<td>
+				<select name="bad_tipo2" id="bad_tipo2" onchange="chgCombo(bad_tipo2.options[bad_tipo2.selectedIndex].text,'bad_tipo2_name');">
+					<option value="">[Seleccione]</option>
+									<option value="GE">${lbl:b_general}</option>
+									<option value="ES">${lbl:b_specific}</option>
+
+				</select> 
+				<input id="bad_tipo2_name" name="bad_tipo2_name" type="hidden">
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_service}*</td>
+		<td>
+			<select name="bad_servicio2" id="bad_servicio2" onchange="chgCombo(bad_servicio2.options[bad_servicio2.selectedIndex].text,'bad_servicio2_name');">
+				<option value="">[Seleccione]</option>
+				<bad_servicio2_rows>
+									<option value="${fld:id}">${fld:item}</option>
+
+				</bad_servicio2_rows>
+			</select> 
+			<input id="bad_servicio2_name" name="bad_servicio2_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_auxiliary}</td>
+		<td>
+			<select name="bad_auxiliar2" id="bad_auxiliar2" onchange="chgCombo(bad_auxiliar2.options[bad_auxiliar2.selectedIndex].text,'bad_auxiliar2_name');">
+				<option value="">[Seleccione]</option>
+				<bad_auxiliar2_rows>
+									<option value="${fld:id}">${fld:item}</option>
+
+				</bad_auxiliar2_rows>
+			</select> 
+			<input id="bad_auxiliar2_name" name="bad_auxiliar2_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_type_compound}*</td>
+			<td>
+				<select name="bad_tipo_compuesto2" id="bad_tipo_compuesto2" onchange="chgCombo(bad_tipo_compuesto2.options[bad_tipo_compuesto2.selectedIndex].text,'bad_tipo_compuesto2_name');">
+					<option value="">[Seleccione]</option>
+									<option value="SE">${lbl:b_services}</option>
+									<option value="IN">${lbl:b_inventory}</option>
+									<option value="PR">${lbl:b_providers}</option>
+
+				</select> 
+				<input id="bad_tipo_compuesto2_name" name="bad_tipo_compuesto2_name" type="hidden">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_item_code}*</td>
+			<td>
+				<input id="bad_codigo_articulo2" name="bad_codigo_articulo2" type="text" maxlength="16" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_store_code}*</td>
+		<td>
+			<select name="bad_almacen2" id="bad_almacen2" onchange="chgCombo(bad_almacen2.options[bad_almacen2.selectedIndex].text,'bad_almacen2_name');">
+				<option value="">[Seleccione]</option>
+				<bad_almacen2_rows>
+									<option value="${fld:id}">${fld:item}</option>
+
+				</bad_almacen2_rows>
+			</select> 
+			<input id="bad_almacen2_name" name="bad_almacen2_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_calculus}*</td>
+			<td>
+				<select name="bad_calculo2" id="bad_calculo2" onchange="chgCombo(bad_calculo2.options[bad_calculo2.selectedIndex].text,'bad_calculo2_name');">
+					<option value="">[Seleccione]</option>
+									<option value="IM">${lbl:b_amount_money}</option>
+									<option value="PO">${lbl:b_b_percentage}</option>
+
+				</select> 
+				<input id="bad_calculo2_name" name="bad_calculo2_name" type="hidden">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_amount}*</td>
+			<td>
+				<input id="bad_cantidad2" name="bad_cantidad2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_price}*</td>
+			<td>
+				<input id="bad_precio2" name="bad_precio2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_percentage}</td>
+			<td>
+				<input id="bad_porcentaje2" name="bad_porcentaje2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_inactive}*</td>
+			<td>
+				<select name="bad_inactivo2" id="bad_inactivo2" onchange="chgCombo(bad_inactivo2.options[bad_inactivo2.selectedIndex].text,'bad_inactivo2_name');">
+					<option value="">[Seleccione]</option>
+									<option value="S">${lbl:b_yes}</option>
+									<option value="N">${lbl:b_not}</option>
+
+				</select> 
+				<input id="bad_inactivo2_name" name="bad_inactivo2_name" type="hidden">
+			</td>
+		</tr>
+
+			
+			<tr>
+				<td colspan="2" align="center">
+				<div id="form2_error" class="errormsg" style="width: 100%; text-align:center;"></div>
+				</td>
+			</tr>
+	
+		</table>
+	
+		<input type="hidden" id="rowindex" name="rowindex" value="" />
+		
+		<input id="saveDetail2" type="button" onclick="detailInsert('detailsmn_baremos_detalle','2')" value="Añadir" >
+		
+	</form>
+	
+	<div id="detail2" style="width: 100%; text-align:center;"></div>
+
+<div style="width: 100%; text-align:center;margin-top: 10px;">
+	<input id="grabar" type="button" value="Grabar" class="button" onclick="save()">
+	<input id="cancelar" type="button" value="Cancelar" onclick="addNew()" class="button">
+</div>
+	
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		clearForm("form2");
+		document.getElementById("saveDetail2").value = "Añadir";
+		document.getElementById("saveDetail2").disabled=false;
+		document.getElementById("detail2").innerHTML = "";
+
+		
+		clearForm("form1");
+		document.getElementById("formTitle").innerHTML = "Añadir registro";
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");
+		document.form1.bar_vigencia_desde.onkeypress = keypressDate;
+		document.form1.bar_vigencia_hasta.onkeypress = keypressDate;
+		var txt_bad_cantidad2 = new NumericInput(document.form2.bad_cantidad2);
+		var txt_bad_precio2 = new NumericInput(document.form2.bad_precio2);
+		var txt_bad_porcentaje2 = new NumericInput(document.form2.bad_porcentaje2);
+
+		if (id!="")
+			edit(id);
+	} 
+	
+
+
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		ajaxCall(httpMethod="GET", 
+				uri="${def:actionroot}/addnew",
+				divResponse=null, 
+				divProgress="status", 
+				formName=null, 
+				afterResponseFn=null, 
+				onErrorFn=null);
+
+		clearForm("form2");
+		document.getElementById("saveDetail2").value = "Añadir";
+		document.getElementById("saveDetail2").disabled=false;
+		document.getElementById("detail2").innerHTML = "";
+
+		
+		clearForm("form1");
+		document.getElementById("formTitle").innerHTML = "Añadir registro";
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+		clearErrorMessages();
+		document.getElementById("grabar").disabled=true;
+		
+		//llamada Ajax...
+		return ajaxCall(httpMethod="POST", 
+						uri="${def:actionroot}/insert", 
+						divResponse=null, 
+						divProgress="status", 
+						formName="form1", 
+						afterResponseFn=null, 
+						onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+
+	var numDetail = 0;
+
+	//grabar registro nuevo del detalle en BD o actualizarlo en memoria
+	function detailInsert(action, div)
+	{
+		numDetail = div;
+		
+		clearErrorMessages();
+		document.getElementById("saveDetail" + div).disabled=true;
+
+		//registro nuevo o un update?
+		if (document.forms['form' + div].rowindex.value=="") {
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/" + action + "/insert", 
+							divResponse="detail" + div, 
+							divProgress="status", 
+							formName="form" + div, 
+							afterResponseFn=detailAddNew, 
+							onErrorFn=detailReady);
+		} else {
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/" + action + "/update", 
+							divResponse="detail" + div, 
+							divProgress="status", 
+							formName="form" + div, 
+							afterResponseFn=detailAddNew, 
+							onErrorFn=detailReady);
+		
+		}
+	}	
+
+	//en caso de error colocar focus y mostrar boton 
+	function detailReady(div) {
+		if (div==null)
+			div = numDetail;
+		document.getElementById("saveDetail" + div).disabled=false;
+		setFocusOnForm("form" + div);
+	}
+
+	//prepara el formulario de detalle para ingreso de datos
+	function detailAddNew(div) {
+		if (div==null)
+			div = numDetail;
+		document.getElementById("saveDetail" + div).disabled=false;
+		clearForm("form" + div);
+		setFocusOnForm("form" + div);
+		document.getElementById("saveDetail" + div).value = "Añadir";
+	}
+	
+	//editar registro en formulario
+	function detailEdit(id,action,div)
+	{
+		document.getElementById("saveDetail" + div).value = "Modificar";
+		clearErrorMessages();
+
+		//llamada Ajax...
+		ajaxCall(httpMethod="GET", 
+						uri="${def:actionroot}/" + action + "/edit?id=" + id , 
+						divResponse=null, 
+						divProgress="status", 
+						formName=null, 
+						afterResponseFn=null, 
+						onErrorFn=null);	
+	}		
+	
+	function detailDelete(id, action, div) {
+		alertBox("¿Desea borrar este registro de la base de datos?", "Eliminar", "Cancelar", 'deleteRecordOK(' + id + ',\"' + action + '\",' + div + ')')		
+	}
+
+	//eliminar un registro del detalle
+	function deleteRecordOK(id, action, div)
+	{
+		numDetail = div;
+		
+		//llamada Ajax...
+		ajaxCall(httpMethod="GET", 
+						uri="${def:actionroot}/" + action + "/delete?id=" + id,
+						divResponse="detail" + div, 
+						divProgress="status", 
+						formName="form" + div, 
+						afterResponseFn=detailAddNew, 
+						onErrorFn=detailReady);	
+						
+	}
+	
+	//mostrar el grid del detalle
+	function detailView(action,div) {
+		ajaxCall(httpMethod="GET", 
+						uri="${def:actionroot}/" + action + "/view",
+						divResponse="detail" + div, 
+						divProgress="status", 
+						formName=null, 
+						afterResponseFn=null, 
+						onErrorFn=null);	
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+</script>	
+</body>
+</html>

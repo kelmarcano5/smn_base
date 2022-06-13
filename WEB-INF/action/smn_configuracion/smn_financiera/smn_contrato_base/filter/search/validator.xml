@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='ctr_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='ctr_codigo' rule='like' />
+	<parameter id='ctr_nombre' type='varchar' required='false' label='${lbl:b_name}' maxlen='300'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='ctr_nombre' rule='like' />
+	<parameter id='ctr_transaccion_rf' type='integer' required='false' label='${lbl:b_transaction}' maxlen='10'/>
+	<parameter id='ctr_tipo' type='varchar' required='false' label='${lbl:b_type}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='ctr_tipo' rule='like' />
+	<parameter id='ctr_fecha_vencimiento' type='date' required='false' label='${lbl:b_date_expired}' maxlen='10'/>
+	<parameter id='ctr_corporacion_rf' type='integer' required='false' label='${lbl:b_corporation}' maxlen='10'/>
+	<parameter id='ctr_fecha_registro_ini' type='integer' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.IntegerRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' value1='ctr_fecha_registro_ini' value2='ctr_fecha_registro_fin' id='ctr_fecha_registro_ini' />
+	<parameter id='ctr_fecha_registro_fin' type='integer' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+</validator>

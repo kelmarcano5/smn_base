@@ -1,0 +1,20 @@
+select
+	'' as prs_codigo,
+	'' as prs_nombres,
+	'' as prs_apellidos,
+	'' as prs_area_servicio,
+	'' as prs_unidad_servicio,
+	'' as prs_clase_auxiliar,
+	'' as prs_auxiliar,
+	'' as smn_grupos_prestadores,
+	'' as prs_direccion,
+	'' as prs_telefono_fijo,
+	'' as prs_telefono_movil,
+	'' as prs_frecuencia,
+	'' as prs_area_servicio_reference,
+	'' as prs_unidad_servicio_reference,
+	'' as prs_clase_auxiliar_reference,
+	'' as prs_auxiliar_reference,
+	'' as smn_grupos_prestadores_reference,
+	'' as prs_direccion_reference
+	

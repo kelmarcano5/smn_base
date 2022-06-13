@@ -1,0 +1,58 @@
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('age_descripcion','query-smnagenda.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('age_dia_semana_combo','query-smnagenda.sql')" >${lbl:b_weekday}</th>
+		<th class='sortable' onclick="sortBy('age_hora_desde','query-smnagenda.sql')" >${lbl:b_time_since}</th>
+		<th class='sortable' onclick="sortBy('age_jornada_desde_combo','query-smnagenda.sql')" >${lbl:b_working_day}</th>
+		<th class='sortable' onclick="sortBy('age_hora_hasta','query-smnagenda.sql')" >${lbl:b_time_until}</th>
+		<th class='sortable' onclick="sortBy('age_jornada_hasta_combo','query-smnagenda.sql')" >${lbl:b_working_day}</th>
+		<th class='sortable' onclick="sortBy('age_fecha_registro','query-smnagenda.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_agenda_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_agenda_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_agenda_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:age_descripcion}</td>
+		<td align="left">${fld:age_dia_semana_combo}</td>
+		<td align="left">${fld:age_hora_desde}</td>
+		<td align="left">${fld:age_jornada_desde_combo}</td>
+		<td align="left">${fld:age_hora_hasta}</td>
+		<td align="left">${fld:age_jornada_hasta_combo}</td>
+		<td align="center">${fld:age_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

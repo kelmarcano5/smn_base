@@ -1,0 +1,12 @@
+select
+		smn_base.smn_rel_trans_docum_paso.smn_transaccion_general_rf,
+	smn_base.smn_rel_trans_docum_paso.smn_documentos_generales_rf,
+	smn_base.smn_rel_trans_docum_paso.smn_paso_id,
+	smn_base.smn_rel_trans_docum_paso.tpa_tiempo_paso,
+	smn_base.smn_rel_trans_docum_paso.smn_nivel_aprobacion_inicial_rf,
+	smn_base.smn_rel_trans_docum_paso.smn_nivel_aprobacion_final_rf,
+	smn_base.smn_rel_trans_docum_paso.tpa_fecha_registro
+from
+	smn_base.smn_rel_trans_docum_paso 
+where
+	smn_base.smn_rel_trans_docum_paso.smn_rel_trans_docum_paso_id = ${fld:id}

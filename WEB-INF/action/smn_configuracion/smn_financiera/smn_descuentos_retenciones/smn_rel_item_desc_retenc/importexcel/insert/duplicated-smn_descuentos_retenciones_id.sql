@@ -1,0 +1,7 @@
+select
+	smn_descuentos_retenciones_id	
+from 
+	smn_base.smn_descuentos_retenciones
+where
+	smn_descuentos_retenciones_id = ${fld:smn_descuentos_retenciones_id}
+	

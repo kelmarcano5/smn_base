@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='svc_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='svc_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='56'/>
+	<parameter id='svc_clase_auxiliar' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='svc_tipo_servicio' type='integer' required='true' label='${lbl:b_service_type}' maxlen='10'/>
+	<parameter id='svc_area_servicio' type='integer' required='true' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='svc_unidad_servicio' type='integer' required='true' label='${lbl:b_service_unit}' maxlen='10'/>
+	<parameter id='svc_centro_costo' type='integer' required='false' label='${lbl:b_cost_centers}' maxlen='10'/>
+	<parameter id='svc_precio_general' type='double' required='true' label='${lbl:b_general_price}' maxlen='10'/>
+	<parameter id='svc_inactivo' type='varchar' required='true' label='${lbl:b_inactive}' maxlen='1'/>
+	<parameter id='svc_req_honorario' type='varchar' required='false' label='Requiere Honorario' maxlen='1'/>
+	<parameter id='svc_vigencia_desde' type='date' required='true' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<parameter id='svc_vigencia_hasta' type='date' required='true' label='${lbl:b_validation_date_to}' maxlen='10'/>
+	<parameter id='svc_requisitos' type='varchar' required='true' label='${lbl:b_requirements}' maxlen='5000'/>
+	<parameter id='svc_trans_general' type='integer' required='false' label='${lbl:b_general_transaction}' maxlen='10'/>
+	<parameter id='svc_compuesto' type='integer' required='false' label='${lbl:b_id_compound}' maxlen='10'/>
+</validator>

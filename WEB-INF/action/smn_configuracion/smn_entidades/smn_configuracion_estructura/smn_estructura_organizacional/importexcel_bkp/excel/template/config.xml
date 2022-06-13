@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnestructuraorganizacional-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnvauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-smncentrocosto.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnclaseauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnconfiguracionestructura.sql' source='sql' scope='transaction' />
+		<recordset id='estructura_organizacional' source='session' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_entidades.smn_estructura_organizacional.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_organizational_structure}.xls'
+		header-background='true' >
+		
+	<sheet recordset="query-smnestructuraorganizacional-template.sql" sheetname="${lbl:b_organizational_structure}">
+		
+		<col id='smn_configuracion_estructura_id' label='${lbl:b_structure_configuration}' />
+		<col id='eor_codigo' label='${lbl:b_code}' />
+		<col id='eor_nombre' label='${lbl:b_name}' />
+		<col id='eor_auxiliar' label='${lbl:b_auxiliary}' />
+		<col id='eor_clase_auxiliar' label='${lbl:b_auxiliary_class}' />
+		<col id='eor_centro_costo' label='${lbl:b_cost_centers}' />		
+		
+		<col id='smn_configuracion_estructura_id_reference' label='${lbl:b_structure_configuration}' />
+		<col id='eor_auxiliar_reference' label='${lbl:b_auxiliary}' />
+		<col id='eor_clase_auxiliar_reference' label='${lbl:b_auxiliary_class}' />
+		<col id='eor_centro_costo_reference' label='${lbl:b_cost_centers}' />		
+
+	</sheet>
+	
+	<sheet recordset='query-smnconfiguracionestructura.sql' sheetname='${lbl:b_structure_configuration}'>
+		<col id='configuracion_estructura' label='${lbl:b_structure_configuration}' />
+	</sheet>
+	
+	<sheet recordset='query-smnvauxiliar.sql' sheetname='${lbl:b_auxiliary}'>
+		<col id='smn_item' label='${lbl:b_auxiliary}' />
+	</sheet>
+
+	<sheet recordset='query-smnclaseauxiliar.sql' sheetname='${lbl:b_auxiliary_class}'>
+		<col id='cla_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smncentrocosto.sql' sheetname='${lbl:b_cost_centers}'>
+		<col id='cco_descripcion_corta' label='${lbl:b_description}' />
+	</sheet>
+
+	</excel>
+
+</config>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_monedas_id' type='integer' required='false' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='tca_moneda_referencia' type='integer' required='true' label='${lbl:b_referenced_coin}' maxlen='10'/>
+	<parameter id='tca_fecha_vigencia' type='date' required='true' label='${lbl:b_validation_date}' maxlen='10'/>
+	<parameter id='tca_tasa_cambio' type='double' required='true' label='${lbl:b_rate}' maxlen='20'/>
+	<parameter id='tca_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='200'/>
+	<parameter id='tca_tipo_tasa' type='varchar' required='true' label='${lbl:b_description}' maxlen='2'/>
+	<parameter id='tca_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+</validator>

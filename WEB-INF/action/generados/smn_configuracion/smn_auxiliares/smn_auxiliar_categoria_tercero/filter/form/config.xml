@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_intermediary_assistant}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-smn_auxiliar_categoria_id.sql' source='sql' scope='transaction'/><recordset id='query-atr_auxiliar_corporacion.sql' source='sql' scope='transaction'/><recordset id='query-atr_auxiliar_unidad_negocio.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-smn_auxiliar_categoria_id.sql' tag='smn_auxiliar_categoria_id_rows'/><print mode='table' recordset='query-atr_auxiliar_corporacion.sql' tag='atr_auxiliar_corporacion_rows'/><print mode='table' recordset='query-atr_auxiliar_unidad_negocio.sql' tag='atr_auxiliar_unidad_negocio_rows'/>
+	</output>
+
+</config>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_pregunta>
+	<detail>
+		<rows>		
+		<record cue_fecha_registro="${fld:cue_fecha_registro}"    sec_estatus="${fld:sec_estatus}"    prg_tipo_respuesta="${fld:prg_tipo_respuesta}"    prg_descripcion="${fld:prg_descripcion}"    prg_codigo="${fld:prg_codigo}"    smn_tipo_variable_id="${fld:smn_tipo_variable_id}"    cue_fecha_registro="${fld:cue_fecha_registro}"    sec_estatus="${fld:sec_estatus}"    prg_tipo_respuesta="${fld:prg_tipo_respuesta}"    prg_descripcion="${fld:prg_descripcion}"    prg_codigo="${fld:prg_codigo}"    smn_tipo_variable_id="${fld:smn_tipo_variable_id}"    />
+		</rows>
+	</detail>
+</smn_pregunta>

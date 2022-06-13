@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='dir_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='dir_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='dir_pais' type='integer' required='true' label='${lbl:b_country}' maxlen='10'/>
+	<parameter id='dir_entidad_federal' type='integer' required='true' label='${lbl:b_federal_entity}' maxlen='10'/>
+	<parameter id='dir_ciudad' type='integer' required='true' label='${lbl:b_city}' maxlen='10'/>
+	<parameter id='dir_municipio' type='integer' required='true' label='${lbl:b_municipality}' maxlen='10'/>
+	<parameter id='dir_parroquia' type='integer' required='true' label='${lbl:b_parish}' maxlen='10'/>
+	<parameter id='dir_zona_postal' type='integer' required='true' label='${lbl:b_postal_zone}' maxlen='8'/>
+	<parameter id='dir_tipo_via' type='integer' required='true' label='${lbl:b_type_of_route}' maxlen='10'/>
+	<parameter id='dir_tipo_via_nom' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='dir_tipo_via_num' type='varchar' required='false' label='${lbl:b_number}' maxlen='16'/>
+	<parameter id='dir_edificacion' type='integer' required='true' label='${lbl:b_edification}' maxlen='10'/>
+	<parameter id='dir_edificacion_nom' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='dir_edificacion_num' type='varchar' required='false' label='${lbl:b_number}' maxlen='16'/>
+	<parameter id='dir_tipo_localidad' type='integer' required='true' label='${lbl:b_location_type}' maxlen='10'/>
+	<parameter id='dir_tipo_localidad_nom' type='varchar' required='false' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='dir_apartado_postal' type='varchar' required='false' label='${lbl:b_postal_mail}' maxlen='8'/>
+	<parameter id='dir_mapa_longitud' type='double' required='false' label='${lbl:b_longitude}' maxlen='10'/>
+	<parameter id='dir_mapa_latitud' type='double' required='false' label='${lbl:b_latitude}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_address}' maxlen='10'/>
+</validator>
+

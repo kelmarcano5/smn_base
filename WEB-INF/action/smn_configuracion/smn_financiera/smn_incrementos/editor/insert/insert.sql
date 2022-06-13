@@ -1,0 +1,42 @@
+INSERT INTO smn_base.smn_incrementos
+(
+	smn_incrementos_id,
+	inc_codigo,
+	inc_descripcion,
+	smn_vencimiento_cabecera_id,
+	inc_apli_cant_precio,
+	inc_monto_ml,
+	inc_monto_ma,
+	inc_porcentaje_base,
+	inc_porcentaje_incremento,
+	inc_estatus,
+	inc_apli_todos_it,
+	inc_apli_todos_se,
+	inc_apli_todos_af,
+	inc_vigencia,
+	inc_idioma,
+	inc_usuario,
+	inc_fecha_registro,
+	inc_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_incrementos},
+	${fld:inc_codigo},
+	${fld:inc_descripcion},
+	${fld:smn_vencimiento_cabecera_id},
+	${fld:inc_apli_cant_precio},
+	${fld:inc_monto_ml},
+	${fld:inc_monto_ma},
+	${fld:inc_porcentaje_base},
+	${fld:inc_porcentaje_incremento},
+	${fld:inc_estatus},
+	${fld:inc_apli_todos_it},
+	${fld:inc_apli_todos_se},
+	${fld:inc_apli_todos_af},
+	{d '${def:date}'},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

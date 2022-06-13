@@ -1,0 +1,49 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='14%'/>
+	<col width='24%'/>
+	<col width='24%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('app_alias','query-smnmenutraduccion.sql')" >${lbl:b_application}</th>
+		<th class='sortable' onclick="sortBy('title','query-smnmenutraduccion.sql')" >${lbl:b_menu}</th>
+		<th class='sortable' onclick="sortBy('mnt_title','query-smnmenutraduccion.sql')" >${lbl:b_menu_title}</th>
+		<th class='sortable' onclick="sortBy('mnt_locale_combo','query-smnmenutraduccion.sql')" >${lbl:b_idiom}</th>
+		<th class='sortable' onclick="sortBy('mnt_fecha_registro','query-smnmenutraduccion.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_menu_traduccion_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_menu_traduccion_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_menu_traduccion_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:app_alias}</td>
+		<td align="left">${fld:title}</td>
+		<td align="left">${fld:mnt_title}</td>
+		<td align="left">${fld:mnt_locale_combo}</td>
+		<td align="center">${fld:mnt_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

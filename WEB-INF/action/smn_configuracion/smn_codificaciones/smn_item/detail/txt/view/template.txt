@@ -1,0 +1,3 @@
+<rows>
+ itm_nombre="${fld:itm_nombre}"    itm_codigo="${fld:itm_codigo}"    itm_fecha_registro="${fld:itm_fecha_registro}"       
+</rows>

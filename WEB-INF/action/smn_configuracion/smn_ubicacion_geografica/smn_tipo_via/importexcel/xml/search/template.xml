@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_tipo_via>
+	<detail>
+		<rows>		
+		<record tiv_fecha_registro="${fld:tiv_fecha_registro}"    tiv_descripcion="${fld:tiv_descripcion}"    tiv_codigo="${fld:tiv_codigo}"    />
+		</rows>
+	</detail>
+</smn_tipo_via>

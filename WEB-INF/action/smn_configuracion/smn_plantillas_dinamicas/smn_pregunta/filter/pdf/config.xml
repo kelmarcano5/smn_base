@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnpregunta.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_smn_pregunta}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' align="left" />
+	<pdf-file-name>${lbl:b_smn_pregunta}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='filter.params' title='${lbl:b_filter_find}' noFilterMsg='-- ${lbl:b_all_message} --' width='55' spacingBefore='15'>
+			<col name='smn_tipo_variable_id_name' title='${lbl:b_smn_tipo_variable_id}'  align='left' />
+			<col name='prg_codigo' title='${lbl:b_prg_codigo}'  align='left' />
+			<col name='prg_descripcion' title='${lbl:b_prg_descripcion}'  align='left' />
+			<col name='prg_tipo_respuesta' title='${lbl:b_prg_tipo_respuesta}'  align='left' />
+			<col name='cue_idioma' title='${lbl:s_profile_lang}'  align='left' />
+			<col name='cue_fecha_registro_ini' title='${lbl:s_loginhist_col2}'  format='dd-MM-yyyy' align='left' />
+			<col name='cue_fecha_registro_fin' title='${lbl:s_loginhist_col2}'  format='dd-MM-yyyy' align='left' />
+
+		</record>
+		<record recordset='query-smnpregunta.sql' width='100' spacingBefore='10'>
+			<col name='tva_codigo_pl0' title='${lbl:b_smn_tipo_variable_id}' width='11' align='left' />
+			<col name='prg_codigo' title='${lbl:b_prg_codigo}' width='11' align='left' />
+			<col name='prg_descripcion' title='${lbl:b_prg_descripcion}' width='11' align='left' />
+			<col name='prg_tipo_respuesta_combo' title='${lbl:b_prg_tipo_respuesta}' width='11' align='left' />
+			<col name='sec_estatus_combo' title='${lbl:b_status}' width='11' align='left' />
+			<col name='cue_idioma' title='${lbl:s_profile_lang}' width='11' align='left' />
+			<col name='cue_usuario' title='${lbl:b_users}' width='11' align='left' />
+			<col name='cue_fecha_registro' title='${lbl:s_loginhist_col2}' width='11' align='left' format='dd-MM-yyyy' />
+			<col name='cue_hora' title='${lbl:s_loginhist_col2}' width='11' align='left' />
+
+		</record>
+
+	</pdf-report>
+</config>

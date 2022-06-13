@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_groups_of_providers}</summary>
+	<filter>
+		<row field='gpp_codigo' id='gpp_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_grupos_prestadores' len='16'/>
+		<row field='gpp_descripcion' id='gpp_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_grupos_prestadores' len='56'/>
+		<row field='gpp_area_servicio' id='gpp_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_grupos_prestadores' len='10'/>
+		<row field='gpp_unidad_servicio' id='gpp_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by smn_base.smn_unidades_servicios.uns_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_grupos_prestadores' len='10'/>
+		<row field='gpp_fecha_registro' id='gpp_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_grupos_prestadores' len='10'/>
+		<row field='gpp_fecha_registro' id='gpp_fecha_registro_fin' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_grupos_prestadores' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='gpp_codigo' label='${lbl:b_code}' fk='' tableName='smn_grupos_prestadores' len='16' type='varchar' align='left'/>
+		<row field='gpp_descripcion' label='${lbl:b_description}' fk='' tableName='smn_grupos_prestadores' len='56' type='varchar' align='left'/>
+		<row field='gpp_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' fk='' tableName='smn_grupos_prestadores' len='10' type='integer' align='left'/>
+		<row field='gpp_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by smn_base.smn_unidades_servicios.uns_descripcion}' fk='' tableName='smn_grupos_prestadores' len='10' type='integer' align='left'/>
+		<row field='gpp_orden_atencion' label='${lbl:b_in_order_of_attention}@{CI=${lbl:b_by_appointment}|OL=${lbl:b_by_arrive_order}}' fk='' tableName='smn_grupos_prestadores' len='2' type='varchar' align='left'/>
+		<row field='gpp_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_grupos_prestadores' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

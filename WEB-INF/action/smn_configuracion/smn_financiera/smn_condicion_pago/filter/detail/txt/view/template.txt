@@ -1,0 +1,3 @@
+<rows>
+cop_fecha_registro="${fld:cop_fecha_registro}"    cop_descripcion="${fld:cop_descripcion}"    cop_codigo="${fld:cop_codigo}"     cop_cantidad_dias="${fld:cop_cantidad_dias}"
+</rows>

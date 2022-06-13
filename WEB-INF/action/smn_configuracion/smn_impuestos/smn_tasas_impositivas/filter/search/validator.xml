@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_unidades_impositivas_id_name' type='varchar' required='false' label='${lbl:b_tax_unit}'/>
+	<parameter id='smn_unidades_impositivas_id' type='integer' required='false' label='${lbl:b_tax_unit}' maxlen='10'/>
+	<parameter id='tim_fecha_vigencia_ini' type='date' required='false' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_validation_date_from} mayor o igual que] no puede ser mayor que [${lbl:b_validation_date_to} menor o igual que].' date1='tim_fecha_vigencia_ini' date2='tim_fecha_vigencia_fin' id='tim_fecha_vigencia_ini' />
+	<parameter id='tim_fecha_vigencia_fin' type='date' required='false' label='${lbl:b_validation_date_to}' maxlen='10'/>
+	<parameter id='tim_valor_ini' type='double' required='false' label='${lbl:b_value_from}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DoubleRangeValidator' on-error-label='[${lbl:b_value_from} mayor o igual que] no puede ser mayor que [${lbl:b_value_to} menor o igual que].' value1='tim_valor_ini' value2='tim_valor_fin' id='tim_valor_ini' />
+	<parameter id='tim_valor_fin' type='double' required='false' label='${lbl:b_value_to}' maxlen='10'/>
+	<parameter id='tim_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='tim_fecha_registro_ini' date2='tim_fecha_registro_fin' id='tim_fecha_registro_ini' />
+	<parameter id='tim_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

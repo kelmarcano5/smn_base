@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_base_contract}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-ctr_transaccion_rf.sql' source='sql' scope='transaction'/><recordset id='query-ctr_moneda_rf.sql' source='sql' scope='transaction'/><recordset id='query-ctr_corporacion_rf.sql' source='sql' scope='transaction'/><recordset id='query-ctr_empresa_rf.sql' source='sql' scope='transaction'/><recordset id='query-ctr_sucursal_rf.sql' source='sql' scope='transaction'/><recordset id='query-ctr_area_servicio_rf.sql' source='sql' scope='transaction'/><recordset id='query-ctr_unidad_servicio_rf.sql' source='sql' scope='transaction'/><recordset id='query-ctr_centro_costo_rf.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-ctr_transaccion_rf.sql' tag='ctr_transaccion_rf_rows'/><print mode='table' recordset='query-ctr_moneda_rf.sql' tag='ctr_moneda_rf_rows'/><print mode='table' recordset='query-ctr_corporacion_rf.sql' tag='ctr_corporacion_rf_rows'/><print mode='table' recordset='query-ctr_empresa_rf.sql' tag='ctr_empresa_rf_rows'/><print mode='table' recordset='query-ctr_sucursal_rf.sql' tag='ctr_sucursal_rf_rows'/><print mode='table' recordset='query-ctr_area_servicio_rf.sql' tag='ctr_area_servicio_rf_rows'/><print mode='table' recordset='query-ctr_unidad_servicio_rf.sql' tag='ctr_unidad_servicio_rf_rows'/><print mode='table' recordset='query-ctr_centro_costo_rf.sql' tag='ctr_centro_costo_rf_rows'/>
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

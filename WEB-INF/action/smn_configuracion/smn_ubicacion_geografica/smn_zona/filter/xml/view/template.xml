@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_zona>
+	<detail>
+		<rows>		
+		<record zon_fecha_registro="${fld:zon_fecha_registro}"    zon_fecha_vigencia="${fld:zon_fecha_vigencia}"    zon_estatus="${fld:zon_estatus}"    zon_descripcion="${fld:zon_descripcion}"    zon_codigo="${fld:zon_codigo}"    />
+		</rows>
+	</detail>
+</smn_zona>

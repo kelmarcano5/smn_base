@@ -1,0 +1,3 @@
+<rows>
+ptz_fecha_registro="${fld:ptz_fecha_registro}"    ptz_descripcion="${fld:ptz_descripcion}"    ptz_codigo="${fld:ptz_codigo}"    
+</rows>

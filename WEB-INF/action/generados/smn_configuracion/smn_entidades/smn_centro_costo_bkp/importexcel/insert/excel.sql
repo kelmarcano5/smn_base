@@ -1,0 +1,26 @@
+INSERT INTO smn_base.smn_centro_costo
+(
+	smn_centro_costo_id,
+	smn_entidades_id,
+	cco_codigo,
+	cco_descripcion_corta,
+	cco_descripcion_larga,
+	cco_responsable,
+	cco_tipo_cco,
+	cco_nivel,
+	cco_clase_auxiliar,
+	cco_auxiliar
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_centro_costo},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

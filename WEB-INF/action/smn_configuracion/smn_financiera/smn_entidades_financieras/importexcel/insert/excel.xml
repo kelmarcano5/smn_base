@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='efi_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='efi_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='efi_direccion_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='efi_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='efi_telefono_movil' type='varchar' required='true' maxlen='24'/>
+	<parameter id='efi_codigo_aba' type='varchar' required='false' maxlen='24'/>
+	<parameter id='efi_codigo_swift' type='varchar' required='false' maxlen='24'/>
+	<parameter id='efi_req_banco_intermediario_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='efi_banco_intermediario_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='efi_routing' type='varchar' required='false' maxlen='24'/>
+	<parameter id='efi_contacto' type='varchar' required='false' maxlen='48'/>
+
+	<parameter id='efi_direccion_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='efi_req_banco_intermediario_ref' type='varchar' required='false' maxlen='1'/>
+	<parameter id='efi_banco_intermediario_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='efi_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='efi_nombre'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: efi_direccion' 
+		parameter='efi_direccion_ref' 
+		sql='efi_direccion.sql' 
+		id='efi_direccion_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: efi_req_banco_intermediario' 
+		parameter='efi_req_banco_intermediario_ref' 
+		sql='efi_req_banco_intermediario.sql' 
+		id='efi_req_banco_intermediario_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: efi_banco_intermediario' 
+		parameter='efi_banco_intermediario_ref' 
+		sql='efi_banco_intermediario.sql' 
+		id='efi_banco_intermediario_ref'/>
+
+</validator>

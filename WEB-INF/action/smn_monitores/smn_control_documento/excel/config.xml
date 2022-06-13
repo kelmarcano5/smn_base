@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncontroldocumento.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smncontroldocumento.sql' sheetname='${lbl:b_control_documento}' filename='smn_control_documento.xls'>
+		<col id='smn_modulos_id_combo' label='${lbl:b_modulos}' />
+		<col id='smn_transaccion_general_rf_combo' label='${lbl:b_transaccion_general}' />
+		<col id='smn_documentos_generales_rf_combo' label='${lbl:b_documentos_generales}' />
+		<col id='cdc_documento_id_combo' label='${lbl:b_documento}' />
+		<col id='smn_paso_id_combo' label='${lbl:b_paso}' />
+		<col id='smn_nivel_aprobacion_id_combo' label='${lbl:b_nivel_aprobacion}' />
+		<col id='smn_rol_id_combo' label='${lbl:b_rol}' />
+		<col id='cdc_status_doc _combo' label='${lbl:b_status}' />
+		<col id='cdc_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='cdc_hora' label='${lbl:s_loginhist_col2}' />
+	</excel>
+
+</config>

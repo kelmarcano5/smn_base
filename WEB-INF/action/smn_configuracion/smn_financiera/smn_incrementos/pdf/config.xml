@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnincrementos.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_increment}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_increment}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnincrementos.sql' width='100' spacingBefore='40'>
+			<col name='inc_codigo' title='${lbl:b_code}' width='10' align='left' />
+			<col name='inc_descripcion' title='${lbl:b_description}' width='10' align='left' />
+			<col name='inc_apli_cant_precio' title='${lbl:b_apply_quantity_price}' width='10' align='left' />
+			<col name='inc_porcentaje_base' title='${lbl:b_percentage_base}' width='10' align='left' format='#,###,##0.00' />
+			<col name='inc_porcentaje_incremento' title='${lbl:b_percentage_increment}' width='10' align='left' format='#,###,##0.00' />
+			<col name='inc_apli_todos_it' title='${lbl:b_apply_item}' width='10' align='left' />
+			<col name='inc_apli_todos_se' title='${lbl:b_apply_services}' width='10' align='left' />
+			<col name='inc_apli_todos_af' title='${lbl:b_apply_fixed_asset}' width='10' align='left' />
+			<col name='inc_estatus' title='${lbl:b_status}' width='10' align='left' />
+			<col name='inc_fecha_registro' title='${lbl:b_store_date}' width='10' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

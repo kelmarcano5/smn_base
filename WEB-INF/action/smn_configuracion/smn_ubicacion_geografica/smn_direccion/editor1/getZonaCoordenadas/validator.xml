@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/ajax">
+	<parameter id="id" type="integer" required="true" label="ID ${lbl:b_federal_entities}" maxlen='10'/>
+	<parameter id="pais" type="integer" required="false" label="ID ${lbl:b_country}" maxlen='10'/>
+		<parameter id="entidad" type="integer" required="false" label="ID ${lbl:b_federal_entity}" maxlen='10'/>
+			<parameter id="ciudad" type="integer" required="false" label="ID ${lbl:b_city}" maxlen='10'/>
+				<parameter id="municipio" type="integer" required="false" label="ID ${lbl:b_municipality}" maxlen='10'/>
+					<parameter id="parroquia" type="integer" required="false" label="ID ${lbl:b_parish}" maxlen='10'/>
+
+		<parameter id="pais_descrip" type="varchar" required="false" label="ID ${lbl:b_country}" maxlen='100'/>
+		<parameter id="entidad_descrip" type="varchar" required="false" label="ID ${lbl:b_federal_entity}" maxlen='100'/>
+		<parameter id="ciudad_descrip" type="varchar" required="false" label="ID ${lbl:b_city}" maxlen='100' />
+		<parameter id="municipio_descrip" type="varchar" required="false" label="ID ${lbl:b_municipality}" maxlen='100'/>
+		<parameter id="parroquia_descrip" type="varchar" required="false" label="ID ${lbl:b_parish}" maxlen='100'/>
+</validator>

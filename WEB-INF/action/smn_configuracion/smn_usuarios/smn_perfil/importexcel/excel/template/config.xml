@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnperfil.sql" source="session" scope="transaction" />
+		<recordset id='query-srole.sql' source='sql' scope='transaction' />
+	<recordset id='query-sservice.sql' source='sql' scope='transaction' />
+	
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_profile}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_profile}">
+				<col id='role_id' label='${lbl:b_role}' />
+		<col id='service_id' label='${lbl:b_service}' />
+		<col id='prf_tipo_acceso' label='${lbl:b_type_access}' />
+		<col id='prf_add' label='${lbl:b_add}' />
+		<col id='prf_del' label='${lbl:b_delete}' />
+		<col id='prf_edit' label='${lbl:b_modify}' />
+		<col id='prf_view' label='${lbl:b_view}' />
+		<col id='prf_export' label='${lbl:b_export}' />
+		<col id='prf_find' label='${lbl:b_find}' />
+		<col id='prf_import' label='${lbl:b_import}' />
+		<col id='prf_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+		<sheet recordset='query-srole.sql' sheetname=''>
+		<col id='description' label='${lbl:}' />
+	</sheet>
+
+	<sheet recordset='query-sservice.sql' sheetname=''>
+		<col id='description' label='${lbl:}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cfn_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='cfn_descripcion' type='varchar' required='true' maxlen='64'/>
+	<parameter id='smn_clase_auxiliar_rf_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='smn_auxiliar_rf_desc' type='varchar' required='false' maxlen='96'/>
+	<parameter id='cfn_limite_credito' type='double' required='false' maxlen='10'/>
+	<parameter id='cfn_porc_exceso_limite' type='double' required='false' maxlen='10'/>
+	<parameter id='cfn_valida_saldos_vec_desc' type='varchar' required='false' maxlen='2'/>
+	<parameter id='cfn_dias_adic_saldos_venc' type='integer' required='false' maxlen='10'/>
+	<parameter id='cfn_num_cheques_devuel' type='integer' required='false' maxlen='10'/>
+
+	<parameter id='smn_clase_auxiliar_rf_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf_ref' type='integer' required='false' maxlen='96'/>
+	<parameter id='cfn_valida_saldos_vec_ref' type='varchar' required='false' maxlen='1'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cfn_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='cfn_descripcion'/>
+			
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: smn_clase_auxiliar_rf' 
+		parameter='cfn_valida_saldos_vec_ref' 
+		sql='cfn_valida_saldos_vec.sql' 
+		id='cfn_valida_saldos_vec_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: smn_clase_auxiliar_rf' 
+		parameter='smn_clase_auxiliar_rf_ref' 
+		sql='smn_clase_auxiliar_rf.sql' 
+		id='smn_clase_auxiliar_rf_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: smn_auxiliar_rf' 
+		parameter='smn_auxiliar_rf_ref' 
+		sql='smn_auxiliar_rf.sql' 
+		id='smn_auxiliar_rf_ref'/>
+
+</validator>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_baremos_id' type='integer' required='true' label='${lbl:b_baremo}' maxlen='10'/>
+	<parameter id='smn_servicios_rf' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='bad_tipo_componente' type='varchar' required='true' label='${lbl:b_type}' maxlen='2'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='false' label='${lbl:b_item}' maxlen='10'/>
+	<parameter id='smn_almacen_rf' type='integer' required='false' label='${lbl:b_store_code}' maxlen='10'/>
+	<parameter id='bad_cantidad' type='double' required='true' label='${lbl:b_amount}' maxlen='10'/>
+	<parameter id='bad_precio_moneda_local' type='double' required='true' label='${lbl:b_coin_local_price}' maxlen='10'/>
+	<parameter id='smn_moneda_rf' type='integer' required='false' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='bad_precio_moneda_alterna' type='double' required='false' label='${lbl:b_coin_altern_price}' maxlen='10'/>
+	<parameter id='smn_descuento_rf' type='integer' required='false' label='${lbl:b_discount}' maxlen='10'/>
+	<parameter id='bad_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='1'/>
+
+
+</validator>

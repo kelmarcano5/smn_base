@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smngruposprestadores-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnareasservicios.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnunidadesservicios.sql' source='sql' scope='transaction' />
+		<recordset id='query-gppordenatencion.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_financiera.smn_grupos_prestadores.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_groups_of_providers}.xls'     
+		header-background='true'  >
+		
+	<sheet recordset="query-smngruposprestadores-template.sql" sheetname="${lbl:b_groups_of_providers}">
+		
+		<col id='gpp_codigo' label='${lbl:b_code}' />
+		<col id='gpp_descripcion' label='${lbl:b_description}' />
+		<col id='gpp_area_servicio' label='${lbl:b_service_area}' />
+		<col id='gpp_unidad_servicio' label='${lbl:b_service_unit}' />
+		<col id='gpp_orden_atencion' label='${lbl:b_in_order_of_attention}' />
+		
+		<col id='gpp_area_servicio_reference' label='${lbl:b_service_area}' />
+		<col id='gpp_unidad_servicio_reference' label='${lbl:b_service_unit}' />
+		<col id='gpp_orden_atencion_reference' label='${lbl:b_in_order_of_attention}' />
+
+	</sheet>
+
+	<sheet recordset='query-gppordenatencion.sql' sheetname='${lbl:b_in_order_of_attention}'>
+		<col id='orden_atencion' label='${lbl:b_in_order_of_attention}' />
+	</sheet>	
+	
+	<sheet recordset='query-smnareasservicios.sql' sheetname='${lbl:b_service_area}'>
+		<col id='ase_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnunidadesservicios.sql' sheetname='${lbl:b_service_unit}'>
+		<col id='uns_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

@@ -1,0 +1,103 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+	<col width='4%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="25">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('aca_tipo_persona_pl0','query-smnauxiliartercero.sql')" >${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick="sortBy('atr_codigo','query-smnauxiliartercero.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('atr_descripcion','query-smnauxiliartercero.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('atr_comunidad','query-smnauxiliartercero.sql')" >${lbl:b_community}</th>
+		<th class='sortable' onclick="sortBy('atr_auxiliar_corporacion','query-smnauxiliartercero.sql')" >${lbl:b_outsourced_corporation}</th>
+		<th class='sortable' onclick="sortBy('atr_auxiliar_unidad_negocio','query-smnauxiliartercero.sql')" >${lbl:b_outsourced_unit_business}</th>
+		<th class='sortable' onclick="sortBy('atr_maneja_sucursal_combo','query-smnauxiliartercero.sql')" >${lbl:b_has_subsidiary}</th>
+		<th class='sortable' onclick="sortBy('atr_razon_social','query-smnauxiliartercero.sql')" >${lbl:b_business_name}</th>
+		<th class='sortable' onclick="sortBy('atr_denom_comercial','query-smnauxiliartercero.sql')" >${lbl:b_designation_commercial}</th>
+		<th class='sortable' onclick="sortBy('atr_beneficiario','query-smnauxiliartercero.sql')" >${lbl:b_beneficiary}</th>
+		<th class='sortable' onclick="sortBy('atr_tipo_doc_oficial','query-smnauxiliartercero.sql')" >${lbl:b_official_document_type}</th>
+		<th class='sortable' onclick="sortBy('atr_num_doc_oficial','query-smnauxiliartercero.sql')" >${lbl:b_official_document_number}</th>
+		<th class='sortable' onclick="sortBy('atr_clasif_abc_combo','query-smnauxiliartercero.sql')" >${lbl:b_abc_clasification}</th>
+		<th class='sortable' onclick="sortBy('atr_rif','query-smnauxiliartercero.sql')" >${lbl:b_tax_id}</th>
+		<th class='sortable' onclick="sortBy('atr_direccion','query-smnauxiliartercero.sql')" >${lbl:b_business_address}</th>
+		<th class='sortable' onclick="sortBy('atr_cuenta_bancaria','query-smnauxiliartercero.sql')" >${lbl:b_auxiliary_bank_account}</th>
+		<th class='sortable' onclick="sortBy('atr_contactos','query-smnauxiliartercero.sql')" >${lbl:b_auxiliary_contact}</th>
+		<th class='sortable' onclick="sortBy('atr_persona_contacto','query-smnauxiliartercero.sql')" >${lbl:b_contact_person}</th>
+		<th class='sortable' onclick="sortBy('atr_representante_legal','query-smnauxiliartercero.sql')" >${lbl:b_legal_representative}</th>
+		<th class='sortable' onclick="sortBy('atr_benef_pago','query-smnauxiliartercero.sql')" >${lbl:b_beneficiary_payments}</th>
+		<th class='sortable' onclick="sortBy('atr_cond_pago','query-smnauxiliartercero.sql')" >${lbl:b_condition_payments}</th>
+		<th class='sortable' onclick="sortBy('atr_tipo_facturac_combo','query-smnauxiliartercero.sql')" >${lbl:b_billing_type}</th>
+		<th class='sortable' onclick="sortBy('atr_condicion_financiera','query-smnauxiliartercero.sql')" >${lbl:b_financial_condition}</th>
+		<th class='sortable' onclick="sortBy('atr_observacion','query-smnauxiliartercero.sql')" >${lbl:b_observation}</th>
+		<th class='sortable' onclick="sortBy('atr_fecha_registro','query-smnauxiliartercero.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:aca_tipo_persona_pl0}</td>
+		<td align="left">${fld:atr_codigo}</td>
+		<td align="left">${fld:atr_descripcion}</td>
+		<td align="left">${fld:atr_comunidad}</td>
+		<td align="left">${fld:atr_auxiliar_corporacion}</td>
+		<td align="left">${fld:atr_auxiliar_unidad_negocio}</td>
+		<td align="left">${fld:atr_maneja_sucursal_combo}</td>
+		<td align="left">${fld:atr_razon_social}</td>
+		<td align="left">${fld:atr_denom_comercial}</td>
+		<td align="left">${fld:atr_beneficiario}</td>
+		<td align="left">${fld:atr_tipo_doc_oficial}</td>
+		<td align="left">${fld:atr_num_doc_oficial}</td>
+		<td align="left">${fld:atr_clasif_abc_combo}</td>
+		<td align="left">${fld:atr_rif}</td>
+		<td align="left">${fld:atr_direccion}</td>
+		<td align="left">${fld:atr_cuenta_bancaria}</td>
+		<td align="left">${fld:atr_contactos}</td>
+		<td align="left">${fld:atr_persona_contacto}</td>
+		<td align="left">${fld:atr_representante_legal}</td>
+		<td align="left">${fld:atr_benef_pago}</td>
+		<td align="left">${fld:atr_cond_pago}</td>
+		<td align="left">${fld:atr_tipo_facturac_combo}</td>
+		<td align="left">${fld:atr_condicion_financiera}</td>
+		<td align="left">${fld:atr_observacion}</td>
+		<td align="left">${fld:atr_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

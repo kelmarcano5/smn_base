@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_auxiliar_unidades_negocios>
+	<detail>
+		<rows>		
+		<record tun_fecha_registro="${fld:tun_fecha_registro}"    tun_email="${fld:tun_email}"    tun_telefono_movil="${fld:tun_telefono_movil}"    tun_telefono_fijo="${fld:tun_telefono_fijo}"    dir_descripcion="${fld:dir_descripcion}"    tun_responsable="${fld:tun_responsable}"   smn_auxiliar_rf="${fld:smn_auxiliar_rf}"    smn_clase_auxiliar_rf="${fld:smn_clase_auxiliar_rf}"  tun_nombre="${fld:tun_nombre}"    tun_codigo="${fld:tun_codigo}"    />
+		</rows>
+	</detail>
+</smn_auxiliar_unidades_negocios>

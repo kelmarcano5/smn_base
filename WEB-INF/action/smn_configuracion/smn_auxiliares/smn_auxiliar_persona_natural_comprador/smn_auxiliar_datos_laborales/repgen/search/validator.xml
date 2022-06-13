@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='adl_nombre_compania' type='varchar' required='false' label='${lbl:b_company_name}' maxlen='100'/>
+	<parameter id='adl_rif' type='varchar' required='false' label='${lbl:b_rif}' maxlen='16'/>
+	<parameter id='adl_departamento' type='varchar' required='false' label='${lbl:b_departament}' maxlen='100'/>
+	<parameter id='adl_cargo' type='varchar' required='false' label='${lbl:b_job_title}' maxlen='100'/>
+	<parameter id='smn_paises_rf' type='integer' required='false' label='${lbl:b_country}' maxlen='10'/>
+	<parameter id='smn_entidades_federales_rf' type='integer' required='false' label='${lbl:b_federal_entity}' maxlen='10'/>
+	<parameter id='smn_ciudades_rf' type='integer' required='false' label='${lbl:b_cities}' maxlen='10'/>
+	<parameter id='adl_direccion' type='varchar' required='false' label='${lbl:b_addresses}' maxlen='100'/>
+	<parameter id='adl_telefono_oficina' type='varchar' required='false' label='${lbl:b_office_phone}' maxlen='64'/>
+	<parameter id='adl_email' type='varchar' required='false' label='${lbl:s_profile_email}' maxlen='100'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='adl_nombre_compania'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='adl_rif'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='adl_departamento'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='adl_cargo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='adl_direccion'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='adl_telefono_oficina'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='adl_email'
+		rule='contains' />
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='adl_nombre_compania'/>
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

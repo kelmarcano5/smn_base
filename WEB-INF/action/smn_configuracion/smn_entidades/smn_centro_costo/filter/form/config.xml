@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_cost_centers}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-cco_empresa.sql' source='sql' scope='transaction'/><recordset id='query-cco_sucursal.sql' source='sql' scope='transaction'/><recordset id='query-cco_area_servicio.sql' source='sql' scope='transaction'/><recordset id='query-cco_unidad_servicio.sql' source='sql' scope='transaction'/><recordset id='query-cco_almacen.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-cco_empresa.sql' tag='cco_empresa_rows'/><print mode='table' recordset='query-cco_sucursal.sql' tag='cco_sucursal_rows'/><print mode='table' recordset='query-cco_area_servicio.sql' tag='cco_area_servicio_rows'/><print mode='table' recordset='query-cco_unidad_servicio.sql' tag='cco_unidad_servicio_rows'/><print mode='table' recordset='query-cco_almacen.sql' tag='cco_almacen_rows'/>
+	</output>
+
+</config>

@@ -1,0 +1,70 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="15" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("inc_codigo","query-smnincrementos.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("inc_descripcion","query-smnincrementos.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("inc_apli_cant_precio","query-smnincrementos.sql")'>${lbl:b_apply_quantity_price}</th>
+		<th class='sortable' onclick='sortBy("inc_monto_ml","query-smnincrementos.sql")'>${lbl:b_amount_ml}</th>
+		<th class='sortable' onclick='sortBy("inc_monto_ma","query-smnincrementos.sql")'>${lbl:b_amount_ma}</th>
+		<th class='sortable' onclick='sortBy("inc_porcentaje_base","query-smnincrementos.sql")'>${lbl:b_percentage_base}</th>
+		<th class='sortable' onclick='sortBy("inc_porcentaje_incremento","query-smnincrementos.sql")'>${lbl:b_percentage_increment}</th>
+		<th class='sortable' onclick='sortBy("inc_apli_todos_it","query-smnincrementos.sql")'>${lbl:b_apply_item}</th>
+		<th class='sortable' onclick='sortBy("inc_apli_todos_se","query-smnincrementos.sql")'>${lbl:b_apply_services}</th>
+		<th class='sortable' onclick='sortBy("inc_apli_todos_af","query-smnincrementos.sql")'>${lbl:b_apply_fixed_asset}</th>
+		<th class='sortable' onclick='sortBy("inc_estatus","query-smnincrementos.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("inc_fecha_registro","query-smnincrementos.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_incrementos_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_incrementos_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_incrementos_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:inc_codigo}</td>
+		<td align='left'>${fld:inc_descripcion}</td>
+		<td align='left'>${fld:inc_apli_cant_precio}</td>
+		<td align='right'>${fld:inc_monto_ml@#,###,##0.00}</td>
+		<td align='right'>${fld:inc_monto_ma@#,###,##0.00}</td>
+		<td align='right'>${fld:inc_porcentaje_base@#,###,##0.00}</td>
+		<td align='right'>${fld:inc_porcentaje_incremento@#,###,##0.00}</td>
+		<td align='left'>${fld:inc_apli_todos_it}</td>
+		<td align='left'>${fld:inc_apli_todos_se}</td>
+		<td align='left'>${fld:inc_apli_todos_af}</td>
+		<td align='left'>${fld:inc_estatus}</td>
+		<td>${fld:inc_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

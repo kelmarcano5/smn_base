@@ -1,0 +1,10 @@
+select
+	(select smn_base.smn_auxiliar.aux_codigo|| ' - ' || smn_base.smn_auxiliar.aux_descripcion from  smn_base.smn_auxiliar  where smn_base.smn_auxiliar.smn_auxiliar_id is not null  and smn_base.smn_auxiliar.smn_auxiliar_id=smn_base.smn_contactos.smn_auxiliar_id  order by aux_descripcion ) as smn_auxiliar_id_combo,
+	(select smn_base.smn_clase_auxiliar.cla_codigo|| ' - ' || smn_base.smn_clase_auxiliar.cla_nombre from  smn_base.smn_clase_auxiliar  where smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id is not null  and smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id=smn_base.smn_contactos.smn_clase_auxiliar_rf  order by cla_nombre ) as smn_clase_auxiliar_rf_combo,
+	(select smn_base.smn_tipo_contactos.tco_descripcion from  smn_base.smn_tipo_contactos where smn_base.smn_tipo_contactos.smn_tipo_contactos_id is not null  and smn_base.smn_tipo_contactos.smn_tipo_contactos_id=smn_base.smn_contactos.smn_tipo_contactos_rf) as smn_tipo_contactos_rf_combo,
+	(select smn_base.smn_tipo_contactos.tco_descripcion from  smn_base.smn_tipo_contactos where smn_base.smn_tipo_contactos.smn_tipo_contactos_id is not null  and smn_base.smn_tipo_contactos.smn_tipo_contactos_id=smn_base.smn_contactos.smn_tipo_contactos_rf1) as smn_tipo_contactos_rf1_combo,
+	smn_base.smn_contactos.*
+from 
+	smn_base.smn_contactos
+where
+	smn_contactos_id = ${fld:id}

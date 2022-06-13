@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_terceros_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='tru_usuario_id' type='integer' required='true' maxlen='10'/>
+	<parameter id='tru_comunidad' type='integer' required='false' maxlen='10'/>
+	<parameter id='tru_nombres' type='varchar' required='true' maxlen='32'/>
+	<parameter id='tru_apellidos' type='varchar' required='true' maxlen='32'/>
+	<parameter id='tru_nacionalidad' type='integer' required='true' maxlen='10'/>
+	<parameter id='tru_nro_doc_identidad' type='varchar' required='true' maxlen='16'/>
+	<parameter id='tru_nro_id_fiscal' type='varchar' required='false' maxlen='16'/>
+	<parameter id='tru_direccion' type='integer' required='true' maxlen='10'/>
+	<parameter id='tru_email' type='varchar' required='true' maxlen='96'/>
+	<parameter id='tru_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='tru_telefono_movil' type='varchar' required='true' maxlen='24'/>
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-smn_terceros_id.sql"  id="smn_terceros_id" />
+</validator>

@@ -1,0 +1,24 @@
+select
+		smn_base.smn_contactos.smn_contactos_id,
+select
+		smn_base.smn_contactos.smn_contactos_id,
+select
+		smn_base.smn_contactos.smn_contactos_id,
+select
+		smn_base.smn_contactos.smn_contactos_id,
+select
+		smn_base.smn_contactos.smn_contactos_id,
+	smn_base.smn_contactos.cnt_nombres,
+	smn_base.smn_contactos.cnt_apellidos,
+	smn_base.smn_contactos.cnt_email,
+	smn_base.smn_contactos.smn_auxiliar_id,
+	smn_base.smn_contactos.smn_clase_auxiliar_rf,
+	smn_base.smn_contactos.smn_tipo_contactos_rf,
+	smn_base.smn_contactos.cnt_descripcion,
+	smn_base.smn_contactos.smn_tipo_contactos_rf1,
+	smn_base.smn_contactos.cnt_descripcion1,
+	smn_base.smn_contactos.cnt_telefono_contacto,
+	smn_base.smn_contactos.cnt_fecha_registro
+	
+from
+	smn_base.smn_contactos

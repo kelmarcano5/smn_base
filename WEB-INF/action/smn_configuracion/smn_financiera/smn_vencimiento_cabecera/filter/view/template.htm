@@ -1,0 +1,52 @@
+
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('tve_codigo','query-smnvencimientocabecera.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('tve_descripcion','query-smnvencimientocabecera.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('tve_estatus_combo','query-smnvencimientocabecera.sql')" >${lbl:b_status}</th>
+		<th class='sortable' onclick="sortBy('tve_vigencia','query-smnvencimientocabecera.sql')" >${lbl:b_validity}</th>
+		<th class='sortable' onclick="sortBy('tve_fecha_registro','query-smnvencimientocabecera.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_vencimiento_cabecera_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_vencimiento_cabecera_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_vencimiento_cabecera_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:tve_codigo}</td>
+		<td align="left">${fld:tve_descripcion}</td>
+		<td align="left">${fld:tve_estatus_combo}</td>
+		<td align="center">${fld:tve_vigencia@dd-MM-yyyy}</td>
+		<td align="center">${fld:tve_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

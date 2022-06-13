@@ -1,0 +1,38 @@
+INSERT INTO smn_base.smn_entidades_financieras
+(
+	smn_entidades_financieras_id,
+	efi_codigo,
+	efi_nombre,
+	efi_direccion,
+	efi_telefono_fijo,
+	efi_telefono_movil,
+	efi_codigo_aba,
+	efi_codigo_swift,
+	efi_req_banco_intermediario,
+	efi_banco_intermediario,
+	efi_routing,
+	efi_contacto,
+	efi_idioma,
+	efi_usuario,
+	efi_fecha_registro,
+	efi_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_entidades_financieras},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

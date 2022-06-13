@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='pat_panel' type='integer' required='false' label='${lbl:b_panel}' maxlen='350'/>
+	<parameter id='pat_description' type='varchar' required='false' label='${lbl:b_description}' maxlen='350'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='pat_description' rule='contains' />
+	<parameter id='pat_locale' type='varchar' required='false' label='${lbl:b_idiom}' maxlen='2'/>
+	<parameter id='pat_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date_grater_than}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date_grater_than} mayor o igual que] no puede ser mayor que [${lbl:b_store_date_less_than} menor o igual que].' date1='pat_fecha_registro_ini' date2='pat_fecha_registro_fin' id='pat_fecha_registro_ini' />
+	<parameter id='pat_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date_less_than}' maxlen='10'/>
+</validator>

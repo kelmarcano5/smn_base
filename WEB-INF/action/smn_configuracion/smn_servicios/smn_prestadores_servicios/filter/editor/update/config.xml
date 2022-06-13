@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Actualiza valores de un formulario en una tabla
+	</summary>
+
+	<log>false</log>
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>prs_codigo</colname>
+			<colname>prs_descripcion</colname>
+			<colname>prs_area_servicio</colname>
+			<colname>prs_unidad_servicio</colname>
+			<colname>prs_clase_auxiliar</colname>
+			<colname>prs_auxiliar</colname>
+			<colname>prs_orden_atencion</colname>
+			<colname>prs_estatus</colname>
+			<colname>prs_fecha_inicio_estatus</colname>
+			<colname>prs_fecha_final_estatus</colname>
+			<colname>prs_frecuencia</colname>
+			<colname>smn_tipo_prestadores_servicios_rf</colname>
+			<colname>prs_nivel_seguridad</colname>
+		</cols>
+		<table>smn_base.smn_prestadores_servicios</table>
+		<oper>ACTUALIZAR</oper>
+		<area>Carga de datos</area>
+		<!--
+			query para obtener el ID generado o nombre de 
+			la columna que contiene el pkey, si es query, 
+			el alias del campo debe ser "id"
+		-->
+		<pkey>id</pkey>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smn_especialidad.sql" source="request" scope="transaction" />
+		<recordset id="query-smn_agenda.sql" source="request" scope="transaction" />
+		<recordset id="query-smn_grupos_prestadores.sql" source="request" scope="transaction" />
+		<recordset id="query-smn_componentes.sql" source="request" scope="transaction" />
+	</transaction>
+
+	<query>update.sql</query>
+	<query>delete-query-smn_prestadores_servicios_especialidad.sql</query>
+	<query params="query-smn_especialidad.sql">insert-query-smn_prestadores_servicios_especialidad.sql</query>
+	<query>delete-query-smn_prestadores_servicios_agenda.sql</query>
+	<query params="query-smn_agenda.sql">insert-query-smn_prestadores_servicios_agenda.sql</query>
+	<query>delete-query-smn_rel_prestador_servicio.sql</query>
+	<query params="query-smn_grupos_prestadores.sql">insert-query-smn_rel_prestador_servicio.sql</query>
+	<query>delete-query-smn_rel_prestadores_servicios_componentes.sql</query>
+	<query params="query-smn_componentes.sql">insert-query-smn_rel_prestadores_servicios_componentes.sql</query>
+
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript; charset=iso-8859-1</content-type>
+		<expiration>0</expiration>
+	</output>
+
+</config>

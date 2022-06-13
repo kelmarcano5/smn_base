@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_grupos_prestadores_id_name' type='varchar' required='false' label='${lbl:b_group_of_provider}'/>
+	<parameter id='smn_grupos_prestadores_id' type='integer' required='false' label='${lbl:b_group_of_provider}' maxlen='10'/>
+</validator>

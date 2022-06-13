@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_prestadores_servicios>
+	<detail>
+		<rows>		
+		<record prs_fecha_registro="${fld:prs_fecha_registro}"    prs_frecuencia="${fld:prs_frecuencia}"    prs_telefono_movil="${fld:prs_telefono_movil}"    prs_telefono_fijo="${fld:prs_telefono_fijo}"    prs_direccion="${fld:prs_direccion}"    smn_grupos_prestadores="${fld:smn_grupos_prestadores}"    prs_auxiliar="${fld:prs_auxiliar}"    prs_clase_auxiliar="${fld:prs_clase_auxiliar}"    prs_unidad_servicio="${fld:prs_unidad_servicio}"    prs_area_servicio="${fld:prs_area_servicio}"    prs_apellidos="${fld:prs_apellidos}"    prs_nombres="${fld:prs_nombres}"    prs_codigo="${fld:prs_codigo}"    />
+		</rows>
+	</detail>
+</smn_prestadores_servicios>

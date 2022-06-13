@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_users}</summary>
+	<filter>
+		<row field='smn_entidades_id' id='smn_entidades_id' label='${lbl:b_entity}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || ' - ' || smn_base.smn_entidades.ent_descripcion_corta as item from smn_base.smn_entidades order by 2}' required='NO' fk='ent_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_usuarios' len='10'/>
+		<row field='usr_nombres' id='usr_nombres' label='${lbl:s_profile_fname}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_usuarios' len='32'/>
+		<row field='usr_apellidos' id='usr_apellidos' label='${lbl:s_profile_lname}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_usuarios' len='32'/>
+		<row field='usr_nro_doc_identidad' id='usr_nro_doc_identidad' label='${lbl:b_identification_doc_number}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_usuarios' len='16'/>
+		<row field='usr_fecha_registro' id='usr_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_usuarios' len='10'/>
+		<row field='usr_fecha_registro' id='usr_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_usuarios' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_entidades_id' label='${lbl:b_entity}@{select smn_base.smn_entidades.smn_entidades_id as id, smn_base.smn_entidades.ent_codigo || ' - ' || smn_base.smn_entidades.ent_descripcion_corta as item from smn_base.smn_entidades order by 2}' fk='ent_codigo' tableName='smn_usuarios' len='10' type='integer' align='left'/>
+		<row field='usr_nombres' label='${lbl:s_profile_fname}' fk='' tableName='smn_usuarios' len='32' type='varchar' align='left'/>
+		<row field='usr_apellidos' label='${lbl:s_profile_lname}' fk='' tableName='smn_usuarios' len='32' type='varchar' align='left'/>
+		<row field='usr_nro_doc_identidad' label='${lbl:b_identification_doc_number}' fk='' tableName='smn_usuarios' len='16' type='varchar' align='left'/>
+		<row field='usr_email' label='${lbl:s_profile_email}' fk='' tableName='smn_usuarios' len='96' type='varchar' align='left'/>
+		<row field='usr_telefono_movil' label='${lbl:b_mobile_phone}' fk='' tableName='smn_usuarios' len='24' type='varchar' align='left'/>
+		<row field='usr_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_usuarios' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

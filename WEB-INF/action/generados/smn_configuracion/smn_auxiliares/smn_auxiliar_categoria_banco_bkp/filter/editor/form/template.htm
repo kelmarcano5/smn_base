@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+	
+</head>
+
+<body>
+
+<!--banner-->
+<div class="banner">
+	${lbl:b_auxiliary}
+	<!-- <img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"> -->
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return false;" style="width:650px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">Añadir registro</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+				<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="aca_codigo" name="aca_codigo" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_description}*</td>
+			<td>
+				<input id="aca_descripcion" name="aca_descripcion" type="text" maxlength="64" >
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_auxiliary_class}*</td>
+		<td>
+			<select name="aca_clase_auxiliar" id="aca_clase_auxiliar" onchange="chgCombo(aca_clase_auxiliar.options[aca_clase_auxiliar.selectedIndex].text,'aca_clase_auxiliar_name');">
+				<option value="">[Seleccione]</option>
+				<aca_clase_auxiliar_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</aca_clase_auxiliar_rows>
+			</select> 
+			<input id="aca_clase_auxiliar_name" name="aca_clase_auxiliar_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_kind_of_person}*</td>
+			<td>
+				<select name="aca_tipo_persona" id="aca_tipo_persona">
+				<option value="PN">${lbl:b_natural_person}</option>
+				<option value="PJ">${lbl:b_legal_person}</option>
+				<option value="GO">${lbl:b_government_person}</option>
+
+				</select> 
+			</td>
+		</tr>
+
+
+	</table>
+
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+	<!--formulario addnew/edit-->
+	<form name="form2" onsubmit="return false;" style="width:650px;">
+	
+		<!-- titulo -->
+		<h1>Detalle ${lbl:b_bank_assistant}</h1>
+	
+		<table>
+	
+			<!--ancho de la columna de etiquetas-->
+			<col width="30%">
+	
+			<!--campos-->
+					<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="aab_codigo2" name="aab_codigo2" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_description}*</td>
+			<td>
+				<input id="aab_descripcion2" name="aab_descripcion2" type="text" maxlength="64" >
+			</td>
+		</tr>
+
+			
+			<tr>
+				<td colspan="2" align="center">
+				<div id="form2_error" class="errormsg" style="width: 100%; text-align:center;"></div>
+				</td>
+			</tr>
+	
+		</table>
+	
+		<input type="hidden" id="rowindex" name="rowindex" value="" />
+		
+		<input id="saveDetail2" type="button" onclick="detailInsert('detailsmn_auxiliar_banco','2')" value="Añadir" >
+		
+	</form>
+	
+	<div id="detail2" style="width: 100%; text-align:center;"></div>
+
+<div style="width: 100%; text-align:center;margin-top: 10px;">
+	<input id="grabar" type="button" value="Grabar" class="button" onclick="save()">
+	<input id="cancelar" type="button" value="Cancelar" onclick="addNew()" class="button">
+</div>
+	
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		clearForm("form2");
+		document.getElementById("saveDetail2").value = "Añadir";
+		document.getElementById("saveDetail2").disabled=false;
+		document.getElementById("detail2").innerHTML = "";
+
+		
+		clearForm("form1");
+		document.getElementById("formTitle").innerHTML = "Añadir registro";
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");
+
+		if (id!="")
+			edit(id);
+	} 
+	
+
+
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		ajaxCall(httpMethod="GET", 
+				uri="${def:actionroot}/addnew",
+				divResponse=null, 
+				divProgress="status", 
+				formName=null, 
+				afterResponseFn=null, 
+				onErrorFn=null);
+
+		clearForm("form2");
+		document.getElementById("saveDetail2").value = "Añadir";
+		document.getElementById("saveDetail2").disabled=false;
+		document.getElementById("detail2").innerHTML = "";
+
+		
+		clearForm("form1");
+		document.getElementById("formTitle").innerHTML = "Añadir registro";
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+		clearErrorMessages();
+		document.getElementById("grabar").disabled=true;
+		
+		//llamada Ajax...
+		return ajaxCall(httpMethod="POST", 
+						uri="${def:actionroot}/insert", 
+						divResponse=null, 
+						divProgress="status", 
+						formName="form1", 
+						afterResponseFn=null, 
+						onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+
+	var numDetail = 0;
+
+	//grabar registro nuevo del detalle en BD o actualizarlo en memoria
+	function detailInsert(action, div)
+	{
+		numDetail = div;
+		
+		clearErrorMessages();
+		document.getElementById("saveDetail" + div).disabled=true;
+
+		//registro nuevo o un update?
+		if (document.forms['form' + div].rowindex.value=="") {
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/" + action + "/insert", 
+							divResponse="detail" + div, 
+							divProgress="status", 
+							formName="form" + div, 
+							afterResponseFn=detailAddNew, 
+							onErrorFn=detailReady);
+		} else {
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/" + action + "/update", 
+							divResponse="detail" + div, 
+							divProgress="status", 
+							formName="form" + div, 
+							afterResponseFn=detailAddNew, 
+							onErrorFn=detailReady);
+		
+		}
+	}	
+
+	//en caso de error colocar focus y mostrar boton 
+	function detailReady(div) {
+		if (div==null)
+			div = numDetail;
+		document.getElementById("saveDetail" + div).disabled=false;
+		setFocusOnForm("form" + div);
+	}
+
+	//prepara el formulario de detalle para ingreso de datos
+	function detailAddNew(div) {
+		if (div==null)
+			div = numDetail;
+		document.getElementById("saveDetail" + div).disabled=false;
+		clearForm("form" + div);
+		setFocusOnForm("form" + div);
+		document.getElementById("saveDetail" + div).value = "Añadir";
+	}
+	
+	//editar registro en formulario
+	function detailEdit(id,action,div)
+	{
+		document.getElementById("saveDetail" + div).value = "Modificar";
+		clearErrorMessages();
+
+		//llamada Ajax...
+		ajaxCall(httpMethod="GET", 
+						uri="${def:actionroot}/" + action + "/edit?id=" + id , 
+						divResponse=null, 
+						divProgress="status", 
+						formName=null, 
+						afterResponseFn=null, 
+						onErrorFn=null);	
+	}		
+	
+	function detailDelete(id, action, div) {
+		alertBox("¿Desea borrar este registro de la base de datos?", "Eliminar", "Cancelar", 'deleteRecordOK(' + id + ',\"' + action + '\",' + div + ')')		
+	}
+
+	//eliminar un registro del detalle
+	function deleteRecordOK(id, action, div)
+	{
+		numDetail = div;
+		
+		//llamada Ajax...
+		ajaxCall(httpMethod="GET", 
+						uri="${def:actionroot}/" + action + "/delete?id=" + id,
+						divResponse="detail" + div, 
+						divProgress="status", 
+						formName="form" + div, 
+						afterResponseFn=detailAddNew, 
+						onErrorFn=detailReady);	
+						
+	}
+	
+	//mostrar el grid del detalle
+	function detailView(action,div) {
+		ajaxCall(httpMethod="GET", 
+						uri="${def:actionroot}/" + action + "/view",
+						divResponse="detail" + div, 
+						divProgress="status", 
+						formName=null, 
+						afterResponseFn=null, 
+						onErrorFn=null);	
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+</script>	
+</body>
+</html>

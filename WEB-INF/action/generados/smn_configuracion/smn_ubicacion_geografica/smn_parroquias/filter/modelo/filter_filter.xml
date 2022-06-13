@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_parishes}</summary>
+	<filter>
+		<row field='prr_municipios' id='prr_municipios' label='${lbl:b_municipality}@{select smn_base.smn_municipios.smn_municipios_id as id, smn_base.smn_municipios.mun_codigo || &apos; - &apos; || smn_base.smn_municipios.mun_nombre_corto as item from smn_base.smn_municipios order by smn_base.smn_municipios.mun_nombre_corto}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_parroquias' len='10'/>
+		<row field='prr_codigo' id='prr_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_parroquias' len='16'/>
+		<row field='prr_nombre_largo' id='prr_nombre_largo' label='${lbl:b_long_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_parroquias' len='48'/>
+		<row field='prr_fecha_registro' id='prr_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_parroquias' len='10'/>
+		<row field='prr_fecha_registro' id='prr_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_parroquias' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='prr_municipios' label='${lbl:b_municipality}@{select smn_base.smn_municipios.smn_municipios_id as id, smn_base.smn_municipios.mun_codigo || &apos; - &apos; || smn_base.smn_municipios.mun_nombre_corto as item from smn_base.smn_municipios order by smn_base.smn_municipios.mun_nombre_corto}' fk='' tableName='smn_parroquias' len='10' type='integer' align='left'/>
+		<row field='prr_codigo' label='${lbl:b_code}' fk='' tableName='smn_parroquias' len='16' type='varchar' align='left'/>
+		<row field='prr_nombre_corto' label='${lbl:b_short_name}' fk='' tableName='smn_parroquias' len='24' type='varchar' align='left'/>
+		<row field='prr_nombre_largo' label='${lbl:b_long_name}' fk='' tableName='smn_parroquias' len='48' type='varchar' align='left'/>
+		<row field='prr_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_parroquias' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

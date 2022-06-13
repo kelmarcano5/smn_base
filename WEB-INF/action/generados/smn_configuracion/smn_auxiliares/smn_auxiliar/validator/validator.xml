@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator>
+	<parameter id='smn_auxiliar_id' type='integer' required='true' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='smn_naturaleza_auxiliar_id' type='integer' required='true' label='${lbl:b_nature_auxiliary}@{select smn_base.smn_naturaleza_auxiliar.smn_naturaleza_auxiliar_id as id, smn_base.smn_naturaleza_auxiliar.naa_codigo|| " - " ||smn_base.smn_naturaleza_auxiliar.naa_nombre as item from smn_base.smn_naturaleza_auxiliar}' maxlen='10'/>
+	<parameter id='smn_clase_auxiliar_id' type='integer' required='true' label='${lbl:b_class_auxiliary}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo|| " - " ||smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar}' maxlen='10'/>
+	<parameter id='aux_tipo_persona' type='varchar' required='true' label='${lbl:b_person_type}@{PJ=${lbl:b_legal_person_value}|PN=${lbl:b_natural_person_value}|GO=${lbl:b_government_person}}' maxlen='2'/>
+	<parameter id='aux_apellidos' type='varchar' required='false' label='${lbl:b_last_name}' maxlen='64'/>
+	<parameter id='aux_nombres' type='varchar' required='false' label='${lbl:b_first_name}' maxlen='64'/>
+	<parameter id='aux_tipo_doc_oficial_rf' type='integer' required='false' label='${lbl:b_document_type_oficial}@{select smn_base.smn_tipo_doc_oficial.smn_tipo_doc_oficial_id, smn_base.smn_tipo_doc_oficial.tdo_codigo||" - "||smn_base.smn_tipo_doc_oficial.tdo_descripcion as item from smn_base.smn_tipo_doc_oficial}' maxlen='10'/>
+	<parameter id='aux_num_doc_oficial' type='varchar' required='false' label='${lbl:b_document_number_oficial}' maxlen='12'/>
+	<parameter id='aux_rif' type='varchar' required='false' label='${lbl:b_rif}' maxlen='16'/>
+	<parameter id='aux_sexo' type='varchar' required='false' label='${lbl:b_sex}@{MA=${lbl:b_male}|FE=${lbl:b_female}}' maxlen='2'/>
+	<parameter id='aux_estado_civil' type='varchar' required='false' label='${lbl:b_civil_status}@{SO=${lbl:b_single}|CA=${lbl:b_married}|VI=${lbl:b_widow}|DI=${lbl:b_divorced}}' maxlen='2'/>
+	<parameter id='aux_fecha_nac' type='date' required='false' label='${lbl:b_date_place}' maxlen='10'/>
+	<parameter id='aux_lugar_nac' type='varchar' required='false' label='${lbl:b_birth_place}' maxlen='64'/>
+	<parameter id='aux_direccion_rf' type='integer' required='false' label='${lbl:b_address}@{select smn_base.smn_direccion.smn_direccion_id as id, smn_base.smn_direccion.dir_codigo|| " - " ||smn_base.smn_direccion.dir_descripcion as item from smn_base.smn_direccion}' maxlen='10'/>
+	<parameter id='aux_nacionalidad_rf' type='integer' required='false' label='${lbl:b_citizenship}@{select smn_base.smn_paises.smn_paises_id as id, smn_base.smn_paises.pai_codigo || " - " || smn_base.smn_paises.pai_gentilicio as item from smn_base.smn_paises order by smn_base.smn_paises.pai_gentilicio}' maxlen='10'/>
+	<parameter id='aux_nacionalizado' type='varchar' required='false' label='${lbl:b_nationalized}@{SI=${lbl:b_yes}|NO=${lbl:b_not}}' maxlen='2'/>
+	<parameter id='aux_fecha_gaceta_nac' type='date' required='false' label='${lbl:b_nationalization_date_gazette}' maxlen='10'/>
+	<parameter id='aux_num_gaceta' type='integer' required='false' label='${lbl:b_nationalization_gazette}' maxlen='10'/>
+	<parameter id='aux_afiliacion' type='varchar' required='false' label='${lbl:b_affiliations}@{SI=${lbl:b_yes}|NO=${lbl:b_not}}' maxlen='2'/>
+	<parameter id='aux_condicion_financiera_rf' type='integer' required='false' label='${lbl:b_conditional_financial}@{select smn_base.smn_auxiliar_cond_financiera.smn_auxiliar_cond_financiera_id as id, smn_base.smn_auxiliar_cond_financiera.cfn_codigo|| " - " ||smn_base.smn_auxiliar_cond_financiera.cfn_descripcion as item from smn_base.smn_auxiliar_cond_financiera}' maxlen='10'/>
+	<parameter id='aux_cuenta_bancaria_rf' type='integer' required='false' label='${lbl:b_bank_account_number}@{select smn_base.smn_cuentas_bancarias.smn_cuentas_bancarias_id as id, smn_base.smn_cuentas_bancarias.cba_codigo|| " - " ||smn_base.smn_cuentas_bancarias.cba_nombre as item from smn_base.smn_cuentas_bancarias}' maxlen='10'/>
+	<parameter id='aux_persona_contacto' type='varchar' required='false' label='${lbl:b_contact_person}' maxlen='48'/>
+	<parameter id='aux_titular_rf' type='integer' required='false' label='${lbl:b_titular}@{select smn_base.smn_titulo.smn_titulo_id as  id, smn_base.smn_titulo.tlo_codigo||" - "||smn_base.smn_titulo.tlo_descripcion as item from smn_base.smn_titulo}' maxlen='10'/>
+	<parameter id='aux_observacion' type='varchar' required='false' label='${lbl:b_observations}' maxlen='96'/>
+	<parameter id='aux_peso' type='double' required='false' label='${lbl:b_weight}' maxlen='10'/>
+	<parameter id='aux_unidad_med_peso_rf' type='integer' required='false' label='${lbl:b_measurement_unit_weight}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo||" - "||smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida }' maxlen='10'/>
+	<parameter id='aux_estatura' type='double' required='false' label='${lbl:b_height}' maxlen='10'/>
+	<parameter id='aux_unidad_med_estatura_rf' type='integer' required='false' label='${lbl:b_measurement_unit_height}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo||" - "||smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida }' maxlen='10'/>
+	<parameter id='aux_lateralidad' type='varchar' required='false' label='${lbl:b_lateraly}@{D={lbl:b_right}|I={lbl:b_left}}' maxlen='1'/>
+	<parameter id='aux_talla_camisa' type='double' required='false' label='${lbl:b_shirt_size}' maxlen='10'/>
+	<parameter id='aux_unidad_med_camisa_rf' type='integer' required='false' label='${lbl:b_measurement_unit_shirt}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo||" - "||smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida }' maxlen='10'/>
+	<parameter id='aux_talla_pantalon' type='double' required='false' label='${lbl:b_pants_size}' maxlen='10'/>
+	<parameter id='aux_unidad_med_pantalon_rf' type='integer' required='false' label='${lbl:b_measurement_unit_pants}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo||" - "||smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida }' maxlen='10'/>
+	<parameter id='aux_talla_zapato' type='double' required='false' label='${lbl:b_shoes_size}' maxlen='10'/>
+	<parameter id='aux_unidad_med_zapato_rf' type='integer' required='false' label='${lbl:b_measurement_unit_shoes}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo||" - "||smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida }' maxlen='10'/>
+	<parameter id='aux_talla_braga' type='double' required='false' label='${lbl:b_panty_size}' maxlen='10'/>
+	<parameter id='aux_unidad_med_braga_rf' type='integer' required='false' label='${lbl:b_measurement_unit_panty}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo||" - "||smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida }' maxlen='10'/>
+	<parameter id='aux_talla_casco' type='double' required='false' label='${lbl:b_helmet_size}' maxlen='10'/>
+	<parameter id='aux_unidad_med_casco_rf' type='integer' required='false' label='${lbl:b_measurement_unit_helmet}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo||" - "||smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida }' maxlen='10'/>
+	<parameter id='aux_idioma' type='varchar' required='true' label='${lbl:s_profile_lang}@{${def:locale}}' maxlen='2'/>
+	<parameter id='aux_usuario' type='varchar' required='true' label='${lbl:b_users}@{${def:user}}' maxlen='10'/>
+	<parameter id='aux_fecha_registro' type='date' required='true' label='${lbl:b_store_date}@{${def:date}}' maxlen='10'/>
+	<parameter id='aux_hora' type='varchar' required='true' label='${lbl:s_loginhist_col2}@{${def:time}}' maxlen='8'/>
+</validator>
+
+

@@ -1,0 +1,3 @@
+<rows>
+tca_fecha_registro="${fld:tca_fecha_registro}"    tca_tasa_cambio="${fld:tca_tasa_cambio}"    tca_fecha_vigencia="${fld:tca_fecha_vigencia}"    tca_moneda_referencia="${fld:tca_moneda_referencia}"    smn_monedas_id="${fld:smn_monedas_id}"    
+</rows>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_tax_rates}</summary>
+	<filter>
+		<row field='smn_unidades_impositivas_id' id='smn_unidades_impositivas_id' label='${lbl:b_tax_unit}@{select smn_base.smn_unidades_impositivas.smn_unidades_impositivas_id as id, smn_base.smn_unidades_impositivas.uim_codigo || ' - ' || smn_base.smn_unidades_impositivas.uim_descripcion as item from smn_base.smn_unidades_impositivas order by 2}' required='NO' fk='uim_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_tasas_impositivas' len='10'/>
+		<row field='tim_fecha_vigencia' id='tim_fecha_vigencia_ini' label='${lbl:b_validation_date_from}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_tasas_impositivas' len='10'/>
+		<row field='tim_fecha_vigencia' id='tim_fecha_vigencia_fin' label='${lbl:b_validation_date_until}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_tasas_impositivas' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_unidades_impositivas_id' label='${lbl:b_tax_unit}@{select smn_base.smn_unidades_impositivas.smn_unidades_impositivas_id as id, smn_base.smn_unidades_impositivas.uim_codigo || ' - ' || smn_base.smn_unidades_impositivas.uim_descripcion as item from smn_base.smn_unidades_impositivas order by 2}' fk='uim_codigo' tableName='smn_tasas_impositivas' len='10' type='integer' align='left'/>
+		<row field='tim_fecha_vigencia' label='${lbl:b_validation_date}' fk='' tableName='smn_tasas_impositivas' len='10' type='date' align='center'/>
+		<row field='tim_valor' label='${lbl:b_value}' fk='' tableName='smn_tasas_impositivas' len='10' type='double' align='right'/>
+		<row field='tim_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_tasas_impositivas' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='bar_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='bar_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='smn_entidades_rf' type='integer' required='true' label='${lbl:b_entity}' maxlen='2'/>
+	<parameter id='smn_sucursales_rf' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+	<parameter id='bar_vigencia_desde' type='date' required='true' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<parameter id='bar_vigencia_hasta' type='date' required='true' label='${lbl:b_validation_date_to}' maxlen='10'/>
+	<parameter id='bar_tipo' type='varchar' required='true' label='${lbl:b_type}' maxlen='1'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+
+	<parameter id='bar_estatus' type='varchar' required='true' label='${lbl:b_type}' maxlen='1'/>
+	<parameter id='smn_moneda_rf' type='integer' required='false' label='${lbl:b_coin}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='bar_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='bar_descripcion'/>
+
+
+
+</validator>

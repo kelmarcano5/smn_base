@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntasasimpositivas.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_tax_rates}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smntasasimpositivas.sql' width='100' spacingBefore='40'>
+			<col name='uim_codigo_pl0' title='${lbl:b_tax_unit}' width='25' align='left' />
+			<col name='tim_fecha_vigencia' title='${lbl:b_validation_date}' width='25' align='center' format='dd-MM-yyyy' />
+			<col name='tim_valor' title='${lbl:b_value}' width='25' align='right' format='#,###,##0.00' />
+			<col name='tim_fecha_registro' title='${lbl:b_store_date}' width='25' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

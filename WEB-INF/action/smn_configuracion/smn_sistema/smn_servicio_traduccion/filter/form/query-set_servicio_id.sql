@@ -1,0 +1,1 @@
+select smn_seguridad.s_service.service_id as id, smn_seguridad.s_service.description as item from smn_seguridad.s_service order by 2

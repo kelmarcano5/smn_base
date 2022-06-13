@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='pat_panel' type='integer' required='true' label='${lbl:b_panel}' maxlen='350'/>
+	<parameter id='pat_description' type='varchar' required='true' label='${lbl:b_description}' maxlen='350'/>
+	<parameter id='pat_locale' type='varchar' required='true' label='${lbl:b_idiom}' maxlen='2'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_panel}' maxlen='10'/>
+</validator>
+

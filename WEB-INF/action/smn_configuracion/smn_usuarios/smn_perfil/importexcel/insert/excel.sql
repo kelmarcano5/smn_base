@@ -1,0 +1,30 @@
+INSERT INTO smn_seguridad.smn_perfil
+(
+	smn_perfil_id,
+	role_id,
+	service_id,
+	prf_tipo_acceso,
+	prf_add,
+	prf_del,
+	prf_edit,
+	prf_view,
+	prf_export,
+	prf_find,
+	prf_import,
+	prf_fecha_registro
+)
+VALUES
+(
+	${seq:nextval@smn_seguridad.seq_smn_perfil},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	{d '${def:date}'}
+)

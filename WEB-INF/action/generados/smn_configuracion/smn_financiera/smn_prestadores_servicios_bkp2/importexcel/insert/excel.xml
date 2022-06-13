@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_grupos_prestadores_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='prs_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='prs_nombres' type='varchar' required='true' maxlen='32'/>
+	<parameter id='prs_apellidos' type='varchar' required='true' maxlen='32'/>
+	<parameter id='prs_area_servicio' type='integer' required='true' maxlen='10'/>
+	<parameter id='prs_unidad_servicio' type='integer' required='true' maxlen='10'/>
+	<parameter id='prs_clase_auxiliar' type='integer' required='false' maxlen='10'/>
+	<parameter id='prs_auxiliar' type='integer' required='false' maxlen='10'/>
+	<parameter id='prs_direccion' type='integer' required='true' maxlen='10'/>
+	<parameter id='prs_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='prs_telefono_movil' type='varchar' required='true' maxlen='24'/>
+	<parameter id='prs_frecuencia' type='double' required='false' maxlen='10'/>
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-smn_grupos_prestadores_id.sql"  id="smn_grupos_prestadores_id" />
+</validator>

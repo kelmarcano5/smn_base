@@ -1,0 +1,3 @@
+<rows>
+crp_fecha_registro="${fld:crp_fecha_registro}"    crp_direccion="${fld:crp_direccion}"    crp_moneda="${fld:crp_moneda}"    crp_nombre="${fld:crp_nombre}"    crp_codigo="${fld:crp_codigo}"    
+</rows>

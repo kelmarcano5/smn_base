@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncentrocosto.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_cost_centers}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smncentrocosto.sql' width='100' spacingBefore='40'>
+			<col name='ent_codigo_pl0' title='${lbl:b_entity}' width='14' align='left' />
+			<col name='cco_codigo' title='${lbl:b_code}' width='14' align='left' />
+			<col name='cco_descripcion_corta' title='${lbl:b_short_description}' width='14' align='left' />
+			<col name='cco_responsable' title='${lbl:b_responsible}' width='14' align='left' />
+			<col name='cco_clase_auxiliar' title='${lbl:b_auxiliary_class}' width='14' align='left' format='######' />
+			<col name='cco_auxiliar' title='${lbl:b_auxiliary}' width='14' align='left' format='######' />
+			<col name='cco_fecha_registro' title='${lbl:b_store_date}' width='14' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

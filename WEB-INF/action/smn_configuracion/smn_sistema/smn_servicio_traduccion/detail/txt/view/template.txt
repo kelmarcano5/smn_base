@@ -1,0 +1,4 @@
+<rows>
+set_fecha_registro="${fld:set_fecha_registro}"    set_locale="${fld:set_locale}"    set_servicio="${fld:set_servicio}"    description="${fld:description}"    title="${fld:title}"    app_alias="${fld:app_alias}"    
+
+</rows>

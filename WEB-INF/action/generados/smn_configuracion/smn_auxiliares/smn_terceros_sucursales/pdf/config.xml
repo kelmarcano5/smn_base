@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntercerossucursales.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_subsidiaries}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smntercerossucursales.sql' width='100' spacingBefore='40'>
+			<col name='ter_descripcion_corta_pl0' title='${lbl:b_outsourced_company}' width='14' align='left' />
+			<col name='trs_codigo' title='${lbl:b_code}' width='14' align='left' />
+			<col name='trs_nombre' title='${lbl:b_name}' width='14' align='left' />
+			<col name='trs_responsable' title='${lbl:b_responsible}' width='14' align='left' />
+			<col name='trs_telefono_fijo' title='${lbl:b_fixed_phone}' width='14' align='left' />
+			<col name='trs_email' title='${lbl:s_profile_email}' width='14' align='left' />
+			<col name='trs_fecha_registro' title='${lbl:b_store_date}' width='14' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

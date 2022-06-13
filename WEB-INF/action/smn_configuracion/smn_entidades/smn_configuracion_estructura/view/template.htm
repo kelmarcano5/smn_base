@@ -1,0 +1,54 @@
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='12%'/>
+	<col width='28%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='3%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("coe_codigo","query-smnconfiguracionestructura.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("coe_nombre","query-smnconfiguracionestructura.sql")'>${lbl:b_name} </th>
+		<th class='sortable' onclick='sortBy("coe_niveles","query-smnconfiguracionestructura.sql")'>${lbl:b_levels}</th>
+		<th class='sortable' onclick='sortBy("coe_mascara","query-smnconfiguracionestructura.sql")'>${lbl:b_mask}</th>
+		<th class='sortable' onclick='sortBy("coe_separador","query-smnconfiguracionestructura.sql")'>${lbl:b_separator}</th>
+		<th class='sortable' onclick='sortBy("coe_fecha_registro","query-smnconfiguracionestructura.sql")'>${lbl:b_store_date}</th>
+		<th></th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_configuracion_estructura_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_configuracion_estructura_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_configuracion_estructura_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:coe_codigo}</td>
+		<td align='left'>${fld:coe_nombre}</td>
+		<td>${fld:coe_niveles}</td>
+		<td align='left'>${fld:coe_mascara}</td>
+		<td align='left'>${fld:coe_separador}</td>
+		<td>${fld:coe_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/view-list-details.png"  onclick="detalleCargos('${fld:smn_configuracion_estructura_id}', '${fld:coe_codigo}', '${fld:coe_nombre}')" title="${lbl:b_organizational_structure}"></td>
+	</tr>
+	</rows>
+
+</table>

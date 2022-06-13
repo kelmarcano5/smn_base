@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_auxiliary_classes}</summary>
+	<filter>
+		<row field='cla_codigo' id='cla_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_clase_auxiliar' len='16'/>
+		<row field='cla_nombre' id='cla_nombre' label='${lbl:b_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_clase_auxiliar' len='48'/>
+		<row field='cla_modulo' id='cla_modulo' label='${lbl:b_module}@{select smn_base.smn_modulos.smn_modulos_id as id, smn_base.smn_modulos.mod_codigo || &apos; - &apos; || smn_base.smn_modulos.mod_nombre as item from smn_base.smn_modulos order by smn_base.smn_modulos.mod_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_clase_auxiliar' len='3'/>
+		<row field='cla_naturaleza' id='cla_naturaleza' label='${lbl:b_nature}@{select smn_base.smn_naturaleza_auxiliar.smn_naturaleza_auxiliar_id as id, smn_base.smn_naturaleza_auxiliar.naa_codigo|| &apos; - &apos; || smn_base.smn_naturaleza_auxiliar.naa_nombre as item from smn_base.smn_naturaleza_auxiliar order by smn_base.smn_naturaleza_auxiliar.naa_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_clase_auxiliar' len='10'/>
+		<row field='cla_fecha_registro' id='cla_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_clase_auxiliar' len='10'/>
+		<row field='cla_fecha_registro' id='cla_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_clase_auxiliar' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='cla_codigo' label='${lbl:b_code}' fk='' tableName='smn_clase_auxiliar' len='16' type='varchar' align='left'/>
+		<row field='cla_nombre' label='${lbl:b_name}' fk='' tableName='smn_clase_auxiliar' len='48' type='varchar' align='left'/>
+		<row field='cla_modulo' label='${lbl:b_module}@{select smn_base.smn_modulos.smn_modulos_id as id, smn_base.smn_modulos.mod_codigo || &apos; - &apos; || smn_base.smn_modulos.mod_nombre as item from smn_base.smn_modulos order by smn_base.smn_modulos.mod_nombre}' fk='' tableName='smn_clase_auxiliar' len='3' type='integer' align='left'/>
+		<row field='cla_naturaleza' label='${lbl:b_nature}@{select smn_base.smn_naturaleza_auxiliar.smn_naturaleza_auxiliar_id as id, smn_base.smn_naturaleza_auxiliar.naa_codigo|| &apos; - &apos; || smn_base.smn_naturaleza_auxiliar.naa_nombre as item from smn_base.smn_naturaleza_auxiliar order by smn_base.smn_naturaleza_auxiliar.naa_nombre}' fk='' tableName='smn_clase_auxiliar' len='10' type='integer' align='left'/>
+		<row field='cla_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_clase_auxiliar' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

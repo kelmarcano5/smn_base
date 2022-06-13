@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntipodocanexo.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="4" cellStep="0" name="${lbl:b_tipo_documento_anexo}"/>
+	
+	<excel 
+		recordset='query-smntipodocanexo.sql' 
+		sheetname='${lbl:b_tipo_documento_anexo}' 
+		filename='${lbl:b_tipo_documento_anexo}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='tda_codigo' label='${lbl:b_code}' />
+		<col id='tda_descripción' label='${lbl:b_description}' />
+		<col id='tda_estatus_combo' label='${lbl:b_status}' />
+		<col id='tda_vigencia' label='${lbl:b_vigency}' />
+		<col id='tda_idioma' label='${lbl:s_profile_lang}' />
+		<col id='tda_usuario' label='${lbl:b_users}' />
+		<col id='tda_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='tda_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

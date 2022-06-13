@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Insertar registro 
+	</summary>
+
+	<log>false</log>
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>cfi_codigo</colname>
+			<colname>cfi_description</colname>
+			<colname>cfi_cant_dias</colname>
+			<colname>cfi_limite_credito</colname>
+			<colname>cfi_porc_exceso_limite</colname>
+			<colname>cfi_valida_saldos_vec</colname>
+			<colname>cfi_dias_adic_saldos_venc</colname>
+			<colname>cfi_num_cheques_devuel</colname>
+			<colname>cfi_estatus</colname>
+			<colname>cfi_vigencia</colname>
+		
+		</cols>
+		<table>smn_base.smn_condicion_financiera</table>
+		<oper>AÑADIR</oper>
+		<area>Carga de datos</area>
+		<!--
+			query para obtener el ID generado o nombre de 
+			la columna que contiene el pkey, si es query, 
+			el alias del campo debe ser "id"
+		-->
+		<pkey>select ${seq:currval@smn_base.seq_smn_condicion_financiera} as id</pkey>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="nextval.sql" source="sql" scope="transaction" />
+	</transaction>
+
+	<query>insert.sql</query>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript</content-type>
+		<expiration>0</expiration>
+		<print mode="form" recordset="_request" />
+		<print mode="form" recordset="nextval.sql" />
+	</output>
+	
+	<!-- Envio de email declarativo -->
+	<mail enabled="false">
+		<subject>Subject</subject>
+		<mail-to>martin.cordova@gmail.com</mail-to>
+		<body>body.txt</body>
+	</mail>
+
+</config>

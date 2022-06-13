@@ -1,0 +1,37 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="5">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("mnt_app_id","query-smnmenutraduccion.sql")'>${lbl:b_application}</th>
+		<th class='sortable' onclick='sortBy("mnt_menu_id","query-smnmenutraduccion.sql")'>${lbl:b_menu}</th>
+		<th class='sortable' onclick='sortBy("mnt_title","query-smnmenutraduccion.sql")'>${lbl:b_menu_title}</th>
+		<th class='sortable' onclick='sortBy("mnt_locale_combo","query-smnmenutraduccion.sql")'>${lbl:b_idiom}</th>
+		<th class='sortable' onclick='sortBy("mnt_fecha_registro","query-smnmenutraduccion.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:mnt_app_id}</td>
+		<td align='left'>${fld:mnt_menu_id}</td>
+		<td align='left'>${fld:mnt_title}</td>
+		<td align='left'>${fld:mnt_locale_combo}</td>
+		<td>${fld:mnt_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Return JS in order to fill a combobox depending of value that send to this action
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="sql" scope="session"/>
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>unidadtrib.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript</content-type>
+		<print mode="form" recordset="query.sql" tag="imp_unidad_impositiva_rows"/>
+	</output>
+
+</config>

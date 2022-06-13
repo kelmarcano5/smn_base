@@ -1,0 +1,1221 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/select2.min.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script"></script>
+	<script type="text/javascript" src="${def:context}/action/jquery"></script>
+	<script type="text/javascript" src="${def:context}/action/select2"></script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog" id="encabezado_tabla">
+	${lbl:b_components}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+		<tr>
+			<td>${lbl:b_type_component}*</td>
+			<td>
+				<select class="tipo" name="cmp_tipo_componente" id="cmp_tipo_componente" onchange="cambiartipocomponente();">
+					<option value="">[Cualquiera]</option>
+					<option value="IT">${lbl:b_item}</option>
+					<option value="SE">${lbl:b_services}</option>
+					<option value="HO">${lbl:b_honorary}</option>
+				</select> 
+			</td>
+		</tr>
+
+		<tr id="cboitem">
+			<td>${lbl:b_item}</td>
+			<td>
+				<select class="item" name="smn_item_rf" id="smn_item_rf" onchange="chgCombo(smn_item_rf.options[smn_item_rf.selectedIndex].text,'smn_item_rf_name');chgCombo2(smn_item_rf.options[smn_item_rf.selectedIndex].text,'smn_item_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_item_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_item_rf_rows>
+				</select> 
+				<input id="smn_item_rf_name" name="smn_item_rf_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="item()" title="${lbl:b_item}">
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="cboservicio">
+			<td>${lbl:b_services}</td>
+			<td>
+				<select class="servicio" name="smn_servicios_rf" id="smn_servicios_rf" onchange="chgCombo(smn_servicios_rf.options[smn_servicios_rf.selectedIndex].text,'smn_servicios_rf_name');chgCombo3(smn_servicios_rf.options[smn_servicios_rf.selectedIndex].text,'smn_servicios_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_servicios_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_servicios_rf_rows>
+				</select> 
+				<input id="smn_servicios_rf_name" name="smn_servicios_rf_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="item()" title="${lbl:b_item}">
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="cboalmacen">
+			<td>${lbl:b_store}</td>
+			<td>
+				<select class="alm" name="smn_almacen_rf" id="smn_almacen_rf" onchange="chgCombo(smn_almacen_rf.options[smn_almacen_rf.selectedIndex].text,'smn_almacen_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_almacen_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_almacen_rf_rows>
+				</select> 
+				<input id="smn_almacen_rf_name" name="smn_almacen_rf_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="almacen()" title="${lbl:b_store}">
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="cbounidad">
+			<td>${lbl:b_measurement_unit}</td>
+			<td>
+				<select class="unid" name="smn_unidad_medida_rf" id="smn_unidad_medida_rf" onchange="chgCombo(smn_unidad_medida_rf.options[smn_unidad_medida_rf.selectedIndex].text,'smn_unidad_medida_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_unidad_medida_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_unidad_medida_rf_rows>
+				</select> 
+				<input id="smn_unidad_medida_rf_name" name="smn_unidad_medida_rf_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="unidadmedida()" title="${lbl:b_measurement_unit}">
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="codigo">
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="cmp_codigo" name="cmp_codigo" type="text" maxlength="100" required pattern="[A-Za-z0-9]+" placeholder="Solo se permiten letras y numeros">
+			</td>
+		</tr>
+
+		<tr id="descripcion">
+			<td>${lbl:b_description}*</td>
+			<td>
+				<input id="cmp_descripcion" name="cmp_descripcion" type="text" maxlength="100" required pattern="[A-Za-z0-9]+" placeholder="Solo se permiten letras y numeros">
+			</td>
+		</tr>
+
+		<tr id="cbogrupo">
+			<td>${lbl:b_group_component}*</td>
+			<td>
+				<select class="grupc" name="smn_grupo_componente_rf" id="smn_grupo_componente_rf" onchange="chgCombo(smn_grupo_componente_rf.options[smn_grupo_componente_rf.selectedIndex].text,'smn_grupo_componente_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_grupo_componente_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_grupo_componente_rf_rows>
+				</select> 
+				<input id="smn_grupo_componente_rf_name" name="smn_grupo_componente_rf_name" type="hidden">
+			</td>
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="grupocomponente()" title="${lbl:b_group_component}" >
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="forma">
+			<td>${lbl:b_calculus_form}*</td>
+			<td>
+				<select class="forma" name="cmp_forma_calculo" id="cmp_forma_calculo" onchange="fcalculo()">
+					<option value="">[Cualquiera]</option>
+					<option value="RP">${lbl:b_price} INV +</option>
+					<option value="R">${lbl:b_price} INV</option>
+					<option value="PP">Presupuesto +</option>
+					<option value="PR">Presupuesto</option>
+					<option value="D">${lbl:b_diferent}</option>
+					<option value="M">${lbl:b_mont}</option>
+					<option value="PO">${lbl:b_percentage}</option>
+				</select> 
+			</td>
+		</tr>
+
+		<tr id="fdesde">
+			<td>${lbl:b_validation_date_from}*</td>
+			<td>
+				<input id="cmp_vigencia_desde" name="cmp_vigencia_desde" type="text" class="date" maxlength="10">
+				<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cmp_vigencia_desde')">
+			</td>
+		</tr>
+
+		<tr id="fhasta">
+			<td>${lbl:b_validation_date_to}*</td>
+			<td>
+				<input id="cmp_vigencia_hasta" name="cmp_vigencia_hasta" type="text" class="date" maxlength="10">
+				<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cmp_vigencia_hasta')">
+			</td>
+		</tr>
+
+		<tr id="visible">
+			<td>${lbl:b_visible}*</td>
+			<td>
+				<select class="visible" name="cmp_visible" id="cmp_visible">
+				<option value="">[Cualquiera]</option>
+				<option value="S">${lbl:b_yes}</option>
+				<option value="N">${lbl:b_not}</option>
+
+				</select> 
+			</td>
+		</tr>
+		<tr>
+			<td>Genera Grupo Prestador</td>
+			<td>
+				<select class="grupprest" name="cmp_genera_grupo_prestador" id="cmp_genera_grupo_prestador" onchange="seleccionar_req_prest();">
+				<option value="SI">${lbl:b_yes}</option>
+				<option value="NO">${lbl:b_not}</option>
+
+				</select> 
+			</td>
+		</tr>
+		<tr id="req_gru">
+			<td>${lbl:b_require_providers_group}*</td>
+			<td>
+				<select class="req_grup" name="cmp_req_grupo_prestador" id="cmp_req_grupo_prestador" onchange="requieregrupprest();">
+					<option value="">[Cualquiera]</option>
+					<option value="S">${lbl:b_yes}</option>
+					<option value="N">${lbl:b_not}</option>
+
+				</select> 
+			</td>
+		</tr>
+
+		<tr id="cbogrupoprest">
+			<td>Grupo de Prestador*</td>
+			<td>
+				<select class="grupp" name="smn_grupo_prestador_id" id="smn_grupo_prestador_id" onchange="chgCombo(smn_grupo_prestador_id.options[smn_grupo_prestador_id.selectedIndex].text,'smn_grupo_prestador_id_name'); habilitargrabar();">
+					<option value="">[Cualquiera]</option>
+					<smn_grupo_prestador_id_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_grupo_prestador_id_rows>
+				</select> 
+				<input id="smn_grupo_prestador_id_name" name="smn_grupo_prestador_id_name" type="hidden">
+			</td>
+			<!-- <td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="grupocomponente()" title="${lbl:b_group_component}" >
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td> -->
+		</tr>
+
+		<tr id="cboclase">
+			<td>${lbl:b_auxiliary_class}</td>
+			<td>
+				<select class="clase" name="cmp_clase_auxiliar_rf" id="cmp_clase_auxiliar_rf" onchange="chgCombo(cmp_clase_auxiliar_rf.options[cmp_clase_auxiliar_rf.selectedIndex].text,'cmp_clase_auxiliar_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<cmp_clase_auxiliar_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</cmp_clase_auxiliar_rf_rows>
+				</select> 
+				<input id="cmp_clase_auxiliar_rf_name" name="cmp_clase_auxiliar_rf_name" type="hidden">
+			</td>
+			<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="claseauxiliar()" title="${lbl:b_auxiliary_class}" >
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="tiempo_est">
+			<td>${lbl:b_estimated_time}</td>
+			<td>
+				<input id="cmp_tiempo_estimado" name="cmp_tiempo_estimado" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+
+		<tr id="imprime">
+			<td>${lbl:b_print}</td>
+			<td>
+				<select class="imprime" name="smn_imprime" id="smn_imprime">
+				<option value="S">${lbl:b_yes}</option>
+				<option value="N">${lbl:b_not}</option>
+
+				</select> 
+			</td>
+		</tr>
+	
+		<tr id="tipog">
+		<td>${lbl:b_type_spent}</td>
+			<td>
+				<select class="tipo" name="smn_tipo_gasto_rf" id="smn_tipo_gasto_rf" onchange="chgCombo1(smn_tipo_gasto_rf.options[smn_tipo_gasto_rf.selectedIndex].text,'smn_tipo_gasto_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_tipo_gasto_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_tipo_gasto_rf_rows>
+				</select> 
+				<input id="smn_tipo_gasto_rf_name" name="smn_tipo_gasto_rf_name" type="hidden">
+			</td>
+			<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="tipo()" title="${lbl:b_type_spent}" >
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="subtipog">
+		<td>${lbl:b_sub_type_spent}</td>
+			<td>
+				<select class="subtipo" name="smn_sub_tipo_gasto_rf" id="smn_sub_tipo_gasto_rf" onchange="chgCombo(smn_sub_tipo_gasto_rf.options[smn_sub_tipo_gasto_rf.selectedIndex].text,'smn_sub_tipo_gasto_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_sub_tipo_gasto_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_sub_tipo_gasto_rf_rows>
+				</select> 
+				<input id="smn_sub_tipo_gasto_rf_name" name="smn_sub_tipo_gasto_rf_name" type="hidden">
+			</td>
+			<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="subtipo()" title="${lbl:b_sub_type_spent}" >
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="grupti">
+		<td>${lbl:b_group_title_print}</td>
+			<td>
+				<select class="grupti" name="smn_grupo_titulo_impresion_rf" id="smn_grupo_titulo_impresion_rf" onchange="chgCombo(smn_grupo_titulo_impresion_rf.options[smn_grupo_titulo_impresion_rf.selectedIndex].text,'smn_grupo_titulo_impresion_rf_name');">
+					<option value="">[Cualquiera]</option>
+					<smn_grupo_titulo_impresion_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_grupo_titulo_impresion_rf_rows>
+				</select> 
+				<input id="smn_grupo_titulo_impresion_rf_name" name="smn_grupo_titulo_impresion_rf_name" type="hidden">
+			</td>
+			<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="grupoimpresion()" title="${lbl:b_group_title_print}" >
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr id="moneda">
+			<td>${lbl:b_coin}</td>
+			<td>
+				<select class="moneda" name="smn_moneda_rf" id="smn_moneda_rf" onchange="chgCombo(smn_moneda_rf.options[smn_moneda_rf.selectedIndex].text,'smn_moneda_rf_name');monedaalterna();">
+					<option value="">[Cualquiera]</option>
+					<smn_moneda_rf_rows>
+					<option value="${fld:id}">${fld:item}</option>
+
+					</smn_moneda_rf_rows>
+				</select> 
+				<input id="smn_moneda_rf_name" name="smn_moneda_rf_name" type="hidden">
+			</td>
+			<!-- Incorporado manualmente para mostrar icono de inclusion de elementos al combo -->
+			<td>
+				<img src="${def:context}/images/list-add2.png" align="left" class="button" onclick="moneda()" title="${lbl:b_coin}" >
+			</td>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+
+		<tr style="display: none" id="porcen">
+			<td>${lbl:b_percentage}</td>
+			<td>
+				<input id="cmp_porcentaje" name="cmp_porcentaje" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+
+		<tr id="cantidad">
+			<td>${lbl:b_quantity}*</td>
+			<td>
+				<input id="cmp_cantidad" name="cmp_cantidad" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+
+		<tr id="pre_loc">
+			<td>${lbl:b_coin_local_price}*</td>
+			<td>
+				<input id="cmp_precio_moneda_local" name="cmp_precio_moneda_local" type="text" maxlength="10" class="numeric" onchange="calcular_monto();">
+			</td>
+		</tr>
+
+		<tr id="mont_loc">
+			<td>${lbl:b_coin_local_amount}*</td>
+			<td>
+				<input id="cmp_monto_moneda_local" name="cmp_monto_moneda_local" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+	
+		<tr id="pre_alt">
+			<td>${lbl:b_coin_altern_price}</td>
+			<td>
+				<input id="cmp_precio_moneda_alterna" name="cmp_precio_moneda_alterna" type="text" maxlength="10" class="numeric" onchange="calcular_monto_alt();">
+			</td>
+		</tr>
+
+		<tr id="mont_alt">
+			<td>${lbl:b_coin_altern_amount}</td>
+			<td>
+				<input id="cmp_monto_moneda_alterna" name="cmp_monto_moneda_alterna" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+
+		<!--control picklist de seleccion múltiple-->
+		<tr id="servicio">
+			<td>${lbl:b_services}*</td>
+			<td>
+				<select id="smn_servicios_id_name" name="smn_servicios_id_name" size="5" style="width: 95%;">
+				</select>
+				<br>
+				<div style="float: right; margin-right: 12px; padding-top: 7px">
+				[<a href="javascript:pickSmnServiciosId()" title="${lbl:b_add_item_list}">${lbl:b_add_button}</a>]
+				[<a href="javascript:removeSmnServiciosId()" title="${lbl:b_delete_item_list}">${lbl:b_delete_button}</a>]
+				</div>
+				<input type="hidden" name="smn_servicios_id" id="smn_servicios_id" />
+				<input type="hidden" name="smn_servicios_id_text" id="smn_servicios_id_text" />
+			</td>
+		</tr>
+
+		<tr >
+			<td>Acumula Servicio</td>
+			<td>
+				<select class="acumserv" name="cmp_acumula_servicio" id="cmp_acumula_servicio">
+				   <option value="SE">Servicio</option>
+				   <option value="TS">Tipo de Servicio</option>
+                   <option value="CO">Componentes</option>
+				</select> 
+			</td>
+		</tr>
+
+
+
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+var mon1 = document.getElementById('smn_moneda_rf').value;
+	onload = function()
+	{ 
+		addNew();
+		
+		$(document).ready(function() {
+    		$('.item').select2();
+    		$('.servicio').select2();
+    		$('.alm').select2();
+    		$('.unid').select2();
+    		$('.grupc').select2();
+    		$('.grupp').select2();
+    		$('.clase').select2();
+    		$('.tipo').select2();
+    		$('.subtipo').select2();
+    		$('.grupti').select2();
+    		$('.moneda').select2();
+		
+			$('.grupprest').select2();
+    		$('.imprime').select2();
+    		$('.visible').select2();
+    		$('.req_grup').select2();
+    		$('.forma').select2();
+			// $('.formait').select2();
+			// $('.formase').select2();
+    		$('.tipo').select2();
+    		$('.acumserv').select2();
+
+    	
+
+    		$('#cboitem').hide();
+			$('#cboservicio').hide();
+			$('#cboalmacen').hide();
+			$('#cbounidad').hide();
+			$('#cbogrupo').hide();
+			$('#codigo').hide();
+			$('#descripcion').hide();
+			$('#forma').hide();
+			// $('#formait').hide();
+			// $('#formase').hide();
+			$('#fdesde').hide();
+			$('#fhasta').hide();
+			$('#visible').hide();
+			$('#req_gru').hide();
+			$('#cbogrupoprest').hide();
+			$('#cboclase').hide();
+			$('#tiempo_est').hide();
+			$('#imprime').hide();
+			$('#tipog').hide();
+			$('#subtipog').hide();
+			$('#grupti').hide();
+			$('#moneda').hide();
+			$('#porcen').hide();
+			$('#cantidad').hide();
+			$('#pre_loc').hide();
+			$('#mont_loc').hide();
+			$('#pre_alt').hide();
+			$('#mont_alt').hide();
+			$('#servicio').hide();
+
+		});
+	
+
+		// if (mon1 == "" || mon1 == 0) {
+		// 	$('#pre_loc').show();
+		// 	$('#mont_loc').show();
+		// 	//document.getElementById("pre_loc").style.display = "";
+		// 	//document.getElementById("mont_loc").style.display = "";
+
+		// }
+
+		if (id!="")
+			edit(id);
+	} 
+
+	function requieregrupprest() {
+		var req = document.getElementById("cmp_req_grupo_prestador").value;
+		var tip = document.getElementById("cmp_tipo_componente").value;
+
+
+		if(req == 'N'){
+			document.getElementById("smn_grupo_prestador_id").value= "";
+			///document.getElementById("cbogrupoprest").style.display= "";
+			document.getElementById("grabar").disabled=false;
+		}
+
+		if(req == 'S'){
+			$('#cbogrupoprest').show();
+			//document.getElementById("cbogrupoprest").style.display= "";
+			document.getElementById("grabar").disabled=false;
+		}else{
+			$('#cbogrupoprest').hide();
+			//document.getElementById("cbogrupoprest").style.display= "none";
+			document.getElementById("grabar").disabled=false;
+
+		}
+
+		if(req == 'S' || tip == 'SE'){
+			$('#cboclase').show();
+			$('#servicio').show();
+			//document.getElementById("cboclase").style.display= "";
+			//document.getElementById("FECH1").style.display="";
+			//document.getElementById("FECH2").style.display="";
+			//document.getElementById("servicio").style.display="";
+		}else{
+			$('#cboclase').show();
+			$('#servicio').show();
+			//document.getElementById("cboclase").style.display = "none";
+			//document.getElementById("FECH1").style.display = "none";
+			//document.getElementById("FECH2").style.display = "none";
+			//document.getElementById("servicio").style.display = "none";
+		}
+
+		if(req == 'S' || tip == 'IT'){
+			$('#cboclase').show();
+			$('#servicio').hide();
+
+			//document.getElementById("cboclase").style.display = "";
+			//	document.getElementById("FECH1").style.display = "none";
+			//document.getElementById("FECH2").style.display = "none";
+			//document.getElementById("servicio").style.display = "none";
+		}else{
+			$('#servicio').hide();
+			document.getElementById("cboclase").style.display = "none";
+		}
+
+		if(req == 'S' || tip == 'HO'){
+			$('#cboclase').show();
+			$('#servicio').hide();
+			//document.getElementById("cboclase").style.display = "";
+			//	document.getElementById("FECH1").style.display = "none";
+			//document.getElementById("FECH2").style.display = "none";
+			//document.getElementById("servicio").style.display = "none";
+		}else{
+			$('#cboclase').hide();
+			//document.getElementById("cboclase").style.display = "none";
+		}
+
+
+		
+	}
+
+	function monedaalterna() {
+		var mon = document.getElementById('smn_moneda_rf').value;
+		var calculo = $('#cmp_forma_calculo').val();
+
+		if (mon != '') {
+			$('#pre_alt').show();
+			$('#mont_alt').show();
+			$('#pre_loc').hide();
+			$('#mont_loc').hide();
+		}
+
+		if (mon != '' && calculo=='M') {
+			$('#pre_alt').show();
+			$('#mont_alt').show();
+			$('#pre_loc').hide();
+			$('#mont_loc').hide();
+		}
+
+		if (mon == '') {
+			$('#pre_alt').hide();
+			$('#mont_alt').hide();
+			$('#pre_loc').show();
+			$('#mont_loc').show();
+		}
+
+		// else{
+		// 	$('#pre_alt').show();
+		// 	$('#mont_alt').show();
+		// 	$('#pre_loc').hide();
+		// 	$('#mont_loc').hide();
+		// }
+	}
+
+	function calcular_monto() {
+		var cant = document.getElementById('cmp_cantidad').value;
+		var mont = document.getElementById('cmp_precio_moneda_local').value;
+		var total = 0;
+
+		total = parseFloat(cant) * parseFloat(mont);
+
+		document.getElementById('cmp_monto_moneda_local').value=total;
+		document.getElementById('cmp_monto_moneda_local').disabled=true;
+	}
+
+	function calcular_monto_alt() {
+		var cant = document.getElementById('cmp_cantidad').value;
+		var mont = document.getElementById('cmp_precio_moneda_alterna').value;
+		var total = 0;
+
+		total = parseFloat(cant) * parseFloat(mont);
+
+		document.getElementById('cmp_monto_moneda_alterna').value=total;
+		document.getElementById('cmp_monto_moneda_alterna').disabled=true;
+	}
+
+		//desplegar picklist de seleccion multiple
+	function pickSmnServiciosId(){
+		var url = "${def:context}/action/picklist/smnservicios/form";
+		pickOpen ('smn_servicios_id_name','smn_servicios_id',url, 600, 550);	
+	}	
+
+	//llamada por el picklist para añadir un item al listbox
+	function selectSmnServiciosId(id, title) {
+		listboxAddItem("smn_servicios_id_name", id, title);
+	}
+	
+	//remover un item del listbox
+	function removeSmnServiciosId() {
+		if (document.getElementById("smn_servicios_id_name").selectedIndex == -1) {
+			alertBox("${lbl:b_delete_item_list_message}.","${lbl:b_continue_button}");
+			return;
+		}
+		listboxRemoveItem("smn_servicios_id_name");
+	}
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+		listboxClear('smn_servicios_id_name');
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+
+		document.getElementById("smn_servicios_id").value = listboxGetItemValues("smn_servicios_id_name");
+
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+			$('#servicio').show();
+			//document.getElementById('servicio').style.display="";
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		
+		document.getElementById("smn_servicios_id").value = listboxGetItemValues("smn_servicios_id_name");
+
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+	
+		//Author     : SIMONE
+	//Description: Set selected index into combo box
+	//Return     : None
+	function setSelectedIndex(code, combo, description) 
+	{
+		//alert(code, combo, descripcion);
+		//alert('text = ' + combo.options[i].text + ' value = ' + combo.options[i].value)
+	    for (var i = 0; i < combo.options.length; i++) 
+	    {
+			var valueText = code;
+			if (description != null)
+			{
+				valueText = valueText + ' - ' + description;
+			}
+    	    if (combo.options[i].text == valueText) 
+			{
+        	//alert('text = ' + combo.options[i].text + ' value = ' + combo.options[i].value)
+        	combo.options[i].selected = true;
+			return;
+        	}
+    	}  
+	}
+
+	//Author     : SIMONE
+	//Description: Set first element as selected value
+	//Return     : None
+	function setElementFirstIndex(id)
+		{
+			var combo = document.getElementById(id); combo.selectedIndex = 0;
+		}
+
+	//Author     : SIMONE
+	 //Description: Insert new value into combo box
+	 //Return     : None
+	 function insertComboBox(code, combo, description, field) 
+		{
+		 	var valueText = code;
+			if (description != null)
+			{
+				valueText = valueText + ' - ' + description;
+			}
+			var option = document.createElement("option");
+			option.text = valueText; 
+			option.value = bdID;
+			//alert(field)		
+			if (field == 'smn_clase_auxiliar_rf')
+			{
+				document.form1.smn_clase_auxiliar_rf.add(option, combo.options.length); 
+			}			
+			if (field == 'smn_auxiliar_rf')
+			{
+				document.form1.smn_auxiliar_rf.add(option, combo.options.length); 
+			}				
+		}
+	 
+	//Author     : SIMONE
+	//Description: Add new value to combo box
+	//Return     : None
+	function addValueToCombo(code, description, field) 
+		{	
+			var combo = document.getElementById(field);	    
+			insertComboBox(code, combo, description, field); 
+		}
+	
+		
+	//Author     : SIMONE
+	//Description: Set selected index into combo box
+	//Return     : None
+	function setSelectedIndexValue(value, combo) 
+			{
+				for (var i = 0; i < combo.options.length; i++) 
+				{					
+					if (combo.options[i].text == value) 
+					{
+						combo.options[i].selected = true;
+						return;
+					}
+				} 
+			}
+	
+	//Author     : SIMONE
+	//Description: Get text valueof selected index
+	//Return     : Text associated to index
+	function getSelectedIndex(combo) 
+			{
+				for (var i = 0; i < combo.options.length; i++) 
+				{
+					if (combo.options[i].selected == true) 
+					{
+						return combo.options[i].text; 
+					}
+				} 	
+			}
+	
+	function getIDSelectedIndex(combo) 
+			{
+				for (var i = 0; i < combo.options.length; i++)  
+				{
+					if (combo.options[i].selected == true) 
+					{
+						return combo.options[i].value; 
+					} 
+				}
+			}
+	
+	var bdID;
+	function setID(id)
+	{
+		bdID = id; 
+	}
+
+	//Author     : SIMONE
+	//Description: Set value to combo box
+	//Parameters: 	code 		– (it is code associated into each database table) 
+	//             	description 	- it is description associated into each database table 
+	//             	field 		- name combo field
+	//             	id 		- identifier retrieved after transaction
+	//             	linked 		- flag indicates 'true' when combos are linked.
+	//Return     : None
+	function setValueComboBox(code, description, field, linked)
+	{
+		//add value text to combo
+		addValueToCombo(code,description,field);
+		//get select object 
+		var combo = document.getElementById(field);
+		//set element selected to field referenced
+		setSelectedIndex(code,combo, description);
+		//set text value to combo field
+		var valueText = getSelectedIndex(combo);		
+		//get hidden field in order to set any value
+		var combo = document.getElementById(field+'_name');
+
+		combo.text  = valueText;
+		combo.value = bdID; 
+	}
+
+	function subtipo(){
+		//alert ('Colocar su código aquí­.')
+		var uri = "${def:context}/action/smn_configuracion/smn_servicios/smn_tipo_gasto/smn_sub_tipo_gasto/editor/form";	
+		openDialog("editor12", uri, 650, 580);
+	}
+
+	function grupocomponente(){
+		//alert ('Colocar su código aquí­.')
+		var uri = "${def:context}/action/smn_configuracion/smn_servicios/smn_grupo_componente/editor/form";	
+		openDialog("editor13", uri, 650, 580);
+	}
+
+	function grupoimpresion(){
+		//alert ('Colocar su código aquí­.')
+		var uri = "${def:context}/action/smn_configuracion/smn_servicios/smn_grupo_titulo_impresion/editor/form";	
+		openDialog("editor14", uri, 650, 580);
+	}
+
+	function almacen(){
+		//alert ('Colocar su código aquí­.')
+		var uri = "${def:context}/action/smn_configuracion/smn_entidades/smn_almacen/editor/form";
+		openDialog("editor15", uri, 650, 580);
+	}
+
+	function claseauxiliar(){
+		//alert ('Colocar su código aquí­.')
+		var uri = "${def:context}/action/smn_configuracion/smn_auxiliares/smn_clase_auxiliar/editor/form";	
+		openDialog("editor16", uri, 650, 580);
+	}
+	function moneda(){
+		//alert ('Colocar su código aquí­.')
+		var uri = "${def:context}/action/smn_configuracion/smn_financiera/smn_monedas/editor/form";	
+		openDialog("editor17", uri, 650, 580);
+	}
+	function item(){
+		//alert ('Colocar su código aquí­.')
+		var uri = "${def:context}/action/smn_configuracion/smn_codificaciones/smn_item/editor/form";	
+		openDialog("editor18", uri, 650, 580);
+	}
+
+	function unidadmedida(){
+			var uri = "${def:context}/action/smn_configuracion/smn_financiera/smn_unidad_medida/editor/form";
+			openDialog("editor19", uri, 650, 580);
+	}
+
+
+	var geo_id1 = null;
+	function chgCombo1(text,id)
+	{		
+		document.form1.smn_sub_tipo_gasto_rf.disabled=false;
+		
+		var combo = document.getElementById('smn_tipo_gasto_rf');
+		var valueCombo = getIDSelectedIndex(combo);
+		geo_id1 = valueCombo.split("-").pop().trim();
+		
+		//findLocation(geo_id0, '');
+		
+		if (id!=null && id!="") 
+		{
+			return ajaxCall(	
+							httpMethod="GET", 
+							uri="${def:actionroot}/getsubtipo?id=" + geo_id1, 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=setElementFirstIndex('smn_sub_tipo_gasto_rf'), //function 'setElementFirstIndex' select first element of combo list
+							onErrorFn=null);				
+		}
+	}
+
+	var geo_id0 = null;
+	function chgCombo2(text,id)
+	{		
+		//document.form1.smn_sub_tipo_gasto_rf.disabled=false;
+		
+		var combo = document.getElementById('smn_item_rf');
+		var valueCombo = getIDSelectedIndex(combo);
+		geo_id0 = valueCombo.split("-").pop().trim();
+		
+		//findLocation(geo_id0, '');
+		//alert(geo_id0);
+		
+		if (id!=null && id!="") 
+		{
+			return ajaxCall(	
+							httpMethod="GET", 
+							uri="${def:actionroot}/getitem?id=" + geo_id0, 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, //function 'setElementFirstIndex' select first element of combo list
+							onErrorFn=null);				
+		}
+		
+	}
+
+		var geo_id3 = null;
+	function chgCombo3(text,id)
+	{		
+		//document.form1.smn_sub_tipo_gasto_rf.disabled=false;
+		
+		var combo = document.getElementById('smn_servicios_rf');
+		var valueCombo = getIDSelectedIndex(combo);
+		geo_id3 = valueCombo.split("-").pop().trim();
+		
+		//findLocation(geo_id0, '');
+		
+		if (id!=null && id!="") 
+		{
+			return ajaxCall(	
+							httpMethod="GET", 
+							uri="${def:actionroot}/getservicio?id=" + geo_id3, 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, //function 'setElementFirstIndex' select first element of combo list
+							onErrorFn=null);				
+		}
+		
+	}
+
+	
+	function habilitargrabar() {
+		var grp = document.getElementById("smn_grupo_prestador_id").value;
+		var req = document.getElementById("cmp_req_grupo_prestador").value;
+
+		if (req == "N" || grp == "") {
+			document.getElementById("grabar").disabled=false;
+		}else {
+			document.getElementById("grabar").disabled=false;
+		}
+		// body...
+	}
+
+	function fcalculo() {
+		var calculo = $('#cmp_forma_calculo').val();
+
+		if (calculo == 'D') {
+			$('#moneda').hide();
+			$('#porcen').hide();
+			$('#pre_loc').hide();
+			$('#mont_loc').hide();
+			$('#pre_alt').hide();
+			$('#mont_alt').hide();
+		}
+
+		if (calculo == 'PO') {
+			$('#cantidad').hide();
+			$('#porcen').show();
+			$('#moneda').hide();
+			$('#pre_loc').hide();
+			$('#mont_loc').hide();
+			$('#pre_alt').hide();
+			$('#mont_alt').hide();
+		}
+
+		if (calculo=='M') {
+			$('#cantidad').show();
+			$('#moneda').show();
+			$('#pre_loc').show();
+			$('#mont_loc').show();
+			$('#pre_alt').hide();
+			$('#mont_alt').hide();
+		}
+
+
+	}
+
+	function cambiartipocomponente() {
+		var tpc = document.getElementById('cmp_tipo_componente').value; 
+		document.getElementById('cmp_codigo').value ="";
+		document.getElementById('cmp_descripcion').value ="";
+
+		if (tpc == 'IT') {
+			$('#cmp_codigo').attr("disabled", true);
+			$('#cmp_descripcion').attr("disabled", true);
+
+			$('#cmp_forma_calculo option[value="M"]').attr("disabled", true);
+			$('#cmp_forma_calculo option[value="D"]').attr("disabled", true);
+			$('#cmp_forma_calculo option[value="PO"]').attr("disabled", true);
+			$('#cmp_forma_calculo option[value="RP"]').attr("disabled", false);
+			$('#cmp_forma_calculo option[value="R"]').attr("disabled", false);
+
+			$('#cboitem').show();
+			$('#cboservicio').hide();
+			$('#cboalmacen').show();
+			$('#cbounidad').hide();
+			$('#cbogrupo').show();
+			$('#codigo').show();
+			$('#descripcion').show();
+			$('#forma').show();
+			// $('#formait').show();
+			// $('#formase').hide();
+			$('#fdesde').show();
+			$('#fhasta').show();
+			$('#visible').show();
+			$('#req_gru').hide();
+			$('#cbogrupoprest').hide();
+			$('#cboclase').hide();
+			$('#tiempo_est').hide();
+			$('#imprime').show();
+			$('#tipog').hide();
+			$('#subtipog').hide();
+			$('#grupti').show();
+			$('#moneda').hide();
+			$('#porcen').hide();
+			$('#cantidad').show();
+			$('#pre_loc').hide();
+			$('#mont_loc').hide();
+			$('#pre_alt').hide();
+			$('#mont_alt').hide();
+			$('#servicio').hide();
+		}
+
+		if (tpc == 'SE') {
+
+			$('#cmp_codigo').attr("disabled", false);
+			$('#cmp_descripcion').attr("disabled", false);
+			$('#cmp_cantidad').attr("disabled", true);
+				$('#cmp_cantidad').val(1);
+
+			$('#cmp_forma_calculo option[value="M"]').attr("disabled", false);
+			$('#cmp_forma_calculo option[value="D"]').attr("disabled", false);
+			$('#cmp_forma_calculo option[value="PO"]').attr("disabled", false);
+			$('#cmp_forma_calculo option[value="RP"]').attr("disabled", true);
+			$('#cmp_forma_calculo option[value="R"]').attr("disabled", true);
+
+			$('#cboitem').hide();
+			$('#cboservicio').show();
+			$('#cboalmacen').hide();
+			$('#cbounidad').hide();
+			$('#cbogrupo').show();
+			$('#codigo').show();
+			$('#descripcion').show();
+			$('#forma').show();
+			// $('#formait').hide();
+			// $('#formase').show();
+			$('#fdesde').show();
+			$('#fhasta').show();
+			$('#visible').show();
+			$('#req_gru').hide();
+			$('#cbogrupoprest').hide();
+			$('#cboclase').hide();
+			$('#tiempo_est').show();
+			$('#imprime').show();
+			$('#tipog').hide();
+			$('#subtipog').hide();
+			$('#grupti').show();
+			$('#moneda').show();
+			$('#porcen').hide();
+			$('#cantidad').show();
+			$('#pre_loc').hide();
+			$('#mont_loc').hide();
+			$('#pre_alt').hide();
+			$('#mont_alt').hide();
+			$('#servicio').hide();	
+		}
+
+		if (tpc == 'HO') {
+			$('#cmp_codigo').attr("disabled", false);
+			$('#cmp_descripcion').attr("disabled", false);
+			$('#cmp_cantidad').attr("disabled", true);
+			$('#cmp_cantidad').val(1);
+
+			$('#cmp_forma_calculo option[value="M"]').attr("disabled", false);
+			$('#cmp_forma_calculo option[value="D"]').attr("disabled", false);
+			$('#cmp_forma_calculo option[value="PO"]').attr("disabled", false);
+			$('#cmp_forma_calculo option[value="RP"]').attr("disabled", true);
+			$('#cmp_forma_calculo option[value="R"]').attr("disabled", true);
+			
+			$('#cboitem').hide();
+			$('#cboservicio').hide();
+			$('#cboalmacen').hide();
+			$('#cbounidad').hide();
+			$('#cbogrupo').show();
+			$('#codigo').show();
+			$('#descripcion').show();
+			$('#forma').show();
+			// $('#formait').hide();
+			// $('#formase').show();
+			$('#fdesde').show();
+			$('#fhasta').show();
+			$('#visible').show();
+			$('#req_gru').show();
+			$('#cbogrupoprest').hide();
+			$('#cboclase').hide();
+			$('#tiempo_est').show();
+			$('#imprime').show();
+			$('#tipog').hide();
+			$('#subtipog').hide();
+			$('#grupti').show();
+			$('#moneda').show();
+			$('#porcen').hide();
+			$('#cantidad').show();
+			$('#pre_loc').hide();
+			$('#mont_loc').hide();
+			$('#pre_alt').hide();
+			$('#mont_alt').hide();
+			$('#servicio').hide();
+
+		}
+	}
+
+	function seleccionar_req_prest() {
+		var ggp= $('#cmp_genera_grupo_prestador').val();
+
+		if (ggp == 'SI') {
+			$('#cmp_req_grupo_prestador').val('S').change();
+		}else{
+			$('#cmp_req_grupo_prestador').val('N').change();
+		}
+	}
+
+
+	
+</script>	
+</body>
+</html>

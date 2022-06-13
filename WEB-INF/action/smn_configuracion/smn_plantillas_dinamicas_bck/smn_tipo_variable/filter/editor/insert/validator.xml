@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='tva_codigo' type='varchar' required='true' label='${lbl:b_tva_codigo}' maxlen='16'/>
+	<parameter id='tva_descripcion' type='varchar' required='true' label='${lbl:b_tva_descripcion}' maxlen='100'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='tva_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='tva_descripcion'/>
+
+
+
+</validator>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='cba_entidades_financieras' type='integer' required='true' label='${lbl:b_financial_entity}' maxlen='10'/>
+	<parameter id='cba_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='cba_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='cba_nro_cuenta' type='varchar' required='true' label='${lbl:b_bank_account_number}' maxlen='24'/>
+	<parameter id='cba_tipo_cta_banco' type='integer' required='true' label='${lbl:b_account_bank_type}' maxlen='10'/>
+	<parameter id='cba_moneda' type='integer' required='true' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_bank_account}' maxlen='10'/>
+
+	<parameter id='smn_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='smn_entidad_rf' type='integer' required='true' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='smn_sucursal_rf' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+</validator>

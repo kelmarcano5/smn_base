@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='33%'/>
+	<col width='33%'/>
+	<col width='33%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="6">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_descuentos_retenciones_id_combo","query-smnrelservdescretenc.sql")'>${lbl:b_discount_tax}</th>
+		<th class='sortable' onclick='sortBy("smn_servicios_id_combo","query-smnrelservdescretenc.sql")'>${lbl:b_service}</th>
+		<th class='sortable' onclick='sortBy("rsd_fecha_registro","query-smnrelservdescretenc.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_rel_serv_desc_retenc_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_rel_serv_desc_retenc_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_rel_serv_desc_retenc_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_descuentos_retenciones_id_combo}</td>
+		<td>${fld:smn_servicios_id_combo}</td>
+		<td>${fld:rsd_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

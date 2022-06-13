@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='con_sistema' type='varchar' required='true' label='${lbl:b_system}' maxlen='64'/>
+	<parameter id='con_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='smn_entidad_rf' type='integer' required='true' label='${lbl:b_company}' maxlen='10'/>
+	<parameter id='smn_sucursal_rf' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+	<parameter id='con_ip_servidor' type='varchar' required='true' label='${lbl:b_ip_server}' maxlen='64'/>
+	<parameter id='con_hostname_instancia' type='varchar' required='true' label='${lbl:b_server_name}' maxlen='64'/>
+	<parameter id='con_nombre_bd' type='varchar' required='true' label='${lbl:b_database_name}' maxlen='64'/>
+	<parameter id='con_usuario_bd' type='varchar' required='true' label='${lbl:b_database_user}' maxlen='64'/>
+	<parameter id='con_clave_bd' type='varchar' required='true' label='${lbl:b_database_password}' maxlen='64'/>
+	<parameter id='con_puerto_bd' type='varchar' required='true' label='${lbl:b_database_port}' maxlen='64'/>
+	<parameter id='con_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='con_vigencia' type='date' required='true' label='${lbl:b_effectivity_date}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_conexiones_bd}' maxlen='10'/>
+
+
+</validator>

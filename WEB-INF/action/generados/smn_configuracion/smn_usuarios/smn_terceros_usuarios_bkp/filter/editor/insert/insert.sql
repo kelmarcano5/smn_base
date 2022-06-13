@@ -1,0 +1,38 @@
+INSERT INTO smn_base.smn_terceros_usuarios
+(
+	smn_terceros_usuarios_id,
+	smn_terceros_id,
+	tru_usuario_id,
+	tru_nombres,
+	tru_apellidos,
+	tru_nacionalidad,
+	tru_nro_doc_identidad,
+	tru_nro_id_fiscal,
+	tru_direccion,
+	tru_email,
+	tru_telefono_fijo,
+	tru_telefono_movil,
+	tru_idioma,
+	tru_usuario,
+	tru_fecha_registro,
+	tru_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_terceros_usuarios},
+	${fld:smn_terceros_id},
+	${fld:tru_usuario_id},
+	${fld:tru_nombres},
+	${fld:tru_apellidos},
+	${fld:tru_nacionalidad},
+	${fld:tru_nro_doc_identidad},
+	${fld:tru_nro_id_fiscal},
+	${fld:tru_direccion},
+	${fld:tru_email},
+	${fld:tru_telefono_fijo},
+	${fld:tru_telefono_movil},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

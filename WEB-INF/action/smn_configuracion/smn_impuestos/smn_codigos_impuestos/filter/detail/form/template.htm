@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openExcel() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a xml
+		function openXml(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a texto
+		function openTxt(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 980, 600);	
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog" id="encabezado_tabla">
+		${lbl:b_taxes}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="${lbl:b_export_pdf}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/excel.png" onclick="openExcel()" title="${lbl:b_export_excel}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="${lbl:b_close_button}" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:imp_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:imp_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_code_type}</td>
+			<td style="background-color: white">${fld:imp_tipo_codigo_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_where_is_registered}</td>
+			<td style="background-color: white">${fld:imp_modalidad_registro_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_base_percentage}</td>
+			<td style="background-color: white">${fld:imp_porcentaje_base@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_calculation_percentage}</td>
+			<td style="background-color: white">${fld:imp_porcentaje_calculo@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_book_type}</td>
+			<td style="background-color: white">${fld:imp_tipo_libro_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_kind_of_person}</td>
+			<td style="background-color: white">${fld:imp_tipo_persona_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_type_of_taxpayer}</td>
+			<td style="background-color: white">${fld:imp_tipo_contribuyente_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_tax_unit}</td>
+			<td style="background-color: white">${fld:uim_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_minimum}</td>
+			<td style="background-color: white">${fld:imp_ui_minima@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_maximum}</td>
+			<td style="background-color: white">${fld:imp_ui_maxima@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_subtrahend}</td>
+			<td style="background-color: white">${fld:imp_ui_sustraendo@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_minimum}</td>
+			<td style="background-color: white">${fld:imp_monto_minimo@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_maximum}</td>
+			<td style="background-color: white">${fld:imp_monto_maximo@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_subtrahend}</td>
+			<td style="background-color: white">${fld:imp_monto_sustraendo@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:imp_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+	<br>
+	<div  align="center">
+		<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog()" class="button">
+	</div>
+
+</body>
+
+</html>

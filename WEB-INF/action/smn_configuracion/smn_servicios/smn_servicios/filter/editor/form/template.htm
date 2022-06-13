@@ -1,0 +1,414 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/select2.min.css" />
+	
+	<!--biblioteca generica JS/Dinamica-->
+	<script type="text/javascript" src="${def:context}/action/script"></script>
+	<script type="text/javascript" src="${def:context}/action/jquery"></script>
+	<script type="text/javascript" src="${def:context}/action/select2"></script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog" id="encabezado_tabla">
+	${lbl:b_service}
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog(); parent.search();" title="${lbl:b_close_button}" style="float:right; cursor:pointer;">
+	${req:progress}
+</div>
+
+<!--formulario addnew/edit-->
+<form name="form1" onsubmit="return save()" style="width:500px;">
+
+	<!-- titulo -->
+	<h1 id="formTitle">${lbl:b_add_record}</h1>
+
+	<table>
+
+		<!--ancho de la columna de etiquetas-->
+		<col width="30%">
+
+		<!--campos-->
+	<tr>
+		<td>${lbl:b_code}*</td>
+		<td>
+			<input id="svc_codigo" name="svc_codigo" type="text" maxlength="16" >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_description}*</td>
+		<td>
+			<input id="svc_descripcion" name="svc_descripcion" type="text" maxlength="56" >
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_service_type}</td>
+		<td>
+			<select class="tipo" name="smn_tipo_servicio_rf" id="smn_tipo_servicio_rf" onchange="chgCombo(smn_tipo_servicio_rf.options[smn_tipo_servicio_rf.selectedIndex].text,'smn_tipo_servicio_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_tipo_servicio_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_tipo_servicio_rf_rows>
+			</select> 
+			<input id="smn_tipo_servicio_rf_name" name="smn_tipo_servicio_rf_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_frecuency}</td>
+			<td>
+				<input id="svc_frecuencia" name="svc_frecuencia" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_measurement_unit}</td>
+		<td>
+			<select class="unidad" name="smn_unidad_medida_rf" id="smn_unidad_medida_rf" onchange="chgCombo(smn_unidad_medida_rf.options[smn_unidad_medida_rf.selectedIndex].text,'smn_unidad_medida_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_unidad_medida_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_unidad_medida_rf_rows>
+			</select> 
+			<input id="smn_unidad_medida_rf_name" name="smn_unidad_medida_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_require_providers_group}*</td>
+		<td>
+			<select class="req_prest" name="svc_req_prestador" id="svc_req_prestador" onchange="mostrar();">
+			<option value="">[Cualquiera]</option>
+			<option value="S">${lbl:b_yes}</option>
+			<option value="N">${lbl:b_not}</option>
+
+			</select> 
+		</td>
+	</tr>
+	<tr id="clase">
+		<td>Grupo Prestador</td>
+		<td>
+			<select class="clase" name="smn_clase_auxiliar_rf" id="smn_clase_auxiliar_rf" onchange="chgCombo(smn_clase_auxiliar_rf.options[smn_clase_auxiliar_rf.selectedIndex].text,'smn_clase_auxiliar_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_clase_auxiliar_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_clase_auxiliar_rf_rows>
+			</select> 
+			<input id="smn_clase_auxiliar_rf_name" name="smn_clase_auxiliar_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_requirements}</td>
+		<td>
+			<textarea id="svc_requisitos" name="svc_requisitos" cols="30" rows="3"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_validation_date_from}*</td>
+		<td>
+			<input id="svc_vigencia_desde" name="svc_vigencia_desde" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('svc_vigencia_desde')">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_validation_date_to}*</td>
+		<td>
+			<input id="svc_vigencia_hasta" name="svc_vigencia_hasta" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('svc_vigencia_hasta')">
+		</td>
+	</tr>
+	<tr id="documento">
+		<td>${lbl:b_documents_general}*</td>
+		<td>
+			<select class="documento" name="smn_documento_general_rf" id="smn_documento_general_rf" onchange="chgCombo(smn_documento_general_rf.options[smn_documento_general_rf.selectedIndex].text,'smn_documento_general_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_documento_general_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_documento_general_rf_rows>
+			</select> 
+			<input id="smn_documento_general_rf_name" name="smn_documento_general_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr id="grup_imp">
+		<td>${lbl:b_group_title_print}*</td>
+		<td>
+			<select class="grup_imp" name="smn_grupo_titulo_impresion_rf" id="smn_grupo_titulo_impresion_rf" onchange="chgCombo(smn_grupo_titulo_impresion_rf.options[smn_grupo_titulo_impresion_rf.selectedIndex].text,'smn_grupo_titulo_impresion_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_grupo_titulo_impresion_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_grupo_titulo_impresion_rf_rows>
+			</select> 
+			<input id="smn_grupo_titulo_impresion_rf_name" name="smn_grupo_titulo_impresion_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_baremos}*</td>
+		<td>
+			<select class="baremos" name="smn_baremos_id" id="smn_baremos_id" onchange="chgCombo(smn_baremos_id.options[smn_baremos_id.selectedIndex].text,'smn_baremos_id_name'); seleccionarMoneda();">
+				<option value="">[Cualquiera]</option>
+				<smn_baremos_id_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_baremos_id_rows>
+			</select> 
+			<input id="smn_baremos_id_name" name="smn_baremos_id_name" type="hidden">
+		</td>
+	</tr>	
+	<tr id="moneda">
+		<td>${lbl:b_coin}</td>
+		<td>
+			<select class="moneda" name="smn_moneda_rf" id="smn_moneda_rf" onchange="chgCombo(smn_moneda_rf.options[smn_moneda_rf.selectedIndex].text,'smn_moneda_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_moneda_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_moneda_rf_rows>
+			</select> 
+			<input id="smn_moneda_rf_name" name="smn_moneda_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr id="precioml">
+		<td>${lbl:b_coin_local_price}*</td>
+		<td>
+			<input id="smn_precio_moneda_local" name="smn_precio_moneda_local" type="text" maxlength="10" class="numeric">
+		</td>
+	</tr>
+	<tr id="precioma">
+		<td>${lbl:b_coin_altern_price}</td>
+		<td>
+			<input id="smn_precio_moneda_alterna" name="smn_precio_moneda_alterna" type="text" maxlength="10" class="numeric">
+		</td>
+	</tr>
+
+	<tr id="precionetoml">
+		<td>${lbl:b_price_net}*</td>
+		<td>
+			<input id="svr_precio_neto" name="svr_precio_neto" type="text" maxlength="10" class="numeric">
+		</td>
+	</tr>
+	<tr id="precionetoma">
+		<td>${lbl:b_price_net_ma}</td>
+		<td>
+			<input id="svc_precio_neto_ma" name="svc_precio_neto_ma" type="text" maxlength="10" class="numeric">
+		</td>
+	</tr>
+
+	<tr id="descuento">
+		<td>${lbl:b_discount}</td>
+		<td>
+			<select name="smn_descuento_rf" id="smn_descuento_rf" onchange="chgCombo(smn_descuento_rf.options[smn_descuento_rf.selectedIndex].text,'smn_descuento_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_descuento_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_descuento_rf_rows>
+			</select> 
+			<input id="smn_descuento_rf_name" name="smn_descuento_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr id="monto_des_ml">
+		<td>${lbl:b_amount_desc_ml}</td>
+		<td>
+			<input id="svc_monto_desc_ml" name="svc_monto_desc_ml" type="text" maxlength="10" class="numeric">
+		</td>
+	</tr>
+	<tr id="monto_des_ma">
+		<td>${lbl:b_amount_desc_ma}</td>
+		<td>
+			<input id="svc_monto_desc_ma" name="svc_monto_desc_ma" type="text" maxlength="10" class="numeric">
+		</td>
+	</tr>
+	
+	<tr id="estatus">
+		<td>${lbl:b_estatus}*</td>
+		<td>
+			<select name="svc_inactivo" id="svc_inactivo">
+			<option value="A">${lbl:b_active}</option>
+			<option value="I">${lbl:b_inactive}</option>
+
+			</select> 
+		</td>
+	</tr>
+	
+	</table>
+
+	<!--botones-->
+	<input id="grabar" type="submit" value="${lbl:b_save_button}" class="button">
+	<input id="limpiar" type="button" value="${lbl:b_clean_button}" onclick="addNew()" class="button">	
+	<input id="copiar" type="button" value="${lbl:b_copy_button}" onclick="getFormValuesToCopy('form1')" class="button">
+	<input id="pegar" type="button" value="${lbl:b_paste_button}" onclick="getFormValuesToPaste('form1')" class="button">
+	<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog(); parent.search();" class="button">	
+	
+	<!-- PK-->
+<input type="hidden" name="id" value="">
+<input type="hidden" name="id2" value="">
+<input type="hidden" name="baremos" id="baremos">
+
+</form>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		addNew();
+
+		$(document).ready(function() {
+    		$('.tipo').select2();
+    		$('.unidad').select2();
+    		$('.moneda').select2();
+    		$('.descuento').select2();
+    		$('.clase').select2();
+    		$('.documento').select2(); 
+    		$('.grup_imp').select2(); 
+    		$('.baremos').select2();
+    		$('.req_prest').select2();
+
+    		$('#moneda').hide();
+    		// se le asigno la clase a grupo de prestador
+    		$('#clase').show();
+    		$('#precioml').hide();
+    		$('#precioma').hide();
+    		$('#precionetoml').hide();
+    		$('#precionetoma').hide();
+    		$('#documento').show();
+    		$('#grup_imp').show();
+    		$('#estatus').hide();
+    		$('#descuento').hide();
+    		$('#monto_des_ml').hide();
+    		$('#monto_des_ma').hide();
+
+		});
+
+		if (id!="")
+			edit(id);
+	} 
+
+	
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//configurar formulario para ingresar registro nuevo
+	function addNew()
+	{
+		document.getElementById("formTitle").innerHTML = "${lbl:b_add_record}";
+		document.getElementById("grabar").disabled=false;
+		clearForm("form1");
+		setFocusOnForm("form1");
+		//listboxClear('smn_especialidad_id_name');
+		//listboxClear('smn_agenda_id_name');
+	}
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//mostrar la actualizacion de un registro
+	function insert()
+	{		
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/insert", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+
+	}
+	
+	//restaurar el formulario en caso de error
+	function retryAddnewOrEdit() {
+		document.getElementById("grabar").disabled=false;
+		setFocusOnForm("form1");		
+	}
+	
+	var id = "${fld:id}"
+	
+	//grabar el formulario
+	function save()
+	{
+		//determina si es un insert o un update
+		if (document.form1.id.value=="")
+			return insert();
+		else
+			return update();
+	}
+	
+	//editar registro en formulario
+	function edit(id)
+	{
+			clearErrorMessages();
+			//llamada Ajax...
+			ajaxCall(httpMethod="GET", 
+							uri="${def:actionroot}/edit?id=" + id , 
+							divResponse=null, 
+							divProgress="status", 
+							formName=null, 
+							afterResponseFn=null, 
+							onErrorFn=null);	
+	}
+	
+	//actualizar registro en BD
+	function update()
+	{		  
+			clearErrorMessages();
+			document.getElementById("grabar").disabled=true;
+			
+			//llamada Ajax...
+			return ajaxCall(httpMethod="POST", 
+							uri="${def:actionroot}/update", 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=retryAddnewOrEdit);	
+	}
+
+	function seleccionarMoneda() {
+		var baremos = $('#smn_baremos_id').val();
+
+		if (baremos!=null && baremos!="") 
+		{
+			return ajaxCall(	
+							httpMethod="GET", 
+							uri="${def:actionroot}/getMonedaBaremos?id=" + baremos, 
+							divResponse=null, 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, //function 'setElementFirstIndex' select first element of combo list
+							onErrorFn=null);				
+		}
+	}
+
+	function mostrar() {
+		var req_prest = $('#svc_req_prestador').val();
+
+		if (req_prest == "S") {
+			$('#clase').show();
+		}else{
+			$('#clase').hide();
+		}
+	}
+
+	
+</script>	
+</body>
+</html>

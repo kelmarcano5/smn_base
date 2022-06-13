@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('cco_codigo','query-smncentrocosto.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('cco_descripcion_larga','query-smncentrocosto.sql')" >${lbl:b_long_description}</th>
+		<th class='sortable' onclick="sortBy('cco_empresa','query-smncentrocosto.sql')" >${lbl:b_entity}</th>
+		<th class='sortable' onclick="sortBy('cco_sucursal','query-smncentrocosto.sql')" >${lbl:b_subsidiary}</th>
+		<th class='sortable' onclick="sortBy('cco_area_servicio','query-smncentrocosto.sql')" >${lbl:b_service_area}</th>
+		<th class='sortable' onclick="sortBy('cco_unidad_servicio','query-smncentrocosto.sql')" >${lbl:b_service_unit}</th>
+		<th class='sortable' onclick="sortBy('cco_fecha_registro','query-smncentrocosto.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_centro_costo_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_centro_costo_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_centro_costo_id}')" title="Editar"></td>
+		<td align="left">${fld:cco_codigo}</td>
+		<td align="left">${fld:cco_descripcion_larga}</td>
+		<td align="left">${fld:cco_empresa}</td>
+		<td align="left">${fld:cco_sucursal}</td>
+		<td align="left">${fld:cco_area_servicio}</td>
+		<td align="left">${fld:cco_unidad_servicio}</td>
+		<td align="center">${fld:cco_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_agenda>
+	<detail>
+		<rows>		
+		<record age_fecha_registro="${fld:age_fecha_registro}"    age_dia_semana="${fld:age_dia_semana}"    />
+		</rows>
+	</detail>
+</smn_agenda>

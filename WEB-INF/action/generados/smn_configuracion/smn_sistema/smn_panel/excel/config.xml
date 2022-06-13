@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnpanel.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnpanel.sql' sheetname='${lbl:b_panel}' filename='smn_panel.xls'>
+		<col id='pan_service_description' label='${lbl:b_service_description}' />
+		<col id='pan_service_path' label='${lbl:b_service_path}' />
+		<col id='pan_icon_path' label='${lbl:b_icon_path}' />
+		<col id='pan_app_id' label='${lbl:b_application}' />
+		<col id='pan_role_id' label='${lbl:b_role}' />
+		<col id='pan_orden' label='${lbl:b_order}' />
+		<col id='pan_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+	
+	<!--Geolocalizacion - SIMONE Key=AIzaSyDD4qOQanvBTj9kD631CwiIGt6vmkKxOB4-->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=AIzaSyDD4qOQanvBTj9kD631CwiIGt6vmkKxOB4" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openExcel() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a xml
+		function openXml(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a texto
+		function openTxt(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 980, 600);	
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog" id="encabezado_tabla">
+		${lbl:b_addresses}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="${lbl:b_export_pdf}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/excel.png" onclick="openExcel()" title="${lbl:b_export_excel}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/file-xml4.png" onclick="openXml('${fld:smn_direccion_id}')" title="${lbl:b_export_xml}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/file-text.png" onclick="openTxt('${fld:smn_direccion_id}')" title="${lbl:b_export_txt}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/emails.png" onclick="openEmails()" title="${lbl:s_profile_email}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="${lbl:b_close_button}" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table>
+	
+	<tr>
+	<td>
+	&nbsp;
+	</td>
+	</tr>
+	
+	<tr>
+	<td>
+	
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:dir_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:dir_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_country}</td>
+			<td style="background-color: white">${fld:pai_nombre_corto}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_federal_entity}</td>
+			<td style="background-color: white">${fld:efe_nombre_corto}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_city}</td>
+			<td style="background-color: white">${fld:ciu_nombre_corto}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_municipality}</td>
+			<td style="background-color: white">${fld:mun_nombre_corto}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_parish}</td>
+			<td style="background-color: white">${fld:prr_nombre_corto}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_postal_zone}</td>
+			<td style="background-color: white">${fld:zpo_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_type_of_route}</td>
+			<td style="background-color: white">${fld:tiv_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_name}</td>
+			<td style="background-color: white">${fld:dir_tipo_via_nom}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_number}</td>
+			<td style="background-color: white">${fld:dir_tipo_via_num}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_edification}</td>
+			<td style="background-color: white">${fld:edf_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_name}</td>
+			<td style="background-color: white">${fld:dir_edificacion_nom}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_number}</td>
+			<td style="background-color: white">${fld:dir_edificacion_num}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_location_type}</td>
+			<td style="background-color: white">${fld:til_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_name}</td>
+			<td style="background-color: white">${fld:dir_tipo_localidad_nom}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_postal_mail}</td>
+			<td style="background-color: white">${fld:dir_apartado_postal}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_longitude}</td>
+			<td style="background-color: white">${fld:dir_mapa_longitud@###0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_latitude}</td>
+			<td style="background-color: white">${fld:dir_mapa_latitud@###0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:dir_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+	
+	</td>
+	
+	<td>
+
+	<div id="map_canvas" style="width: 400px; height: 380px"></div>
+	
+     <input type="hidden" name="q" value="" size="40" />
+     <input id="empresa" type="hidden" size="40"/>
+     <input id="punto" type="hidden" size="40"/>
+     <input id="kml" type="hidden" size="1024">
+
+	</td>
+	</tr>
+	
+	</table>
+
+	<br>
+	<div  align="center">
+		<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog()" class="button">
+	</div>
+	
+<script type="text/javascript">
+
+	onload = function()
+	{ 
+		initialize();
+		
+		var address = '${fld:prr_nombre_corto}, ${fld:mun_nombre_corto}, ${fld:ciu_nombre_corto}, ${fld:efe_nombre_corto}, ${fld:pai_nombre_corto}';
+	    geocoder.getLocations(address, addAddressToMap);
+	} 
+	
+	<!--Geocoder-->
+
+    var map;
+    var geocoder;
+
+    function initialize() {
+      map = new GMap2(document.getElementById("map_canvas"));
+      map.setCenter(new GLatLng(40.452557, -3.510673), 15);
+      
+      // insertar los controles
+      map.addControl(new GSmallMapControl());
+      map.addControl(new GMapTypeControl());
+      
+      geocoder = new GClientGeocoder();
+    }
+
+    // addAddressToMap() is called when the geocoder returns an
+    // answer.  It adds a marker to the map with an open info window
+    // showing the nicely formatted version of the address and the country code.
+    function addAddressToMap(response) {
+      map.clearOverlays();
+      if (!response || response.Status.code != 200) {
+        alert("Lo sentimos, no se ha encontrado su direccion!!");
+      } else {
+        place = response.Placemark[0];
+        point = new GLatLng(place.Point.coordinates[1], place.Point.coordinates[0]);
+        
+        map.setCenter(point, 15);
+        
+        marker = new GMarker(point, {draggable: true});
+        
+        GEvent.addListener(marker, "dragstart", function() {
+          map.closeInfoWindow();
+        });
+
+        GEvent.addListener(marker, "dragend", function() {
+          document.getElementById("punto").value = marker.getLatLng().toUrlValue();
+          marker.openInfoWindowHtml(place.address);
+          //generateKML(place.address, marker.getLatLng().lng(), marker.getLatLng().lat());
+        });
+        
+        map.addOverlay(marker);
+        marker.openInfoWindowHtml(place.address);
+        document.getElementById("punto").value = marker.getLatLng().toUrlValue();
+        
+        //generateKML(place.address, place.Point.coordinates[0], place.Point.coordinates[1]);
+        
+      }
+    }
+    
+    // showLocation() is called when you click on the Search button
+    // in the form.  It geocodes the address entered into the form
+    // and adds a marker to the map at that location.
+    function showLocation() {
+      var address = document.forms[0].q.value;
+      geocoder.getLocations(address, addAddressToMap);
+    }
+
+   // findLocation() is used to enter the sample addresses into the form.
+    function findLocation(direccion, empresa ) {
+      document.forms[0].q.value = direccion;
+      document.getElementById("empresa").value = empresa;
+      showLocation();
+    }
+    
+    function generateKML(description, lng, lat){
+      document.getElementById("kml").value = '';
+      var kml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      kml = kml + '<kml xmlns="http://earth.google.com/kml/2.2">\n';
+      kml = kml + '<Placemark>\n';
+      kml = kml + '\t<name>' + document.getElementById("empresa").value + '</name>\n';
+      kml = kml + '\t<description>' + description + '</description>\n';
+      kml = kml + '\t<Point><coordinates>' + lng + ',' + lat + ',0</coordinates></Point>\n'; 
+      kml = kml + '</Placemark>\n';
+      kml = kml + '</kml>\n'
+      document.getElementById("kml").value = kml;
+    }
+	
+</script>
+		
+</body>
+
+</html>

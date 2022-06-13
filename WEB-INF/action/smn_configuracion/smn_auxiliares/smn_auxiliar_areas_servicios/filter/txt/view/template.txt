@@ -1,0 +1,3 @@
+<rows>
+tse_fecha_registro="${fld:tse_fecha_registro}"    smn_item_unidad_negocio="${fld:smn_item_unidad_negocio}"    smn_item_sucursal="${fld:smn_item_sucursal}"    smn_item="${fld:smn_item}"    tse_descripcion="${fld:tse_descripcion}"    tse_codigo="${fld:tse_codigo}"    smn_auxiliar_tipos_servicios_id="${fld:smn_auxiliar_tipos_servicios_id}"    
+</rows>

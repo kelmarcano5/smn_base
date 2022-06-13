@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_service_areas}</summary>
+	<filter>
+		<row field='smn_auxiliar_tipos_servicios_id' id='smn_auxiliar_tipos_servicios_id' label='${lbl:b_outsourced_type_of_service}@{select smn_base.smn_auxiliar_tipos_serviciossmn_auxiliar_tipos_servicios_id as id, smn_base.smn_auxiliar_tipos_servicios.tts_codigo || &apos; - &apos; || smn_base.smn_auxiliar_tipos_servicios.tts_descripcion as item from smn_base.smn_auxiliar_tipos_servicios order by smn_base.smn_auxiliar_tipos_servicios.tts_descripcion}' required='NO' fk='tts_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_areas_servicios' len='10'/>
+		<row field='tse_codigo' id='tse_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_areas_servicios' len='16'/>
+		<row field='tse_descripcion' id='tse_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_areas_servicios' len='48'/>
+		<row field='tse_auxiliar' id='tse_auxiliar' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar_auxiliares.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar_auxiliares.smn_codigo || &apos; - &apos; || smn_base.smn_v_auxiliar_auxiliares.smn_item as item from smn_base.smn_v_auxiliar_auxiliares order by smn_base.smn_v_auxiliar_auxiliares.smn_item}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_areas_servicios' len='10'/>
+		<row field='tse_auxiliar_sucursal' id='tse_auxiliar_sucursal' label='${lbl:b_outsourced_subsidiary}@{select smn_base.smn_auxiliar_sucursales.smn_auxiliar_sucursales_id as id, smn_base.smn_auxiliar_sucursales.trs_codigo || &apos; - &apos; || smn_base.smn_auxiliar_sucursales.trs_nombre as item from smn_base.smn_auxiliar_sucursales order by smn_base.smn_auxiliar_sucursales.trs_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_areas_servicios' len='10'/>
+		<row field='tse_auxiliar_unidad_negocio' id='tse_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}@{select smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id as id, smn_base.smn_auxiliar_unidades_negocios.tun_codigo || &apos; - &apos; || smn_base.smn_auxiliar_unidades_negocios.tun_nombre as item from smn_base.smn_auxiliar_unidades_negocios order by smn_base.smn_auxiliar_unidades_negocios.tun_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_areas_servicios' len='10'/>
+		<row field='tse_fecha_registro' id='tse_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_auxiliar_areas_servicios' len='10'/>
+		<row field='tse_fecha_registro' id='tse_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_auxiliar_areas_servicios' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_auxiliar_tipos_servicios_id' label='${lbl:b_outsourced_type_of_service}@{select smn_base.smn_auxiliar_tipos_serviciossmn_auxiliar_tipos_servicios_id as id, smn_base.smn_auxiliar_tipos_servicios.tts_codigo || &apos; - &apos; || smn_base.smn_auxiliar_tipos_servicios.tts_descripcion as item from smn_base.smn_auxiliar_tipos_servicios order by smn_base.smn_auxiliar_tipos_servicios.tts_descripcion}' fk='tts_codigo' tableName='smn_auxiliar_areas_servicios' len='10' type='integer' align='left'/>
+		<row field='tse_codigo' label='${lbl:b_code}' fk='' tableName='smn_auxiliar_areas_servicios' len='16' type='varchar' align='left'/>
+		<row field='tse_descripcion' label='${lbl:b_description}' fk='' tableName='smn_auxiliar_areas_servicios' len='48' type='varchar' align='left'/>
+		<row field='tse_auxiliar' label='${lbl:b_auxiliary}@{select smn_base.smn_v_auxiliar_auxiliares.smn_v_auxiliar_id as id, smn_base.smn_v_auxiliar_auxiliares.smn_codigo || &apos; - &apos; || smn_base.smn_v_auxiliar_auxiliares.smn_item as item from smn_base.smn_v_auxiliar_auxiliares order by smn_base.smn_v_auxiliar_auxiliares.smn_item}' fk='' tableName='smn_auxiliar_areas_servicios' len='10' type='integer' align='left'/>
+		<row field='tse_auxiliar_sucursal' label='${lbl:b_outsourced_subsidiary}@{select smn_base.smn_auxiliar_sucursales.smn_auxiliar_sucursales_id as id, smn_base.smn_auxiliar_sucursales.trs_codigo || &apos; - &apos; || smn_base.smn_auxiliar_sucursales.trs_nombre as item from smn_base.smn_auxiliar_sucursales order by smn_base.smn_auxiliar_sucursales.trs_nombre}' fk='' tableName='smn_auxiliar_areas_servicios' len='10' type='integer' align='left'/>
+		<row field='tse_auxiliar_unidad_negocio' label='${lbl:b_outsourced_unit_business}@{select smn_base.smn_auxiliar_unidades_negocios.smn_auxiliar_unidades_negocios_id as id, smn_base.smn_auxiliar_unidades_negocios.tun_codigo || &apos; - &apos; || smn_base.smn_auxiliar_unidades_negocios.tun_nombre as item from smn_base.smn_auxiliar_unidades_negocios order by smn_base.smn_auxiliar_unidades_negocios.tun_nombre}' fk='' tableName='smn_auxiliar_areas_servicios' len='10' type='integer' align='left'/>
+		<row field='tse_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_auxiliar_areas_servicios' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

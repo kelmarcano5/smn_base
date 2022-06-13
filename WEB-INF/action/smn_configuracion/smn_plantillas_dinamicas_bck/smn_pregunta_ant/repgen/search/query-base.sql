@@ -1,0 +1,10 @@
+select
+		smn_base.smn_pregunta.smn_pregunta_id,
+	${field}
+from
+	smn_base.smn_pregunta
+where
+		smn_base.smn_pregunta.smn_pregunta_id is not null
+	${filter}
+	
+	

@@ -1,0 +1,3 @@
+<rows>
+tiv_fecha_registro="${fld:tiv_fecha_registro}"    tiv_descripcion="${fld:tiv_descripcion}"    tiv_codigo="${fld:tiv_codigo}"    
+</rows>

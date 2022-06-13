@@ -1,0 +1,1 @@
+select smn_base.smn_tipo_doc_anexo.smn_tipo_doc_anexo_id as id, smn_base.smn_tipo_doc_anexo.tda_codigo|| ' - ' || smn_base.smn_tipo_doc_anexo.tda_descripcion as item from smn_base.smn_tipo_doc_anexo order by tda_descripcion

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_baremos_detalle_componente>
+	<detail>
+		<rows>		
+		<record bdc_fecha_registro="${fld:bdc_fecha_registro}"    bdc_monto_ma="${fld:bdc_monto_ma}"    bdc_precio_ma="${fld:bdc_precio_ma}"    smn_moneda_rf="${fld:smn_moneda_rf}"    bdc_monto_ml="${fld:bdc_monto_ml}"    bdc_precio_ml="${fld:bdc_precio_ml}"    bdc_cantidad="${fld:bdc_cantidad}"    smn_porcentaje_rf="${fld:smn_porcentaje_rf}"    smn_forma_calculo_rf="${fld:smn_forma_calculo_rf}"    smn_item_rf="${fld:smn_item_rf}"    smn_almacen_rf="${fld:smn_almacen_rf}"    smn_componente_rf="${fld:smn_componente_rf}"    smn_tipo_compuesto_rf="${fld:smn_tipo_compuesto_rf}"    smn_baremos_detalle_id="${fld:smn_baremos_detalle_id}"    />
+		</rows>
+	</detail>
+</smn_baremos_detalle_componente>

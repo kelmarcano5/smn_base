@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_idiomas>
+	<detail>
+		<rows>		
+		<record idi_fecha_registro="${fld:idi_fecha_registro}"    idi_descripcion="${fld:idi_descripcion}"    idi_codigo="${fld:idi_codigo}"    
+/>
+		</rows>
+	</detail>
+</smn_idiomas>

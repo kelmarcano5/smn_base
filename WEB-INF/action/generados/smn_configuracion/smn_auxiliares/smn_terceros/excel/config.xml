@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnterceros.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnterceros.sql' sheetname='${lbl:b_outsourced_company}' filename='smn_terceros.xls'>
+		<col id='ter_auxiliar_categoria' label='${lbl:b_auxiliary_category}' />
+		<col id='ter_descripcion_corta' label='${lbl:b_short_description}' />
+		<col id='ter_descripcion_larga' label='${lbl:b_long_description}' />
+		<col id='ter_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

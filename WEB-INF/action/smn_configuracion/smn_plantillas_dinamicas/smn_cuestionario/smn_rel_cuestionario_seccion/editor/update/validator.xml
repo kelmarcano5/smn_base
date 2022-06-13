@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_cuestionario_id' type='integer' required='false' label='${lbl:b_smn_cuestionario_id}' maxlen='10'/>
+	<parameter id='smn_seccion_id' type='integer' required='false' label='${lbl:b_smn_seccion_id}' maxlen='10'/>
+	<parameter id='rcs_tipo_seccion' type='varchar' required='true' label='${lbl:b_rcs_tipo_seccion}' maxlen='10'/>
+	<parameter id='rcs_secuencia' type='integer' required='true' label='${lbl:b_rcs_secuencia}' maxlen='10'/>
+	<parameter id='rcs_tipo_letra' type='varchar' required='true' label='${lbl:b_tipo_letra}' maxlen='100'/>
+	<parameter id='rcs_tamano_letra' type='integer' required='true' label='${lbl:b_tamano_letra}' maxlen='10'/>
+	<parameter id='rcs_color_letra' type='varchar' required='true' label='${lbl:b_color_letra}' maxlen='10'/>
+	<parameter id='rcs_color_sombreado' type='varchar' required='true' label='${lbl:b_color_sombreado}' maxlen='10'/>
+	<parameter id='rcs_espacio_identacion' type='integer' required='true' label='${lbl:b_espacio_identacion}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_smn_rel_cuestionario_seccion_id}' maxlen='10'/>
+
+
+
+</validator>

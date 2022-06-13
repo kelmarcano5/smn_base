@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cmp_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='cmp_descripcion' type='varchar' required='true' maxlen='100'/>
+	<parameter id='cmp_tipo_componente' type='varchar' required='true' maxlen='1'/>
+	<parameter id='smn_grupo_componente_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='cmp_forma_calculo' type='varchar' required='true' maxlen='1'/>
+	<parameter id='cmp_vigencia_desde' type='date' required='true' maxlen='10'/>
+	<parameter id='cmp_vigencia_hasta' type='date' required='true' maxlen='10'/>
+	<parameter id='cmp_visible' type='varchar' required='true' maxlen='1'/>
+	<parameter id='cmp_clase_auxiliar_rf_desc_ref' type='varchar' required='false' maxlen='10'/>
+	<parameter id='cmp_req_grupo_prestador_desc_ref' type='varchar' required='true' maxlen='2'/>
+	<parameter id='cmp_grupo_prestador' type='varchar' required='true' maxlen='1'/>
+	<parameter id='cmp_tiempo_estimado' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_almacen_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='cmp_porcentaje' type='double' required='false' maxlen='10'/>
+	<parameter id='cmp_cantidad' type='double' required='true' maxlen='10'/>
+	<parameter id='cmp_precio_moneda_local' type='double' required='true' maxlen='10'/>
+	<parameter id='cmp_monto_moneda_local' type='double' required='true' maxlen='10'/>
+	<parameter id='smn_moneda_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='cmp_precio_moneda_alterna' type='double' required='false' maxlen='10'/>
+	<parameter id='cmp_monto_moneda_alterna' type='double' required='false' maxlen='10'/>
+
+	<parameter id='cmp_clase_auxiliar_rf_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='cmp_req_grupo_prestador_ref' type='varchar' required='false' maxlen='1'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cmp_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='cmp_descripcion'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cmp_clase_auxiliar_rf' 
+		parameter='cmp_clase_auxiliar_rf_ref' 
+		sql='cmp_clase_auxiliar_rf.sql' 
+		id='cmp_clase_auxiliar_rf_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cmp_req_grupo_prestador' 
+		parameter='cmp_req_grupo_prestador_ref' 
+		sql='cmp_req_grupo_prestador.sql' 
+		id='cmp_req_grupo_prestador_ref'/>
+
+</validator>

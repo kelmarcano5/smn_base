@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_vencimiento_cabecera>
+	<detail>
+		<rows>		
+		<record tve_fecha_registro="${fld:tve_fecha_registro}"    tve_vigencia="${fld:tve_vigencia}"    tve_estatus="${fld:tve_estatus}"    tve_descripcion="${fld:tve_descripcion}"    tve_codigo="${fld:tve_codigo}"    />
+		</rows>
+	</detail>
+</smn_vencimiento_cabecera>

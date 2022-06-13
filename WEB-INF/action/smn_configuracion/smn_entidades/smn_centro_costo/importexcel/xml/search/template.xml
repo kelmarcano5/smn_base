@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_centro_costo>
+	<detail>
+		<rows>
+			<record cco_nivel="${fld:cco_nivel}"	cco_almacen="${fld:cco_almacen}"	cco_fecha_registro="${fld:cco_fecha_registro}"	cco_area_servicio="${fld:cco_area_servicio}"	cco_sucursal="${fld:cco_sucursal}"	cco_empresa="${fld:cco_empresa}"	cco_codigo="${fld:cco_codigo}"	cco_descripcion_corta="${fld:cco_descripcion_corta}"	cco_unidad_servicio="${fld:cco_unidad_servicio}"	cco_descripcion_larga="${fld:cco_descripcion_larga}"	/>
+		</rows>
+	</detail>
+</smn_centro_costo>

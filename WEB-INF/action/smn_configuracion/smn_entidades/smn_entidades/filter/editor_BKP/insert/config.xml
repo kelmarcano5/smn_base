@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Insertar registro 
+	</summary>
+
+	<log>false</log>
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>ent_codigo</colname>
+			<colname>ent_comunidad</colname>
+			<colname>ent_corporacion</colname>
+			<colname>ent_unidad_negocio</colname>
+			<colname>ent_maneja_sucursal</colname>
+			<colname>ent_moneda</colname>
+			<colname>ent_sector_economico</colname>
+			<colname>ent_descripcion_corta</colname>
+			<colname>ent_descripcion_larga</colname>
+			<colname>ent_nro_id_fiscal</colname>
+			<colname>ent_direccion</colname>
+			<colname>ent_contacto</colname>
+			<colname>ent_telefono_fijo</colname>
+			<colname>ent_telefono_movil</colname>
+			<colname>ent_email</colname>
+			<colname>ent_act_economica</colname>
+		
+		</cols>
+		<table>smn_base.smn_entidades</table>
+		<oper>AÑADIR</oper>
+		<area>Carga de datos</area>
+		<!--
+			query para obtener el ID generado o nombre de 
+			la columna que contiene el pkey, si es query, 
+			el alias del campo debe ser "id"
+		-->
+		<pkey>select ${seq:currval@smn_base.seq_smn_entidades} as id</pkey>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="nextval.sql" source="sql" scope="transaction" />
+	</transaction>
+
+	<query>insert.sql</query>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript</content-type>
+		<expiration>0</expiration>
+		<print mode="form" recordset="_request" />
+		<print mode="form" recordset="nextval.sql" />
+	</output>
+	
+	<!-- Envio de email declarativo -->
+	<mail enabled="false">
+		<subject>Subject</subject>
+		<mail-to>martin.cordova@gmail.com</mail-to>
+		<body>body.txt</body>
+	</mail>
+
+</config>

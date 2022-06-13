@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_conexiones_bd}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_conexiones_bd}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='query.sql' title='${lbl:b_conexiones_bd}' width='60' spacingBefore='40'>
+			<col name='con_sistema' title='${lbl:b_system}' align='left' />
+			<col name='con_descripcion' title='${lbl:b_description}' align='left' />
+			<col name='smn_entidad_rf' title='${lbl:b_company}' align='left' format='######' />
+			<col name='smn_sucursal_rf' title='${lbl:b_subsidiary}' align='left' format='######' />
+			<col name='con_ip_servidor' title='${lbl:b_ip_server}' align='left' />
+			<col name='con_hostname_instancia' title='${lbl:b_server_name}' align='left' />
+			<col name='con_nombre_bd' title='${lbl:b_database_name}' align='left' />
+			<col name='con_usuario_bd' title='${lbl:b_database_user}' align='left' />
+			<col name='con_clave_bd' title='${lbl:b_database_password}' align='left' />
+			<col name='con_puerto_bd' title='${lbl:b_database_port}' align='left' />
+			<col name='con_estatus' title='${lbl:b_status}' align='left' />
+			<col name='con_vigencia' title='${lbl:b_effectivity_date}' align='left' format='dd-MM-yyyy' />
+			<col name='con_idioma' title='${lbl:s_profile_lang}' align='left' />
+			<col name='con_usuario' title='${lbl:b_users}' align='left' />
+			<col name='con_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+			<col name='con_hora' title='${lbl:s_loginhist_col2}' align='left' />
+		</record>
+
+
+	</pdf-report>
+</config>

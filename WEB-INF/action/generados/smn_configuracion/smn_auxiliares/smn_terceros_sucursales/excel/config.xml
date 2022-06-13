@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntercerossucursales.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smntercerossucursales.sql' sheetname='${lbl:b_subsidiaries}' filename='smn_terceros_sucursales.xls'>
+		<col id='ter_descripcion_corta_pl0' label='${lbl:b_outsourced_company}' />
+		<col id='trs_codigo' label='${lbl:b_code}' />
+		<col id='trs_nombre' label='${lbl:b_name}' />
+		<col id='trs_responsable' label='${lbl:b_responsible}' />
+		<col id='trs_telefono_fijo' label='${lbl:b_fixed_phone}' />
+		<col id='trs_email' label='${lbl:s_profile_email}' />
+		<col id='trs_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

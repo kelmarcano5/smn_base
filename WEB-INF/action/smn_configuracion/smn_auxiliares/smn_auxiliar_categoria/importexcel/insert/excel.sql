@@ -1,0 +1,30 @@
+INSERT INTO smn_base.smn_auxiliar_categoria
+(
+	smn_auxiliar_categoria_id,
+	aca_naturaleza_auxiliar,
+	aca_tipo_persona,
+	aca_empresa,
+	aca_sucursal,
+	aca_unidad_negocio,
+	aca_area_servicio,
+	aca_unidad_servicio,
+	aca_idioma,
+	aca_usuario,
+	aca_fecha_registro,
+	aca_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_auxiliar_categoria},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

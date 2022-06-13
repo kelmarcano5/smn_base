@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='inc_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='inc_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='smn_vencimiento_cabecera_id' type='integer' required='false' label='${lbl:b_expiration_header}' maxlen='10'/>
+	<parameter id='inc_apli_cant_precio' type='varchar' required='true' label='${lbl:b_apply_quantity_price}' maxlen='2'/>
+	<parameter id='inc_porcentaje_base' type='double' required='true' label='${lbl:b_percentage_base}' maxlen='17'/>
+	<parameter id='inc_porcentaje_incremento' type='double' required='true' label='${lbl:b_percentage_increment}' maxlen='17'/>
+	<parameter id='inc_monto_ml' type='double' required='true' label='${lbl:b_percentage_base}' maxlen='17'/>
+	<parameter id='inc_monto_ma' type='double' required='false' label='${lbl:b_percentage_base}' maxlen='17'/>
+	<parameter id='inc_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='inc_apli_todos_it' type='varchar' required='false' label='${lbl:b_apply_item}' maxlen='2'/>
+	<parameter id='inc_apli_todos_se' type='varchar' required='false' label='${lbl:b_apply_services}' maxlen='2'/>
+	<parameter id='inc_apli_todos_af' type='varchar' required='false' label='${lbl:b_apply_fixed_asset}' maxlen='2'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='inc_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='inc_descripcion'/>
+
+
+</validator>

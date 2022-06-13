@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='12%'/>
+	<col width='14%'/>
+	<col width='18%'/>
+	<col width='14%'/>
+	<col width='12%'/>
+	<col width='8%'/>
+	<col width='14%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('pan_service_description','query-smnpanel.sql')" >${lbl:b_service_description}</th>
+		<th class='sortable' onclick="sortBy('pan_service_path','query-smnpanel.sql')" >${lbl:b_service_path}</th>
+		<th class='sortable' onclick="sortBy('pan_icon_path','query-smnpanel.sql')" >${lbl:b_icon_path}</th>
+		<th class='sortable' onclick="sortBy('app_alias','query-smnpanel.sql')" >${lbl:b_application}</th>
+		<th class='sortable' onclick="sortBy('rolename','query-smnpanel.sql')" >${lbl:b_role}</th>
+		<th class='sortable' onclick="sortBy('pan_orden','query-smnpanel.sql')" >${lbl:b_order}</th>
+		<th class='sortable' onclick="sortBy('pan_fecha_registro','query-smnpanel.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_panel_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_panel_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_panel_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:pan_service_description}</td>
+		<td align="left">${fld:pan_service_path}</td>
+		<td align="left">${fld:pan_icon_path}</td>
+		<td align="left">${fld:app_alias}</td>
+		<td align="left">${fld:rolename}</td>
+		<td align="center">${fld:pan_orden}</td>
+		<td align="center">${fld:pan_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

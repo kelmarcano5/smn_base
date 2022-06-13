@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnzonaspostales.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_postal_zones}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<table recordset='query-smnzonaspostales.sql' width='100' spacingBefore='40'>
+			<col name='zpo_ciudades' title='${lbl:b_city}' width='33' align='left' format='######' />
+			<col name='zpo_codigo' title='${lbl:b_code}' width='33' align='left' />
+			<col name='zpo_fecha_registro' title='${lbl:b_store_date}' width='33' align='center' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

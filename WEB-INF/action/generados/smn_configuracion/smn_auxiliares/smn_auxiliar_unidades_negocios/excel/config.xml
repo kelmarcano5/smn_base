@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarunidadesnegocios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnauxiliarunidadesnegocios.sql' sheetname='${lbl:b_outsourced_units_business}' filename='smn_auxiliar_unidades_negocios.xls'>
+		<col id='tun_codigo' label='${lbl:b_code}' />
+		<col id='tun_nombre' label='${lbl:b_name}' />
+		<col id='tun_responsable' label='${lbl:b_responsible}' />
+		<col id='tun_direccion' label='${lbl:b_address}' />
+		<col id='tun_telefono_fijo' label='${lbl:b_fixed_phone}' />
+		<col id='tun_telefono_movil' label='${lbl:b_mobile_phone}' />
+		<col id='tun_email' label='${lbl:s_profile_email}' />
+		<col id='tun_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

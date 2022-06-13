@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_areas_servicios_id_name' type='varchar' required='true' label='${lbl:b_service_area}'/>
+	<parameter id='smn_areas_servicios_id' type='integer' required='false' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='uns_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='uns_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_service_unit}' maxlen='10'/>
+	<parameter id='smn_tipo_unidad_administrativa' type='varchar' required='true' label='${lbl:b_united_administrative}' maxlen='2'/>
+
+</validator>

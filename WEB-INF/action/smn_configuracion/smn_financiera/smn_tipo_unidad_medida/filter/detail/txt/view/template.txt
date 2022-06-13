@@ -1,0 +1,3 @@
+<rows>
+tum_fecha_registro="${fld:tum_fecha_registro}"    tum_descripcion="${fld:tum_descripcion}"    tum_codigo="${fld:tum_codigo}"    
+</rows>

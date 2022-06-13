@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('aca_tipo_persona_pl0','query-smnauxiliartercero.sql')" >${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick="sortBy('atr_codigo','query-smnauxiliartercero.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('atr_descripcion','query-smnauxiliartercero.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('atr_comunidad','query-smnauxiliartercero.sql')" >${lbl:b_community}</th>
+		<th class='sortable' onclick="sortBy('atr_auxiliar_corporacion','query-smnauxiliartercero.sql')" >${lbl:b_outsourced_corporation}</th>
+		<th class='sortable' onclick="sortBy('atr_auxiliar_unidad_negocio','query-smnauxiliartercero.sql')" >${lbl:b_outsourced_unit_business}</th>
+		<th class='sortable' onclick="sortBy('atr_fecha_registro','query-smnauxiliartercero.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_auxiliar_tercero_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_auxiliar_tercero_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_auxiliar_tercero_id}')" title="Editar"></td>
+		<td align="left">${fld:aca_tipo_persona_pl0}</td>
+		<td align="left">${fld:atr_codigo}</td>
+		<td align="left">${fld:atr_descripcion}</td>
+		<td align="left">${fld:atr_comunidad}</td>
+		<td align="left">${fld:atr_auxiliar_corporacion}</td>
+		<td align="left">${fld:atr_auxiliar_unidad_negocio}</td>
+		<td align="center">${fld:atr_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

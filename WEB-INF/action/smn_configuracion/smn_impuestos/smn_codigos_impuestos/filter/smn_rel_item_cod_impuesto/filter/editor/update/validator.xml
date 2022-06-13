@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_item_id_name' type='varchar' required='false' label='${lbl:b_item}'/>
+	<parameter id='smn_item_id' type='integer' required='false' label='${lbl:b_item}' maxlen='10'/>
+	<parameter id='smn_codigos_impuestos_id_name' type='varchar' required='false' label='${lbl:b_taxes}'/>
+	<parameter id='smn_codigos_impuestos_id' type='integer' required='false' label='${lbl:b_taxes}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_relacion_af_codigos_impuestos}' maxlen='10'/>
+</validator>

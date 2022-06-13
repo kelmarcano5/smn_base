@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validator maxErrors="20">
+	<parameter id="eor_centro_costo_desc" type="varchar" required="true" maxlen="48"/>
+	<parameter id="eor_auxiliar_desc" type="varchar" required="true" maxlen="48"/>
+	<parameter id="eor_clase_auxiliar_desc" type="varchar" required="false" maxlen="48"/>
+	<parameter id="smn_configuracion_estructura_id_desc" type="varchar" required="false" maxlen="48"/>
+	<parameter id="eor_codigo" type="varchar" required="true" maxlen="24"/>
+	<parameter id="eor_nombre" type="varchar" required="true" maxlen="64"/>
+	
+	<parameter id="eor_centro_costo_ref" type="integer" required="false" maxlen="10"/>
+	<parameter id="eor_auxiliar_ref" type="integer" required="false" maxlen="10"/>
+	<parameter id="eor_clase_auxiliar_ref" type="integer" required="false" maxlen="10"/>
+	<parameter id="smn_configuracion_estructura_id_ref" type="integer" required="false" maxlen="10"/>
+	
+	<custom-validator 
+		classname="dinamica.validators.GetColValueValidator" 
+		on-error-label="${lbl:b_field_does_not_registered}: eor_clase_auxiliar_ref" 
+		sql="eor_clase_auxiliar.sql" 
+		id="eor_clase_auxiliar_ref" 
+		parameter="eor_clase_auxiliar_ref"/>
+	<custom-validator 
+		classname="dinamica.validators.GetColValueValidator" 
+		on-error-label="${lbl:b_field_does_not_registered}: eor_centro_costo_ref" 
+		sql="eor_centro_costo.sql" 
+		id="eor_centro_costo_ref" 
+		parameter="eor_centro_costo_ref"/>
+	<custom-validator 
+		classname="dinamica.validators.GetColValueValidator" 
+		on-error-label="${lbl:b_field_does_not_registered}: smn_configuracion_estructura_id_ref" 
+		sql="smn_configuracion_estructura_id.sql" 
+		id="smn_configuracion_estructura_id_ref" 
+		parameter="smn_configuracion_estructura_id_ref"/>
+	<custom-validator 
+		classname="dinamica.validators.GetColValueValidator" 
+		on-error-label="${lbl:b_field_does_not_registered}: eor_auxiliar_ref" 
+		sql="eor_auxiliar.sql" 
+		id="eor_auxiliar_ref" 
+		parameter="eor_auxiliar_ref"/>
+</validator>

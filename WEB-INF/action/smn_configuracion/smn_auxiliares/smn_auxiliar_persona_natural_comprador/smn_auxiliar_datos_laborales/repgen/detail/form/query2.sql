@@ -1,0 +1,18 @@
+select
+		smn_base.smn_auxiliar_datos_laborales.smn_clase_auxiliar_rf,
+	smn_base.smn_auxiliar_datos_laborales.smn_auxiliar_rf,
+	smn_base.smn_auxiliar_datos_laborales.adl_nombre_compania,
+	smn_base.smn_auxiliar_datos_laborales.adl_rif,
+	smn_base.smn_auxiliar_datos_laborales.adl_departamento,
+	smn_base.smn_auxiliar_datos_laborales.adl_cargo,
+	smn_base.smn_auxiliar_datos_laborales.smn_paises_rf,
+	smn_base.smn_auxiliar_datos_laborales.smn_entidades_federales_rf,
+	smn_base.smn_auxiliar_datos_laborales.smn_ciudades_rf,
+	smn_base.smn_auxiliar_datos_laborales.adl_direccion,
+	smn_base.smn_auxiliar_datos_laborales.adl_telefono_oficina,
+	smn_base.smn_auxiliar_datos_laborales.adl_email,
+	smn_base.smn_auxiliar_datos_laborales.adl_fecha_registro
+from
+	smn_base.smn_auxiliar_datos_laborales 
+where
+	smn_base.smn_auxiliar_datos_laborales.smn_auxiliar_datos_laborales_id = ${fld:id}

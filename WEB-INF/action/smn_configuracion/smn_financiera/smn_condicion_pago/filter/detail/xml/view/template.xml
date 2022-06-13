@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_condicion_pago>
+	<detail>
+		<rows>		
+		<record cop_fecha_registro="${fld:cop_fecha_registro}"    cop_descripcion="${fld:cop_descripcion}"    cop_codigo="${fld:cop_codigo}"   cop_cantidad_dias="${fld:cop_cantidad_dias}"   />
+		</rows>
+	</detail>
+</smn_condicion_pago>

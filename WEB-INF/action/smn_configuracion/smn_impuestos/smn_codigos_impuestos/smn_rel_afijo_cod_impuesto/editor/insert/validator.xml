@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_afijo_id_name' type='varchar' required='true' label='${lbl:b_fixed_assets}'/>
+	<parameter id='smn_afijo_id' type='integer' required='false' label='${lbl:b_fixed_assets}' maxlen='10'/>
+	<parameter id='smn_codigos_impuestos_id_name' type='varchar' required='false' label='${lbl:b_taxes}'/>
+	<parameter id='smn_codigos_impuestos_id' type='integer' required='false' label='${lbl:b_taxes}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='smn_afijo_id_name'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='smn_afijo_id'/>
+
+</validator>

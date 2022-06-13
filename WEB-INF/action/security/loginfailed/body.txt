@@ -1,0 +1,23 @@
+${lbl:b_admin_message_part1}:
+
+${lbl:b_admin_message_part2}
+${lbl:b_admin_message_part3}:
+
+* ${lbl:s_loginhist_col1}: ${def:date}
+* ${lbl:s_loginhist_col2}: ${def:time}
+* ${lbl:s_loginhist_col4}: ${def:context}
+* ${lbl:s_profile_login}: ${req:userlogin}
+* ${lbl:s_loginhist_col3}: ${def:remoteaddr}
+* ${lbl:s_loginhist_col5}: ${def:host}
+
+${lbl:b_admin_message_part4}
+${lbl:b_admin_message_part5}:
+http://www.iptools.com/dnstools.php?tool=ipwhois&user_data=${def:remoteaddr}
+
+${lbl:b_admin_message_part6}:
+http://whois.arin.net
+
+${lbl:b_generate_password_part5},
+${lbl:b_security_system}
+
+

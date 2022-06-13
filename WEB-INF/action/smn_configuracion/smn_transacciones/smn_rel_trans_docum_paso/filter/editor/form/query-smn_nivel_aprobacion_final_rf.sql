@@ -1,0 +1,1 @@
+select smn_base.smn_nivel_aprobacion.smn_nivel_aprobacion_id as id, smn_base.smn_nivel_aprobacion.nap_codigo|| ' - ' || smn_base.smn_nivel_aprobacion.nap_descripcion as item from smn_base.smn_nivel_aprobacion

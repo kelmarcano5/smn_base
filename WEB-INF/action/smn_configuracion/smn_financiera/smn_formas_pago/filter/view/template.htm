@@ -1,0 +1,55 @@
+<!--data grid-->
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+	<col width='15%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('fop_codigo','query-smnformaspago.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('fop_descripcion','query-smnformaspago.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('mpa_descripcion','query-smnformaspago.sql')" >${lbl:b_medio_pago}</th>
+		<th class='sortable' onclick="sortBy('fop_requiere_banco_combo','query-smnformaspago.sql')" >${lbl:b_bank}</th>
+		<th class='sortable' onclick="sortBy('fra_descripcion','query-smnformaspago.sql')" >${lbl:b_franquicias}</th>
+		<th class='sortable' onclick="sortBy('fop_fecha_registro','query-smnformaspago.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_formas_pago_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_formas_pago_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_formas_pago_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:fop_codigo}</td>
+		<td align="left">${fld:fop_descripcion}</td>
+		<td align="left">${fld:mpa_descripcion}</td>
+		<td align="left">${fld:fop_requiere_banco_combo}</td>
+		<td align="left">${fld:fra_descripcion}</td>
+		<td align="center">${fld:fop_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

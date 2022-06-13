@@ -1,0 +1,36 @@
+INSERT INTO smn_base.smn_contactos
+(
+	smn_contactos_id,
+	cnt_nombres,
+	cnt_apellidos,
+	cnt_email,
+	smn_auxiliar_id,
+	smn_clase_auxiliar_rf,
+	smn_tipo_contactos_rf,
+	cnt_descripcion,
+	smn_tipo_contactos_rf1,
+	cnt_descripcion1,
+	cnt_telefono_contacto,
+	cnt_idioma,
+	cnt_usuario,
+	cnt_fecha_registro,
+	cnt_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_contactos},
+	${fld:cnt_nombres},
+	${fld:cnt_apellidos},
+	${fld:cnt_email},
+	${fld:smn_auxiliar_id},
+	${fld:smn_clase_auxiliar_rf},
+	${fld:smn_tipo_contactos_rf},
+	${fld:cnt_descripcion},
+	${fld:smn_tipo_contactos_rf1},
+	${fld:cnt_descripcion1},
+	${fld:cnt_telefono_contacto},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

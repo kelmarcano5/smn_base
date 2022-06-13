@@ -1,0 +1,67 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='3%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="14" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>AC</th>
+		<th>IN</th>
+		<th class='sortable' onclick='sortBy("userlogin","query-smnauxiliar.sql")'>${lbl:b_code_user}</th>
+		<th class='sortable' onclick='sortBy("smn_clase_auxiliar_rf","query-smnauxiliar.sql")'>${lbl:b_class_auxiliary}</th>
+		<th class='sortable' onclick='sortBy("aux_apellidos","query-smnauxiliar.sql")'>${lbl:b_last_name}</th>
+		<th class='sortable' onclick='sortBy("aux_nombres","query-smnauxiliar.sql")'>${lbl:b_first_name}</th>
+		<th class='sortable' onclick='sortBy("aux_tipo_doc_oficial_rf","query-smnauxiliar.sql")'>${lbl:b_document_type_oficial}</th>
+		<th class='sortable' onclick='sortBy("aux_num_doc_oficial","query-smnauxiliar.sql")'>${lbl:b_document_number_oficial}</th>
+		<th class='sortable' onclick='sortBy("estatus","query-smnauxiliar.sql")'>${lbl:b_estatus}</th>
+		<th class='sortable' onclick='sortBy("aux_fecha_registro","query-smnauxiliar.sql")'>${lbl:b_store_date}</th>
+		<th>CT</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_auxiliar_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:user_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_auxiliar_id}')" title="${lbl:b_edit_button}"></td>
+		<td><img src="${def:context}/images/accept.png"  onclick="activarUsuario('${fld:smn_auxiliar_id}','${fld:user_id}','${fld:smn_usuarios_id}')" title="Activar Usuario"></td>
+		<td><img src="${def:context}/images/reject.png"  onclick="deshabilitarUsuario('${fld:smn_auxiliar_id}','${fld:user_id}','${fld:smn_usuarios_id}')" title="Inactivar Usuario"></td>
+		<td>${fld:userlogin}</td>
+		<td>${fld:smn_clase_auxiliar_rf}</td>
+		<td align='left'>${fld:aux_apellidos}</td>
+		<td align='left'>${fld:aux_nombres}</td>
+		<td>${fld:aux_tipo_doc_oficial_rf}</td>
+		<td align='left'>${fld:aux_num_doc_oficial}</td>
+		<td align='center'>${fld:estatus}</td>
+		<td>${fld:aux_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/view-list-details.png" onclick="contacto('${fld:smn_auxiliar_id}','${fld:aux_apellidos}','${fld:aux_nombres}','${fld:cla_codigo}','${fld:cla_nombre}')" title="${lbl:b_contact}"></td>
+
+	</tr>
+	</rows>
+
+</table>

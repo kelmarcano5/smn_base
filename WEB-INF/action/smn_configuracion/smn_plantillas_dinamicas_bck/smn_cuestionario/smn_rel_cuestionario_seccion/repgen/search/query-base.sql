@@ -1,0 +1,10 @@
+select
+		smn_base.smn_rel_cuestionario_seccion.smn_rel_cuestionario_seccion_id,
+	${field}
+from
+	smn_base.smn_rel_cuestionario_seccion
+where
+		smn_base.smn_rel_cuestionario_seccion.smn_rel_cuestionario_seccion_id is not null
+	${filter}
+	
+	

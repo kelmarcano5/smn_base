@@ -1,0 +1,21 @@
+select	
+	smn_base.smn_prestadores_servicios.smn_prestadores_servicios_id,
+	smn_base.smn_prestadores_servicios.prs_codigo,
+	smn_base.smn_prestadores_servicios.prs_descripcion,
+	smn_base.smn_prestadores_servicios.prs_area_servicio,
+	smn_base.smn_prestadores_servicios.prs_unidad_servicio,
+	smn_base.smn_prestadores_servicios.prs_clase_auxiliar,
+	smn_base.smn_prestadores_servicios.prs_auxiliar,
+	smn_base.smn_prestadores_servicios.prs_orden_atencion,
+	smn_base.smn_prestadores_servicios.prs_estatus,
+	smn_base.smn_prestadores_servicios.prs_fecha_inicio_estatus,
+	smn_base.smn_prestadores_servicios.prs_fecha_final_estatus,
+	smn_base.smn_prestadores_servicios.prs_frecuencia,
+	smn_base.smn_prestadores_servicios.prs_fecha_registro,
+	smn_base.smn_prestadores_servicios.prs_nivel_seguridad
+from 
+	smn_base.smn_prestadores_servicios
+where 
+	smn_base.smn_prestadores_servicios.smn_prestadores_servicios_id = ${fld:id}
+
+

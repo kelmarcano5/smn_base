@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='tcp_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='tcp_nombre' type='varchar' required='false' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='tcp_auxiliar_unidad_negocio' type='integer' required='false' label='${lbl:b_outsourced_unit_business}' maxlen='10'/>
+	<parameter id='tcp_moneda' type='integer' required='false' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='tcp_direccion' type='integer' required='false' label='${lbl:b_address}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='tcp_codigo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='tcp_nombre'
+		rule='contains' />
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='tcp_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='tcp_nombre'/>
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

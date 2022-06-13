@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Ejecutar consulta y enrutar dependiendo de que un recordset
+		tenga o no registros
+	</summary>
+
+	<log>false</log>
+
+	<!--configura el control de paginacion-->
+	<set-request-attribute id="paging.recordset" value="query-smnmodulos.sql" />
+	<set-request-attribute id="paging.pagesize" value="10" />
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>smn_entidades_id</colname>
+			<colname>smn_app_id</colname>
+			<colname>mod_codigo</colname>
+			<colname>mod_nombre</colname>
+			<colname>mod_fecha_registro_ini</colname>
+			<colname>mod_fecha_registro_fin</colname>
+		
+		</cols>
+		<table>smn_base.smn_modulos</table>
+		<oper>CONSULTA</oper>
+		<area>Consulta</area>
+		<!-- 
+ 			para auditoria de consulta permite obtener la cantidad de registro obtenidos
+ 			de la busqueda (opcional)
+ 		-->
+		<recordCount recordset="query-smnmodulos.sql"/>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableSearch</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+	</transaction>
+	
+	<searchCols>smn_entidades_id;smn_app_id;mod_codigo;mod_nombre;mod_fecha_registro_ini;mod_fecha_registro_fin;</searchCols>
+
+	<on-exit return-code="0" forward-to="/action/initview" />
+	<on-exit return-code="1" forward-to="${def:actionroot}/notfound" />
+
+</config>

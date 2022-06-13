@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_paso>
+	<detail>
+		<rows>		
+		<record pas_fecha_registro="${fld:pas_fecha_registro}"    pas_estatus_doc="${fld:pas_estatus_doc}"    pas_cod_paso_siguiente="${fld:pas_cod_paso_siguiente}"    pas_cod_paso_anterior="${fld:pas_cod_paso_anterior}"    pas_descripcion="${fld:pas_descripcion}"    pas_codigo="${fld:pas_codigo}"    />
+		</rows>
+	</detail>
+</smn_paso>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnatributovalor.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_valor_atributo}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' align="left" />
+	<pdf-file-name>${lbl:b_valor_atributo}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='filter.params' title='${lbl:b_filter_find}' noFilterMsg='-- ${lbl:b_all_message} --' width='55' spacingBefore='15'>
+			<col name='atv_codigo' title='${lbl:b_code}'  align='left' />
+			<col name='atv_descripcion' title='${lbl:b_description}'  format='######' align='left' />
+			<col name='atv_fecha_registro_ini' title='${lbl:b_store_date_greather_than}'  format='dd-MM-yyyy' align='left' />
+			<col name='atv_fecha_registro_fin' title='${lbl:b_store_date_less_than}'  format='dd-MM-yyyy' align='left' />
+
+		</record>
+		<record recordset='query-smnatributovalor.sql' width='100' spacingBefore='10'>
+			<col name='smn_atributo_item_id_combo' title='${lbl:b_atributos_item}' width='11' align='left' format='######' />
+			<col name='atv_codigo' title='${lbl:b_code}' width='11' align='left' />
+			<col name='atv_descripcion' title='${lbl:b_description}' width='11' align='left' format='######' />
+			<col name='atv_fecha_vigencia_desde' title='${lbl:b_validation_date_from}' width='11' align='left' format='dd-MM-yyyy' />
+			<col name='atv_fecha_vigencia_hasta' title='${lbl:b_validation_date_until}' width='11' align='left' format='dd-MM-yyyy' />
+			<col name='atv_idioma' title='${lbl:s_profile_lang}' width='11' align='left' />
+			<col name='atv_usuario' title='${lbl:b_users}' width='11' align='left' />
+			<col name='atv_fecha_registro' title='${lbl:b_store_date}' width='11' align='left' format='dd-MM-yyyy' />
+			<col name='atv_hora' title='${lbl:s_loginhist_col2}' width='11' align='left' />
+
+		</record>
+
+	</pdf-report>
+</config>

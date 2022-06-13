@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='apc_apellidos' type='varchar' required='true' maxlen='64'/>
+	<parameter id='apc_nombres' type='varchar' required='true' maxlen='64'/>
+	<parameter id='apc_telefono_contacto' type='varchar' required='false' maxlen='64'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='apc_nombres'/>
+
+
+</validator>

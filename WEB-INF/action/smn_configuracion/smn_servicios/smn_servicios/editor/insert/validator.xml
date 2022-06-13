@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='svc_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='svc_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='56'/>
+	<parameter id='smn_tipo_servicio_rf' type='integer' required='false' label='${lbl:b_service_type}' maxlen='10'/>
+	<parameter id='svc_frecuencia' type='integer' required='false' label='${lbl:b_frecuency}' maxlen='10'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' label='${lbl:b_measurement_unit}' maxlen='10'/>
+	<parameter id='smn_precio_moneda_local' type='double' required='false' label='${lbl:b_coin_local_price}' maxlen='10'/>
+	<parameter id='smn_moneda_rf' type='integer' required='false' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='smn_precio_moneda_alterna' type='double' required='false' label='${lbl:b_coin_altern_price}' maxlen='10'/>
+	<parameter id='smn_descuento_rf' type='integer' required='false' label='${lbl:b_discount}' maxlen='10'/>
+	<parameter id='svc_monto_desc_ml' type='double' required='false' label='${lbl:b_amount_desc_ml}' maxlen='10'/>
+	<parameter id='svc_monto_desc_ma' type='double' required='false' label='${lbl:b_amount_desc_ma}' maxlen='10'/>
+	<parameter id='svr_precio_neto' type='double' required='false' label='${lbl:b_price_net}' maxlen='10'/>
+	<parameter id='svc_precio_neto_ma' type='double' required='false' label='${lbl:b_price_net_ma}' maxlen='10'/>
+	<parameter id='svc_req_prestador' type='varchar' required='true' label='${lbl:b_require_providers_group}' maxlen='1'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='svc_requisitos' type='varchar' required='false' label='${lbl:b_requirements}' maxlen='2048'/>
+	<parameter id='svc_vigencia_desde' type='date' required='true' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<parameter id='svc_vigencia_hasta' type='date' required='true' label='${lbl:b_validation_date_to}' maxlen='10'/>
+	<parameter id='smn_documento_general_rf' type='integer' required='false' label='${lbl:b_documents_general}' maxlen='10'/>
+	<parameter id='svc_inactivo' type='varchar' required='false' label='${lbl:b_inactive}' maxlen='1'/>
+	<parameter id='smn_grupo_titulo_impresion_rf' type='integer' required='false' label='${lbl:b_group_title_print}' maxlen='10'/>
+	<parameter id='smn_baremos_id' type='integer' required='true' label='${lbl:b_coin}' maxlen='10'/>
+	
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='svc_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='svc_descripcion'/>
+
+</validator>

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id="view.record" onerror="/action/error/validation/dialog">
+	<parameter id="id" type="integer" required="true" label="ID" maxlen="10" />
+	<parameter id="uen_filter" type="varchar" required="false" label="UEN" maxlen="48" />
+	<parameter id="uen_auxiliar_filter" type="varchar" required="false" label="ID" maxlen="48" />
+</validator>

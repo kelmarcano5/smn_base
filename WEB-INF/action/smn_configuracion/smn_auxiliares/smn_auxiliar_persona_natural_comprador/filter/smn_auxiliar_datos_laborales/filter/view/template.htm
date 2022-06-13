@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+	<col width='7%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_clase_auxiliar_rf","query-smnauxiliardatoslaborales.sql")'>${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick='sortBy("smn_auxiliar_rf","query-smnauxiliardatoslaborales.sql")'>${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick='sortBy("adl_nombre_compania","query-smnauxiliardatoslaborales.sql")'>${lbl:b_company_name}</th>
+		<th class='sortable' onclick='sortBy("adl_rif","query-smnauxiliardatoslaborales.sql")'>${lbl:b_rif}</th>
+		<th class='sortable' onclick='sortBy("adl_telefono_oficina","query-smnauxiliardatoslaborales.sql")'>${lbl:b_office_phone}</th>
+		<th class='sortable' onclick='sortBy("adl_email","query-smnauxiliardatoslaborales.sql")'>${lbl:s_profile_email}</th>
+		<th class='sortable' onclick='sortBy("adl_fecha_registro","query-smnauxiliardatoslaborales.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_auxiliar_datos_laborales_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_auxiliar_datos_laborales_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_auxiliar_datos_laborales_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_clase_auxiliar_rf}</td>
+		<td>${fld:smn_auxiliar_rf}</td>
+		<td align='left'>${fld:adl_nombre_compania}</td>
+		<td align='left'>${fld:adl_rif}</td>
+		<td align='left'>${fld:adl_telefono_oficina}</td>
+		<td align='left'>${fld:adl_email}</td>
+		<td>${fld:adl_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

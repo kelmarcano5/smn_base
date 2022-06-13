@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_perfil>
+	<detail>
+		<rows>		
+		<record prf_fecha_registro="${fld:prf_fecha_registro}"    prf_import="${fld:prf_import}"    prf_find="${fld:prf_find}"    prf_export="${fld:prf_export}"    prf_view="${fld:prf_view}"    prf_edit="${fld:prf_edit}"    prf_del="${fld:prf_del}"    prf_add="${fld:prf_add}"    prf_tipo_acceso="${fld:prf_tipo_acceso}"    service_id="${fld:service_id}"    role_id="${fld:role_id}"    prf_fecha_registro="${fld:prf_fecha_registro}"    prf_import="${fld:prf_import}"    prf_find="${fld:prf_find}"    prf_export="${fld:prf_export}"    prf_view="${fld:prf_view}"    prf_edit="${fld:prf_edit}"    prf_del="${fld:prf_del}"    prf_add="${fld:prf_add}"    prf_tipo_acceso="${fld:prf_tipo_acceso}"    service_id="${fld:service_id}"    role_id="${fld:role_id}"    />
+		</rows>
+	</detail>
+</smn_perfil>

@@ -1,0 +1,51 @@
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='23%'/>
+	<col width='12%'/>
+	<col width='21%'/>
+	<col width='21%'/>
+	<col width='14%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("mun_nombre_corto","query-smnparroquias.sql")'>${lbl:b_municipality}</th>
+		<th class='sortable' onclick='sortBy("prr_codigo","query-smnparroquias.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("prr_nombre_corto","query-smnparroquias.sql")'>${lbl:b_short_name}</th>
+		<th class='sortable' onclick='sortBy("prr_nombre_largo","query-smnparroquias.sql")'>${lbl:b_long_name}</th>
+		<th class='sortable' onclick='sortBy("prr_fecha_registro","query-smnparroquias.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_parroquias_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_parroquias_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_parroquias_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:mun_nombre_corto}</td>
+		<td align='left'>${fld:prr_codigo}</td>
+		<td align='left'>${fld:prr_nombre_corto}</td>
+		<td align='left'>${fld:prr_nombre_largo}</td>
+		<td>${fld:prr_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

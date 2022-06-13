@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarunidadesservicios-template.sql" source="sql" scope="transaction" />
+		<recordset id="query-smnauxiliarareasservicios.sql" source="sql" scope="transaction" />		
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_auxiliares.smn_auxiliar_tipos_servicios.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_outsourced_units_services}.xls'      
+		header-background='true' >
+		
+	<sheet recordset="query-smnauxiliarunidadesservicios-template.sql" sheetname="${lbl:b_outsourced_units_services}">
+		
+		<col id='tse_codigo_pl0' label='${lbl:b_outsourced_service_area}' />
+		<col id='tns_codigo' label='${lbl:b_code}' />
+		<col id='tns_descripcion' label='${lbl:b_description}' />
+		
+		<col id='tse_codigo_pl0_reference' label='${lbl:b_outsourced_service_area}' />
+
+	</sheet>
+	
+	<sheet recordset='query-smnauxiliarareasservicios.sql' sheetname='${lbl:b_outsourced_service_area}'>
+		<col id='tse_descripcion' label='${lbl:b_description}' />
+	</sheet>
+	
+	</excel>
+
+</config>

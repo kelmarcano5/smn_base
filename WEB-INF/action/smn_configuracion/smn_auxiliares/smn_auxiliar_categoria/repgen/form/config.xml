@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Filtro de búsqueda para la generación de reportes
+	</summary>
+	
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-aca_naturaleza_auxiliar.sql' source='sql' scope='transaction'/>
+		<recordset id='query-aca_empresa.sql' source='sql' scope='transaction'/>
+		<recordset id='query-aca_sucursal.sql' source='sql' scope='transaction'/>
+		<recordset id='query-aca_unidad_negocio.sql' source='sql' scope='transaction'/>
+		<recordset id='query-aca_area_servicio.sql' source='sql' scope='transaction'/>
+		<recordset id='query-aca_unidad_servicio.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-aca_naturaleza_auxiliar.sql' tag='aca_naturaleza_auxiliar_rows'/>
+		<print mode='table' recordset='query-aca_empresa.sql' tag='aca_empresa_rows'/>
+		<print mode='table' recordset='query-aca_sucursal.sql' tag='aca_sucursal_rows'/>
+		<print mode='table' recordset='query-aca_unidad_negocio.sql' tag='aca_unidad_negocio_rows'/>
+		<print mode='table' recordset='query-aca_area_servicio.sql' tag='aca_area_servicio_rows'/>
+		<print mode='table' recordset='query-aca_unidad_servicio.sql' tag='aca_unidad_servicio_rows'/>
+	</output>
+
+</config>

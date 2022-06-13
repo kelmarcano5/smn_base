@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='dir_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='dir_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_pais_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_entidad_federal_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_ciudad_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_municipio_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_parroquia_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_zona_postal_desc' type='varchar' required='true' maxlen='8'/>
+	<parameter id='dir_tipo_via_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_tipo_via_nom' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_tipo_via_num' type='varchar' required='false' maxlen='16'/>
+	<parameter id='dir_edificacion_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_edificacion_nom' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_edificacion_num' type='varchar' required='false' maxlen='16'/>
+	<parameter id='dir_tipo_localidad_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='dir_tipo_localidad_nom' type='varchar' required='false' maxlen='48'/>
+	<parameter id='dir_apartado_postal' type='varchar' required='false' maxlen='8'/>
+	<parameter id='dir_categoria' type='varchar' required='false' maxlen='48'/>
+	<parameter id='dir_mapa_longitud' type='double' required='false' maxlen='10'/>
+	<parameter id='dir_mapa_latitud' type='double' required='false' maxlen='10'/>
+
+	<parameter id='dir_pais_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='dir_entidad_federal_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='dir_ciudad_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='dir_municipio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='dir_parroquia_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='dir_zona_postal_ref' type='integer' required='false' maxlen='8'/>
+	<parameter id='dir_tipo_via_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='dir_edificacion_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='dir_tipo_localidad_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_code_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='dir_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_desc_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='dir_descripcion'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_pais' 
+		parameter='dir_pais_ref' 
+		sql='dir_pais.sql' 
+		id='dir_pais_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_entidad_federal' 
+		parameter='dir_entidad_federal_ref' 
+		sql='dir_entidad_federal.sql' 
+		id='dir_entidad_federal_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_ciudad' 
+		parameter='dir_ciudad_ref' 
+		sql='dir_ciudad.sql' 
+		id='dir_ciudad_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_municipio' 
+		parameter='dir_municipio_ref' 
+		sql='dir_municipio.sql' 
+		id='dir_municipio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_parroquia' 
+		parameter='dir_parroquia_ref' 
+		sql='dir_parroquia.sql' 
+		id='dir_parroquia_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_zona_postal' 
+		parameter='dir_zona_postal_ref' 
+		sql='dir_zona_postal.sql' 
+		id='dir_zona_postal_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_tipo_via' 
+		parameter='dir_tipo_via_ref' 
+		sql='dir_tipo_via.sql' 
+		id='dir_tipo_via_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_edificacion' 
+		parameter='dir_edificacion_ref' 
+		sql='dir_edificacion.sql' 
+		id='dir_edificacion_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: dir_tipo_localidad' 
+		parameter='dir_tipo_localidad_ref' 
+		sql='dir_tipo_localidad.sql' 
+		id='dir_tipo_localidad_ref'/>
+
+</validator>

@@ -1,0 +1,2 @@
+ and
+ 	smn_base.smn_rel_entidad_estructura.smn_configuracion_estructura_id=${fld:smn_configuracion_estructura_id}

@@ -1,0 +1,3 @@
+<rows>
+tlo_fecha_registro="${fld:tlo_fecha_registro}"    tlo_descripcion="${fld:tlo_descripcion}"    tlo_codigo="${fld:tlo_codigo}"    
+</rows>

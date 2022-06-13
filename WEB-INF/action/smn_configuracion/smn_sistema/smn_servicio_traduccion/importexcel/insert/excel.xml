@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='set_app_id_desc' type='varchar' required='true' maxlen='20'/>
+	<parameter id='set_menu_id_desc' type='varchar' required='true' maxlen='100'/>
+	<parameter id='set_servicio_id_desc' type='varchar' required='true' maxlen='150'/>
+	<parameter id='set_servicio' type='varchar' required='true' maxlen='100'/>
+	<parameter id='set_locale_desc' type='varchar' required='true' maxlen='24'/>
+
+	<parameter id='set_app_id_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='set_menu_id_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='set_servicio_id_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='set_locale_ref' type='varchar' required='false' maxlen='2'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ${lbl:b_application}' 
+		parameter='set_app_id_ref' 
+		sql='set_app_id.sql' 
+		id='set_app_id_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ${lbl:b_menu}' 
+		parameter='set_menu_id_ref' 
+		sql='set_menu_id.sql' 
+		id='set_menu_id_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ${lbl:b_service}' 
+		parameter='set_servicio_id_ref' 
+		sql='set_servicio_id.sql' 
+		id='set_servicio_id_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ${lbl:b_idiom}' 
+		parameter='set_locale_ref' 
+		sql='set_locale.sql' 
+		id='set_locale_ref'/>
+
+</validator>

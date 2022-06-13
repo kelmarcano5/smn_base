@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_naturaleza_auxiliar_rf' type='integer' required='false' label='${lbl:b_nature_auxiliary}' maxlen='10'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='true' label='${lbl:b_class_auxiliary}' maxlen='10'/>
+	<parameter id='aux_tipo_persona' type='varchar' required='true' label='${lbl:b_person_type}' maxlen='2'/>
+	<parameter id='aux_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='aux_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='aux_sectores_economicos_rf' type='integer' required='false' label='${lbl:b_economic_sectors}' maxlen='10'/>
+	<parameter id='aux_denom_comercial' type='varchar' required='false' label='${lbl:b_comercial_denomination}' maxlen='250'/>
+	<parameter id='aux_razon_social' type='varchar' required='false' label='${lbl:b_business_name}' maxlen='250'/>
+	<parameter id='aux_representante_legal' type='varchar' required='false' label='${lbl:b_legal_represent}' maxlen='250'/>
+	<parameter id='aux_tipo_doc_oficial_rf' type='integer' required='false' label='${lbl:b_document_type_oficial}' maxlen='10'/>
+	<parameter id='aux_num_doc_oficial' type='varchar' required='false' label='${lbl:b_document_number_oficial}' maxlen='12'/>
+	<parameter id='aux_rif' type='varchar' required='false' label='${lbl:b_rif}' maxlen='16'/>
+	<parameter id='aux_direccion_rf' type='integer' required='false' label='${lbl:b_address}' maxlen='10'/>
+	<parameter id='aux_comunidad_rf' type='integer' required='false' label='${lbl:b_community}' maxlen='10'/>
+	<parameter id='aux_auxiliar_corporacion_rf' type='integer' required='false' label='${lbl:b_outsourced_corporations}' maxlen='10'/>
+	<parameter id='aux_auxiliar_unidad_negocio_rf' type='integer' required='false' label='${lbl:b_outsourced_unit_business}' maxlen='10'/>
+	<parameter id='aux_benef_pago' type='varchar' required='false' label='${lbl:b_beneficiary_payments}' maxlen='112'/>
+	<parameter id='aux_cond_pago_rf' type='integer' required='false' label='${lbl:b_condition_payments}' maxlen='10'/>
+	<parameter id='aux_condicion_financiera_rf' type='integer' required='false' label='${lbl:b_conditional_financial}' maxlen='10'/>
+	<parameter id='aux_cuenta_bancaria_rf' type='integer' required='false' label='${lbl:b_bank_account_number}' maxlen='10'/>
+	<parameter id='aux_maneja_sucursal' type='varchar' required='false' label='${lbl:b_has_subsidiary}' maxlen='2'/>
+	<parameter id='aux_persona_contacto' type='varchar' required='false' label='${lbl:b_contact_person}' maxlen='48'/>
+	<parameter id='aux_observacion' type='varchar' required='false' label='${lbl:b_observations}' maxlen='96'/>
+	<parameter id='aux_apellidos' type='varchar' required='false' label='${lbl:b_last_name}' maxlen='64'/>
+	<parameter id='aux_nombres' type='varchar' required='false' label='${lbl:b_first_name}' maxlen='64'/>
+	<parameter id='aux_fecha_nac' type='integer' required='false' label='${lbl:b_date_place}' maxlen='10'/>
+	<!-- <parameter id='aux_fecha_nac' type='date' required='false' label='${lbl:b_date_place}' maxlen='10'/> -->
+	<parameter id='aux_lugar_nac' type='varchar' required='false' label='${lbl:b_birth_place}' maxlen='64'/>
+	<parameter id='aux_titular_rf' type='integer' required='false' label='${lbl:b_titular}' maxlen='10'/>
+	<parameter id="reference" type="varchar" required="false" label="Reference" maxlen="5" />
+	<!-- <parameter id='aux_anio' type='integer' required='false' label='${lbl:b_year}' maxlen='10'/> -->
+
+
+	<!--DATOS DE CONTACTO-->
+	<parameter id='smn_tipo_contactos_rf' type='integer' required='true' label='${lbl:b_type_contact}' maxlen='10'/>
+	<parameter id='auc_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='24'/>
+	<!-- <parameter id='smn_tipo_contactos_rf1' type='integer' required='true' label='${lbl:b_type_contact}' maxlen='10'/>
+	<parameter id='auc_descripcion1' type='varchar' required='true' label='${lbl:b_description}' maxlen='24'/> -->
+	
+	<parameter id='apc_apellidos' type='varchar' required='true' label='${lbl:s_profile_lname}' maxlen='64'/>
+	<parameter id='apc_nombres' type='varchar' required='true' label='${lbl:s_profile_fname}' maxlen='64'/>
+	<parameter id='apc_telefono_contacto' type='varchar' required='false' label='${lbl:b_phone}' maxlen='64'/>
+	<parameter id='apc_email' type='varchar' required='false' label='${lbl:b_email}' maxlen='100'/>
+	<parameter id='apc_direccion' type='varchar' required='false' label='${lbl:b_address}' maxlen='250'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='aux_codigo'/>
+
+	 <custom-validator
+			classname='dinamica.validators.DuplicatedKeyValidator'
+				on-error-label='${lbl:b_record_not_duplicated}.'
+				sql='buscarDescripcion.sql'
+				id='aux_num_doc_oficial'/>
+	
+		<custom-validator
+			classname='dinamica.validators.DuplicatedKeyValidator'
+				on-error-label='${lbl:b_record_not_duplicated}.'
+				sql='buscarNombre.sql'
+				id='aux_rif'/> 
+
+
+</validator>

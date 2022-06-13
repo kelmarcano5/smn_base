@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator>
+	<parameter id='smn_entidades_id' type='integer' required='true' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='ent_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='ent_comunidad' type='integer' required='false' label='${lbl:b_community}@{select smn_base.smn_comunidades.smn_comunidades_id as id, smn_base.smn_comunidades.cmn_codigo || " -" || smn_base.smn_comunidades.cmn_nombre as item from smn_base.smn_comunidades order by smn_base.smn_comunidades.cmn_nombre}' maxlen='8'/>
+	<parameter id='ent_corporacion' type='integer' required='false' label='${lbl:b_corporation}@{select smn_base.smn_corporaciones.smn_corporaciones_id as id, smn_base.smn_corporaciones.crp_codigo || " -" || smn_base.smn_corporaciones.crp_nombre as item from smn_base.smn_corporaciones order by smn_base.smn_corporaciones.crp_nombre}' maxlen='8'/>
+	<parameter id='ent_unidad_negocio' type='integer' required='false' label='${lbl:b_business_unit}@{select smn_base.smn_unidades_negocios.smn_unidades_negocios_id as id, smn_base.smn_unidades_negocios.uen_codigo || " -" || smn_base.smn_unidades_negocios.uen_nombre as item from smn_base.smn_unidades_negocios order by smn_base.smn_unidades_negocios.uen_nombre}' maxlen='10'/>
+	<parameter id='ent_maneja_sucursal' type='varchar' required='true' label='${lbl:b_has_subsidiary}@{S=${lbl:b_yes}|N=${lbl:b_not}}' maxlen='1'/>
+	<parameter id='ent_moneda' type='integer' required='true' label='${lbl:b_currency}@{select smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || " -" || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by smn_base.smn_monedas.mon_nombre}' maxlen='10'/>
+	<parameter id='ent_sector_economico' type='integer' required='false' label='${lbl:b_economic_sector}@{select smn_base.smn_sectores_economicos.smn_sectores_economicos_id as id, smn_base.smn_sectores_economicos.sec_codigo || " -" || smn_base.smn_sectores_economicos.sec_descripcion as item from smn_base.smn_sectores_economicos order by smn_base.smn_sectores_economicos.sec_descripcion}' maxlen='10'/>
+	<parameter id='ent_descripcion_corta' type='varchar' required='true' label='${lbl:b_short_description}' maxlen='24'/>
+	<parameter id='ent_descripcion_larga' type='varchar' required='true' label='${lbl:b_long_description}' maxlen='56'/>
+	<parameter id='ent_nro_id_fiscal' type='varchar' required='true' label='${lbl:b_tax_identification_number}' maxlen='12'/>
+	<parameter id='ent_direccion' type='integer' required='true' label='${lbl:b_address}@{select smn_base.smn_direccion.smn_direccion_id as id, smn_base.smn_direccion.dir_codigo || " -" || smn_base.smn_direccion.dir_descripcion as item from smn_base.smn_direccion order by smn_base.smn_direccion.dir_descripcion}' maxlen='10'/>
+	<parameter id='ent_contacto' type='varchar' required='true' label='${lbl:b_contact_person}' maxlen='56'/>
+	<parameter id='ent_telefono_fijo' type='varchar' required='true' label='${lbl:b_fixed_phone}' maxlen='24'/>
+	<parameter id='ent_telefono_movil' type='varchar' required='false' label='${lbl:b_mobile_phone}' maxlen='24'/>
+	<parameter id='ent_email' type='varchar' required='true' label='${lbl:s_profile_email}' maxlen='96'/>
+	<parameter id='ent_act_economica' type='varchar' required='true' label='${lbl:b_economic_activity}' maxlen='1024'/>
+	<parameter id='ent_idioma' type='varchar' required='true' label='${lbl:s_profile_lang}@{${def:locale}}' maxlen='2'/>
+	<parameter id='ent_usuario' type='varchar' required='true' label='${lbl:b_users}@{${def:user}}' maxlen='10'/>
+	<parameter id='ent_fecha_registro' type='date' required='true' label='${lbl:b_store_date}@{${def:date}}' maxlen='10'/>
+	<parameter id='ent_hora' type='varchar' required='true' label='${lbl:s_loginhist_col2}@{${def:time}}' maxlen='8'/>
+</validator>

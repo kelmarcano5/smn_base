@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_intermediary_assistant}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_auxiliary}</td>
+			<td style="background-color: white">${fld:smn_auxiliar_categoria_id_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:atr_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:atr_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_community}</td>
+			<td style="background-color: white">${fld:atr_comunidad_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_outsourced_corporation}</td>
+			<td style="background-color: white">${fld:atr_auxiliar_corporacion_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_outsourced_unit_business}</td>
+			<td style="background-color: white">${fld:atr_auxiliar_unidad_negocio_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_has_subsidiary}</td>
+			<td style="background-color: white">${fld:atr_maneja_sucursal_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_business_name}</td>
+			<td style="background-color: white">${fld:atr_razon_social}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_designation_commercial}</td>
+			<td style="background-color: white">${fld:atr_denom_comercial}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_beneficiary}</td>
+			<td style="background-color: white">${fld:atr_beneficiario}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_official_document_type}</td>
+			<td style="background-color: white">${fld:atr_tipo_doc_oficial_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_official_document_number}</td>
+			<td style="background-color: white">${fld:atr_num_doc_oficial}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_abc_clasification}</td>
+			<td style="background-color: white">${fld:atr_clasif_abc_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_tax_id}</td>
+			<td style="background-color: white">${fld:atr_rif}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_business_address}</td>
+			<td style="background-color: white">${fld:atr_direccion_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_auxiliary_bank_account}</td>
+			<td style="background-color: white">${fld:atr_cuenta_bancaria_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_auxiliary_contact}</td>
+			<td style="background-color: white">${fld:atr_contactos_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_contact_person}</td>
+			<td style="background-color: white">${fld:atr_persona_contacto}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_legal_representative}</td>
+			<td style="background-color: white">${fld:atr_representante_legal}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_beneficiary_payments}</td>
+			<td style="background-color: white">${fld:atr_benef_pago}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_condition_payments}</td>
+			<td style="background-color: white">${fld:atr_cond_pago_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_billing_type}</td>
+			<td style="background-color: white">${fld:atr_tipo_facturac_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_financial_condition}</td>
+			<td style="background-color: white">${fld:atr_condicion_financiera_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_observation}</td>
+			<td style="background-color: white">${fld:atr_observacion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:atr_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+
+
+</body>
+
+</html>

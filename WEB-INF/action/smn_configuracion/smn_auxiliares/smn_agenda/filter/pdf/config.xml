@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnagenda.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_timetable}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' align="left" />
+	<pdf-file-name>${lbl:b_timetable}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='filter.params' title='${lbl:b_filter_find}' noFilterMsg='-- ${lbl:b_all_message} --' width='55' spacingBefore='15'>
+			<col name='age_descripcion' title='${lbl:b_description}'  align='left' />
+			<col name='age_dia_semana' title='${lbl:b_weekday}'  align='left' />
+			<col name='age_localidad' title='${lbl:b_location}'  align='left' />
+			<col name='age_fecha_registro_ini' title='${lbl:b_store_date_grater_than}'  format='dd-MM-yyyy' align='left' />
+			<col name='age_fecha_registro_fin' title='${lbl:b_store_date_less_than}'  format='dd-MM-yyyy' align='left' />
+
+		</record>
+		<record recordset='query-smnagenda.sql' width='100' spacingBefore='10'>
+			<col name='age_codigo' title='${lbl:b_code}' width='11' align='left' />
+			<col name='age_descripcion' title='${lbl:b_description}' width='11' align='left' />
+			<col name='age_dia_semana_combo' title='${lbl:b_weekday}' width='11' align='left' />
+			<col name='age_hora_desde' title='${lbl:b_time_since}' width='11' align='left' />
+			<col name='age_jornada_desde_combo' title='${lbl:b_working_day}' width='11' align='left' />
+			<col name='age_hora_hasta' title='${lbl:b_time_until}' width='11' align='left' />
+			<col name='age_jornada_hasta_combo' title='${lbl:b_working_day}' width='11' align='left' />
+			<col name='age_localidad' title='${lbl:b_location}' width='11' align='left' />
+			<col name='age_fecha_registro' title='${lbl:b_store_date}' width='11' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

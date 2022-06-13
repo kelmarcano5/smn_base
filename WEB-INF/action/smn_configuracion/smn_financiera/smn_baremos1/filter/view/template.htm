@@ -1,0 +1,71 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='10%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='3%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="16" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>ST</th>
+		<th>AI</th>
+		<th>AS</th>
+		<th>AD</th>
+		<th class='sortable' onclick='sortBy("bar_codigo","query-smnbaremos.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("bar_descripcion","query-smnbaremos.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("smn_entidades_rf","query-smnbaremos.sql")'>${lbl:b_entity}</th>
+		<th class='sortable' onclick='sortBy("smn_sucursales_rf","query-smnbaremos.sql")'>${lbl:b_subsidiary}</th>
+		<th class='sortable' onclick='sortBy("bar_vigencia_desde","query-smnbaremos.sql")'>${lbl:b_validation_date_from}</th>
+		<th class='sortable' onclick='sortBy("bar_vigencia_hasta","query-smnbaremos.sql")'>${lbl:b_validation_date_to}</th>
+		<th class='sortable' onclick='sortBy("bar_estatus","query-smnbaremos.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("bar_fecha_registro","query-smnbaremos.sql")'>${lbl:b_store_date}</th>
+		<th>BD</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_baremos_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_baremos_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_baremos_id}')" title="${lbl:b_edit_button}"></td>
+		<td><img src="${def:context}/images/icongrid/Generar.png"  onclick="changeStatus('${fld:smn_baremos_id}')" title="${lbl:b_change_status}"></td>
+		<td><img src="${def:context}/images/icongrid/Generar.png" onclick="apitem('${fld:smn_baremos_id}','${fld:bad_estatus}')" title="Aplicar Descuento Item"></td>
+		<td><img src="${def:context}/images/icongrid/Generar.png" onclick="apservicio('${fld:smn_baremos_id}','${fld:bad_estatus}')" title="Aplicar Descuento Servicio"></td>
+		<td><img src="${def:context}/images/icongrid/Generar.png" onclick="descuento('${fld:smn_baremos_id}','${fld:bad_estatus}')" title="Aplicar Descuento"></td>
+		<td align='left'>${fld:bar_codigo}</td>
+		<td align='left'>${fld:bar_descripcion}</td>
+		<td>${fld:smn_entidades_rf}</td>
+		<td>${fld:smn_sucursales_rf}</td>
+		<td>${fld:bar_vigencia_desde@dd-MM-yyyy}</td>
+		<td>${fld:bar_vigencia_hasta@dd-MM-yyyy}</td>
+		<td>${fld:bar_estatus}</td>
+		<td>${fld:bar_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/icongrid/Detalle-impuesto.png" onclick="detalle('${fld:smn_baremos_id}','${fld:bar_codigo}','${fld:bar_descripcion}','${fld:smn_moneda_rf}')" title="${lbl:b_baremos_detail}"></td>
+
+	</tr>
+	</rows>
+
+</table>

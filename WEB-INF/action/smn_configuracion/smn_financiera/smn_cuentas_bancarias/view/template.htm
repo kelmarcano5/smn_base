@@ -1,0 +1,57 @@
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='14%'/>
+	<col width='12%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("efi_nombre","query-smncuentasbancarias.sql")'>${lbl:b_financial_entity}</th>
+		<th class='sortable' onclick='sortBy("cba_codigo","query-smncuentasbancarias.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("cba_nombre","query-smncuentasbancarias.sql")'>${lbl:b_name}</th>
+		<th class='sortable' onclick='sortBy("cba_nro_cuenta","query-smncuentasbancarias.sql")'>${lbl:b_bank_account_number}</th>
+		<th class='sortable' onclick='sortBy("tcb_descripcion","query-smncuentasbancarias.sql")'>${lbl:b_account_bank_type}</th>
+		<th class='sortable' onclick='sortBy("mon_nombre","query-smncuentasbancarias.sql")'>${lbl:b_coin}</th>
+		<th class='sortable' onclick='sortBy("cba_fecha_registro","query-smncuentasbancarias.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_cuentas_bancarias_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_cuentas_bancarias_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_cuentas_bancarias_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:efi_nombre}</td>
+		<td align='left'>${fld:cba_codigo}</td>
+		<td align='left'>${fld:cba_nombre}</td>
+		<td align='left'>${fld:cba_nro_cuenta}</td>
+		<td>${fld:tcb_descripcion}</td>
+		<td>${fld:mon_nombre}</td>
+		<td>${fld:cba_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

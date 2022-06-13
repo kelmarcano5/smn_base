@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_baremos}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+	
+	<clear-session id="detail-smn_baremos_detalle.sql"/>
+
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-bar_entidad.sql' source='sql' scope='transaction'/>
+		<recordset id='query-bad_auxiliar.sql' source='sql' scope='transaction'/>
+		<recordset id='query-bad_servicio.sql' source='sql' scope='transaction'/>
+		<recordset id='query-bad_almacen.sql' source='sql' scope='transaction'/>
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-bar_entidad.sql' tag='bar_entidad_rows'/>
+		<print mode='table' recordset='query-bad_auxiliar.sql' tag='bad_auxiliar2_rows'/>
+		<print mode='table' recordset='query-bad_servicio.sql' tag='bad_servicio2_rows'/>
+		<print mode='table' recordset='query-bad_almacen.sql' tag='bad_almacen2_rows'/>
+
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnparentezco-template.sql" source="sql" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_relationship}.xls'     
+		header-background='true' >
+		
+	<sheet recordset="query-smnparentezco-template.sql" sheetname="${lbl:b_relationship}">
+		
+		<col id='ptz_codigo' label='${lbl:b_code}' />
+		<col id='ptz_descripcion' label='${lbl:b_description}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

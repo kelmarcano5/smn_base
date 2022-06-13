@@ -1,0 +1,1 @@
+delete from smn_base.smn_rel_perfil_servicios WHERE smn_rel_perfil_servicios_id= ${fld:id}

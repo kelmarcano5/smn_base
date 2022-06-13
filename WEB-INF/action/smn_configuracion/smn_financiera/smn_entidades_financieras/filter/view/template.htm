@@ -1,0 +1,57 @@
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('efi_codigo','query-smnentidadesfinancieras.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('efi_nombre','query-smnentidadesfinancieras.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('efi_telefono_fijo','query-smnentidadesfinancieras.sql')" >${lbl:b_fixed_phone}</th>
+		<th class='sortable' onclick="sortBy('efi_nombre','query-smnentidadesfinancieras.sql')" >${lbl:b_intermediary_institution}</th>
+		<th class='sortable' onclick="sortBy('efi_routing','query-smnentidadesfinancieras.sql')" >${lbl:b_routing_code}</th>
+		<th class='sortable' onclick="sortBy('efi_contacto','query-smnentidadesfinancieras.sql')" >${lbl:b_account_executive}</th>
+		<th class='sortable' onclick="sortBy('efi_fecha_registro','query-smnentidadesfinancieras.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_entidades_financieras_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_entidades_financieras_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_entidades_financieras_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:efi_codigo}</td>
+		<td align="left">${fld:efi_nombre}</td>
+		<td align="left">${fld:efi_telefono_fijo}</td>
+		<td align="left">${fld:efi_nombre}</td>
+		<td align="left">${fld:efi_routing}</td>
+		<td align="left">${fld:efi_contacto}</td>
+		<td align="center">${fld:efi_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

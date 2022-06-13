@@ -1,0 +1,3 @@
+<rows>
+suc_fecha_registro="${fld:suc_fecha_registro}"    suc_email="${fld:suc_email}"    suc_telefono_movil="${fld:suc_telefono_movil}"    suc_telefono_fijo="${fld:suc_telefono_fijo}"    suc_direccion="${fld:suc_direccion}"    suc_responsable="${fld:suc_responsable}"    suc_maneja_area_servicio="${fld:suc_maneja_area_servicio}"    suc_unidad_negocio="${fld:suc_unidad_negocio}"    suc_nombre="${fld:suc_nombre}"    suc_codigo="${fld:suc_codigo}"    suc_empresa="${fld:suc_empresa}"    
+</rows>

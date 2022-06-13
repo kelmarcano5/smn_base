@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_configuracion_estructura>
+	<detail>
+		<rows>
+			<record eor_usuario="${fld:eor_usuario}"	smn_estructura_organizacional_id="${fld:smn_estructura_organizacional_id}"	eor_auxiliar="${fld:eor_auxiliar}"	eor_nombre="${fld:eor_nombre}"	eor_idioma="${fld:eor_idioma}"	eor_fecha_registro="${fld:eor_fecha_registro}"	eor_codigo="${fld:eor_codigo}"	eor_clase_auxiliar="${fld:eor_clase_auxiliar}"	eor_hora="${fld:eor_hora}"	eor_centro_costo="${fld:eor_centro_costo}"	/>
+		</rows>
+	</detail>
+</smn_configuracion_estructura>

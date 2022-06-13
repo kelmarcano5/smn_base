@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smndescuentosretenciones.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_discount_tax}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_discount_tax}">
+				<col id='dyr_codigo' label='${lbl:b_code}' />
+		<col id='dyr_descripcion' label='${lbl:b_description}' />
+		<col id='smn_vencimiento_cabecera_id' label='${lbl:b_expiration_header}' />
+		<col id='dyr_apli_cant_precio_combo' label='${lbl:b_apply_quantity_price}' />
+		<col id='dyr_porcentaje_base' label='${lbl:b_percentage_base}' />
+		<col id='dyr_porcentaje_descuento' label='${lbl:b_percentage_discount}' />
+		<col id='dyr_estatus_combo' label='${lbl:b_status}' />
+		<col id='dyr_vigencia' label='${lbl:b_validity}' />
+		<col id='dyr_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

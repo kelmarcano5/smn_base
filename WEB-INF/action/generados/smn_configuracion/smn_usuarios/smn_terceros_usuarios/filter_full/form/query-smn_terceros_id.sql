@@ -1,0 +1,1 @@
+select smn_base.v_tercero.id as id, smn_base.v_tercero.codigo || ' - ' || smn_base.v_tercero.nombre as item from smn_base.v_tercero order by smn_base.v_tercero.nombre

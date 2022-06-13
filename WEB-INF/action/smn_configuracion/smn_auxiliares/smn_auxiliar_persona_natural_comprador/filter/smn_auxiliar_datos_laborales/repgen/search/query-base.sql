@@ -1,0 +1,10 @@
+select
+		smn_base.smn_auxiliar_datos_laborales.smn_auxiliar_datos_laborales_id,
+	${field}
+from
+	smn_base.smn_auxiliar_datos_laborales
+where
+		smn_base.smn_auxiliar_datos_laborales.smn_auxiliar_datos_laborales_id is not null
+	${filter}
+	
+	

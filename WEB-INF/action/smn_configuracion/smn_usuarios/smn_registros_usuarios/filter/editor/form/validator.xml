@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/alert">
+	<parameter id="id" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id='swi' type='integer' required='false' label='switch' maxlen='1' />
+	<parameter id='existe' type='integer' required='false' label='switch' maxlen='1' />
+</validator>

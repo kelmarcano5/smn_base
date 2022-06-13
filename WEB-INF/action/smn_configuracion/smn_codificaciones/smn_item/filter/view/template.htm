@@ -1,0 +1,40 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="6" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("itm_codigo","query-smnitem.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("itm_nombre","query-smnitem.sql")'>${lbl:b_name}</th>
+		<th class='sortable' onclick='sortBy("itm_fecha_registro","query-smnitem.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_item_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_item_id}')" title="${lbl:b_delete_button}"></td>
+		<td align='left'>${fld:itm_codigo}</td>
+		<td align='left'>${fld:itm_nombre}</td>
+		<td>${fld:itm_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

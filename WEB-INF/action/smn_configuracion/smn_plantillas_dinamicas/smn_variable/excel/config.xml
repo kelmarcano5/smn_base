@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnvariable.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="4" cellStep="0" name="${lbl:b_smn_variable}"/>
+	
+	<excel 
+		recordset='query-smnvariable.sql' 
+		sheetname='${lbl:b_smn_variable}' 
+		filename='${lbl:b_smn_variable}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='tva_codigo_pl0' label='${lbl:b_smn_tipo_variable_id}' />
+		<col id='var_codigo' label='${lbl:b_var_codigo}' />
+		<col id='var_descripción' label='${lbl:b_var_descripcion}' />
+		<col id='var_estatus_combo' label='${lbl:b_status}' />
+		<col id='var_idioma' label='${lbl:s_profile_lang}' />
+		<col id='var_usuario' label='${lbl:b_users}' />
+		<col id='var_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='var_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_atributo_item_id_name' type='varchar' required='false' label='${lbl:b_atributos_item}'/>
+	<parameter id='smn_atributo_item_id' type='integer' required='false' label='${lbl:b_atributos_item}' maxlen='10'/>
+	<parameter id='atv_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='atv_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='atv_fecha_vigencia_desde' type='date' required='true' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<parameter id='atv_fecha_vigencia_hasta' type='date' required='true' label='${lbl:b_validation_date_until}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_valor_atributo}' maxlen='10'/>
+
+
+</validator>

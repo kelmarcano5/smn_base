@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='rowindex' type='integer' required='true' label='ID' maxlen='10'/>
+	<parameter id='aam_codigo2' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='aam_descripcion2' type='varchar' required='true' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='aam_nombres2' type='varchar' required='false' label='${lbl:s_profile_fname}' maxlen='64'/>
+	<parameter id='aam_apellidos2' type='varchar' required='false' label='${lbl:s_profile_lname}' maxlen='64'/>
+	<parameter id='aam_tipo_doc_oficial2_name' type='varchar' required='false' label='${lbl:b_official_document_type}'/>
+	<parameter id='aam_tipo_doc_oficial2' type='integer' required='false' label='${lbl:b_official_document_type}' maxlen='10'/>
+	<parameter id='aam_num_doc_oficial2' type='varchar' required='false' label='${lbl:b_official_document_number}' maxlen='12'/>
+	<parameter id='aam_fecha_nac2' type='date' required='false' label='${lbl:b_birth_date}' maxlen='10'/>
+	<parameter id='aam_lugar_nac2' type='varchar' required='false' label='${lbl:b_birth_place}' maxlen='64'/>
+	<parameter id='aam_rif2' type='varchar' required='false' label='${lbl:b_tax_id}' maxlen='16'/>
+	<parameter id='aam_nacionalidad2_name' type='varchar' required='false' label='${lbl:b_citizenship}'/>
+	<parameter id='aam_nacionalidad2' type='integer' required='false' label='${lbl:b_citizenship}' maxlen='2'/>
+	<parameter id='aam_nacionalizado2_name' type='varchar' required='false' label='${lbl:b_nationalized}'/>
+	<parameter id='aam_nacionalizado2' type='varchar' required='false' label='${lbl:b_nationalized}' maxlen='1'/>
+	<parameter id='aam_sexo2_name' type='varchar' required='false' label='${lbl:b_sex}'/>
+	<parameter id='aam_sexo2' type='varchar' required='false' label='${lbl:b_sex}' maxlen='2'/>
+	<parameter id='aam_estado_civil2_name' type='varchar' required='false' label='${lbl:b_civil_status}'/>
+	<parameter id='aam_estado_civil2' type='varchar' required='false' label='${lbl:b_civil_status}' maxlen='2'/>
+	<parameter id='aam_direccion2_name' type='varchar' required='false' label='${lbl:b_business_address}'/>
+	<parameter id='aam_direccion2' type='integer' required='false' label='${lbl:b_business_address}' maxlen='10'/>
+	<parameter id='aam_cuenta_bancaria2_name' type='varchar' required='false' label='${lbl:b_auxiliary_bank_account}'/>
+	<parameter id='aam_cuenta_bancaria2' type='integer' required='false' label='${lbl:b_auxiliary_bank_account}' maxlen='10'/>
+	<parameter id='aam_contactos2_name' type='varchar' required='false' label='${lbl:b_auxiliary_contact}'/>
+	<parameter id='aam_contactos2' type='integer' required='false' label='${lbl:b_auxiliary_contact}' maxlen='10'/>
+	<parameter id='aam_num_gaceta2' type='integer' required='false' label='${lbl:b_nationalization_gazette}' maxlen='10'/>
+	<parameter id='aam_fecha_gaceta_nac2' type='date' required='false' label='${lbl:b_date_of_naturalization}' maxlen='10'/>
+	<parameter id='aam_condicion_financiera2_name' type='varchar' required='false' label='${lbl:b_financial_condition}'/>
+	<parameter id='aam_condicion_financiera2' type='integer' required='false' label='${lbl:b_financial_condition}' maxlen='10'/>
+	<parameter id='aam_persona_contacto2' type='varchar' required='false' label='${lbl:b_contact_person}' maxlen='48'/>
+	<parameter id='aam_num_minist_salud2' type='varchar' required='false' label='${lbl:b_number_health_ministry}' maxlen='16'/>
+	<parameter id='aam_num_coleg_medicos2' type='varchar' required='false' label='${lbl:b_number_medical_school}' maxlen='16'/>
+	<parameter id='aam_clasif_abc2_name' type='varchar' required='false' label='${lbl:b_abc_clasification}'/>
+	<parameter id='aam_clasif_abc2' type='varchar' required='false' label='${lbl:b_abc_clasification}' maxlen='1'/>
+	<parameter id='aam_representante_legal2' type='varchar' required='false' label='${lbl:b_legal_representative}' maxlen='64'/>
+	<parameter id='aam_benef_pago2' type='varchar' required='false' label='${lbl:b_beneficiary_payments}' maxlen='112'/>
+	<parameter id='aam_cond_pago2_name' type='varchar' required='false' label='${lbl:b_condition_payments}'/>
+	<parameter id='aam_cond_pago2' type='integer' required='false' label='${lbl:b_condition_payments}' maxlen='10'/>
+	<parameter id='aam_observacion2' type='varchar' required='false' label='${lbl:b_observation}' maxlen='96'/>
+</validator>
+
+

@@ -1,0 +1,3 @@
+<rows>
+unm_fecha_registro="${fld:unm_fecha_registro}"    smn_tipo_unidad_medida_rf="${fld:smn_tipo_unidad_medida_rf}"    unm_descripcion="${fld:unm_descripcion}"    unm_codigo="${fld:unm_codigo}"    
+</rows>

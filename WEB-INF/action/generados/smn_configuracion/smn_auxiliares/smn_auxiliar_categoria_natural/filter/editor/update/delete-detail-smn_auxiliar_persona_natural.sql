@@ -1,0 +1,1 @@
+delete from smn_base.smn_auxiliar_persona_natural WHERE smn_auxiliar_categoria_id= ${fld:id}

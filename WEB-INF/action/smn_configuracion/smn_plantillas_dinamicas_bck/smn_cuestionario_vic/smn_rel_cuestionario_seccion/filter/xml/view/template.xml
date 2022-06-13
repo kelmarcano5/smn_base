@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_rel_cuestionario_seccion>
+	<detail>
+		<rows>		
+		<record smn_seccion_id="${fld:smn_seccion_id}"    smn_cuestionario_id="${fld:smn_cuestionario_id}"    />
+		</rows>
+	</detail>
+</smn_rel_cuestionario_seccion>

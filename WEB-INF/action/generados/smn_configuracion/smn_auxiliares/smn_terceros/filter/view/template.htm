@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='22%'/>
+	<col width='22%'/>
+	<col width='22%'/>
+	<col width='22%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('ter_auxiliar_categoria','query-smnterceros.sql')" >${lbl:b_auxiliary_category}</th>
+		<th class='sortable' onclick="sortBy('ter_descripcion_corta','query-smnterceros.sql')" >${lbl:b_short_description}</th>
+		<th class='sortable' onclick="sortBy('ter_descripcion_larga','query-smnterceros.sql')" >${lbl:b_long_description}</th>
+		<th class='sortable' onclick="sortBy('ter_fecha_registro','query-smnterceros.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_terceros_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_terceros_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_terceros_id}')" title="Editar"></td>
+		<td align="left">${fld:ter_auxiliar_categoria}</td>
+		<td align="left">${fld:ter_descripcion_corta}</td>
+		<td align="left">${fld:ter_descripcion_larga}</td>
+		<td align="center">${fld:ter_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

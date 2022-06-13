@@ -1,0 +1,40 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="6">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("ter_descripcion_corta_pl0","query-smnterceroscorporaciones.sql")'>${lbl:b_outsourced_company}</th>
+		<th class='sortable' onclick='sortBy("tcp_codigo","query-smnterceroscorporaciones.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("tcp_nombre","query-smnterceroscorporaciones.sql")'>${lbl:b_name}</th>
+		<th class='sortable' onclick='sortBy("tcp_moneda","query-smnterceroscorporaciones.sql")'>${lbl:b_coin}</th>
+		<th class='sortable' onclick='sortBy("tcp_direccion","query-smnterceroscorporaciones.sql")'>${lbl:b_address}</th>
+		<th class='sortable' onclick='sortBy("tcp_fecha_registro","query-smnterceroscorporaciones.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:ter_descripcion_corta_pl0}</td>
+		<td align='left'>${fld:tcp_codigo}</td>
+		<td align='left'>${fld:tcp_nombre}</td>
+		<td align='left'>${fld:tcp_moneda}</td>
+		<td align='left'>${fld:tcp_direccion}</td>
+		<td>${fld:tcp_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax' id='auxiliar'>
+	<parameter id='aca_naturaleza_auxiliar' type='integer' required='true' label='${lbl:b_nature_auxiliary}' maxlen='10'/>
+	<parameter id='aca_tipo_persona' type='varchar' required='true' label='${lbl:b_kind_of_person}' maxlen='2'/>
+	<parameter id='aca_empresa' type='integer' required='false' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='aca_sucursal' type='integer' required='false' label='${lbl:b_subsidiary}' maxlen='10'/>
+	<parameter id='aca_unidad_negocio' type='integer' required='false' label='${lbl:b_business_unit}' maxlen='10'/>
+	<parameter id='aca_area_servicio' type='integer' required='false' label='${lbl:b_service_area}' maxlen='10'/>
+	<parameter id='aca_unidad_servicio' type='integer' required='false' label='${lbl:b_service_unit}' maxlen='10'/>
+</validator>

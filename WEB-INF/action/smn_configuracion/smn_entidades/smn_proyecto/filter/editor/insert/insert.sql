@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_proyecto
+(
+	smn_proyecto_id,
+	pry_codigo,
+	pry_nombre,
+	smn_clase_auxiliar_rf,
+	smn_auxiliar_rf,
+	pry_fecha_inicio,
+	pry_fecha_fin_estimada,
+	pry_fecha_cierre,
+	pry_estatus,
+	pry_idioma,
+	pry_usuario,
+	pry_fecha_registro,
+	pry_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_proyecto},
+	${fld:pry_codigo},
+	${fld:pry_nombre},
+	${fld:smn_clase_auxiliar_rf},
+	${fld:smn_auxiliar_rf},
+	${fld:pry_fecha_inicio},
+	${fld:pry_fecha_fin_estimada},
+	${fld:pry_fecha_cierre},
+	${fld:pry_estatus},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

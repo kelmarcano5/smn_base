@@ -1,0 +1,30 @@
+INSERT INTO smn_base.smn_condicion_financiera
+(
+	smn_condicion_financiera_id,
+	cfi_codigo,
+	cfi_description,
+	cfi_cant_dias,
+	cfi_limite_credito,
+	cfi_porc_exceso_limite,
+	cfi_valida_saldos_vec,
+	cfi_dias_adic_saldos_venc,
+	cfi_num_cheques_devuel,
+	cfi_estatus,
+	cfi_vigencia,
+	cfi_fecha_registro
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_condicion_financiera},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	{d '${def:date}'}
+)

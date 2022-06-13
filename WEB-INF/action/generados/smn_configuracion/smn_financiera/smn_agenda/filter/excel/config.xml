@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnagenda.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnagenda.sql' sheetname='${lbl:b_timetable}' filename='filter.xls'>
+		<col id='age_codigo' label='${lbl:b_code}' />
+		<col id='age_descripcion' label='${lbl:b_description}' />
+		<col id='age_dia_semana_combo' label='${lbl:b_weekday}' />
+		<col id='age_hora_desde' label='${lbl:b_time_since}' />
+		<col id='age_hora_hasta' label='${lbl:b_time_until}' />
+		<col id='age_localidad' label='${lbl:b_location}' />
+		<col id='age_jornada_combo' label='${lbl:b_working_day}' />
+		<col id='age_frecuencia' label='${lbl:b_frecuency}' />
+		<col id='age_idioma' label='${lbl:s_profile_lang}' />
+		<col id='age_usuario' label='${lbl:b_users}' />
+		<col id='age_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='age_hora' label='${lbl:s_loginhist_col2}' />
+	</excel>
+
+</config>

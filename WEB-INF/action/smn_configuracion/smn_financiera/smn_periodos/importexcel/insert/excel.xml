@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='prd_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='prd_descripcion' type='varchar' required='true' maxlen='48'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='prd_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='prd_descripcion'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.CreateRecordset' 
+		on-error-label='' 
+		definition='recordset.xml' 
+		sessionID='detail-smn_periodos_detalle.sql'/> 
+
+</validator>

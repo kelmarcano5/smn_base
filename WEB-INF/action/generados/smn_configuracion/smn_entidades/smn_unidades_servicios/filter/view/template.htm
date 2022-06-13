@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='23%'/>
+	<col width='23%'/>
+	<col width='23%'/>
+	<col width='22%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('ase_codigo_pl0','query-smnunidadesservicios.sql')" >${lbl:b_service_area}</th>
+		<th class='sortable' onclick="sortBy('uns_codigo','query-smnunidadesservicios.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('uns_descripcion','query-smnunidadesservicios.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('uns_fecha_registro','query-smnunidadesservicios.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_unidades_servicios_id}')" title="Ver detalle"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_unidades_servicios_id}')" title="Eliminar"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_unidades_servicios_id}')" title="Editar"></td>
+		<td align="left">${fld:ase_codigo_pl0}</td>
+		<td align="left">${fld:uns_codigo}</td>
+		<td align="left">${fld:uns_descripcion}</td>
+		<td align="center">${fld:uns_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

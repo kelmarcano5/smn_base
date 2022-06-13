@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Ver resultado de consulta
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="sql" scope="session" />
+		<recordset id='detail-smnauxiliarbanco.sql' source='sql' scope='session' />
+		<recordset id='detail-smnauxiliarcontable.sql' source='sql' scope='session' />
+		<recordset id='detail-smnauxiliarmedico.sql' source='sql' scope='session' />
+		<recordset id='detail-smnauxiliarprestadorservicio.sql' source='sql' scope='session' />
+		<recordset id='detail-smnauxiliartercero.sql' source='sql' scope='session' />
+		<recordset id='detail-smnauxiliarpersonanatural.sql' source='sql' scope='session' />
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='detail-smnauxiliarbanco.sql' tag='rows-smnauxiliarbanco' alternate-colors='true' />
+		<print mode='table' recordset='detail-smnauxiliarcontable.sql' tag='rows-smnauxiliarcontable' alternate-colors='true' />
+		<print mode='table' recordset='detail-smnauxiliarmedico.sql' tag='rows-smnauxiliarmedico' alternate-colors='true' />
+		<print mode='table' recordset='detail-smnauxiliarprestadorservicio.sql' tag='rows-smnauxiliarprestadorservicio' alternate-colors='true' />
+		<print mode='table' recordset='detail-smnauxiliartercero.sql' tag='rows-smnauxiliartercero' alternate-colors='true' />
+		<print mode='table' recordset='detail-smnauxiliarpersonanatural.sql' tag='rows-smnauxiliarpersonanatural' alternate-colors='true' />
+
+		<print mode="form" recordset="query.sql" />
+	</output>
+
+</config>

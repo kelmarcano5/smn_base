@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='pat_panel' type='integer' required='true' maxlen='350'/>
+	<parameter id='pat_description' type='varchar' required='true' maxlen='350'/>
+	<parameter id='pat_locale' type='varchar' required='true' maxlen='2'/>
+</validator>

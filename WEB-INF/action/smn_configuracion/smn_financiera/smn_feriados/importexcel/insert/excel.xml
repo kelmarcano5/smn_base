@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='fer_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='fer_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='fer_pais_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='fer_entidad_federal_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='fer_ciudad_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='fer_municipio_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='fer_feriado' type='varchar' required='true' maxlen='5'/>
+	<parameter id='fer_laborable_desc' type='varchar' required='true' maxlen='2'/>
+
+	<parameter id='fer_pais_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='fer_entidad_federal_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='fer_ciudad_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='fer_municipio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='fer_laborable_ref' type='varchar' required='false' maxlen='1'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='fer_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='fer_descripcion'/>
+			
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: fer_pais' 
+		parameter='fer_laborable_ref' 
+		sql='fer_laborable.sql' 
+		id='fer_laborable_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: fer_pais' 
+		parameter='fer_pais_ref' 
+		sql='fer_pais.sql' 
+		id='fer_pais_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: fer_entidad_federal' 
+		parameter='fer_entidad_federal_ref' 
+		sql='fer_entidad_federal.sql' 
+		id='fer_entidad_federal_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: fer_ciudad' 
+		parameter='fer_ciudad_ref' 
+		sql='fer_ciudad.sql' 
+		id='fer_ciudad_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: fer_municipio' 
+		parameter='fer_municipio_ref' 
+		sql='fer_municipio.sql' 
+		id='fer_municipio_ref'/>
+
+</validator>

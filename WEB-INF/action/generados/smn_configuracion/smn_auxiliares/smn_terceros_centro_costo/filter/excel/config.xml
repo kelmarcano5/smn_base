@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnterceroscentrocosto.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnterceroscentrocosto.sql' sheetname='${lbl:b_cost_centers}' filename='filter.xls'>
+		<col id='ter_descripcion_corta_pl0' label='${lbl:b_outsourced_company}' />
+		<col id='trc_codigo' label='${lbl:b_code}' />
+		<col id='trc_descripcion_corta' label='${lbl:b_short_description}' />
+		<col id='trc_descripcion_larga' label='${lbl:b_long_description}' />
+		<col id='trc_responsable' label='${lbl:b_responsible}' />
+		<col id='trc_tipo_cco_combo' label='${lbl:b_type}' />
+		<col id='trc_nivel' label='${lbl:b_level}' />
+		<col id='trc_clase_auxiliar' label='${lbl:b_auxiliary_class}' />
+		<col id='trc_auxiliar' label='${lbl:b_auxiliary}' />
+		<col id='trc_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

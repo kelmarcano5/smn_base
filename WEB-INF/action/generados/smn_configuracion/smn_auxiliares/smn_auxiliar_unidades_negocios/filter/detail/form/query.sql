@@ -1,0 +1,6 @@
+select
+	smn_base.smn_auxiliar_unidades_negocios.*
+from 
+	smn_base.smn_auxiliar_unidades_negocios
+where
+	smn_auxiliar_unidades_negocios_id = ${fld:id}

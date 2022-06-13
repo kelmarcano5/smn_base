@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='prr_municipios' type='integer' required='false' label='${lbl:b_municipality}' maxlen='10'/>
+	<parameter id='prr_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='prr_nombre_corto' type='varchar' required='false' label='${lbl:b_short_name}' maxlen='24'/>
+	<parameter id='prr_nombre_largo' type='varchar' required='false' label='${lbl:b_long_name}' maxlen='48'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prr_codigo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prr_nombre_corto'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='prr_nombre_largo'
+		rule='contains' />
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_code_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='prr_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_name_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='prr_nombre_corto'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_name_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='prr_nombre_largo'/>
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='${lbl:b_at_least_field_report}.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

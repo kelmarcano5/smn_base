@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/alert">
+	<parameter id="id" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id="cue_nivel_seguridad" type="integer" required="false" label="ID ${lbl:b_security_level}" maxlen="9" />
+</validator>

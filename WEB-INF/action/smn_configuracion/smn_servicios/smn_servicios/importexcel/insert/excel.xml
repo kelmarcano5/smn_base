@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='svc_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='svc_descripcion' type='varchar' required='true' maxlen='56'/>
+	<parameter id='smn_tipo_servicio_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='svc_frecuencia' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_precio_moneda_local' type='double' required='true' maxlen='10'/>
+	<parameter id='smn_moneda_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_precio_moneda_alterna' type='double' required='false' maxlen='10'/>
+	<parameter id='smn_descuento_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='svc_monto_desc_ml' type='double' required='false' maxlen='10'/>
+	<parameter id='svc_monto_desc_ma' type='double' required='false' maxlen='10'/>
+	<parameter id='svr_precio_neto' type='double' required='true' maxlen='10'/>
+	<parameter id='svc_precio_neto_ma' type='double' required='false' maxlen='10'/>
+	<parameter id='svc_req_prestador' type='varchar' required='true' maxlen='1'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' maxlen='10'/>
+	<parameter id='svc_requisitos' type='varchar' required='false' maxlen='2048'/>
+	<parameter id='svc_vigencia_desde' type='date' required='true' maxlen='10'/>
+	<parameter id='svc_vigencia_hasta' type='date' required='true' maxlen='10'/>
+	<parameter id='smn_documento_general_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='svc_inactivo' type='varchar' required='true' maxlen='1'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='svc_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='svc_descripcion'/>
+
+
+
+</validator>

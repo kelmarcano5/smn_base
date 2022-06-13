@@ -1,0 +1,3 @@
+<rows>
+trg_fecha_registro="${fld:trg_fecha_registro}"    trg_modulo_origen="${fld:trg_modulo_origen}"    trg_descripcion="${fld:trg_descripcion}"    trg_codigo="${fld:trg_codigo}"    
+</rows>

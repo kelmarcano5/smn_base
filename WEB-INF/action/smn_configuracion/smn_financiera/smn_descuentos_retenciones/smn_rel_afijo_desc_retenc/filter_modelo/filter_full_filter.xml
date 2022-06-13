@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_relacion_af_descuentos_retenciones}</summary>
+	<filter>
+		<row field='smn_descuentos_retenciones_id' id='smn_descuentos_retenciones_id' label='${lbl:b_discount_tax}@{select smn_base.smn_descuentos_retenciones.smn_descuentos_retenciones_id as id, smn_base.smn_descuentos_retenciones.dyr_codigo|| &apos; - &apos; || smn_base.smn_descuentos_retenciones.dyr_descripcion as item from smn_base.smn_descuentos_retenciones order by dyr_descripcion}' required='NO' fk='dyr_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_rel_afijo_desc_retenc' len='10'/>
+		<row field='smn_afijo_id' id='smn_afijo_id' label='${lbl:b_fixed_assets}@{select smn_base.smn_activo_fijo.smn_activo_fijo_id as id, smn_base.smn_activo_fijo.acf_codigo|| &apos; - &apos; || smn_base.smn_activo_fijo.acf_nombre as item from smn_base.smn_activo_fijo order by acf_nombre}' required='NO' fk='acf_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_rel_afijo_desc_retenc' len='10'/>
+		<row field='rad_fecha_registro' id='rad_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_rel_afijo_desc_retenc' len='10'/>
+		<row field='rad_fecha_registro' id='rad_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_rel_afijo_desc_retenc' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_descuentos_retenciones_id' label='${lbl:b_discount_tax}@{select smn_base.smn_descuentos_retenciones.smn_descuentos_retenciones_id as id, smn_base.smn_descuentos_retenciones.dyr_codigo|| &apos; - &apos; || smn_base.smn_descuentos_retenciones.dyr_descripcion as item from smn_base.smn_descuentos_retenciones order by dyr_descripcion}' fk='dyr_codigo' tableName='smn_rel_afijo_desc_retenc' len='10' type='integer' align='center'/>
+		<row field='smn_afijo_id' label='${lbl:b_fixed_assets}@{select smn_base.smn_activo_fijo.smn_activo_fijo_id as id, smn_base.smn_activo_fijo.acf_codigo|| &apos; - &apos; || smn_base.smn_activo_fijo.acf_nombre as item from smn_base.smn_activo_fijo order by acf_nombre}' fk='acf_codigo' tableName='smn_rel_afijo_desc_retenc' len='10' type='integer' align='center'/>
+		<row field='rad_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_rel_afijo_desc_retenc' len='2' type='varchar' align='left'/>
+		<row field='rad_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_rel_afijo_desc_retenc' len='10' type='varchar' align='left'/>
+		<row field='rad_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_rel_afijo_desc_retenc' len='10' type='date' align='center'/>
+		<row field='rad_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_rel_afijo_desc_retenc' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

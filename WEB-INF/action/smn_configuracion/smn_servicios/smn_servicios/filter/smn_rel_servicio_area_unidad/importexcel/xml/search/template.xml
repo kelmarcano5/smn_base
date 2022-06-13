@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_rel_servicio_area_unidad>
+	<detail>
+		<rows>		
+		<record rsa_fecha_registro="${fld:rsa_fecha_registro}"    smn_centro_costo_rf="${fld:smn_centro_costo_rf}"    smn_unidades_servicios_rf="${fld:smn_unidades_servicios_rf}"    smn_areas_servicios_rf="${fld:smn_areas_servicios_rf}"    smn_servicios_id="${fld:smn_servicios_id}"    />
+		</rows>
+	</detail>
+</smn_rel_servicio_area_unidad>

@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+	<col width='16%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("pas_codigo","query-smnpaso.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("pas_descripcion","query-smnpaso.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("pas_cod_paso_anterior","query-smnpaso.sql")'>${lbl:b_cod_last_step}</th>
+		<th class='sortable' onclick='sortBy("pas_cod_paso_siguiente","query-smnpaso.sql")'>${lbl:b_cod_next_step}</th>
+		<th class='sortable' onclick='sortBy("pas_estatus_doc_combo","query-smnpaso.sql")'>${lbl:b_status_doc}</th>
+		<th class='sortable' onclick='sortBy("pas_fecha_registro","query-smnpaso.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_paso_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_paso_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_paso_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:pas_codigo}</td>
+		<td align='left'>${fld:pas_descripcion}</td>
+		<td align='left'>${fld:pas_cod_paso_anterior}</td>
+		<td align='left'>${fld:pas_cod_paso_siguiente}</td>
+		<td align='left'>${fld:pas_estatus_doc_combo}</td>
+		<td>${fld:pas_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

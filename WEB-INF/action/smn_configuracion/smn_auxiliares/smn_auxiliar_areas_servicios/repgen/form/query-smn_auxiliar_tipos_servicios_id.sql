@@ -1,0 +1,1 @@
+select smn_base.smn_auxiliar_tipos_servicios.smn_auxiliar_tipos_servicios_id as id, smn_base.smn_auxiliar_tipos_servicios.tts_codigo || ' - ' || smn_base.smn_auxiliar_tipos_servicios.tts_descripcion as item from smn_base.smn_auxiliar_tipos_servicios order by smn_base.smn_auxiliar_tipos_servicios.tts_descripcion

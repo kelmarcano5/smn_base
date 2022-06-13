@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_entidades_id_name' type='varchar' required='true' label='${lbl:b_entity}'/>
+	<parameter id='smn_entidades_id' type='integer' required='false' label='${lbl:b_entity}' maxlen='10'/>
+	<parameter id='smn_app_id' type='integer' required='true' label='${lbl:s_loginhist_col4}' maxlen='10'/>
+	<parameter id='mod_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='mod_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_module}' maxlen='10'/>
+</validator>
+

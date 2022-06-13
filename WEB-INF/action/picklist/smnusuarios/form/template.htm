@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+
+
+
+<!--biblioteca generica JS/Dinamica-->
+<script type="text/javascript" src="${def:context}/action/script">
+</script>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+		
+		
+		//inicializacion de la pagina cuando carga
+		onload = function()
+		{ 
+			document.form1.elements[0].focus();
+			document.getElementById("status").style.display='none';
+					var txt_smn_tipo_registro_rf = new NumericInput(document.form1.smn_tipo_registro_rf, 0);
+
+			search();
+		} 
+	
+		//mostrar filtro de busqueda
+		function showFilter()
+		{
+			document.form1.elements[0].focus();			
+		}
+
+		//ejecutar consulta
+		function search()
+		{
+
+			//llamada Ajax...
+			return ajaxCall(	httpMethod="POST", 
+								uri="${def:actionroot}/search", 
+								divResponse="response", 
+								divProgress="status", 
+								formName="form1", 
+								afterResponseFn=showFilter, 
+								onErrorFn=showFilter);
+		
+		}
+	
+		//leer una pagina del grid
+		function viewPage()
+		{
+			var url = "${def:actionroot}/view";
+			gotoPage(url);
+		}
+
+		//retornar el item seleccionado a la pagina que llamo al picklist
+		function selectItem(id) {
+			var description = document.getElementById(id).innerHTML;
+			parent.selectSmnUsuariosId(id, description);
+			document.form1.elements[0].value = '';
+			document.form1.elements[0].focus();
+		}
+		
+</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog">
+	Seleccionar un registro
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.pickClose()" title="Cerrar" style="float:right; cursor:pointer;">
+	<img id="status" src="${def:context}/images/progbar.gif" style="display:inline; float:right;">
+</div>
+
+
+<!--formulario de filtro-->
+<form id="form" name="form1" onsubmit="return search()" style="width:90%; margin-top:10px;">
+	<table>
+
+	<!--ancho de la columna de etiquetas-->
+	<col width="30%">
+
+	<!--campos-->
+		<tr>
+		<td>${lbl:b_users}</td>
+		<td>
+			<select name="smn_user_rf" id="smn_user_rf" onchange="chgCombo(smn_user_rf.options[smn_user_rf.selectedIndex].text,'smn_user_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_user_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_user_rf_rows>
+			</select> 
+			<input id="smn_user_rf_name" name="smn_user_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_class_auxiliary}</td>
+		<td>
+			<select name="smn_clase_auxiliar_rf" id="smn_clase_auxiliar_rf" onchange="chgCombo(smn_clase_auxiliar_rf.options[smn_clase_auxiliar_rf.selectedIndex].text,'smn_clase_auxiliar_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_clase_auxiliar_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_clase_auxiliar_rf_rows>
+			</select> 
+			<input id="smn_clase_auxiliar_rf_name" name="smn_clase_auxiliar_rf_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_registers_type}</td>
+			<td>
+				<input id="smn_tipo_registro_rf" name="smn_tipo_registro_rf" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+
+	
+	</table>
+	<input type="submit" value="Buscar" class="button" style="font-size: 9pt">	
+</form>
+
+<!--panel de respuesta AJAX-->
+<div id="response" style="display: none; width:100%; margin-top:15px;">
+</div>
+
+</body>
+
+</html>

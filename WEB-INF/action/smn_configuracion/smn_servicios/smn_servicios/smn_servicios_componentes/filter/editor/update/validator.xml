@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_servicios_id' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='smn_componentes_id' type='integer' required='false' label='${lbl:b_component}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='ID' maxlen='10'/>
+	<parameter id='sec_cantidad' type='double' required='false' label='${lbl:b_quantity}' maxlen='10'/>
+	<parameter id='smn_entidades_rf' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='smn_sucursales_rf' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='smn_areas_servicios_rf' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='smn_unidades_servicios_rf' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+
+	<parameter id='sec_porcentaje' type='double' required='true' label='${lbl:b_quantity}' maxlen='10'/>
+	<parameter id='sec_gastos' type='double' required='true' label='${lbl:b_quantity}' maxlen='10'/>
+</validator>

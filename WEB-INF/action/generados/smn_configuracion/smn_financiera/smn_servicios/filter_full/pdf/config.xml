@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnservicios.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_services}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='svc_codigo' title='${lbl:b_code}'  align='center' />
+		</record>
+		<table recordset='query-smnservicios.sql' width='100' spacingBefore='10'>
+			<col name='svc_codigo' title='${lbl:b_code}' width='5' align='left' />
+			<col name='svc_descripcion' title='${lbl:b_description}' width='5' align='left' />
+			<col name='svc_clase_auxiliar' title='${lbl:b_auxiliary_class}' width='5' align='left' format='######' />
+			<col name='svc_tipo_servicio' title='${lbl:b_service_type}' width='5' align='left' format='######' />
+			<col name='svc_area_servicio' title='${lbl:b_service_area}' width='5' align='left' format='######' />
+			<col name='svc_unidad_servicio' title='${lbl:b_service_unit}' width='5' align='left' format='######' />
+			<col name='svc_centro_costo' title='${lbl:b_cost_centers}' width='5' align='left' format='######' />
+			<col name='svc_frecuencia' title='${lbl:b_frecuency}' width='5' align='left' format='#,###,##0.00' />
+			<col name='svc_precio_general' title='${lbl:b_general_price}' width='5' align='left' format='#,###,##0.00' />
+			<col name='svc_inactivo_combo' title='${lbl:b_inactive}' width='5' align='left' />
+			<col name='svc_req_honorario_combo' title='${lbl:b_require_honorary}' width='5' align='left' />
+			<col name='svc_vigencia_desde' title='${lbl:b_validation_date_from}' width='5' align='left' format='dd-MM-yyyy' />
+			<col name='svc_vigencia_hasta' title='${lbl:b_validation_date_to}' width='5' align='left' format='dd-MM-yyyy' />
+			<col name='svc_requisitos' title='${lbl:b_requirements}' width='5' align='left' />
+			<col name='svc_trans_general' title='${lbl:b_general_transaction}' width='5' align='left' format='######' />
+			<col name='svc_compuesto' title='${lbl:b_id_compound}' width='5' align='left' format='######' />
+			<col name='svc_fecha_registro' title='${lbl:b_store_date}' width='5' align='left' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

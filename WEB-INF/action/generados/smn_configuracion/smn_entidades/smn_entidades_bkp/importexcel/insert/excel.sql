@@ -1,0 +1,44 @@
+INSERT INTO smn_base.smn_entidades
+(
+	smn_entidades_id,
+	ent_codigo,
+	ent_comunidad,
+	ent_corporacion,
+	ent_moneda,
+	ent_sector_economico,
+	ent_descripcion_corta,
+	ent_descripcion_larga,
+	ent_nro_id_fiscal,
+	ent_direccion,
+	ent_contacto,
+	ent_telefono_fijo,
+	ent_telefono_movil,
+	ent_email,
+	ent_act_economica,
+	ent_idioma,
+	ent_usuario,
+	ent_fecha_registro,
+	ent_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_entidades},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

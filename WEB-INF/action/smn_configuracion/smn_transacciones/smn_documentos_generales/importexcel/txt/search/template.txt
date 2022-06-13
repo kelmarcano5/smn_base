@@ -1,0 +1,3 @@
+<rows>
+dcg_fecha_registro="${fld:dcg_fecha_registro}"    dcg_modulo_origen="${fld:dcg_modulo_origen}"    dcg_descripcion="${fld:dcg_descripcion}"    dcg_codigo="${fld:dcg_codigo}"    
+</rows>

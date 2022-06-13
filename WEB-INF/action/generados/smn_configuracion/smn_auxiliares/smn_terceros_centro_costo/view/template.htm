@@ -1,0 +1,43 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th class='sortable' onclick='sortBy("ter_descripcion_corta_pl0","query-smnterceroscentrocosto.sql")'>${lbl:b_outsourced_company}</th>
+		<th class='sortable' onclick='sortBy("trc_codigo","query-smnterceroscentrocosto.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("trc_descripcion_larga","query-smnterceroscentrocosto.sql")'>${lbl:b_long_description}</th>
+		<th class='sortable' onclick='sortBy("trc_responsable","query-smnterceroscentrocosto.sql")'>${lbl:b_responsible}</th>
+		<th class='sortable' onclick='sortBy("trc_clase_auxiliar","query-smnterceroscentrocosto.sql")'>${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick='sortBy("trc_auxiliar","query-smnterceroscentrocosto.sql")'>${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick='sortBy("trc_fecha_registro","query-smnterceroscentrocosto.sql")'>${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td align='left'>${fld:ter_descripcion_corta_pl0}</td>
+		<td align='left'>${fld:trc_codigo}</td>
+		<td align='left'>${fld:trc_descripcion_larga}</td>
+		<td align='left'>${fld:trc_responsable}</td>
+		<td align='left'>${fld:trc_clase_auxiliar}</td>
+		<td align='left'>${fld:trc_auxiliar}</td>
+		<td>${fld:trc_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

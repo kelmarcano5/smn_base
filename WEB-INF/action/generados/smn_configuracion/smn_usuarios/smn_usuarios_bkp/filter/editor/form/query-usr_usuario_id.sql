@@ -1,0 +1,1 @@
+select smn_seguridad.s_user.user_id as id, smn_seguridad.s_user.userlogin || ' - ' || smn_seguridad.s_user.lname as item from smn_seguridad.s_user order by 2

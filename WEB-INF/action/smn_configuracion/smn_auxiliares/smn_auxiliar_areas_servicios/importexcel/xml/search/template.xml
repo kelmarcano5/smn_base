@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_auxiliar_areas_servicios>
+	<detail>
+		<rows>		
+		<record tse_fecha_registro="${fld:tse_fecha_registro}"    tse_auxiliar_unidad_negocio="${fld:tse_auxiliar_unidad_negocio}"    tse_auxiliar_sucursal="${fld:tse_auxiliar_sucursal}"    tse_auxiliar="${fld:tse_auxiliar}"    tse_descripcion="${fld:tse_descripcion}"    tse_codigo="${fld:tse_codigo}"    smn_auxiliar_tipos_servicios_id="${fld:smn_auxiliar_tipos_servicios_id}"    />
+		</rows>
+	</detail>
+</smn_auxiliar_areas_servicios>

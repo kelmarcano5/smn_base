@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncomunidades-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnunidadesnegocios.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_entidades.smn_comunidades.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_communities}.xls' 
+		header-background='true' >
+		
+	<sheet recordset="query-smncomunidades-template.sql" sheetname="${lbl:b_communities}">
+		
+		<col id='cmn_codigo' label='${lbl:b_code}' />
+		<col id='cmn_nombre' label='${lbl:b_name}' />
+		<col id='cmn_unidad_negocio' label='${lbl:b_business_unit}' />
+		
+		<col id='cmn_unidad_negocio_reference' label='${lbl:b_business_unit}' />
+
+	</sheet>
+		<sheet recordset='query-smnunidadesnegocios.sql' sheetname='${lbl:b_business_unit}'>
+		<col id='uen_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

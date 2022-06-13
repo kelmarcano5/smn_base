@@ -1,0 +1,3 @@
+<rows>
+fop_fecha_registro="${fld:fop_fecha_registro}"    fop_franquicia="${fld:fop_franquicia}"    fop_requiere_banco="${fld:fop_requiere_banco}"    fop_medio_pago="${fld:fop_medio_pago}"    fop_descripcion="${fld:fop_descripcion}"    fop_codigo="${fld:fop_codigo}"    
+</rows>

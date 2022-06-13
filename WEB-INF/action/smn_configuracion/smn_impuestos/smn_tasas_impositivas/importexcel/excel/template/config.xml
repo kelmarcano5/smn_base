@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smntasasimpositivas-template.sql" source="sql" scope="transaction" />
+		<recordset id="query-smnunidadimpositiva.sql" source="sql" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_impuestos.smn_tasas_impositivas.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_tax_rates}.xls'
+		header-background='true' >
+		
+	<sheet recordset="query-smntasasimpositivas-template.sql" sheetname="${lbl:b_tax_rates}">
+		
+		<col id='uim_codigo_pl0' label='${lbl:b_tax_unit}' />
+		<col id='tim_fecha_vigencia' label='${lbl:b_validation_date}' />
+		<col id='tim_valor' label='${lbl:b_value}' />
+		
+		<col id='uim_codigo_pl0_reference' label='${lbl:b_tax_unit}' />
+
+	</sheet>
+	
+	<sheet recordset='query-smnunidadimpositiva.sql' sheetname='${lbl:b_tax_unit}'>
+		<col id='uim_descripcion' label='${lbl:b_description}' />
+	</sheet>
+	
+	</excel>
+
+</config>

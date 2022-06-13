@@ -1,0 +1,3 @@
+<rows>
+gco_fecha_registro="${fld:gco_fecha_registro}"    gco_descripcion="${fld:gco_descripcion}"    gco_codigo="${fld:gco_codigo}"    
+</rows>

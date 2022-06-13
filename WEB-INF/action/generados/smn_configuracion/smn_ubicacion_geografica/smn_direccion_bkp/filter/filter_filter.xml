@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_addresses}</summary>
+	<filter>
+		<row field='dir_codigo' id='dir_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_direccion' len='16'/>
+		<row field='dir_descripcion' id='dir_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_direccion' len='48'/>
+		<row field='dir_fecha_registro' id='dir_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_direccion' len='10'/>
+		<row field='dir_fecha_registro' id='dir_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_direccion' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='dir_codigo' label='${lbl:b_code}' fk='' tableName='smn_direccion' len='16' type='varchar' align='left'/>
+		<row field='dir_descripcion' label='${lbl:b_description}' fk='' tableName='smn_direccion' len='48' type='varchar' align='left'/>
+		<row field='dir_pais' label='${lbl:b_country}@{select smn_base.smn_paises.smn_paises_id as id, smn_base.smn_paises.pai_codigo || ' - ' || smn_base.smn_paises.pai_nombre_largo as item from smn_base.smn_paises order by 2}' fk='' tableName='smn_direccion' len='10' type='integer' align='left'/>
+		<row field='dir_entidad_federal' label='${lbl:b_federal_entity}@{select smn_base.smn_entidades_federales.smn_entidades_federales_id as id, smn_base.smn_entidades_federales.efe_codigo || ' - ' || smn_base.smn_entidades_federales.efe_nombre_largo as item from smn_base.smn_entidades_federales order by 2}' fk='' tableName='smn_direccion' len='10' type='integer' align='left'/>
+		<row field='dir_ciudad' label='${lbl:b_city}@{select smn_base.smn_ciudades.smn_ciudades_id as id, smn_base.smn_ciudades.ciu_codigo || ' - ' || smn_base.smn_ciudades.ciu_nombre_largo as item from smn_base.smn_ciudades order by 2}' fk='' tableName='smn_direccion' len='10' type='integer' align='left'/>
+		<row field='dir_zona_postal' label='${lbl:b_postal_zone}@{select smn_base.smn_zonas_postales.smn_zonas_postales_id as id, smn_base.smn_zonas_postales.zpo_codigo || '' as item from smn_base.smn_zonas_postales order by 2}' fk='' tableName='smn_direccion' len='8' type='integer' align='left'/>
+		<row field='dir_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_direccion' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

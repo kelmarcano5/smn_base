@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_formas_pago>
+	<detail>
+		<rows>		
+		<record fop_fecha_registro="${fld:fop_fecha_registro}"    fra_descripcion="${fld:fra_descripcion}"    fop_requiere_banco="${fld:fop_requiere_banco}"    mpa_descripcion="${fld:mpa_descripcion}"    fop_descripcion="${fld:fop_descripcion}"    fop_codigo="${fld:fop_codigo}"    />
+		</rows>
+	</detail>
+</smn_formas_pago>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnbaremos.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnbaremos.sql' sheetname='${lbl:b_baremos}' filename='filter.xls'>
+		<col id='bar_codigo' label='${lbl:b_code}' />
+		<col id='bar_descripcion' label='${lbl:b_description}' />
+		<col id='bar_entidad' label='${lbl:b_entity}' />
+		<col id='bar_vigencia_desde' label='${lbl:b_validation_date_from}' />
+		<col id='bar_vigencia_hasta' label='${lbl:b_validation_date_to}' />
+		<col id='bar_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

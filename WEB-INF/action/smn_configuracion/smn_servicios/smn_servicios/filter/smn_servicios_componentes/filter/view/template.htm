@@ -1,0 +1,40 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='50%'/>
+	<col width='50%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="5" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_servicios_id","query-smnservicioscomponentes.sql")'>${lbl:b_service}</th>
+		<th class='sortable' onclick='sortBy("smn_componentes_id","query-smnservicioscomponentes.sql")'>${lbl:b_component}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_servicios_componentes_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_servicios_componentes_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_servicios_componentes_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_servicios_id}</td>
+		<td>${fld:smn_componentes_id}</td>
+
+	</tr>
+	</rows>
+
+</table>

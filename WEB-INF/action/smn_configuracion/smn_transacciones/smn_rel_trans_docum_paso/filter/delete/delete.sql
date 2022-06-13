@@ -1,0 +1,1 @@
+delete from smn_base.smn_rel_trans_docum_paso where smn_rel_trans_docum_paso_id = ${fld:id}

@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openExcel() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a xml
+		function openXml(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a texto
+		function openTxt(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 1050, 620);	
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_auxiliary}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="${lbl:b_export_pdf}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/excel.png" onclick="openExcel()" title="${lbl:b_export_excel}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/file-xml4.png" onclick="openXml('${fld:smn_auxiliar_categoria_id}')" title="${lbl:b_export_xml}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/file-text.png" onclick="openTxt('${fld:smn_auxiliar_categoria_id}')" title="${lbl:b_export_txt}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/emails.png" onclick="openEmails()" title="${lbl:s_profile_email}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="${lbl:b_close_button}" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_auxiliary_class}</td>
+			<td style="background-color: white">${fld:naa_nombre}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_kind_of_person}</td>
+			<td style="background-color: white">${fld:aca_tipo_persona_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_entity}</td>
+			<td style="background-color: white">${fld:ent_descripcion_corta}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_subsidiary}</td>
+			<td style="background-color: white">${fld:suc_nombre}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_business_unit}</td>
+			<td style="background-color: white">${fld:uen_nombre}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service_area}</td>
+			<td style="background-color: white">${fld:ase_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service_unit}</td>
+			<td style="background-color: white">${fld:uns_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:aca_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+<table class="datagrid" width="600px">
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="29" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_medical_assistant}
+		</th>
+	</tr>
+
+	<!--data-->
+	<rows-smnauxiliarmedico>
+	<tr>
+		<th width="40%" align="left">Registro</th>
+		<td align="left">N° ${fld:_rowNumber}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_code}</th>
+		<td align="left">${fld:aam_codigo}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_description}</th>
+		<td align="left">${fld:aam_descripcion}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:s_profile_fname}</th>
+		<td align="left">${fld:aam_nombres}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:s_profile_lname}</th>
+		<td align="left">${fld:aam_apellidos}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_official_document_type}</th>
+		<td align="left">${fld:tdo_descripcion}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_official_document_number}</th>
+		<td align="left">${fld:aam_num_doc_oficial}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_birth_date}</th>
+		<td align="left">${fld:aam_fecha_nac@dd-MM-yyyy}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_birth_place}</th>
+		<td align="left">${fld:aam_lugar_nac}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_tax_id}</th>
+		<td align="left">${fld:aam_rif}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_citizenship}</th>
+		<td align="left">${fld:pai_gentilicio}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_nationalized}</th>
+		<td align="left">${fld:aam_nacionalizado_combo}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_sex}</th>
+		<td align="left">${fld:aam_sexo_combo}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_civil_status}</th>
+		<td align="left">${fld:aam_estado_civil_combo}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_business_address}</th>
+		<td align="left">${fld:dir_descripcion}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_auxiliary_bank_account}</th>
+		<td align="left">${fld:acb_num_cuenta}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_auxiliary_contact}</th>
+		<td align="left">${fld:acn_telefono_fijo}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_nationalization_gazette}</th>
+		<td align="left">${fld:aam_num_gaceta}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_date_of_naturalization}</th>
+		<td align="left">${fld:aam_fecha_gaceta_nac@dd-MM-yyyy}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_financial_condition}</th>
+		<td align="left">${fld:cfn_descripcion}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_contact_person}</th>
+		<td align="left">${fld:aam_persona_contacto}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_number_health_ministry}</th>
+		<td align="left">${fld:aam_num_minist_salud}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_number_medical_school}</th>
+		<td align="left">${fld:aam_num_coleg_medicos}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_abc_clasification}</th>
+		<td align="left">${fld:aam_clasif_abc_combo}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_legal_representative}</th>
+		<td align="left">${fld:aam_representante_legal}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_beneficiary_payments}</th>
+		<td align="left">${fld:aam_benef_pago}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_condition_payments}</th>
+		<td align="left">${fld:aam_cond_pago}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_observation}</th>
+		<td align="left">${fld:aam_observacion}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left">${lbl:b_store_date}</th>
+		<td align="left">${fld:aam_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	<tr>
+		<th width="40%" align="left" align="left">&nbsp;&nbsp;</th>
+		<td align="left">&nbsp;&nbsp;</td>
+	</tr>
+	</rows-smnauxiliarmedico>
+
+</table>
+
+	<br>
+	<div  align="center">
+		<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog()" class="button">
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+select smn_base.smn_pregunta.smn_pregunta_id as id, smn_base.smn_pregunta.prg_tipo_respuesta as item from smn_base.smn_pregunta

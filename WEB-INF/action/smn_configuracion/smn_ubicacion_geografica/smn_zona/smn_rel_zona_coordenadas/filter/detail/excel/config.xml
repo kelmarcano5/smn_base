@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="4" cellStep="0" name="${lbl:b_relationship_zone_coordenate}"/>
+	
+	<excel 
+		recordset='query.sql' 
+		sheetname='${lbl:b_relationship_zone_coordenate}' 
+		filename='${lbl:b_relationship_zone_coordenate}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='smn_zona_id' label='${lbl:b_zone}' />
+		<col id='smn_pais_rf' label='${lbl:b_country}' />
+		<col id='smn_entidad_federal_rf' label='${lbl:b_federal_entity}' />
+		<col id='smn_ciudad_rf' label='${lbl:b_city}' />
+		<col id='smn_municipio_rf' label='${lbl:b_municipality}' />
+		<col id='smn_parroquia_rf' label='${lbl:b_parish}' />
+		<col id='rzc_latitud' label='${lbl:b_longitude}' />
+		<col id='rzc_longitud' label='${lbl:b_latitude}' />
+		<col id='rzc_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

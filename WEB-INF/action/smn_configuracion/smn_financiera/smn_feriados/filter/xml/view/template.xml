@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_feriados>
+	<detail>
+		<rows>		
+		<record fer_fecha_registro="${fld:fer_fecha_registro}"    fer_feriado="${fld:fer_feriado}"    efe_nombre_corto="${fld:efe_nombre_corto}"    pai_nombre_corto="${fld:pai_nombre_corto}"    fer_descripcion="${fld:fer_descripcion}"    fer_codigo="${fld:fer_codigo}"    />
+		</rows>
+	</detail>
+</smn_feriados>

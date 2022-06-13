@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog">
+		${lbl:b_entities}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="Exportar a PDF" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="Cerrar" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:ent_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_community}</td>
+			<td style="background-color: white">${fld:ent_comunidad}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_corporation}</td>
+			<td style="background-color: white">${fld:ent_corporacion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_business_unit}</td>
+			<td style="background-color: white">${fld:ent_unidad_negocio}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_has_subsidiary}</td>
+			<td style="background-color: white">${fld:ent_maneja_sucursal_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_currency}</td>
+			<td style="background-color: white">${fld:ent_moneda}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_economic_sector}</td>
+			<td style="background-color: white">${fld:ent_sector_economico}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_short_description}</td>
+			<td style="background-color: white">${fld:ent_descripcion_corta}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_long_description}</td>
+			<td style="background-color: white">${fld:ent_descripcion_larga}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_tax_identification_number}</td>
+			<td style="background-color: white">${fld:ent_nro_id_fiscal}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_address}</td>
+			<td style="background-color: white">${fld:ent_direccion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_contact_person}</td>
+			<td style="background-color: white">${fld:ent_contacto}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_fixed_phone}</td>
+			<td style="background-color: white">${fld:ent_telefono_fijo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_mobile_phone}</td>
+			<td style="background-color: white">${fld:ent_telefono_movil}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:s_profile_email}</td>
+			<td style="background-color: white">${fld:ent_email}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_economic_activity}</td>
+			<td style="background-color: white">${fld:ent_act_economica}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:ent_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+
+
+
+</body>
+
+</html>

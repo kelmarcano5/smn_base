@@ -1,0 +1,3 @@
+<rows>
+gti_fecha_registro="${fld:gti_fecha_registro}"    gti_fecha_vigencia="${fld:gti_fecha_vigencia}"    gti_estatus="${fld:gti_estatus}"    gti_descripcion="${fld:gti_descripcion}"    gti_codigo="${fld:gti_codigo}"    
+</rows>

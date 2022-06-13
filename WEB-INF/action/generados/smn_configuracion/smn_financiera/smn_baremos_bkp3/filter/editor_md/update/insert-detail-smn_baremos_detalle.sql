@@ -1,0 +1,40 @@
+INSERT INTO smn_base.smn_baremos_detalle
+(
+	smn_baremos_detalle_id,
+	bad_tipo,
+	bad_servicio,
+	bad_auxiliar,
+	bad_tipo_compuesto,
+	bad_codigo_articulo,
+	bad_almacen,
+	bad_calculo,
+	bad_cantidad,
+	bad_precio,
+	bad_porcentaje,
+	bad_inactivo,
+	smn_baremos_id,
+	bad_idioma,
+	bad_usuario,
+	bad_fecha_registro,
+	bad_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_baremos_detalle},
+	${fld:bad_tipo2},
+	${fld:bad_servicio2},
+	${fld:bad_auxiliar2},
+	${fld:bad_tipo_compuesto2},
+	${fld:bad_codigo_articulo2},
+	${fld:bad_almacen2},
+	${fld:bad_calculo2},
+	${fld:bad_cantidad2},
+	${fld:bad_precio2},
+	${fld:bad_porcentaje2},
+	${fld:bad_inactivo2},
+	${fld:id},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

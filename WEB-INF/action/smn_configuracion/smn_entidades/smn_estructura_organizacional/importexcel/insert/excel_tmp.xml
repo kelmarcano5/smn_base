@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validator maxErrors="20">
+	<parameter id="smn_configuracion_estructura_id" type="integer" required="false" maxlen="10"/>
+	<parameter id="eor_codigo" type="varchar" required="true" maxlen="24"/>
+	<parameter id="eor_nombre" type="varchar" required="true" maxlen="64"/>
+	<parameter id="eor_centro_costo" type="integer" required="true" maxlen="2"/>
+	<parameter id="eor_clase_auxiliar" type="integer" required="false" maxlen="10"/>
+	<parameter id="eor_auxiliar" type="integer" required="true" maxlen="10"/>
+	
+</validator>

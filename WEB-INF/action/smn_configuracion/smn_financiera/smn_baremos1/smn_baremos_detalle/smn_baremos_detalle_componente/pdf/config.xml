@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnbaremosdetallecomponente.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_baremo_detail_component}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_baremo_detail_component}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnbaremosdetallecomponente.sql' width='100' spacingBefore='40'>
+			<col name='smn_baremos_detalle_id_combo' title='${lbl:b_baremos_detail}' width='12' align='left' format='######' />
+			<col name='smn_tipo_compuesto_rf_combo' title='${lbl:b_type}' width='12' align='left' />
+			<col name='smn_componente_rf_combo' title='${lbl:b_components}' width='12' align='left' format='######' />
+			<col name='smn_item_rf_combo' title='${lbl:b_item}' width='12' align='left' format='######' />
+			<col name='bdc_cantidad' title='${lbl:b_quantity}' width='12' align='left' format='######' />
+			<col name='bdc_precio_ml' title='${lbl:b_price}' width='12' align='left' format='#,###,##0.00' />
+			<col name='bdc_monto_ml' title='${lbl:b_amount}' width='12' align='left' format='#,###,##0.00' />
+			<col name='bdc_fecha_registro' title='${lbl:b_store_date}' width='12' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

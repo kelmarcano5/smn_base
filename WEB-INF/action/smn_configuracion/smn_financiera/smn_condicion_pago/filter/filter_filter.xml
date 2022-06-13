@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_condition_payments}</summary>
+	<filter>
+		<row field='cop_codigo' id='cop_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_condicion_pago' len='16'/>
+		<row field='cop_descripcion' id='cop_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_condicion_pago' len='48'/>
+		<row field='cop_fecha_registro' id='cop_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_condicion_pago' len='10'/>
+		<row field='cop_fecha_registro' id='cop_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_condicion_pago' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='cop_codigo' label='${lbl:b_code}' fk='' tableName='smn_condicion_pago' len='16' type='varchar' align='left'/>
+		<row field='cop_descripcion' label='${lbl:b_description}' fk='' tableName='smn_condicion_pago' len='48' type='varchar' align='left'/>
+		<row field='cop_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_condicion_pago' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

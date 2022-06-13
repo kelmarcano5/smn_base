@@ -1,0 +1,51 @@
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("dct_codigo","query-smndescuento.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("dct_nombre","query-smndescuento.sql")'>${lbl:b_name}</th>
+		<th class='sortable' onclick='sortBy("dct_porcentaje","query-smndescuento.sql")'>${lbl:b_percentage}</th>
+		<th class='sortable' onclick='sortBy("dct_aplica_combo","query-smndescuento.sql")'>${lbl:b_apply}</th>
+		<th class='sortable' onclick='sortBy("dct_fecha_registro","query-smndescuento.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_descuento_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_descuento_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_descuento_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:dct_codigo}</td>
+		<td align='left'>${fld:dct_nombre}</td>
+		<td align='right'>${fld:dct_porcentaje@#,###,##0.00}</td>
+		<td align='left'>${fld:dct_aplica_combo}</td>
+		<td>${fld:dct_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

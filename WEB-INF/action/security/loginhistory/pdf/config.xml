@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generate PDF generic report
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:s_loginhist_title}</pdf-title>
+	<pdf-logo url="/images/logo-dinamica.png" scale="100" />
+
+	<pdf-report pageSize="letter" rotate="false">
+	
+		<table recordset="query.sql" width="100" spacingBefore="40" border="true">
+			<col name="login_date" title="${lbl:s_loginhist_col1}" width="25" align="center" />
+			<col name="login_time" title="${lbl:s_loginhist_col2}" width="25" align="center" />
+			<col name="remote_addr" title="${lbl:s_loginhist_col3}" width="25" align="center" />
+			<col name="context" title="${lbl:s_loginhist_col4}" width="25" align="center" />
+		</table>
+	
+	</pdf-report>
+
+</config>

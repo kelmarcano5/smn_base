@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_types_of_routes}</summary>
+	<filter>
+		<row field='tiv_codigo' id='tiv_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_tipo_via' len='16'/>
+		<row field='tiv_descripcion' id='tiv_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_tipo_via' len='48'/>
+		<row field='tiv_fecha_registro' id='tiv_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_tipo_via' len='10'/>
+		<row field='tiv_fecha_registro' id='tiv_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_tipo_via' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='tiv_codigo' label='${lbl:b_code}' fk='' tableName='smn_tipo_via' len='16' type='varchar' align='left'/>
+		<row field='tiv_descripcion' label='${lbl:b_description}' fk='' tableName='smn_tipo_via' len='48' type='varchar' align='left'/>
+		<row field='tiv_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_tipo_via' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncodigosimpuestos.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smncodigosimpuestos.sql' sheetname='${lbl:b_taxes}' filename='filter.xls'>
+		<col id='imp_codigo' label='${lbl:b_code}' />
+		<col id='imp_descripcion' label='${lbl:b_description}' />
+		<col id='imp_tipo_codigo_combo' label='${lbl:b_code_type}' />
+		<col id='imp_modalidad_registro_combo' label='${lbl:b_where_is_registered}' />
+		<col id='imp_porcentaje_base' label='${lbl:b_base_percentage}' />
+		<col id='imp_porcentaje_calculo' label='${lbl:b_calculation_percentage}' />
+		<col id='imp_tipo_libro_combo' label='${lbl:b_book_type}' />
+		<col id='imp_tipo_persona_combo' label='${lbl:b_kind_of_person}' />
+		<col id='imp_tipo_contribuyente_combo' label='${lbl:b_type_of_taxpayer}' />
+		<col id='imp_unidad_impositiva' label='${lbl:b_tax_unit}' />
+		<col id='imp_ui_minima' label='${lbl:b_minimum}' />
+		<col id='imp_ui_maxima' label='${lbl:b_maximum}' />
+		<col id='imp_ui_sustraendo' label='${lbl:b_subtrahend}' />
+		<col id='imp_monto_minimo' label='${lbl:b_minimum}' />
+		<col id='imp_monto_maximo' label='${lbl:b_maximum}' />
+		<col id='imp_monto_sustraendo' label='${lbl:b_subtrahend} ${lbl:b_amount}' />
+		<col id='imp_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

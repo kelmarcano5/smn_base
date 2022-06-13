@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		<recordset id='detail-smnvariable.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnrespuesta.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnpregunta.sql' source='session' scope='transaction' />
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_smn_tipo_variable}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_smn_tipo_variable}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='query.sql' title='${lbl:b_smn_tipo_variable}' width='60' spacingBefore='40'>
+			<col name='tva_codigo' title='${lbl:b_tva_codigo}' align='left' />
+			<col name='tva_descripcion' title='${lbl:b_tva_descripcion}' align='left' />
+			<col name='tva_estatus_combo' title='${lbl:b_status}' align='left' />
+			<col name='tva_idioma' title='${lbl:s_profile_lang}' align='left' />
+			<col name='tva_usuario' title='${lbl:b_users}' align='left' />
+			<col name='tva_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+			<col name='tva_hora' title='${lbl:s_loginhist_col2}' align='left' />
+		</record>
+		<table recordset='detail-smnvariable.sql' width='100' spacingBefore='40'>
+			<col name='smn_variable_id' title='${lbl:b_smn_variable}' width='12' align='left' format='######' />
+			<col name='var_codigo' title='${lbl:b_var_codigo}' width='12' align='left' />
+			<col name='var_descripción' title='${lbl:b_var_descripcion}' width='12' align='left' />
+			<col name='var_estatus_combo' title='${lbl:b_status}' width='12' align='left' />
+			<col name='var_idioma' title='${lbl:s_profile_lang}' width='12' align='left' />
+			<col name='var_usuario' title='${lbl:b_users}' width='12' align='left' />
+			<col name='var_fecha_registro' title='${lbl:b_store_date}' width='12' align='left' format='dd-MM-yyyy' />
+			<col name='var_hora' title='${lbl:s_loginhist_col2}' width='12' align='left' />
+		</table>
+		<table recordset='detail-smnrespuesta.sql' width='100' spacingBefore='40'>
+			<col name='smn_respuesta_id' title='${lbl:b_smn_respuesta_id}' width='9' align='left' format='######' />
+			<col name='smn_tipo_respuesta_id_combo' title='${lbl:b_smn_tipo_respuesta_id}' width='9' align='left' format='######' />
+			<col name='smn_variable_id' title='${lbl:b_smn_variable}' width='9' align='left' format='######' />
+			<col name='res_texto_respuesta' title='${lbl:b_res_texto_respuesta}' width='9' align='left' />
+			<col name='cue_idioma' title='${lbl:s_profile_lang}' width='9' align='left' />
+			<col name='cue_usuario' title='${lbl:b_users}' width='9' align='left' />
+			<col name='cue_fecha_registro' title='${lbl:b_store_date}' width='9' align='left' format='dd-MM-yyyy' />
+			<col name='cue_hora' title='${lbl:s_loginhist_col2}' width='9' align='left' />
+		</table>
+		<table recordset='detail-smnpregunta.sql' width='100' spacingBefore='40'>
+			<col name='smn_pregunta_id' title='${lbl:b_smn_pregunta_d}' width='11' align='left' format='######' />
+			<col name='prg_codigo' title='${lbl:b_prg_codigo}' width='11' align='left' />
+			<col name='prg_descripcion' title='${lbl:b_prg_descripcion}' width='11' align='left' />
+			<col name='prg_tipo_respuesta_combo' title='${lbl:b_prg_tipo_respuesta}' width='11' align='left' />
+			<col name='sec_estatus_combo' title='${lbl:b_status}' width='11' align='left' />
+			<col name='cue_idioma' title='${lbl:s_profile_lang}' width='11' align='left' />
+			<col name='cue_usuario' title='${lbl:b_users}' width='11' align='left' />
+			<col name='cue_fecha_registro' title='${lbl:s_loginhist_col2}' width='11' align='left' format='dd-MM-yyyy' />
+			<col name='cue_hora' title='${lbl:s_loginhist_col2}' width='11' align='left' />
+		</table>
+
+
+	</pdf-report>
+</config>

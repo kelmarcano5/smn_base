@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnprestadoresservicios-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnareasservicios.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnvauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnclaseauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-smndireccion.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnunidadesservicios.sql' source='sql' scope='transaction' />
+		<recordset id='query-smngruposprestadores.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_financiera.smn_prestadores_servicios.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_services_providers}.xls'   
+		header-background='true' >
+		
+	<sheet recordset="query-smnprestadoresservicios-template.sql" sheetname="${lbl:b_services_providers}">
+		
+		<col id='prs_codigo' label='${lbl:b_code}' />
+		<col id='prs_nombres' label='${lbl:s_profile_fname}' />
+		<col id='prs_apellidos' label='${lbl:s_profile_lname}' />
+		<col id='prs_area_servicio' label='${lbl:b_service_area}' />
+		<col id='prs_unidad_servicio' label='${lbl:b_service_unit}' />
+		<col id='prs_clase_auxiliar' label='${lbl:b_auxiliary_class}' />
+		<col id='prs_auxiliar' label='${lbl:b_auxiliary}' />
+		<col id='smn_grupos_prestadores' label='${lbl:b_group_of_provider}' />
+		<col id='prs_direccion' label='${lbl:b_address}' />
+		<col id='prs_telefono_fijo' label='${lbl:b_fixed_phone}' />
+		<col id='prs_telefono_movil' label='${lbl:b_mobile_phone}' />
+		<col id='prs_frecuencia' label='${lbl:b_frecuency}' />
+
+		<col id='prs_area_servicio_reference' label='${lbl:b_service_area}' />
+		<col id='prs_unidad_servicio_reference' label='${lbl:b_service_unit}' />
+		<col id='prs_clase_auxiliar_reference' label='${lbl:b_auxiliary_class}' />
+		<col id='prs_auxiliar_reference' label='${lbl:b_auxiliary}' />
+		<col id='smn_grupos_prestadores_reference' label='${lbl:b_group_of_provider}' />
+		<col id='prs_direccion_reference' label='${lbl:b_address}' />
+
+	</sheet>
+	
+	<sheet recordset='query-smngruposprestadores.sql' sheetname='${lbl:b_group_of_provider}'>
+		<col id='gpp_descripcion' label='${lbl:b_description}' />
+	</sheet>	
+	
+	<sheet recordset='query-smnareasservicios.sql' sheetname='${lbl:b_service_area}'>
+		<col id='ase_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnvauxiliar.sql' sheetname='${lbl:b_auxiliary}'>
+		<col id='smn_item' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnclaseauxiliar.sql' sheetname='${lbl:b_auxiliary_class}'>
+		<col id='cla_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smndireccion.sql' sheetname='${lbl:b_address}'>
+		<col id='dir_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnunidadesservicios.sql' sheetname='${lbl:b_service_unit}'>
+		<col id='uns_descripcion' label='${lbl:b_description}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+
+<head>
+
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openExcel() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a xml
+		function openXml(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a texto
+		function openTxt(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 980, 600);	
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog" id="encabezado_tabla">
+		${lbl:b_service}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="${lbl:b_export_pdf}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/excel.png" onclick="openExcel()" title="${lbl:b_export_excel}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="${lbl:b_close_button}" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_code}</td>
+			<td style="background-color: white">${fld:svc_codigo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_description}</td>
+			<td style="background-color: white">${fld:svc_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_service_type}</td>
+			<td style="background-color: white">${fld:smn_tipo_servicio_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_frecuency}</td>
+			<td style="background-color: white">${fld:svc_frecuencia}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_measurement_unit}</td>
+			<td style="background-color: white">${fld:smn_unidad_medida_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_coin_local_price}</td>
+			<td style="background-color: white">${fld:smn_precio_moneda_local@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_coin}</td>
+			<td style="background-color: white">${fld:smn_moneda_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_coin_altern_price}</td>
+			<td style="background-color: white">${fld:smn_precio_moneda_alterna@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_discount}</td>
+			<td style="background-color: white">${fld:smn_descuento_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_amount_desc_ml}</td>
+			<td style="background-color: white">${fld:svc_monto_desc_ml@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_amount_desc_ma}</td>
+			<td style="background-color: white">${fld:svc_monto_desc_ma@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_price_net}</td>
+			<td style="background-color: white">${fld:svr_precio_neto@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_price_net_ma}</td>
+			<td style="background-color: white">${fld:svc_precio_neto_ma@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_require_providers_group}</td>
+			<td style="background-color: white">${fld:svc_req_prestador}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_auxiliary_class}</td>
+			<td style="background-color: white">${fld:smn_clase_auxiliar_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_requirements}</td>
+			<td style="background-color: white">${fld:svc_requisitos}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_validation_date_from}</td>
+			<td style="background-color: white">${fld:svc_vigencia_desde@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_validation_date_to}</td>
+			<td style="background-color: white">${fld:svc_vigencia_hasta@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_documents_general}</td>
+			<td style="background-color: white">${fld:smn_documento_general_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_baremos}</td>
+			<td style="background-color: white">${fld:smn_baremos_id}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_inactive}</td>
+			<td style="background-color: white">${fld:svc_inactivo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:svc_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+	<br>
+	<div  align="center">
+		<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog()" class="button">
+	</div>
+
+</body>
+
+</html>

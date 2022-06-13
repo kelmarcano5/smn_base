@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_descuento>
+	<detail>
+		<rows>		
+		<record dct_fecha_registro="${fld:dct_fecha_registro}"    dct_aplica="${fld:dct_aplica}"    dct_porcentaje="${fld:dct_porcentaje}"    dct_nombre="${fld:dct_nombre}"    dct_codigo="${fld:dct_codigo}"    />
+		</rows>
+	</detail>
+</smn_descuento>

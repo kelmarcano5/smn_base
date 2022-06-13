@@ -1,0 +1,11 @@
+select
+	smn_base.smn_auxiliar_corporaciones.tcp_codigo,
+	smn_base.smn_auxiliar_corporaciones.tcp_nombre,
+	smn_base.smn_auxiliar_corporaciones.tcp_auxiliar_unidad_negocio,
+	smn_base.smn_auxiliar_corporaciones.tcp_moneda,
+	smn_base.smn_auxiliar_corporaciones.tcp_direccion,
+	smn_base.smn_auxiliar_corporaciones.tcp_fecha_registro
+from 
+	smn_base.smn_auxiliar_corporaciones
+order by 
+	smn_base.smn_auxiliar_corporaciones.smn_auxiliar_corporaciones_id desc

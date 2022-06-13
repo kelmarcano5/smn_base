@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_afiliaciones>
+	<detail>
+		<rows>		
+		<record afc_fecha_registro="${fld:afc_fecha_registro}"    afc_parentezco="${fld:afc_parentezco}"    afc_es_titular="${fld:afc_es_titular}"    afc_modulo="${fld:afc_modulo}"    afc_afiliado="${fld:afc_afiliado}"    afc_descripcion="${fld:afc_descripcion}"    afc_codigo="${fld:afc_codigo}"    />
+		</rows>
+	</detail>
+</smn_afiliaciones>

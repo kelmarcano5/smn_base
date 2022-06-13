@@ -1,0 +1,42 @@
+INSERT INTO smn_base.smn_diccionario
+(
+	smn_diccionario_id,
+	dic_codigo,
+	dic_descripcion,
+	dic_esquema,
+	dic_tabla,
+	dic_campo,
+	dic_tipo_dato,
+	dic_tamano,
+	dic_posicion_inicial,
+	dic_posicion_final,
+	dic_ruta,
+	dic_observacion,
+	dic_estatus,
+	dic_fecha_estatus,
+	dic_idioma,
+	dic_usuario_id,
+	dic_fecha_registro,
+	dic_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_diccionario},
+	${fld:dic_codigo},
+	${fld:dic_descripcion},
+	${fld:dic_esquema},
+	${fld:dic_tabla},
+	${fld:dic_campo},
+	${fld:dic_tipo_dato},
+	${fld:dic_tamano},
+	${fld:dic_posicion_inicial},
+	${fld:dic_posicion_final},
+	${fld:dic_ruta},
+	${fld:dic_observacion},
+	${fld:dic_estatus},
+	${fld:dic_fecha_estatus},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

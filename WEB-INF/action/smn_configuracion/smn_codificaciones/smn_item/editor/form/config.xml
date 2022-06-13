@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		${lbl:b_item}
+	</summary>
+	
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+	
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-smn_nivel_estructura.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_atributo_uno.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_valor_uno.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_atributo_dos.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_valor_dos.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_atributo_tres.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_valor_tres.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_atributo_cuatro.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_valor_cuatro.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_atributo_cinco.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_valor_cinco.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_atributo_seis.sql' source='sql' scope='transaction'/>
+		<recordset id='query-smn_valor_seis.sql' source='sql' scope='transaction'/>
+	</transaction>
+	
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<expiration>0</expiration>
+		<print mode='table' recordset='query-smn_nivel_estructura.sql' tag='smn_nivel_estructura_rows'/>
+		<print mode='table' recordset='query-smn_atributo_uno.sql' tag='smn_atributo_uno_rows'/>
+		<print mode='table' recordset='query-smn_valor_uno.sql' tag='smn_valor_uno_rows'/>
+		<print mode='table' recordset='query-smn_atributo_dos.sql' tag='smn_atributo_dos_rows'/>
+		<print mode='table' recordset='query-smn_valor_dos.sql' tag='smn_valor_dos_rows'/>
+		<print mode='table' recordset='query-smn_atributo_tres.sql' tag='smn_atributo_tres_rows'/>
+		<print mode='table' recordset='query-smn_valor_tres.sql' tag='smn_valor_tres_rows'/>
+		<print mode='table' recordset='query-smn_atributo_cuatro.sql' tag='smn_atributo_cuatro_rows'/>
+		<print mode='table' recordset='query-smn_valor_cuatro.sql' tag='smn_valor_cuatro_rows'/>
+		<print mode='table' recordset='query-smn_atributo_cinco.sql' tag='smn_atributo_cinco_rows'/>
+		<print mode='table' recordset='query-smn_valor_cinco.sql' tag='smn_valor_cinco_rows'/>
+		<print mode='table' recordset='query-smn_atributo_seis.sql' tag='smn_atributo_seis_rows'/>
+		<print mode='table' recordset='query-smn_valor_seis.sql' tag='smn_valor_seis_rows'/>
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_entidades_federales>
+	<detail>
+		<rows>		
+		<record efe_fecha_registro="${fld:efe_fecha_registro}"    efe_nombre_largo="${fld:efe_nombre_largo}"    efe_nombre_corto="${fld:efe_nombre_corto}"    efe_codigo="${fld:efe_codigo}"    pai_nombre_largo="${fld:pai_nombre_largo}"    
+/>
+		</rows>
+	</detail>
+</smn_entidades_federales>

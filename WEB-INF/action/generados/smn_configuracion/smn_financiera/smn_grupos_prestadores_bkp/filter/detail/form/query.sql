@@ -1,0 +1,10 @@
+select
+	case
+		when smn_base.smn_grupos_prestadores.gpp_orden_atencion='CI' then '${lbl:b_by_appointment}'
+		when smn_base.smn_grupos_prestadores.gpp_orden_atencion='OL' then '${lbl:b_by_arrive_order}'
+	end as gpp_orden_atencion_combo,
+	smn_base.smn_grupos_prestadores.*
+from 
+	smn_base.smn_grupos_prestadores
+where
+	smn_grupos_prestadores_id = ${fld:id}

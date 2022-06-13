@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnareasservicios.sql" source="session" scope="transaction" />
+		<recordset id='query-smnentidades.sql' source='sql' scope='transaction' />
+	<recordset id='query-smnsucursales.sql' source='sql' scope='transaction' />
+	<recordset id='query-smnunidadesnegocios.sql' source='sql' scope='transaction' />
+	
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_service_areas}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_service_areas}">
+				<col id='smn_tipos_areas_id' label='${lbl:b_types_area}' />
+		<col id='ase_codigo' label='${lbl:b_code}' />
+		<col id='ase_descripcion' label='${lbl:b_description}' />
+		<col id='ase_empresa' label='${lbl:b_entity}' />
+		<col id='ase_sucursal' label='${lbl:b_subsidiary}' />
+		<col id='ase_unidad_negocio' label='${lbl:b_business_unit}' />
+		<col id='ase_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+		<sheet recordset='query-smnentidades.sql' sheetname=''>
+		<col id='ent_descripcion_corta' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnsucursales.sql' sheetname=''>
+		<col id='suc_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnunidadesnegocios.sql' sheetname=''>
+		<col id='uen_nombre' label='${lbl:b_name}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

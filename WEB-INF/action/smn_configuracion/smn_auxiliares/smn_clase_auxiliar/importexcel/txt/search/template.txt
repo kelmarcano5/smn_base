@@ -1,0 +1,3 @@
+<rows>
+cla_fecha_registro="${fld:cla_fecha_registro}"    cla_naturaleza="${fld:cla_naturaleza}"    cla_modulo="${fld:cla_modulo}"    cla_nombre="${fld:cla_nombre}"    cla_codigo="${fld:cla_codigo}"    
+</rows>

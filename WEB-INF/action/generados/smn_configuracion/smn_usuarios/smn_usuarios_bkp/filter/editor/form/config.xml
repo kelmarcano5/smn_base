@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_users}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-smn_entidades_id.sql' source='sql' scope='transaction'/><recordset id='query-usr_usuario_id.sql' source='sql' scope='transaction'/><recordset id='query-usr_nacionalidad.sql' source='sql' scope='transaction'/><recordset id='query-usr_direccion.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-smn_entidades_id.sql' tag='smn_entidades_id_rows'/><print mode='table' recordset='query-usr_usuario_id.sql' tag='usr_usuario_id_rows'/><print mode='table' recordset='query-usr_nacionalidad.sql' tag='usr_nacionalidad_rows'/><print mode='table' recordset='query-usr_direccion.sql' tag='usr_direccion_rows'/>
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

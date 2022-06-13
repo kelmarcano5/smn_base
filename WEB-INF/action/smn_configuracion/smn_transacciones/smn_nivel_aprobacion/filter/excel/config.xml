@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnnivelaprobacion.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="3" cellStep="0" name="${lbl:b_nivel_aprobacion}"/>
+	
+	<excel 
+		recordset='query-smnnivelaprobacion.sql' 
+		sheetname='${lbl:b_nivel_aprobacion}' 
+		filename='${lbl:b_nivel_aprobacion}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='smn_configuracion_estructura_id_combo' label='${lbl:b_configuracion_estructura}' />
+		<col id='nap_codigo' label='${lbl:b_code}' />
+		<col id='nap_descripcion' label='${lbl:b_description}' />
+		<col id='nap_rol_combo' label='${lbl:b_role}' />
+		<col id='nap_secuencia_aprobacion' label='${lbl:b_approval_sequence}' />
+		<col id='nap_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

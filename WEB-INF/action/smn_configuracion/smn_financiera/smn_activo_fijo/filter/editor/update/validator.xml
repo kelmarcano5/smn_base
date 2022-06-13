@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='acf_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='acf_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='64'/>
+	<parameter id='acf_proveedor_exclusivo' type='varchar' required='false' label='${lbl:b_provider_exclusive}' maxlen='2'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_fixed_assets}' maxlen='10'/>
+
+
+
+</validator>

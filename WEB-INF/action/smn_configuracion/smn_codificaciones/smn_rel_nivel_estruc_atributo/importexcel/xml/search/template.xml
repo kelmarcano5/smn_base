@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_rel_nivel_estruc_atributo>
+	<detail>
+		<rows>		
+		<record rna_secuencia="${fld:rna_secuencia}"    smn_atributo_item_id="${fld:smn_atributo_item_id}"    smn_nivel_estructura_id="${fld:smn_nivel_estructura_id}"    />
+		</rows>
+	</detail>
+</smn_rel_nivel_estruc_atributo>

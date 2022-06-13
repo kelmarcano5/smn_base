@@ -1,0 +1,30 @@
+INSERT INTO smn_base.smn_auxiliar_contacto
+(
+	smn_auxiliar_contacto_id,
+	acn_telefono_fijo,
+	acn_telefono_movil,
+	acn_email,
+	acn_facebook,
+	acn_linkedin,
+	acn_twitter,
+	acn_swift,
+	acn_idioma,
+	acn_usuario,
+	acn_fecha_registro,
+	acn_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_auxiliar_contacto},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

@@ -1,0 +1,1 @@
+select ${seq:nextval@smn_base.smn_conexiones.seq_smn_conexiones} as id

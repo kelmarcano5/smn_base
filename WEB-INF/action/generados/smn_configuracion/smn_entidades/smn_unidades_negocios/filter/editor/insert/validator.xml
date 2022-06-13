@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='uen_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='uen_nombre' type='varchar' required='true' label='${lbl:b_name}' maxlen='48'/>
+	<parameter id='uen_responsable' type='varchar' required='true' label='${lbl:b_responsible}' maxlen='48'/>
+	<parameter id='uen_direccion' type='integer' required='true' label='${lbl:b_address}' maxlen='10'/>
+	<parameter id='uen_telefono_fijo' type='varchar' required='true' label='${lbl:b_fixed_phone}' maxlen='24'/>
+	<parameter id='uen_telefono_movil' type='varchar' required='true' label='${lbl:b_mobile_phone}' maxlen='24'/>
+	<parameter id='uen_email' type='varchar' required='true' label='${lbl:s_profile_email}' maxlen='96'/>
+</validator>

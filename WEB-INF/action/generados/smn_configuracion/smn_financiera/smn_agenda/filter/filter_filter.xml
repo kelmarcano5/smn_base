@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_timetable}</summary>
+	<filter>
+		<row field='age_codigo' id='age_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_agenda' len='16'/>
+		<row field='age_descripcion' id='age_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_agenda' len='48'/>
+		<row field='age_dia_semana' id='age_dia_semana' label='${lbl:b_weekday}@{LU=${lbl:b_monday}|MA=${lbl:b_tuesday}|MI=${lbl:b_wednesday}|JU=${lbl:b_thursday}|VI=${lbl:b_friday}|SA=${lbl:b_saturday}|DO=${lbl:b_sunday}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_agenda' len='2'/>
+		<row field='age_fecha_registro' id='age_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_agenda' len='10'/>
+		<row field='age_fecha_registro' id='age_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_agenda' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='age_codigo' label='${lbl:b_code}' fk='' tableName='smn_agenda' len='16' type='varchar' align='left'/>
+		<row field='age_descripcion' label='${lbl:b_description}' fk='' tableName='smn_agenda' len='48' type='varchar' align='left'/>
+		<row field='age_dia_semana' label='${lbl:b_weekday}@{LU=${lbl:b_monday}|MA=${lbl:b_tuesday}|MI=${lbl:b_wednesday}|JU=${lbl:b_thursday}|VI=${lbl:b_friday}|SA=${lbl:b_saturday}|DO=${lbl:b_sunday}}' fk='' tableName='smn_agenda' len='2' type='varchar' align='left'/>
+		<row field='age_hora_desde' label='${lbl:b_time_since}' fk='' tableName='smn_agenda' len='5' type='varchar' align='left'/>
+		<row field='age_hora_hasta' label='${lbl:b_time_until}' fk='' tableName='smn_agenda' len='5' type='varchar' align='left'/>
+		<row field='age_localidad' label='${lbl:b_location}' fk='' tableName='smn_agenda' len='56' type='varchar' align='left'/>
+		<row field='age_jornada' label='${lbl:b_working_day}@{AM=${lbl:b_schedule_am}|PM=${lbl:b_schedule_pm}}' fk='' tableName='smn_agenda' len='2' type='varchar' align='left'/>
+		<row field='age_frecuencia' label='${lbl:b_frecuency}' fk='' tableName='smn_agenda' len='10' type='double' align='right'/>
+		<row field='age_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_agenda' len='2' type='varchar' align='left'/>
+		<row field='age_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_agenda' len='10' type='varchar' align='left'/>
+		<row field='age_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_agenda' len='10' type='date' align='center'/>
+		<row field='age_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_agenda' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

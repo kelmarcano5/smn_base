@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncomponentes.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smncomponentes.sql' sheetname='${lbl:b_components}' filename='filter_full.xls'>
+		<col id='cmp_codigo' label='${lbl:b_code}' />
+		<col id='cmp_descripcion' label='${lbl:b_description}' />
+		<col id='cmp_area_servicio' label='${lbl:b_service_area}' />
+		<col id='cmp_unidad_servicio' label='${lbl:b_service_unit}' />
+		<col id='cmp_vigencia_desde' label='${lbl:b_validation_date_from}' />
+		<col id='cmp_vigencia_hasta' label='${lbl:b_validation_date_to}' />
+		<col id='cmp_visible_combo' label='${lbl:b_visible}' />
+		<col id='cmp_req_grupo_prestador_combo' label='${lbl:b_require_providers_group}' />
+		<col id='cmp_grupo_prestador' label='${lbl:b_group_of_provider}' />
+		<col id='cmp_req_honorario_combo' label='${lbl:b_require_honorary}' />
+		<col id='cmp_tiempo_estimado' label='${lbl:b_estimated_time}' />
+		<col id='cmp_clase_auxiliar' label='${lbl:b_auxiliary_class}' />
+		<col id='cmp_tipo_combo' label='${lbl:b_type}' />
+		<col id='cmp_almacen' label='${lbl:b_store}' />
+		<col id='cmp_calculo_combo' label='${lbl:b_calculus}' />
+		<col id='cmp_cantidad' label='${lbl:b_amount}' />
+		<col id='cmp_precio' label='${lbl:b_price}' />
+		<col id='cmp_porcentaje' label='${lbl:b_percentage}' />
+		<col id='cmp_trans_general' label='${lbl:b_general_transaction}' />
+		<col id='cmp_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

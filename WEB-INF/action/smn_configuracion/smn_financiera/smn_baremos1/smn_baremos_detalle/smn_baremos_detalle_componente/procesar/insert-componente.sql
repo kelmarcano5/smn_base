@@ -1,0 +1,42 @@
+INSERT INTO smn_base.smn_baremos_detalle_componente
+(
+	smn_baremos_detalle_componente_id,
+	smn_baremos_detalle_id,
+	smn_tipo_compuesto_rf,
+	smn_componente_rf,
+	smn_almacen_rf,
+	smn_item_rf,
+	smn_forma_calculo_rf,
+	smn_porcentaje_rf,
+	bdc_cantidad,
+	bdc_precio_ml,
+	bdc_monto_ml,
+	smn_moneda_rf,
+	bdc_precio_ma,
+	bdc_monto_ma,
+	bdc_idioma,
+	bdc_usuario,
+	bdc_fecha_registro,
+	bdc_hora
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_baremos_detalle_componente},
+	${fld:smn_baremos_detalle_id},
+	${fld:tipo_componente},
+	${fld:componentes},
+	${fld:almacen},
+	${fld:item},
+	${fld:forma_calculo},
+	${fld:cmp_porcentaje},
+	${fld:cantidad},
+	${fld:precio},
+	${fld:monto},
+	${fld:smn_moneda_rf},
+	${fld:precioma},
+	${fld:montoma},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

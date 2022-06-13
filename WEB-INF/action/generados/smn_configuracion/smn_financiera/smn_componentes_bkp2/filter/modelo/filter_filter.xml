@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_components}</summary>
+	<filter>
+		<row field='smn_grupos_prestadores_id' id='smn_grupos_prestadores_id' label='${lbl:b_group_of_provider}@{select smn_base.smn_grupos_prestadores.smn_grupos_prestadores_id as id, smn_basesmn_grupos_prestadores.gpp_codigo || &apos; - &apos; || smn_base.smn_grupos_prestadores.gpp_descripcion as item from smn_base.smn_grupos_prestadores order by smn_base.smn_grupos_prestadores.gpp_descripcion}' required='NO' fk='gpp_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_componentes' len='10'/>
+		<row field='smn_servicios_id' id='smn_servicios_id' label='${lbl:b_service}@{select smn_base.smn_servicios.smn_servicios_id as id, smn_base.smn_servicios.svc_codigo || &apos; - &apos; || smn_base.smn_servicios.svc_descripcion as item from smn_base.smn_servicios order by smn_base.smn_servicios.svc_descripcion}' required='NO' fk='svc_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_componentes' len='10'/>
+		<row field='cmp_descripcion' id='cmp_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_componentes' len='48'/>
+		<row field='cmp_area_servicio' id='cmp_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_componentes' len='10'/>
+		<row field='cmp_unidad_servicio' id='cmp_unidad_servicio' label='${lbl:b_service_unit}@{select smn_base.smn_unidades_servicios.smn_unidades_servicios_id as id, smn_base.smn_unidades_servicios.uns_codigo || &apos; - &apos; || smn_base.smn_unidades_servicios.uns_descripcion as item from smn_base.smn_unidades_servicios order by smn_base.smn_unidades_servicios.uns_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_componentes' len='10'/>
+		<row field='cmp_clase_auxiliar' id='cmp_clase_auxiliar' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo|| &apos; - &apos; || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_componentes' len='10'/>
+		<row field='cmp_tipo' id='cmp_tipo' label='${lbl:b_type}@{SE=${lbl:b_services}|IN=${lbl:b_inventory}|PR=${lbl:b_providers}}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_componentes' len='2'/>
+		<row field='cmp_fecha_registro' id='cmp_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_componentes' len='10'/>
+		<row field='cmp_fecha_registro' id='cmp_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_componentes' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_grupos_prestadores_id' label='${lbl:b_group_of_provider}@{select smn_base.smn_grupos_prestadores.smn_grupos_prestadores_id as id, smn_basesmn_grupos_prestadores.gpp_codigo || &apos; - &apos; || smn_base.smn_grupos_prestadores.gpp_descripcion as item from smn_base.smn_grupos_prestadores order by smn_base.smn_grupos_prestadores.gpp_descripcion}' fk='gpp_codigo' tableName='smn_componentes' len='10' type='integer' align='left'/>
+		<row field='smn_servicios_id' label='${lbl:b_service}@{select smn_base.smn_servicios.smn_servicios_id as id, smn_base.smn_servicios.svc_codigo || &apos; - &apos; || smn_base.smn_servicios.svc_descripcion as item from smn_base.smn_servicios order by smn_base.smn_servicios.svc_descripcion}' fk='svc_codigo' tableName='smn_componentes' len='10' type='integer' align='left'/>
+		<row field='cmp_descripcion' label='${lbl:b_description}' fk='' tableName='smn_componentes' len='48' type='varchar' align='left'/>
+		<row field='cmp_area_servicio' label='${lbl:b_service_area}@{select smn_base.smn_areas_servicios.smn_areas_servicios_id as id, smn_base.smn_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_areas_servicios.ase_descripcion as item from smn_base.smn_areas_servicios order by smn_base.smn_areas_servicios.ase_descripcion}' fk='' tableName='smn_componentes' len='10' type='integer' align='left'/>
+		<row field='cmp_clase_auxiliar' label='${lbl:b_auxiliary_class}@{select smn_base.smn_clase_auxiliar.smn_clase_auxiliar_id as id, smn_base.smn_clase_auxiliar.cla_codigo|| &apos; - &apos; || smn_base.smn_clase_auxiliar.cla_nombre as item from smn_base.smn_clase_auxiliar order by smn_base.smn_clase_auxiliar.cla_nombre}' fk='' tableName='smn_componentes' len='10' type='integer' align='left'/>
+		<row field='cmp_tipo' label='${lbl:b_type}@{SE=${lbl:b_services}|IN=${lbl:b_inventory}|PR=${lbl:b_providers}}' fk='' tableName='smn_componentes' len='2' type='varchar' align='left'/>
+		<row field='cmp_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_componentes' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

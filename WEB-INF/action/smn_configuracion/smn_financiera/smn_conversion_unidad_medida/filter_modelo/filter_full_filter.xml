@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_conversion_unidad_medida}</summary>
+	<filter>
+		<row field='smn_unidad_medida_origen_rf' id='smn_unidad_medida_origen_rf' label='${lbl:b_unidad_medida_origen}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo|| &apos; - &apos; || smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida order by unm_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_conversion_unidad_medida' len='10'/>
+		<row field='smn_unidad_medida_destino_rf' id='smn_unidad_medida_destino_rf' label='${lbl:b_unidad_medida_destino}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo|| &apos; - &apos; || smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida order by unm_descripcion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_conversion_unidad_medida' len='10'/>
+		<row field='cou_factor_conversion' id='cou_factor_conversion' label='${lbl:b_factor_conversion}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='double' tableName='smn_conversion_unidad_medida' len='10'/>
+		<row field='cou_fecha_registro' id='cou_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_conversion_unidad_medida' len='10'/>
+		<row field='cou_fecha_registro' id='cou_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_conversion_unidad_medida' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_unidad_medida_origen_rf' label='${lbl:b_unidad_medida_origen}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo|| &apos; - &apos; || smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida order by unm_descripcion}' fk='' tableName='smn_conversion_unidad_medida' len='10' type='integer' align='center'/>
+		<row field='smn_unidad_medida_destino_rf' label='${lbl:b_unidad_medida_destino}@{select smn_base.smn_unidad_medida.smn_unidad_medida_id as id, smn_base.smn_unidad_medida.unm_codigo|| &apos; - &apos; || smn_base.smn_unidad_medida.unm_descripcion as item from smn_base.smn_unidad_medida order by unm_descripcion}' fk='' tableName='smn_conversion_unidad_medida' len='10' type='integer' align='center'/>
+		<row field='cou_factor_conversion' label='${lbl:b_factor_conversion}' fk='' tableName='smn_conversion_unidad_medida' len='10' type='double' align='right'/>
+		<row field='cou_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_conversion_unidad_medida' len='2' type='varchar' align='left'/>
+		<row field='cou_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_conversion_unidad_medida' len='10' type='varchar' align='left'/>
+		<row field='cou_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_conversion_unidad_medida' len='10' type='date' align='center'/>
+		<row field='cou_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_conversion_unidad_medida' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

@@ -1,0 +1,23 @@
+select
+	smn_base.smn_diccionario.dic_estatus,
+	smn_base.smn_diccionario.dic_fecha_estatus,
+	smn_base.smn_diccionario.dic_codigo,
+	smn_base.smn_diccionario.dic_descripcion,
+	smn_base.smn_diccionario.dic_esquema,
+	smn_base.smn_diccionario.dic_tabla,
+	smn_base.smn_diccionario.dic_campo,
+	smn_base.smn_diccionario.dic_tipo_dato,
+	smn_base.smn_diccionario.dic_tamano,
+	smn_base.smn_diccionario.dic_posicion_inicial,
+	smn_base.smn_diccionario.dic_posicion_final,
+	smn_base.smn_diccionario.dic_ruta,
+	smn_base.smn_diccionario.dic_observacion,
+		smn_base.smn_diccionario.smn_diccionario_id
+	
+from
+	smn_base.smn_diccionario
+where
+	smn_diccionario_id is not null
+	${filter}
+order by
+		smn_diccionario_id

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_outsourced_units_services}</summary>
+	<filter>
+		<row field='smn_auxiliar_areas_servicios_id' id='smn_auxiliar_areas_servicios_id' label='${lbl:b_outsourced_service_area}@{select smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_areas_servicios_id as id, smn_base.smn_auxiliar_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_auxiliar_areas_servicios.ase_descripcion as item from smn_base.smn_auxiliar_areas_servicios order by smn_base.smn_auxiliar_areas_servicios.ase_descripcion}' required='NO' fk='tse_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_auxiliar_unidades_servicios' len='10'/>
+		<row field='tns_codigo' id='tns_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_unidades_servicios' len='16'/>
+		<row field='tns_descripcion' id='tns_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_auxiliar_unidades_servicios' len='48'/>
+		<row field='tns_fecha_registro' id='tns_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_auxiliar_unidades_servicios' len='10'/>
+		<row field='tns_fecha_registro' id='tns_fecha_registro_fin' label='${lbl:b_store_date_less_than' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_auxiliar_unidades_servicios' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_auxiliar_areas_servicios_id' label='${lbl:b_outsourced_service_area}@{select smn_base.smn_auxiliar_areas_servicios.smn_auxiliar_areas_servicios_id as id, smn_base.smn_auxiliar_areas_servicios.ase_codigo || &apos; - &apos; || smn_base.smn_auxiliar_areas_servicios.ase_descripcion as item from smn_base.smn_auxiliar_areas_servicios order by smn_base.smn_auxiliar_areas_servicios.ase_descripcion}' fk='tse_codigo' tableName='smn_auxiliar_unidades_servicios' len='10' type='integer' align='left'/>
+		<row field='tns_codigo' label='${lbl:b_code}' fk='' tableName='smn_auxiliar_unidades_servicios' len='16' type='varchar' align='left'/>
+		<row field='tns_descripcion' label='${lbl:b_description}' fk='' tableName='smn_auxiliar_unidades_servicios' len='48' type='varchar' align='left'/>
+		<row field='tns_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_auxiliar_unidades_servicios' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

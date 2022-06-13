@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='rowindex' type='integer' required='true' label='ID' maxlen='10'/>
+	<parameter id='bad_tipo2_name' type='varchar' required='false' label='${lbl:b_type}'/>
+	<parameter id='bad_tipo2' type='varchar' required='true' label='${lbl:b_type}' maxlen='2'/>
+	<parameter id='bad_servicio2_name' type='varchar' required='false' label='${lbl:b_service}'/>
+	<parameter id='bad_servicio2' type='integer' required='true' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='bad_auxiliar2_name' type='varchar' required='false' label='${lbl:b_auxiliary}'/>
+	<parameter id='bad_auxiliar2' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='bad_tipo_compuesto2_name' type='varchar' required='false' label='${lbl:b_type_compound}'/>
+	<parameter id='bad_tipo_compuesto2' type='varchar' required='true' label='${lbl:b_type_compound}' maxlen='2'/>
+	<parameter id='bad_codigo_articulo2' type='varchar' required='true' label='${lbl:b_item_code}' maxlen='16'/>
+	<parameter id='bad_almacen2_name' type='varchar' required='false' label='${lbl:b_store_code}'/>
+	<parameter id='bad_almacen2' type='integer' required='true' label='${lbl:b_store_code}' maxlen='10'/>
+	<parameter id='bad_calculo2_name' type='varchar' required='false' label='${lbl:b_calculus}'/>
+	<parameter id='bad_calculo2' type='varchar' required='true' label='${lbl:b_calculus}' maxlen='2'/>
+	<parameter id='bad_cantidad2' type='double' required='true' label='${lbl:b_amount}' maxlen='10'/>
+	<parameter id='bad_precio2' type='double' required='true' label='${lbl:b_price}' maxlen='10'/>
+	<parameter id='bad_porcentaje2' type='double' required='false' label='${lbl:b_percentage}' maxlen='10'/>
+	<parameter id='bad_inactivo2_name' type='varchar' required='false' label='${lbl:b_inactive}'/>
+	<parameter id='bad_inactivo2' type='varchar' required='true' label='${lbl:b_inactive}' maxlen='1'/>
+</validator>
+
+

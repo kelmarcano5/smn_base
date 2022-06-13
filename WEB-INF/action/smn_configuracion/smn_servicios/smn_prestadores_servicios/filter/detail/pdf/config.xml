@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_services_providers}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_services_providers}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='query.sql' title='${lbl:b_services_providers}' width='60' spacingBefore='40'>
+			<col name='prs_codigo' title='${lbl:b_code}' width='7' align='left' />
+			<col name='prs_descripcion' title='${lbl:b_description}' width='7' align='left' />
+			<col name='ase_descripcion' title='${lbl:b_service_area}' width='7' align='left'  />
+			<col name='uns_descripcion' title='${lbl:b_service_unit}' width='7' align='left'  />
+			<col name='smn_clase_auxiliar_rf' title='${lbl:b_auxiliary_class}' width='7' align='left'  />
+			<col name='smn_item' title='${lbl:b_auxiliary}' width='7' align='left'  />
+			<col name='prs_orden_atencion' title='${lbl:b_in_order_of_attention}' width='7' align='left'  />
+			<col name='prs_estatus' title='${lbl:b_status}' width='7' align='left' />
+			<col name='prs_fecha_inicio_estatus' title='${lbl:b_date_init}' width='10' align='left' />
+			<col name='prs_fecha_final_estatus' title='${lbl:b_date_end}' width='10' align='left' />
+			<col name='prs_frecuencia' title='${lbl:b_frecuency}' width='7' align='left' format='#,###,##0.00' />
+			<col name='prs_fecha_registro' title='${lbl:b_store_date}' width='7' align='left' format='dd-MM-yyyy' />
+
+		</record>
+	</pdf-report>
+</config>

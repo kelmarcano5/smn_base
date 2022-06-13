@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/alert">
+	<parameter id="id" type="integer" required="true" label="ID" maxlen="10" />
+	<parameter id='aux_apellidos' type='varchar' required='false' label='${lbl:b_last_name}' maxlen='64'/>
+	<parameter id='aux_nombres' type='varchar' required='false' label='${lbl:b_first_name}' maxlen='64'/>
+	<parameter id='email' type='varchar' required='false' label='${lbl:s_profile_email}' maxlen='96' />
+	<parameter id='auc_descripcion' type='varchar' required='false' label='${lbl:b_phone}' maxlen='100' />
+	<parameter id='swi' type='integer' required='false' label='switch' maxlen='1' />
+	<parameter id='existe' type='integer' required='false' label='switch' maxlen='1' />
+</validator>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		Actualiza valores de un formulario en una tabla
+	</summary>
+
+	<log>false</log>
+
+	<!--soporte de auditoria-->
+	<audit>
+		<!--de donde saca los datos, por defecto es "_request"-->
+		<recordset></recordset>
+		<!--que campos extrae para el registro descriptivo-->
+		<cols>
+			<colname>smn_naturaleza_auxiliar_rf</colname>
+			<colname>smn_clase_auxiliar_rf</colname>
+			<colname>userlogin</colname>
+			<colname>aux_tipo_persona</colname>
+			<colname>aux_apellidos</colname>
+			<colname>aux_nombres</colname>
+			<colname>aux_tipo_doc_oficial_rf</colname>
+			<colname>passwd</colname>
+			<colname>confirm</colname>
+			<colname>email</colname>
+			<colname>auc_descripcion</colname>
+		
+		</cols>
+		<table>smn_base.smn_auxiliar</table>
+		<oper>ACTUALIZAR</oper>
+		<area>Carga de datos</area>
+		<!--
+			query para obtener el ID generado o nombre de 
+			la columna que contiene el pkey, si es query, 
+			el alias del campo debe ser "id"
+		-->
+		<pkey>id</pkey>
+	</audit>
+
+	<transaction>
+		<classname>dinamica.audit.AuditableTransaction</classname>
+		<validator>true</validator>
+		<transaction>true</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="getiduser.sql" source="sql" scope="transaction"/>
+		<recordset id="getid.sql" source="sql" scope="request"/>
+	</transaction>
+
+	<query>update.sql</query>
+	<query>update-user.sql</query>
+	<query>update-usuarios.sql</query>
+	<query>update-phone.sql</query>
+	<query>update-email.sql</query>
+	<query params="getiduser.sql">update-passlog.sql</query>
+	<query params="getiduser.sql">update-user.sql</query>
+	<query params="getiduser.sql">update-usuarios.sql</query>
+	
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>script.js</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/javascript; charset=iso-8859-1</content-type>
+		<expiration>0</expiration>
+	</output>
+
+</config>

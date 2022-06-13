@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_tipo_variable_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='prg_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='prg_descripcion' type='varchar' required='true' maxlen='100'/>
+	<parameter id='prg_tipo_respuesta' type='varchar' required='true' maxlen='2'/>
+	<parameter id='sec_estatus' type='varchar' required='true' maxlen='2'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='prg_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='prg_descripcion'/>
+
+
+
+</validator>

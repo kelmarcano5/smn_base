@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='efi_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='efi_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='efi_direccion' type='integer' required='true' maxlen='10'/>
+	<parameter id='efi_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='efi_telefono_movil' type='varchar' required='true' maxlen='24'/>
+	<parameter id='efi_codigo_aba' type='varchar' required='false' maxlen='24'/>
+	<parameter id='efi_codigo_swift' type='varchar' required='false' maxlen='24'/>
+	<parameter id='efi_req_banco_intermediario' type='varchar' required='true' maxlen='1'/>
+	<parameter id='efi_banco_intermediario' type='integer' required='false' maxlen='10'/>
+	<parameter id='efi_routing' type='varchar' required='false' maxlen='24'/>
+	<parameter id='efi_contacto' type='varchar' required='false' maxlen='48'/>
+</validator>

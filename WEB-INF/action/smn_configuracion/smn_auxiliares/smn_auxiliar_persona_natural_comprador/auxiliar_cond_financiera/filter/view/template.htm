@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+	<col width='13%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('cfn_codigo','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('cfn_descripcion','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_description}</th>
+		<th class='sortable' onclick="sortBy('cla_nombre','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick="sortBy('aux_descripcion','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick="sortBy('cfn_limite_credito','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_credit_limit}</th>
+		<th class='sortable' onclick="sortBy('cfn_valida_saldos_vec_combo','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_percent_excess_credit_limit}</th>
+		<th class='sortable' onclick="sortBy('cfn_fecha_registro','query-smnauxiliarcondfinanciera.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_auxiliar_cond_financiera_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_auxiliar_cond_financiera_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_auxiliar_cond_financiera_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:cfn_codigo}</td>
+		<td align="left">${fld:cfn_descripcion}</td>
+		<td align="left">${fld:cla_nombre}</td>
+		<td align='left'>${fld:smn_item}</td>
+		<td align="right">${fld:cfn_limite_credito@#,###,##0.00}</td>
+		<td align="left">${fld:cfn_valida_saldos_vec_combo}</td>
+		<td align="center">${fld:cfn_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

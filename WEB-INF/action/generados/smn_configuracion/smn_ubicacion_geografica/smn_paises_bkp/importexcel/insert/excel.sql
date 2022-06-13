@@ -1,0 +1,22 @@
+INSERT INTO smn_base.smn_paises
+(
+	smn_paises_id,
+	pai_codigo,
+	pai_nombre_corto,
+	pai_nombre_largo,
+	pai_gentilicio,
+	pai_codigo_ddi,
+	pai_idioma_oficial,
+	pai_moneda_oficial
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_paises},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

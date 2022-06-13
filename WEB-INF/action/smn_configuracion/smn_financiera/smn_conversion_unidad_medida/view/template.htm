@@ -1,0 +1,46 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_unidad_medida_origen_rf_combo","query-smnconversionunidadmedida.sql")'>${lbl:b_unidad_medida_origen}</th>
+		<th class='sortable' onclick='sortBy("smn_unidad_medida_destino_rf_combo","query-smnconversionunidadmedida.sql")'>${lbl:b_unidad_medida_destino}</th>
+		<th class='sortable' onclick='sortBy("cou_factor_conversion","query-smnconversionunidadmedida.sql")'>${lbl:b_factor_conversion}</th>
+		<th class='sortable' onclick='sortBy("cou_fecha_registro","query-smnconversionunidadmedida.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_conversion_unidad_medida_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_conversion_unidad_medida_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_conversion_unidad_medida_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_unidad_medida_origen_rf_combo}</td>
+		<td>${fld:smn_unidad_medida_destino_rf_combo}</td>
+		<td align='right'>${fld:cou_factor_conversion@#,###,##0.00}</td>
+		<td>${fld:cou_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

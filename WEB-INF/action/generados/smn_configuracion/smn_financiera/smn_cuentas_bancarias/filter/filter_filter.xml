@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_bank_accounts}</summary>
+	<filter>
+		<row field='cba_entidades_financieras' id='cba_entidades_financieras' label='${lbl:b_financial_entity}@{select smn_base.smn_entidades_financieras.smn_entidades_financieras_id as id, smn_base.smn_entidades_financieras.efi_codigo || ' - ' || smn_base.smn_entidades_financieras.efi_nombre as item from smn_base.smn_entidades_financieras order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_cuentas_bancarias' len='10'/>
+		<row field='cba_codigo' id='cba_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_cuentas_bancarias' len='16'/>
+		<row field='cba_nombre' id='cba_nombre' label='${lbl:b_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_cuentas_bancarias' len='48'/>
+		<row field='cba_moneda' id='cba_moneda' label='${lbl:b_coin}@{select  smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || ' - ' || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by 2}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_cuentas_bancarias' len='10'/>
+		<row field='cba_fecha_registro' id='cba_fecha_registro_ini' label='${lbl:b_store_date_grater_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_cuentas_bancarias' len='10'/>
+		<row field='cba_fecha_registro' id='cba_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_cuentas_bancarias' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='cba_entidades_financieras' label='${lbl:b_financial_entity}@{select smn_base.smn_entidades_financieras.smn_entidades_financieras_id as id, smn_base.smn_entidades_financieras.efi_codigo || ' - ' || smn_base.smn_entidades_financieras.efi_nombre as item from smn_base.smn_entidades_financieras order by 2}' fk='' tableName='smn_cuentas_bancarias' len='10' type='integer' align='center'/>
+		<row field='cba_codigo' label='${lbl:b_code}' fk='' tableName='smn_cuentas_bancarias' len='16' type='varchar' align='left'/>
+		<row field='cba_nombre' label='${lbl:b_name}' fk='' tableName='smn_cuentas_bancarias' len='48' type='varchar' align='left'/>
+		<row field='cba_nro_cuenta' label='${lbl:b_bank_account_number}' fk='' tableName='smn_cuentas_bancarias' len='24' type='varchar' align='left'/>
+		<row field='cba_tipo_cta_banco' label='${lbl:b_account_bank_type}@{select smn_base.smn_tipo_cuenta_banco.smn_tipo_cuenta_banco_id as id, smn_base.smn_tipo_cuenta_banco.tcb_codigo || ' - ' || smn_base.smn_tipo_cuenta_banco.tcb_descripcion as item from smn_base.smn_tipo_cuenta_banco order by 2} ' fk='' tableName='smn_cuentas_bancarias' len='10' type='integer' align='center'/>
+		<row field='cba_moneda' label='${lbl:b_coin}@{select  smn_base.smn_monedas.smn_monedas_id as id, smn_base.smn_monedas.mon_codigo || ' - ' || smn_base.smn_monedas.mon_nombre as item from smn_base.smn_monedas order by 2}' fk='' tableName='smn_cuentas_bancarias' len='10' type='integer' align='center'/>
+		<row field='cba_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_cuentas_bancarias' len='10' type='date' align='center'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

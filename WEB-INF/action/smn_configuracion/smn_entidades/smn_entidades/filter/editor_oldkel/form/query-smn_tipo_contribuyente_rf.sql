@@ -1,0 +1,1 @@
+select smn_base.smn_tipo_contribuyente.smn_tipo_contribuyente_id as id, smn_base.smn_tipo_contribuyente.tco_codigo||' - '|| smn_base.smn_tipo_contribuyente.tco_descripcion as item from smn_base.smn_tipo_contribuyente

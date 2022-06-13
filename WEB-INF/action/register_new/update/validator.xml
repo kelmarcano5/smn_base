@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='rgu_tipo_doc_oficial' type='integer' required='true' label='${lbl:b_official_document_type}' maxlen='16'/>
+	<parameter id='rgu_num_doc_oficial' type='varchar' required='true' label='${lbl:b_official_document_number}' maxlen='12'/>
+	<parameter id='rgu_nro_id_fiscal' type='varchar' required='true' label='${lbl:b_tax_identification_number}' maxlen='16'/>
+	<parameter id='rgu_nombres' type='varchar' required='true' label='${lbl:s_profile_fname}' maxlen='32'/>
+	<parameter id='rgu_apellidos' type='varchar' required='true' label='${lbl:s_profile_lname}' maxlen='32'/>
+	<parameter id='rgu_tipo_registro' type='integer' required='true' label='${lbl:b_register_type}' maxlen='10'/>
+	<parameter id='rgu_razon_social' type='varchar' required='false' label='${lbl:b_business_name}' maxlen='64'/>
+	<parameter id='rgu_responsable' type='varchar' required='false' label='${lbl:b_responsible}' maxlen='96'/>
+	<parameter id='rgu_cargo' type='integer' required='false' label='${lbl:b_job_title}' maxlen='10'/>
+	<parameter id='rgu_num_minist_salud' type='varchar' required='false' label='${lbl:b_number_health_ministry}' maxlen='16'/>
+	<parameter id='rgu_num_coleg_medicos' type='varchar' required='false' label='${lbl:b_number_medical_school}' maxlen='16'/>
+	<parameter id='rgu_email' type='varchar' required='true' label='${lbl:s_profile_email}' maxlen='96'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_user}' maxlen='10'/>
+</validator>
+

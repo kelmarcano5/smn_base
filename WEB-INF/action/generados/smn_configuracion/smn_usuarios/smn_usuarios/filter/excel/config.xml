@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnusuarios.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnusuarios.sql' sheetname='${lbl:b_users}' filename='filter.xls'>
+		<col id='ent_codigo_pl0' label='${lbl:b_entity}' />
+		<col id='usr_usuario_id' label='${lbl:b_user}' />
+		<col id='usr_comunidad' label='${lbl:b_community}' />
+		<col id='usr_nombres' label='${lbl:s_profile_fname}' />
+		<col id='usr_apellidos' label='${lbl:s_profile_lname}' />
+		<col id='usr_nacionalidad' label='${lbl:b_citizenship}' />
+		<col id='usr_nro_doc_identidad' label='${lbl:b_identification_doc_number}' />
+		<col id='usr_nro_id_fiscal' label='${lbl:b_tax_identification_number}' />
+		<col id='usr_direccion' label='${lbl:b_address}' />
+		<col id='usr_email' label='${lbl:s_profile_email}' />
+		<col id='usr_telefono_fijo' label='${lbl:b_fixed_phone}' />
+		<col id='usr_telefono_movil' label='${lbl:b_mobile_phone}' />
+		<col id='usr_idioma' label='${lbl:s_profile_lang}' />
+		<col id='usr_usuario' label='${lbl:b_users}' />
+		<col id='usr_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='usr_hora' label='${lbl:s_loginhist_col2}' />
+	</excel>
+
+</config>

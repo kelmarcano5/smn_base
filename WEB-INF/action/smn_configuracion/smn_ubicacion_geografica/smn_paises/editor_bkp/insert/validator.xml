@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='pai_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='pai_nombre_corto' type='varchar' required='true' label='${lbl:b_short_name}' maxlen='24'/>
+	<parameter id='pai_nombre_largo' type='varchar' required='true' label='${lbl:b_long_name}' maxlen='48'/>
+	<parameter id='pai_gentilicio' type='varchar' required='true' label='${lbl:b_citizenship}' maxlen='24'/>
+	<parameter id='pai_codigo_ddi' type='varchar' required='true' label='${lbl:b_international_dailing_code}' maxlen='8'/>
+	<parameter id='pai_idioma_oficial' type='integer' required='true' label='${lbl:b_official_lenguage}' maxlen='10'/>
+	<parameter id='pai_moneda_oficial' type='integer' required='true' label='${lbl:b_official_coin}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='pai_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='pai_nombre_corto'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='pai_nombre_largo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='pai_codigo_ddi'/>
+
+
+</validator>

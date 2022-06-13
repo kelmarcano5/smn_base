@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarcondfinanciera-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnvauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnclaseauxiliar.sql' source='sql' scope='transaction' />
+		<recordset id='query-validasaldos.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_auxiliares.smn_auxiliar_cond_financiera.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_financial_condition}.xls'      
+		header-background='true' >
+		
+	<sheet recordset="query-smnauxiliarcondfinanciera-template.sql" sheetname="${lbl:b_financial_condition}">
+		
+		<col id='cfn_codigo' label='${lbl:b_code}' />
+		<col id='cfn_descripcion' label='${lbl:b_description}' />
+		<col id='smn_clase_auxiliar_rf' label='${lbl:b_auxiliary_class}' />
+		<col id='smn_auxiliar_rf_categoria' label='${lbl:b_auxiliary}' />
+		<col id='cfn_limite_credito' label='${lbl:b_credit_limit}' />
+		<col id='cfn_porc_exceso_limite' label='${lbl:b_percent_excess_credit_limit}' />
+		<col id='cfn_valida_saldos_vec_combo' label='${lbl:b_validates_overcome_balances}' />
+		<col id='cfn_dias_adic_saldos_venc' label='${lbl:b_additional_days_balance_due}' />
+		<col id='cfn_num_cheques_devuel' label='${lbl:b_number_returned_checks}' />
+		
+		<col id='smn_clase_auxiliar_rf_reference' label='${lbl:b_auxiliary_class}' />
+		<col id='smn_auxiliar_rf_categoria_reference' label='${lbl:b_auxiliary}' />
+		<col id='cfn_valida_saldos_vec_combo_reference' label='${lbl:b_percent_excess_credit_limit}' />
+
+	</sheet>
+	
+	<sheet recordset='query-smnvauxiliar.sql' sheetname='${lbl:b_auxiliary}'>
+		<col id='smn_item' label='${lbl:b_description}' />
+	</sheet>
+
+	<sheet recordset='query-smnclaseauxiliar.sql' sheetname='${lbl:b_auxiliary_class}'>
+		<col id='cla_nombre' label='${lbl:b_name}' />
+	</sheet>
+	
+	<sheet recordset='query-validasaldos.sql' sheetname='${lbl:b_validates_overcome_balances}'>
+		<col id='valida_saldos' label='${lbl:b_validates_overcome_balances}' />
+	</sheet>
+
+
+	</excel>
+
+</config>

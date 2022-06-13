@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='pan_service_description' type='varchar' required='false' label='${lbl:b_service_description}' maxlen='350'/>
+	<parameter id='pan_service_path' type='varchar' required='false' label='${lbl:b_service_path}' maxlen='150'/>
+	<parameter id='pan_icon_path' type='varchar' required='false' label='${lbl:b_icon_path}' maxlen='200'/>
+	<parameter id='pan_app_id' type='integer' required='false' label='${lbl:b_application}' maxlen='10'/>
+	<parameter id='pan_role_id' type='integer' required='false' label='${lbl:b_role}' maxlen='10'/>
+	<parameter id='pan_orden' type='integer' required='false' label='${lbl:b_order}' maxlen='10'/>
+	
+	<parameter id='pan_app_id_filter' type='integer' required='false' label='${lbl:b_application}' maxlen='10'/>
+	<parameter id='pan_role_id_filter' type='integer' required='false' label='${lbl:b_role}' maxlen='10'/>
+	<parameter id='pan_service_description_filter' type='varchar' required='false' label='${lbl:b_service_description}' maxlen='350'/>
+	
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='pan_service_description_filter'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='pan_service_description'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='pan_service_path'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='pan_icon_path'
+		rule='contains' />
+
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='${lbl:b_at_least_field_report}.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

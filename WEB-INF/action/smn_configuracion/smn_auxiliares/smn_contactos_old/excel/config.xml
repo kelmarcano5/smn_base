@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncontactos.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smncontactos.sql' sheetname='${lbl:b_contacts}' filename='smn_contactos.xls'>
+		<col id='cnt_nombres' label='${lbl:s_profile_fname}' />
+		<col id='cnt_apellidos' label='${lbl:s_profile_lname}' />
+		<col id='cnt_email' label='${lbl:s_profile_email}' />
+		<col id='smn_auxiliar_id_combo' label='${lbl:b_auxiliary}' />
+		<col id='smn_clase_auxiliar_rf_combo' label='${lbl:b_auxiliary_classes}' />
+		<col id='smn_tipo_contactos_rf_combo' label='${lbl:b_type_contacts}' />
+		<col id='cnt_descripcion' label='${lbl:b_description}' />
+		<col id='smn_tipo_contactos_rf1_combo' label='${lbl:b_type_contacts}' />
+		<col id='cnt_descripcion1' label='${lbl:b_description}' />
+		<col id='cnt_telefono_contacto' label='${lbl:b_phone}' />
+		<col id='cnt_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

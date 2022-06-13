@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='cla_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='cla_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cla_modulo_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='cla_naturaleza_desc' type='varchar' required='true' maxlen='48'/>
+
+	<parameter id='cla_modulo_ref' type='integer' required='false' maxlen='3'/>
+	<parameter id='cla_naturaleza_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cla_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='cla_nombre'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cla_modulo' 
+		parameter='cla_modulo_ref' 
+		sql='cla_modulo.sql' 
+		id='cla_modulo_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: cla_naturaleza' 
+		parameter='cla_naturaleza_ref' 
+		sql='cla_naturaleza.sql' 
+		id='cla_naturaleza_ref'/>
+
+</validator>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id="view.record" onerror="/action/error/validation/dialog">
+	<parameter id="id" type="integer" required="true" label="ID" maxlen="10" />
+	<parameter id='set_app_id_filter' type='integer' required='false' label='${lbl:b_application}' maxlen='10'/>
+	<parameter id='set_menu_id_filter' type='integer' required='false' label='${lbl:b_menu}' maxlen='10'/>
+	<parameter id='set_servicio_id_filter' type='integer' required='false' label='${lbl:b_service}' maxlen='10'/>
+	<parameter id='set_servicio_filter' type='varchar' required='false' label='${lbl:b_service_title}' maxlen='100'/>
+	<parameter id='set_locale_filter' type='varchar' required='false' label='${lbl:b_idiom}' maxlen='2'/>
+</validator>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_addresses}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-dir_pais.sql' source='sql' scope='transaction'/><recordset id='query-dir_entidad_federal.sql' source='sql' scope='transaction'/><recordset id='query-dir_ciudad.sql' source='sql' scope='transaction'/><recordset id='query-dir_municipio.sql' source='sql' scope='transaction'/><recordset id='query-dir_parroquia.sql' source='sql' scope='transaction'/><recordset id='query-dir_zona_postal.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-dir_pais.sql' tag='dir_pais_rows'/><print mode='table' recordset='query-dir_entidad_federal.sql' tag='dir_entidad_federal_rows'/><print mode='table' recordset='query-dir_ciudad.sql' tag='dir_ciudad_rows'/><print mode='table' recordset='query-dir_municipio.sql' tag='dir_municipio_rows'/><print mode='table' recordset='query-dir_parroquia.sql' tag='dir_parroquia_rows'/><print mode='table' recordset='query-dir_zona_postal.sql' tag='dir_zona_postal_rows'/>
+	</output>
+
+</config>

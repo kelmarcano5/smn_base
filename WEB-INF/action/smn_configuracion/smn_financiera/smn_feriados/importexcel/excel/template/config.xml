@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="false">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnferiados-template.sql" source="sql" scope="transaction" />
+		<recordset id='query-smnciudades.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnentidadesfederales.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnmunicipios.sql' source='sql' scope='transaction' />
+		<recordset id='query-smnpaises.sql' source='sql' scope='transaction' />
+		<recordset id='query-laborable.sql' source='sql' scope='transaction' />
+	</transaction>
+
+	<output>
+		<classname>domain.repgen.smn_configuracion.smn_financiera.smn_feriados.ExcelReportOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_holidays}.xls'   
+		header-background='true' >
+		
+	<sheet recordset="query-smnferiados-template.sql" sheetname="${lbl:b_holidays}">
+		
+		<col id='fer_codigo' label='${lbl:b_code}' />
+		<col id='fer_descripcion' label='${lbl:b_description}' />
+		<col id='fer_pais' label='${lbl:b_country}' />
+		<col id='fer_entidad_federal' label='${lbl:b_federal_entities}' />
+		<col id='fer_ciudad' label='${lbl:b_city}' />
+		<col id='fer_municipio' label='${lbl:b_municipality}' />
+		<col id='fer_feriado' label='${lbl:b_holliday}' />
+		<col id='fer_laborable' label='${lbl:b_workable}' />
+		
+		<col id='fer_pais_reference' label='${lbl:b_country}' />
+		<col id='fer_entidad_federal_reference' label='${lbl:b_federal_entities}' />
+		<col id='fer_ciudad_reference' label='${lbl:b_city}' />
+		<col id='fer_municipio_reference' label='${lbl:b_municipality}' />
+		<col id='fer_laborable_reference' label='${lbl:b_workable}' />
+
+	</sheet>
+		
+	<sheet recordset='query-laborable.sql' sheetname='${lbl:b_workable}'>
+		<col id='laborable' label='${lbl:b_workable}' />
+	</sheet>
+	
+	<sheet recordset='query-smnciudades.sql' sheetname='${lbl:b_city}'>
+		<col id='ciu_nombre_corto' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnentidadesfederales.sql' sheetname='${lbl:b_federal_entities}'>
+		<col id='efe_nombre_corto' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnmunicipios.sql' sheetname='${lbl:b_municipality}'>
+		<col id='mun_nombre_corto' label='${lbl:b_name}' />
+	</sheet>
+
+	<sheet recordset='query-smnpaises.sql' sheetname='${lbl:b_country}'>
+		<col id='pai_nombre_corto' label='${lbl:b_name}' />
+	</sheet>
+
+	</excel>
+
+</config>

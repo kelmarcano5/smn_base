@@ -1,0 +1,3 @@
+<rows>
+cba_fecha_registro="${fld:cba_fecha_registro}"    mon_nombre="${fld:mon_nombre}"    tcb_descripcion="${fld:tcb_descripcion}"    cba_nro_cuenta="${fld:cba_nro_cuenta}"    cba_nombre="${fld:cba_nombre}"    cba_codigo="${fld:cba_codigo}"    efi_nombre="${fld:efi_nombre}"    
+</rows>

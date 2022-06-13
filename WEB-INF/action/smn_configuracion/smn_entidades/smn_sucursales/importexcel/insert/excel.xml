@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='suc_empresa_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='suc_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='suc_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='suc_unidad_negocio_desc' type='varchar' required='false' maxlen='48'/>
+	<parameter id='suc_maneja_area_servicio_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='suc_responsable' type='varchar' required='true' maxlen='48'/>
+	<parameter id='suc_direccion_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='suc_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='suc_telefono_movil' type='varchar' required='true' maxlen='24'/>
+	<parameter id='suc_email' type='varchar' required='true' maxlen='96'/>
+
+	<parameter id='suc_empresa_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='suc_unidad_negocio_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='suc_maneja_area_servicio_ref' type='varchar' required='false' maxlen='1'/>
+	<parameter id='suc_direccion_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='suc_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='suc_nombre'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: suc_empresa' 
+		parameter='suc_empresa_ref' 
+		sql='suc_empresa.sql' 
+		id='suc_empresa_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: suc_unidad_negocio' 
+		parameter='suc_unidad_negocio_ref' 
+		sql='suc_unidad_negocio.sql' 
+		id='suc_unidad_negocio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: suc_maneja_area_servicio' 
+		parameter='suc_maneja_area_servicio_ref' 
+		sql='suc_maneja_area_servicio.sql' 
+		id='suc_maneja_area_servicio_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: suc_direccion' 
+		parameter='suc_direccion_ref' 
+		sql='suc_direccion.sql' 
+		id='suc_direccion_ref'/>
+
+</validator>

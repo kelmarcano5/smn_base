@@ -1,0 +1,2 @@
+ and
+ 	smn_base.smn_grupo_prestador_servicio_frecuencia.smn_grupos_prestadores_id=${fld:smn_grupos_prestadores_id}

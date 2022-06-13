@@ -1,0 +1,30 @@
+INSERT INTO smn_base.smn_almacen
+(
+	smn_almacen_id,
+	alm_codigo,
+	alm_nombre,
+	alm_empresa,
+	alm_unidad_negocio,
+	alm_sucursal,
+	alm_area_servicio,
+	alm_unidad_servicio,
+	alm_idioma,
+	alm_usuario,
+	alm_fecha_registro,
+	alm_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_almacen},
+	${fld:alm_codigo},
+	${fld:alm_nombre},
+	${fld:alm_empresa},
+	${fld:alm_unidad_negocio},
+	${fld:alm_sucursal},
+	${fld:alm_area_servicio},
+	${fld:alm_unidad_servicio},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

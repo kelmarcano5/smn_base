@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='cmp_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='cmp_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='cmp_tipo_componente' type='varchar' required='false' label='${lbl:b_type_component}' maxlen='1'/>
+	<parameter id='smn_grupo_componente_rf_name' type='varchar' required='false' label='${lbl:b_group_component}'/>
+	<parameter id='smn_grupo_componente_rf' type='integer' required='false' label='${lbl:b_group_component}' maxlen='10'/>
+	<parameter id='cmp_forma_calculo' type='varchar' required='false' label='${lbl:b_calculus_form}' maxlen='1'/>
+	<parameter id='cmp_vigencia_desde' type='date' required='false' label='${lbl:b_validation_date_from}' maxlen='10'/>
+	<parameter id='cmp_vigencia_hasta' type='date' required='false' label='${lbl:b_validation_date_to}' maxlen='10'/>
+	<parameter id='cmp_visible' type='varchar' required='false' label='${lbl:b_visible}' maxlen='1'/>
+	<parameter id='cmp_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='cmp_req_grupo_prestador' type='varchar' required='false' label='${lbl:b_require_providers_group}' maxlen='1'/>
+	<parameter id='cmp_grupo_prestador' type='varchar' required='false' label='${lbl:b_group_of_provider}' maxlen='1'/>
+	<parameter id='cmp_tiempo_estimado' type='integer' required='false' label='${lbl:b_estimated_time}' maxlen='10'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' label='${lbl:b_measurement_unit}' maxlen='10'/>
+	<parameter id='smn_almacen_rf' type='integer' required='false' label='${lbl:b_store}' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='false' label='${lbl:b_item}' maxlen='10'/>
+	<parameter id='cmp_porcentaje' type='double' required='false' label='${lbl:b_percentage}' maxlen='10'/>
+	<parameter id='cmp_cantidad' type='double' required='false' label='${lbl:b_amount}' maxlen='10'/>
+	<parameter id='cmp_precio_moneda_local' type='double' required='false' label='${lbl:b_coin_local_price}' maxlen='10'/>
+	<parameter id='cmp_monto_moneda_local' type='double' required='false' label='${lbl:b_coin_local_amount}' maxlen='10'/>
+	<parameter id='smn_moneda_rf' type='integer' required='false' label='${lbl:b_coin}' maxlen='10'/>
+	<parameter id='cmp_precio_moneda_alterna' type='double' required='false' label='${lbl:b_coin_altern_price}' maxlen='10'/>
+	<parameter id='cmp_monto_moneda_alterna' type='double' required='false' label='${lbl:b_coin_altern_amount}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='cmp_codigo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+parameter='cmp_descripcion'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='cmp_tipo_componente'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='smn_grupo_componente_rf_name'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='cmp_forma_calculo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='cmp_visible'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='cmp_req_grupo_prestador'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='cmp_grupo_prestador'
+		rule='contains' />
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cmp_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='cmp_descripcion'/>
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

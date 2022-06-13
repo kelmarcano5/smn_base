@@ -1,0 +1,3 @@
+<rows>
+ciu_fecha_registro="${fld:ciu_fecha_registro}"    ciu_nombre_largo="${fld:ciu_nombre_largo}"    ciu_nombre_corto="${fld:ciu_nombre_corto}"    ciu_codigo="${fld:ciu_codigo}"    efe_nombre_largo="${fld:efe_nombre_largo}"    
+</rows>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_entidades_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_app_id' type='integer' required='true' maxlen='10'/>
+	<parameter id='mod_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='mod_nombre' type='varchar' required='true' maxlen='48'/>
+	<custom-validator classname="dinamica.validators.NoRecordsFound" on-error-label="Este valor no se encuentra registrado en la base de datos." sql="duplicated-smn_entidades_id.sql"  id="smn_entidades_id" />
+</validator>

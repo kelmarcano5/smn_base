@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='cfn_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='cfn_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='64'/>
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class}' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='96'/>
+	<parameter id='cfn_limite_credito' type='double' required='false' label='${lbl:b_credit_limit}' maxlen='10'/>
+	<parameter id='cfn_porc_exceso_limite' type='double' required='false' label='${lbl:b_percent_excess_credit_limit}' maxlen='10'/>
+	<parameter id='cfn_valida_saldos_vec' type='varchar' required='false' label='${lbl:b_percent_excess_credit_limit}' maxlen='1'/>
+	<parameter id='cfn_dias_adic_saldos_venc' type='integer' required='false' label='${lbl:b_validates_overcome_balances}' maxlen='10'/>
+	<parameter id='cfn_num_cheques_devuel' type='integer' required='false' label='${lbl:b_number_returned_checks}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='cfn_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='cfn_descripcion'/>
+
+
+</validator>

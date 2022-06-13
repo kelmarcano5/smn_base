@@ -1,0 +1,13 @@
+select	
+	smn_base.smn_especialidad.smn_especialidad_id, 
+	smn_base.smn_especialidad.esp_descripcion as esp_descripcion_pl0,
+	smn_base.smn_prestadores_servicios_especialidad.*
+from
+	smn_base.smn_prestadores_servicios ,
+	smn_base.smn_especialidad,
+	smn_base.smn_prestadores_servicios_especialidad
+where
+	smn_base.smn_prestadores_servicios_especialidad.smn_prestadores_servicios_id=smn_base.smn_prestadores_servicios.smn_prestadores_servicios_id and 
+	smn_base.smn_prestadores_servicios.smn_prestadores_servicios_id=${fld:id}  and 
+	smn_base.smn_especialidad.smn_especialidad_id=smn_base.smn_prestadores_servicios_especialidad.smn_especialidad_id 
+

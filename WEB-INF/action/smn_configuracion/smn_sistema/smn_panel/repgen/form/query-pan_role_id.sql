@@ -1,0 +1,1 @@
+select smn_seguridad.s_role.role_id as id, smn_seguridad.s_role.rolename as item from smn_seguridad.s_role where smn_seguridad.s_role.app_id = (select ${schema}s_application.app_id from ${schema}s_application where ${schema}s_application.app_alias = '${def:alias}') order by 2

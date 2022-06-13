@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config>
+
+	<summary>
+		${lbl:b_relationship_zone_coordenate}
+	</summary>
+
+	<log>false</log>
+	
+	<set-request-attribute id="progress" value="file:/WEB-INF/action/progress/progress.htm"/>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>true</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id='query-smn_zona_id.sql' source='sql' scope='transaction'/><recordset id='query-smn_pais_rf.sql' source='sql' scope='transaction'/><recordset id='query-smn_entidad_federal_rf.sql' source='sql' scope='transaction'/><recordset id='query-smn_ciudad_rf.sql' source='sql' scope='transaction'/><recordset id='query-smn_municipio_rf.sql' source='sql' scope='transaction'/><recordset id='query-smn_parroquia_rf.sql' source='sql' scope='transaction'/>
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericOutput</classname>
+		<template>template.htm</template>
+		<set-http-headers>true</set-http-headers>
+		<content-type>text/html</content-type>
+		<print mode='table' recordset='query-smn_zona_id.sql' tag='smn_zona_id_rows'/><print mode='table' recordset='query-smn_pais_rf.sql' tag='smn_pais_rf_rows'/><print mode='table' recordset='query-smn_entidad_federal_rf.sql' tag='smn_entidad_federal_rf_rows'/><print mode='table' recordset='query-smn_ciudad_rf.sql' tag='smn_ciudad_rf_rows'/><print mode='table' recordset='query-smn_municipio_rf.sql' tag='smn_municipio_rf_rows'/><print mode='table' recordset='query-smn_parroquia_rf.sql' tag='smn_parroquia_rf_rows'/>
+		<print mode="form" recordset="_request" /> 
+	</output>
+
+</config>

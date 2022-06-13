@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id="view.record" onerror="/action/error/validation/dialog">
+	<parameter id="id" type="integer" required="true" label="ID" maxlen="10" />
+	<parameter id='trg_codigo_filter' type='varchar' required='false' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='trg_descripcion_filter' type='varchar' required='false' label='${lbl:b_description}' maxlen='64'/>
+</validator>

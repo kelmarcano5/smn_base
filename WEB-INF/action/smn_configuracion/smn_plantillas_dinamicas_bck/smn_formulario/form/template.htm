@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	<style>
+	   .check_box_ancho {
+	     width: 15%;
+	   }
+	</style>
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+</head>
+<body>
+	<div class="welcome" style="padding-right:50px; margin-top: 20px;"><br>
+        <b>${lbl:b_welcome}</b> ${fld:fname} ${fld:lname} ${req:progress}
+        <div class="" style="width: 100%; border-bottom: solid 6px #1d61a0; border-radius: 30px; margin-top: 4px;">
+        </div>
+    </div>
+    <br>
+	 <div class="titulo-negocios">
+        <div style="padding-top: 15px;">Formulario Oftalmologico</div>
+    </div>
+    <br>
+	<form id="form1" name="form1" onsubmit="return save()" style="width:700px;">
+		
+		<h1 class="bannerDialog" id="encabezado_tabla">Complemento de Datos Personales</h1>
+			<table>
+				<col width="20%">
+				<tr>
+					<td>Rango de Edad</td>
+					<td>
+						<select name="rango_edad" id="rango_edad" >
+							<option value="0">[Cualquiera]</option>
+							<rango_edad_rows>
+								<option value="${fld:id}">${fld:item}</option>
+							</rango_edad_rows>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Grupo Etnico</td>
+					<td>
+						<select name="grupo_etnico" id="grupo_etnico">
+							<option value="0">[Cualquiera]</option>
+							<grupo_etnico_rows>
+								<option value="${fld:id}">${fld:item}</option>
+							</grupo_etnico_rows>
+						</select>
+					</td>
+				</tr>
+			</table>
+
+			<table>
+				<tr>
+					<td><h1 class="bannerDialog" id="encabezado_tabla">Antecedentes Personales</h1></td>
+				</tr>
+			</table>
+			<table>
+					<!-- <col widtr="10%"> -->
+				<tr>
+					<td>Enfermedades:</td>
+					<td>
+						<input type="text" name="enfermedades" id="enfermedades" maxlengtr="250">
+						<!-- <enfermedades_rows> -->
+						<!-- <input type="text" name="enfermedades" id="enfermedades" value="${fld:id}" class="check_box_ancho">${fld:item}</input> -->
+						<!-- </enfermedades_rows> -->
+					</td>
+				</tr>
+				<br>
+				<tr>
+					<td>Alergias:</td>
+					<td>
+						<input type="text" name="alergias" id="alergias" maxlengtr="250">
+					</td>
+				</tr>
+					<br>
+				<tr>
+					<td>Vicio Error Refractivo: </td>
+					<td>
+						<vicio_error_rows>
+						<input type="checkbox" name="vicio_error" id="vicio_error" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+						</vicio_error_rows>
+					</td>
+				</tr>
+					<br>
+				<tr>
+					<td>Medicamentos:</td>
+					<td>
+						<select name="medicamentos_sistemicos" id="medicamentos_sistemicos" >
+							<option value="0">[Cualquiera]</option>
+							<medicamentos_sistemicos_rows>
+								<option value="${fld:id}">${fld:item}</option>
+							</medicamentos_sistemicos_rows>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Uso de Esteroides</td>
+					<td>
+						
+						<input type="text" name="uso_de_esteroides" id="uso_de_esteroides" maxlengtr="250">
+					</td>
+				</tr>
+				<tr>
+					<td>Otra Enfermedad Ocular</td>
+					<td>
+						<input type="text" name="enfermedad_ocular" id="enfermedad_ocular" maxlengtr="250">
+					</td>
+				</tr>
+				<table>
+					<tr>
+						<td><h1 class="bannerDialog" id="encabezado_tabla">Antecedentes Familiares</h1></td>
+					</tr>
+				</table>
+				<tr>
+					<td>Glaucoma en Familiares</td>
+					<td>
+						<glaucoma_en_familiares_rows>
+							<input type="checkbox" name="glaucoma_en_familiares" id="glaucoma_en_familiares" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+						</glaucoma_en_familiares_rows>
+					</td>
+				</tr>
+				<br>
+				<tr>
+					<td>Ceguera en Familiares</td>
+					<td>
+						<ceguera_en_familiares_rows>
+							<input type="checkbox" name="ceguera_en_familiares" id="ceguera_en_familiares" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+						</ceguera_en_familiares_rows>
+					</td>
+				</tr>	
+				</table>
+			</table>
+					<br>
+		<!-- <input id="siguiente" type="submit" value="Siguiente >>" class="button"> -->
+		<!-- <input type="submit" name="siguiente" id="siguiente" value="Siguiente >>" onchange="siguiente();"> -->
+
+	</form>
+
+	<form id="form2" name="form2" style="width:700px;">
+			
+			<h1 class="bannerDialog" id="encabezado_tabla">Examen Oftalmologico</h1>
+				
+				<table>
+					<col width="20%">
+					<tr>
+						<td>Paquimetria</td>
+						<td>
+							<select name="paquimetria" id="paquimetria" >
+								<option value="0">[Cualquiera]</option>
+								<paquimetria_rows>
+									<option value="${fld:id}">${fld:item}</option>
+								</paquimetria_rows>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>mmhg</td>
+						<td>
+							<mmhg_rows>
+							<input type="checkbox" name="mmhg" id="mmhg" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+							</mmhg_rows>
+					</td>
+					</tr>
+					<tr>
+						<td>Agudeza Visual Corregida *Snellen)</td>
+						<td>
+							<aguadeza_visual_rows>
+								<input type="checkbox" name="aguadeza_visual" id="aguadeza_visual" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+							</aguadeza_visual_rows>
+						</td>
+					</tr>
+				</table>
+
+				<table>
+					<tr>
+						<td><h1 class="bannerDialog" id="encabezado_tabla">Biomicroscopia</h1></td>
+					</tr>
+				</table>
+
+				<table>
+						<tr>
+							<td>Parpados</td>
+							<td>
+								<parpados_rows>
+									<input type="checkbox" name="parpados" id="parpados" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+								</parpados_rows>
+							</td>
+						</tr>
+						<tr>
+							<td>Otros Parpados</td>
+							<td>
+								<input type="text" name="otros_parpados" id="otros_parpados" maxlengtr="250">
+							</td>
+						</tr>
+						<tr>
+							<td>Conjuntiva</td>
+							<td>
+								<conjuntiva_rows>
+									<input type="checkbox" name="conjuntiva" id="conjuntiva" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+								</conjuntiva_rows>
+							</td>
+						</tr>
+						<tr>
+							<td>Cornea</td>
+							<td>
+								<cornea_rows>
+									<input type="checkbox" name="cornea" id="cornea" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+								</cornea_rows>
+							</td>
+						</tr>
+						<tr>
+							<td>Camara Anterior</td>
+							<td>
+								<select name="camara_anterior" id="camara_anterior" >
+									<option value="0">[Cualquiera]</option>
+									<camara_anterior_rows>
+										<option value="${fld:id}">${fld:item}</option>
+									</camara_anterior_rows>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Iris y Pupila</td>
+							<td>
+								<select name="iris_pupila" id="iris_pupila" >
+									<option value="0">[Cualquiera]</option>
+									<iris_pupila_rows>
+										<option value="${fld:id}">${fld:item}</option>
+									</iris_pupila_rows>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Cristalino</td>
+							<td>
+								<cristalino_rows>
+								<input type="checkbox" name="cristalino" id="cristalino" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+								</cristalino_rows>
+							</td>
+						</tr>
+
+						<table>
+							<tr>
+								<td><h1 class="bannerDialog" id="encabezado_tabla">Gonioscopia</h1></td>
+							</tr>
+						</table>
+
+						<tr>
+							<td>Gonioscopia</td>
+							<td>
+								<gonioscopia_rows>
+								<input type="checkbox" name="gonioscopia" id="gonioscopia" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+								</gonioscopia_rows>
+							</td>
+						</tr>
+				</table>
+
+		</table>
+
+		<!-- <input type="button" name="atras" id="atras" value="<< Atras " onchange="atras();"> -->
+		<!-- <input type="button" name="siguiente" id="siguiente" value="Siguiente >>" onchange="siguiente();"> -->
+	</form>
+
+
+	<form id="form3" name="form3"  style="width:700px;">
+		
+		<h1 class="bannerDialog" id="encabezado_tabla">Fondo de Ojo</h1>
+			
+			<table>
+				<col width="30%">
+				<tr>
+					<td>Disco Nervio Optico</td>
+					<td>
+						<disco_nervio_rows>
+						<input type="checkbox" name="disco_nervio" id="disco_nervio" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+						</disco_nervio_rows>
+					</td>
+				</tr>
+				<tr>
+					<td>Excavaci&oacute;n</td>
+					<td>
+						<select name="excavacion" id="excavacion" >
+							<option value="0">[Cualquiera]</option>
+							<excavacion_rows>
+								<option value="${fld:id}">${fld:item}</option>
+							</excavacion_rows>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Rebote Neural</td>
+					<td>
+						<rebote_neutral_rows>
+							<input type="checkbox" name="rebote_neutral" id="rebote_neutral" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+						</rebote_neutral_rows>
+					</td>
+				</tr>
+				<tr>
+					<td>Vasos Sanguineos</td>
+						<td>
+							<vasos_sanguineos_rows>
+								<input type="checkbox" name="vasos_sanguineos" id="vasos_sanguineos" value="${fld:id}" class="check_box_ancho">${fld:item}</input>
+							</vasos_sanguineos_rows>
+						</td>
+				</tr>
+				<tr>
+					<td>Retina</td>
+					<td>
+						<input type="text" name="retina" id="retina" maxlengtr="250">
+					</td>
+				</tr>
+				<tr>
+					<td>Ojo Derecho</td>
+					<td>
+						<input type="text" name="ojo_derecho" id="ojo_derecho" maxlengtr="1000">
+					</td>
+				</tr>
+				<tr>
+					<td>Ojo Izquierdo</td>
+					<td>
+						<input type="text" name="ojo_izquierdo" id="ojo_izquierdo" maxlengtr="1000">
+					</td>
+				</tr>
+				<tr>
+					<td>Plan</td>
+					<td>
+						<input type="text" name="plan" id="plan" maxlengtr="1000">
+					</td>
+				</tr>
+				<tr>
+					<td>Observacion</td>
+					<td>
+						<textarea type="text" name="observacion" id="observacion" maxlengtr="1000" cols="30" rows="3"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Estudios Complementarios</td>
+					<td>
+						<select name="estudios_complementarios" id="estudios_complementarios" >
+							<option value="0">[Cualquiera]</option>
+							<estudios_complementarios_rows>
+								<option value="${fld:id}">${fld:item}</option>
+							</estudios_complementarios_rows>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Tratamiento Hipotensor Ocular</td>
+					<td>
+						<select name="tratamiento_hipotensor" id="tratamiento_hipotensor" >
+							<option value="0">[Cualquiera]</option>
+							<tratamiento_hipotensor_rows>
+								<option value="${fld:id}">${fld:item}</option>
+							</tratamiento_hipotensor_rows>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Procedimiento Laser</td>
+					<td>
+						<select name="procedimiento_laser" id="procedimiento_laser" >
+							<option value="0">[Cualquiera]</option>
+							<procedimiento_laser_rows>
+								<option value="${fld:id}">${fld:item}</option>
+							</procedimiento_laser_rows>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Procedimiento Quirurgico</td>
+					<td>
+						<select name="procedimiento_quirurgico" id="procedimiento_quirurgico" >
+							<option value="0">[Cualquiera]</option>
+							<procedimiento_quirurgico_rows>
+								<option value="${fld:id}">${fld:item}</option>
+							</procedimiento_quirurgico_rows>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<br>
+		<!-- <input type="button" name="atras" id="atras" value="<< Atras " onchange="atras();"> -->
+		<input type="submit" name="grabar" id="grabar" value="Registrar">
+	</form>
+
+
+</body>
+</html>
+<!--codigo especifico de este modulo--> 
+	<script type="text/javascript">
+		//inicializacion de la pagina cuando carga
+		onload = function() { 
+			alert("hola");
+		} 
+
+		function save() {
+					alert('En Desarrollo');
+		}
+
+	</script>

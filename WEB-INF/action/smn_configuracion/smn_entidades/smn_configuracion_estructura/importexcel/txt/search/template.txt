@@ -1,0 +1,3 @@
+<rows>
+	coe_separador="${fld:coe_separador}"	coe_idioma="${fld:coe_idioma}"	coe_usuario="${fld:coe_usuario}"	coe_mascara="${fld:coe_mascara}"	smn_configuracion_estructura_id="${fld:smn_configuracion_estructura_id}"	coe_nombre="${fld:coe_nombre}"	coe_niveles="${fld:coe_niveles}"	coe_hora="${fld:coe_hora}"	coe_codigo="${fld:coe_codigo}"	coe_fecha_registro="${fld:coe_fecha_registro}"	
+</rows>

@@ -1,0 +1,1 @@
+delete from smn_base.smn_transaccion_general_modulos WHERE smn_transaccion_general_id= ${fld:id}

@@ -1,0 +1,3 @@
+<rows>
+uen_fecha_registro="${fld:uen_fecha_registro}"    uen_email="${fld:uen_email}"    uen_telefono_movil="${fld:uen_telefono_movil}"    uen_telefono_fijo="${fld:uen_telefono_fijo}"    uen_direccion="${fld:uen_direccion}"    uen_responsable="${fld:uen_responsable}"    uen_nombre="${fld:uen_nombre}"    uen_codigo="${fld:uen_codigo}"    smn_entidades_id="${fld:smn_entidades_id}"    
+</rows>

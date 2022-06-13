@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_tipos_areas>
+	<detail>
+		<rows>		
+		<record tar_fecha_registro="${fld:tar_fecha_registro}"    tar_descripcion="${fld:tar_descripcion}"    tar_codigo="${fld:tar_codigo}"    />
+		</rows>
+	</detail>
+</smn_tipos_areas>

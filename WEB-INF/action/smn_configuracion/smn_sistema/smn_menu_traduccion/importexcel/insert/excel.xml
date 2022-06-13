@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='mnt_app_id_desc' type='varchar' required='true' maxlen='20'/>
+	<parameter id='mnt_menu_id_desc' type='varchar' required='true' maxlen='100'/>
+	<parameter id='mnt_title' type='varchar' required='true' maxlen='100'/>
+	<parameter id='mnt_locale_desc' type='varchar' required='true' maxlen='24'/>
+
+	<parameter id='mnt_app_id_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='mnt_menu_id_ref' type='integer' required='false' maxlen='10'/>
+	<parameter id='mnt_locale_ref' type='varchar' required='false' maxlen='2'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ${lbl:b_application}' 
+		parameter='mnt_app_id_ref' 
+		sql='mnt_app_id.sql' 
+		id='mnt_app_id_ref'/>
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ${lbl:b_menu}' 
+		parameter='mnt_menu_id_ref' 
+		sql='mnt_menu_id.sql' 
+		id='mnt_menu_id_ref'/>
+		
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: ${lbl:b_idiom}' 
+		parameter='mnt_locale_ref' 
+		sql='mnt_locale.sql' 
+		id='mnt_locale_ref'/>
+
+</validator>

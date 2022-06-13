@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_nivel_estructura}</summary>
+	<filter>
+		<row field='nes_codigo' id='nes_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_nivel_estructura' len='16'/>
+		<row field='nes_nombre' id='nes_nombre' label='${lbl:b_name}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_nivel_estructura' len='48'/>
+		<row field='nes_fecha_registro' id='nes_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_nivel_estructura' len='10'/>
+		<row field='nes_fecha_registro' id='nes_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_nivel_estructura' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_estructura_codigo_id' label='${lbl:b_estructura_codigo}@{select smn_base.smn_estructura_codigo.smn_estructura_codigo_id as id, smn_base.smn_estructura_codigo.eco_codigo|| &apos; - &apos; || smn_base.smn_estructura_codigo.eco_nombre as item from smn_base.smn_estructura_codigo order by eco_nombre}' fk='eco_codigo' tableName='smn_nivel_estructura' len='10' type='integer' align='center'/>
+		<row field='nes_niveles' label='${lbl:b_levels}' fk='' tableName='smn_nivel_estructura' len='10' type='integer' align='center'/>
+		<row field='nes_codigo' label='${lbl:b_code}' fk='' tableName='smn_nivel_estructura' len='16' type='varchar' align='left'/>
+		<row field='nes_nombre' label='${lbl:b_name}' fk='' tableName='smn_nivel_estructura' len='48' type='varchar' align='left'/>
+		<row field='nes_tipo' label='${lbl:b_type}@{TI=${lbl:b_titulo}|IT=${lbl:b_item}|OC=${lbl:b_otro_codigo}}' fk='' tableName='smn_nivel_estructura' len='48' type='varchar' align='left'/>
+		<row field='nes_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_nivel_estructura' len='2' type='varchar' align='left'/>
+		<row field='nes_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_nivel_estructura' len='10' type='varchar' align='left'/>
+		<row field='nes_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_nivel_estructura' len='10' type='date' align='center'/>
+		<row field='nes_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_nivel_estructura' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

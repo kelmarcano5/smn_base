@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnauxiliarcuentabancaria.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+	
+	<excel recordset='query-smnauxiliarcuentabancaria.sql' sheetname='${lbl:b_auxiliary_bank_account}' filename='filter.xls'>
+		<col id='acb_num_cuenta' label='${lbl:b_account_number}' />
+		<col id='acb_tipo_cta_banco' label='${lbl:b_account_bank_type}' />
+		<col id='acb_respons_cuenta' label='${lbl:b_responsible}' />
+		<col id='acb_banco_pertenece' label='${lbl:b_bank}' />
+		<col id='acb_num_aba' label='${lbl:b_aba_code}' />
+		<col id='acb_fecha_registro' label='${lbl:b_store_date}' />
+	</excel>
+
+</config>

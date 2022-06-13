@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/alert">
+	<parameter id="id2" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id="estruc" type="integer" required="false" label="Estructura ID" maxlen="10" />
+	<parameter id="nivel" type="integer" required="false" label="Nivel ID" maxlen="10" />
+	<parameter id="codig" type="varchar" required="false" label="Codigo" maxlen="10" />
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='codig' rule='like' />
+	<!-- <parameter id="descri" type="varchar" required="false" label="Descripcion" maxlen="10" /> -->
+	<parameter id="tipo" type="varchar" required="false" label="Tipo de Estructura" maxlen="10" />
+	<parameter id="porcen" type="integer" required="false" label="Porcentaje" maxlen="10" />
+	<parameter id="tasa" type="double" required="false" label="Tasa" maxlen="10" />
+</validator>

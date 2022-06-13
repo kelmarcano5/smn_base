@@ -1,0 +1,10 @@
+select
+		smn_base.smn_rel_servicio_area_unidad.smn_servicios_id,
+	smn_base.smn_rel_servicio_area_unidad.smn_areas_servicios_rf,
+	smn_base.smn_rel_servicio_area_unidad.smn_unidades_servicios_rf,
+	smn_base.smn_rel_servicio_area_unidad.smn_centro_costo_rf,
+	smn_base.smn_rel_servicio_area_unidad.rsa_fecha_registro
+from
+	smn_base.smn_rel_servicio_area_unidad 
+where
+	smn_base.smn_rel_servicio_area_unidad.smn_rel_servicio_area_unidad_id = ${fld:id}

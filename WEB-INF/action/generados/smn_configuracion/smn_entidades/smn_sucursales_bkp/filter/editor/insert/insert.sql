@@ -1,0 +1,32 @@
+INSERT INTO smn_base.smn_sucursales
+(
+	smn_sucursales_id,
+	smn_entidades_id,
+	suc_codigo,
+	suc_nombre,
+	suc_responsable,
+	suc_direccion,
+	suc_telefono_fijo,
+	suc_telefono_movil,
+	suc_email,
+	suc_idioma,
+	suc_usuario,
+	suc_fecha_registro,
+	suc_hora
+)
+VALUES
+(
+	${seq:currval@smn_base.seq_smn_sucursales},
+	${fld:smn_entidades_id},
+	${fld:suc_codigo},
+	${fld:suc_nombre},
+	${fld:suc_responsable},
+	${fld:suc_direccion},
+	${fld:suc_telefono_fijo},
+	${fld:suc_telefono_movil},
+	${fld:suc_email},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

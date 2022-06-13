@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_cuestionario>
+	<detail>
+		<rows>		
+		<record cue_fecha_registro="${fld:cue_fecha_registro}"    cue_estatus="${fld:cue_estatus}"    smn_campo_rf="${fld:smn_campo_rf}"    smn_esquema_rf="${fld:smn_esquema_rf}"    smn_modulo_rf="${fld:smn_modulo_rf}"    cue_descripcion="${fld:cue_descripcion}"    cue_codigo="${fld:cue_codigo}"    cue_fecha_registro="${fld:cue_fecha_registro}"    cue_estatus="${fld:cue_estatus}"    smn_campo_rf="${fld:smn_campo_rf}"    smn_esquema_rf="${fld:smn_esquema_rf}"    smn_modulo_rf="${fld:smn_modulo_rf}"    cue_descripcion="${fld:cue_descripcion}"    cue_codigo="${fld:cue_codigo}"    />
+		</rows>
+	</detail>
+</smn_cuestionario>

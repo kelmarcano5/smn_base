@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smndireccion.sql" source="session" scope="transaction" />
+		<recordset id="filter.params" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_addresses}</pdf-title>
+	<pdf-logo url='/images/logo-dinamica.png' scale='100' />
+
+	<pdf-report pageSize="letter" rotate="false">
+		<record recordset='filter.params' title='Filtro de Búsqueda' noFilterMsg='-- Sin filtro de búsqueda --' width='55' spacingBefore='15'>
+			<col name='dir_codigo' title='${lbl:b_code}'  align='center' />
+			<col name='dir_descripcion' title='${lbl:b_description}'  align='center' />
+			<col name='dir_pais' title='${lbl:b_country}'  format='######' align='center' />
+			<col name='dir_entidad_federal' title='${lbl:b_federal_entity}'  format='######' align='center' />
+			<col name='dir_ciudad' title='${lbl:b_city}'  format='######' align='center' />
+			<col name='dir_municipio' title='${lbl:b_municipality}'  format='######' align='center' />
+			<col name='dir_parroquia' title='${lbl:b_parish}'  format='######' align='center' />
+			<col name='dir_zona_postal' title='${lbl:b_postal_zone}'  format='######' align='center' />
+			<col name='dir_fecha_registro_ini' title='${lbl:b_store_date_grater_than}'  format='dd-MM-yyyy' align='center' />
+			<col name='dir_fecha_registro_fin' title='${lbl:b_store_date_less_than}'  format='dd-MM-yyyy' align='center' />
+		</record>
+		<table recordset='query-smndireccion.sql' width='100' spacingBefore='10'>
+			<col name='dir_codigo' title='${lbl:b_code}' width='4' align='left' />
+			<col name='dir_descripcion' title='${lbl:b_description}' width='4' align='left' />
+			<col name='dir_pais' title='${lbl:b_country}' width='4' align='left' format='######' />
+			<col name='dir_entidad_federal' title='${lbl:b_federal_entity}' width='4' align='left' format='######' />
+			<col name='dir_ciudad' title='${lbl:b_city}' width='4' align='left' format='######' />
+			<col name='dir_municipio' title='${lbl:b_municipality}' width='4' align='left' format='######' />
+			<col name='dir_parroquia' title='${lbl:b_parish}' width='4' align='left' format='######' />
+			<col name='dir_zona_postal' title='${lbl:b_postal_zone}' width='4' align='left' format='######' />
+			<col name='dir_tipo_via' title='${lbl:b_type_of_route}' width='4' align='left' format='######' />
+			<col name='dir_tipo_via_nom' title='${lbl:b_name}' width='4' align='left' />
+			<col name='dir_tipo_via_num' title='${lbl:b_number}' width='4' align='left' />
+			<col name='dir_edificacion' title='${lbl:b_edification}' width='4' align='left' format='######' />
+			<col name='dir_edificacion_nom' title='${lbl:b_name}' width='4' align='left' />
+			<col name='dir_edificacion_num' title='${lbl:b_number}' width='4' align='left' />
+			<col name='dir_tipo_localidad' title='${lbl:b_location_type}' width='4' align='left' format='######' />
+			<col name='dir_tipo_localidad_nom' title='${lbl:b_name}' width='4' align='left' />
+			<col name='dir_apartado_postal' title='${lbl:b_postal_mail}' width='4' align='left' />
+			<col name='dir_mapa_longitud' title='${lbl:b_longitude}' width='4' align='left' format='#,###,##0.00' />
+			<col name='dir_mapa_latitud' title='${lbl:b_latitude}' width='4' align='left' format='#,###,##0.00' />
+			<col name='dir_fecha_registro' title='${lbl:b_store_date}' width='4' align='left' format='dd-MM-yyyy' />
+		</table>
+
+	</pdf-report>
+</config>

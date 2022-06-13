@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='fer_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='fer_descripcion' type='varchar' required='true' maxlen='48'/>
+	<parameter id='fer_pais' type='integer' required='false' maxlen='10'/>
+	<parameter id='fer_entidad_federal' type='integer' required='false' maxlen='10'/>
+	<parameter id='fer_ciudad' type='integer' required='false' maxlen='10'/>
+	<parameter id='fer_municipio' type='integer' required='false' maxlen='10'/>
+	<parameter id='fer_feriado' type='varchar' required='true' maxlen='5'/>
+	<parameter id='fer_laborable' type='varchar' required='true' maxlen='1'/>
+</validator>

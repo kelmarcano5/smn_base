@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='pca_codigo' type='varchar' required='true' maxlen='10'/>
+	<parameter id='pca_descripcion' type='varchar' required='true' maxlen='500'/>
+	<parameter id='smn_modulo_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='pca_status' type='varchar' required='true' maxlen='2'/>
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='pca_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='pca_descripcion'/>
+
+
+</validator>

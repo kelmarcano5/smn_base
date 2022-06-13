@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_smn_cuestionario_id}' maxlen='10'/>
+	<parameter id='cue_codigo' type='varchar' required='true' label='${lbl:b_cue_codigo}' maxlen='48'/>
+	<parameter id='cue_descripcion' type='varchar' required='true' label='${lbl:b_cue_descripcion}' maxlen='100'/>
+	<parameter id='smn_modulo_rf' type='integer' required='true' label='${lbl:b_smn_modulo_rf}' maxlen='10'/>
+	<parameter id='cue_color_letra' type='varchar' required='true' label='${lbl:b_cue_color_letra}' maxlen='100'/>
+	<parameter id='cue_tipo_letra' type='varchar' required='true' label='${lbl:b_cue_tipo_letra}' maxlen='100'/>
+	<parameter id='cue_tamano_letra' type='integer' required='true' label='${lbl:b_cue_tamano_letra}' maxlen='100'/>
+	<parameter id='cue_color_sombreado' type='varchar' required='true' label='${lbl:b_cue_color_sombreado}' maxlen='100'/>
+	<parameter id='cue_color_formulario' type='varchar' required='true' label='${lbl:b_cue_color_formulario}' maxlen='100'/>
+	
+
+
+
+</validator>

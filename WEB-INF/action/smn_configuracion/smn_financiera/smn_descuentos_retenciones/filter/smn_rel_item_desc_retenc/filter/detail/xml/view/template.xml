@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_rel_item_desc_retenc>
+	<detail>
+		<rows>		
+		<record rid_fecha_registro="${fld:rid_fecha_registro}"    smn_item_id="${fld:smn_item_id}"    smn_descuentos_retenciones_id="${fld:smn_descuentos_retenciones_id}"    />
+		</rows>
+	</detail>
+</smn_rel_item_desc_retenc>

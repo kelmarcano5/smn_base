@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_grupo_titulo_impresion>
+	<detail>
+		<rows>		
+		<record gti_fecha_registro="${fld:gti_fecha_registro}"    gti_fecha_vigencia="${fld:gti_fecha_vigencia}"    gti_estatus="${fld:gti_estatus}"    gti_descripcion="${fld:gti_descripcion}"    gti_codigo="${fld:gti_codigo}"    />
+		</rows>
+	</detail>
+</smn_grupo_titulo_impresion>

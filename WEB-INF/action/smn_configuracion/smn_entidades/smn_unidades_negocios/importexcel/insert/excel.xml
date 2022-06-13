@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='uen_codigo' type='varchar' required='true' maxlen='16'/>
+	<parameter id='uen_nombre' type='varchar' required='true' maxlen='48'/>
+	<parameter id='uen_responsable' type='varchar' required='true' maxlen='48'/>
+	<parameter id='uen_direccion_desc' type='varchar' required='true' maxlen='48'/>
+	<parameter id='uen_telefono_fijo' type='varchar' required='true' maxlen='24'/>
+	<parameter id='uen_telefono_movil' type='varchar' required='true' maxlen='24'/>
+	<parameter id='uen_email' type='varchar' required='true' maxlen='96'/>
+
+	<parameter id='uen_direccion_ref' type='integer' required='false' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='uen_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarNombre.sql'
+			id='uen_nombre'/>
+
+
+	<custom-validator 
+		classname='dinamica.validators.GetColValueValidator' 
+		on-error-label='${lbl:b_field_does_not_registered}: uen_direccion' 
+		parameter='uen_direccion_ref' 
+		sql='uen_direccion.sql' 
+		id='uen_direccion_ref'/>
+
+</validator>

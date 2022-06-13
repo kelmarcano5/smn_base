@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='acc_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='10'/>
+	<parameter id='acc_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='acc_tipo' type='varchar' required='true' label='${lbl:b_kind}' maxlen='2'/>
+	<parameter id='smn_mensajes_rf' type='integer' required='false' label='${lbl:b_message}' maxlen='10'/>
+	<parameter id='acc_metodo' type='varchar' required='false' label='${lbl:b_method}' maxlen='100'/>
+	<parameter id='acc_tipo_acto_rol' type='varchar' required='true' label='${lbl:b_kind_act_role}' maxlen='1'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_accion}' maxlen='10'/>
+
+
+</validator>

@@ -1,0 +1,52 @@
+<!--data grid-->
+<table class="datagrid" style="width:90%;">
+
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+
+
+
+		<th class='sortable' onclick="sortBy('alm_codigo','query-smnalmacen.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('alm_nombre','query-smnalmacen.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('alm_empresa','query-smnalmacen.sql')" >${lbl:b_entity}</th>
+		<th class='sortable' onclick="sortBy('alm_unidad_negocio','query-smnalmacen.sql')" >${lbl:b_business_unit}</th>
+		<th class='sortable' onclick="sortBy('alm_sucursal','query-smnalmacen.sql')" >${lbl:b_subsidiary}</th>
+		<th class='sortable' onclick="sortBy('alm_area_servicio','query-smnalmacen.sql')" >${lbl:b_service_area}</th>
+		<th class='sortable' onclick="sortBy('alm_unidad_servicio','query-smnalmacen.sql')" >${lbl:b_service_unit}</th>
+		<th class='sortable' onclick="sortBy('alm_fecha_registro','query-smnalmacen.sql')" >${lbl:b_store_date}</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+
+
+
+		<td align="left">${fld:alm_codigo}</td>
+		<td align="left">${fld:alm_nombre}</td>
+		<td align="left">${fld:alm_empresa}</td>
+		<td align="left">${fld:alm_unidad_negocio}</td>
+		<td align="left">${fld:alm_sucursal}</td>
+		<td align="left">${fld:alm_area_servicio}</td>
+		<td align="left">${fld:alm_unidad_servicio}</td>
+		<td align="center">${fld:alm_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows>
+
+</table>

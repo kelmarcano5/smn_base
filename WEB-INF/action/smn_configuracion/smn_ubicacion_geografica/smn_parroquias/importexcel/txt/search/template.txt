@@ -1,0 +1,3 @@
+<rows>
+prr_fecha_registro="${fld:prr_fecha_registro}"    prr_nombre_largo="${fld:prr_nombre_largo}"    prr_nombre_corto="${fld:prr_nombre_corto}"    prr_codigo="${fld:prr_codigo}"    prr_municipios="${fld:prr_municipios}"    
+</rows>

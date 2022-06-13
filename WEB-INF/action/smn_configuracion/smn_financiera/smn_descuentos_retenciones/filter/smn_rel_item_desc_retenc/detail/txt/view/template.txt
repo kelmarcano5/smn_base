@@ -1,0 +1,3 @@
+<rows>
+rid_fecha_registro="${fld:rid_fecha_registro}"    smn_item_id="${fld:smn_item_id}"    smn_descuentos_retenciones_id="${fld:smn_descuentos_retenciones_id}"    
+</rows>

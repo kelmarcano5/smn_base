@@ -1,0 +1,1 @@
+select ${seq:nextval@seq_smn_rel_cues_secc_preg} as id

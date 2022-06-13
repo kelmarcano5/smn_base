@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='cnt_nombres' type='varchar' required='false' label='${lbl:s_profile_fname}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cnt_nombres' rule='like' />
+	<parameter id='cnt_apellidos' type='varchar' required='false' label='${lbl:s_profile_lname}' maxlen='100'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='cnt_apellidos' rule='like' />
+	<parameter id='smn_auxiliar_id' type='integer' required='false' label='${lbl:b_auxiliary}' maxlen='10'/>
+	<parameter id='cnt_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' date1='cnt_fecha_registro_ini' date2='cnt_fecha_registro_fin' id='cnt_fecha_registro_ini' />
+	<parameter id='cnt_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<parameter id="id2" type="integer" required="true" label="ID Presupuesto" maxlen="10" />
+</validator>

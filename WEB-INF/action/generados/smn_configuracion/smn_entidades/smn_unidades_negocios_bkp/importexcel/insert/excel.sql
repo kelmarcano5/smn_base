@@ -1,0 +1,24 @@
+INSERT INTO smn_base.smn_unidades_negocios
+(
+	smn_unidades_negocios_id,
+	smn_entidades_id,
+	uen_codigo,
+	uen_nombre,
+	uen_responsable,
+	uen_direccion,
+	uen_telefono_fijo,
+	uen_telefono_movil,
+	uen_email
+)
+VALUES
+(
+	${seq:nextval@smn_base.seq_smn_unidades_negocios},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)
